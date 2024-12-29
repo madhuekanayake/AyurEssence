@@ -114,9 +114,8 @@ Route::prefix('Setting')->group(function () {
         Route::get('/viewGardenImageAll/{gardenId}', [LocationController::class, "ViewGardenImageAll"])->name('Location.viewGardenImageAll');
         Route::post('/viewGardenImageDelete', [LocationController::class, 'ViewGardenImageDelete'])->name('Location.viewGardenImage');
 
+        Route::get('/herbalGardenAll', [LocationController::class, "HerbalGardenAll"])->name('Location.herbalGardenAll');
 
-        Route::get('/viewGardenImageAll/{gardenId}', [LocationController::class, "ViewGardenImageAll"])->name('Location.viewGardenImageAll');
-        Route::post('/viewGardenImageDelete', [LocationController::class, 'ViewGardenImageDelete'])->name('Location.viewGardenImage');
 
 
         });
