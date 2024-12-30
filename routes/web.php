@@ -127,6 +127,12 @@ Route::prefix('Setting')->group(function () {
         Route::post('/viewAyurvedicHospitalImageDelete', [LocationController::class, 'ViewAyurvedicHospitalImageDelete'])->name('Location.viewAyurvedicHospitalImageDelete');
 
 
+        Route::get('/localPharmacyAll', [LocationController::class, "LocalPharmacyAll"])->name('Location.localPharmacyAll');
+        Route::post('/localPharmacyAdd', [LocationController::class, 'LocalPharmacyAdd'])->name('Location.localPharmacyAdd');
+        Route::post('/localPharmacyDelete', [LocationController::class, 'LocalPharmacyDelete'])->name('Location.localPharmacyDelete');
+        Route::post('/localPharmacyUpdate', [LocationController::class, 'LocalPharmacyUpdate'])->name('Location.localPharmacyUpdate');
+
+
 
         });
 

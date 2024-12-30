@@ -519,7 +519,7 @@
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{{ route('Location.herbalGardenAll') }}">Herbal Gardens</a></li>
             <li class="nav-item"> <a class="nav-link" href="{{ route('Location.ayurvedicHospitalAll') }}">Ayurvedic Hospitals</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/maps/google-maps.html">Local Phamercies</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('Location.localPharmacyAll') }}">Local Pharmacies</a></li>
           </ul>
         </div>
       </li>
