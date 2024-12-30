@@ -493,7 +493,7 @@
         </div>
     </div>
 
-    {{-- Delete Service Modal --}}
+    {{-- Delete  Modal --}}
     <div class="modal fade" id="deleteHerbalGardenModal" tabindex="-1" role="dialog"
         aria-labelledby="deleteHerbalGardenLabel" aria-hidden="true">
         <div class="modal-dialog modal-md" role="document">

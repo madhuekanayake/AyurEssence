@@ -9,7 +9,7 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
-                        <button type="button" class="btn btn-primary btn-sm" onclick="window.location.href='{{ route('Location.herbalGardenAll') }}'">
+                        <button type="button" class="btn btn-primary btn-sm" onclick="window.location.href='{{ route('Location.ayurvedicHospitalAll') }}'">
                             <i class="fa fa-arrow-left mr-1"></i> Back
                         </button>
 
@@ -30,19 +30,19 @@
                                         <th>ID</th>
 
                                         <th>Image</th>
-                                        <th>Description</th>
+
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    @foreach ($garden_images as $item)
+                                    @foreach ($ayurvedic_hospital_images as $item)
                                         <tr>
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->id }}</td>
 
                                             <td>
                                                 @if ($item->image)
-                                                    <img src="{{ asset('storage/' . $item->image) }}" alt="Garden Image" width="100">
+                                                    <img src="{{ asset('storage/' . $item->image) }}" alt="AyurvedicHospital Image" width="100">
                                                 @else
                                                     No Image
                                                 @endif
@@ -86,14 +86,14 @@ aria-labelledby="deleteImageLabel" aria-hidden="true">
             <div class="mb-2">
                 <img src="{{ asset('AdminArea/images/bin.gif') }}" alt="Delete Confirmation" width="80">
             </div>
-            <h5>Are you sure you want to delete this service item?</h5>
+            <h5>Are you sure you want to delete this image?</h5>
 
         </div>
         <div class="modal-footer" style="padding: 10px;">
-            <form id="deleteImageForm" action="{{ route('Location.viewGardenImageDelete') }}"
+            <form id="deleteImageForm" action="{{ route('Location.viewAyurvedicHospitalImageDelete') }}"
                 method="POST">
                 @csrf
-                <input type="hidden" name="id" id="gardenImageId">
+                <input type="hidden" name="id" id="ayurvedicHospitalImageId">
                 <button type="submit" class="btn btn-danger"><i class="fas fa-trash menu-icon"></i>
                     Delete</button>
                 <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
@@ -108,9 +108,9 @@ aria-labelledby="deleteImageLabel" aria-hidden="true">
 @push('js')
     <script>
 
-        function confirmDelete(gardenImageId) {
+        function confirmDelete(ayurvedicHospitalImageId) {
             // Set the student ID in the hidden input field of the delete modal
-            document.getElementById('gardenImageId').value = gardenImageId;
+            document.getElementById('ayurvedicHospitalImageId').value = ayurvedicHospitalImageId;
 
             // Show the delete modal
             $('#deleteImageModal').modal('show');
