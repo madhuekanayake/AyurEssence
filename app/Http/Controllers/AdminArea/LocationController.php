@@ -7,6 +7,7 @@ use App\Models\AyurvedicHospital;
 use App\Models\AyurvedicHospitalImages;
 use App\Models\GardenImage;
 use App\Models\HerbalGarden;
+use App\Models\LocalPharmacy;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -410,6 +411,125 @@ public function ViewAyurvedicHospitalImageDelete(Request $request)
         return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
     }
 }
+
+public function LocalPharmacyAll()
+{
+    try {
+
+        $local_pharmacies = LocalPharmacy::all();
+
+        return view('AdminArea.Pages.Location.localPharmacies', compact('local_pharmacies'));
+
+    } catch (\Exception $e) {
+        // Handle any errors that occur
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+public function LocalPharmacyAdd(Request $request)
+{
+    // Validate input data
+    $request->validate([
+        'name' => 'required|string|max:255', // Hospital name is required
+        'address' => 'required|string|max:500', // Address is required
+        'email' => 'required|email|unique:local_pharmacies,email', // Ensure email is unique
+        'phoneNo' => 'required|string|max:15', // Phone number is required
+        'location' => 'required|string|max:255', // Location is required
+        'openTime' => 'required|date_format:H:i', // Open hours in valid time format
+        'closeTime' => 'required|date_format:H:i|after:openTime', // Close hours must be after open hours
+        'openDays' => 'required|in:Weekdays,Weekends,All Days', // Open days description
+        'description' => 'required|string|max:1000', // Description is required
+    ], [
+        'email.unique' => 'The email address is already registered.',
+        'closeTime.after' => 'Closing time must be after opening time.',
+    ]);
+
+    try {
+        $data = $request->all();
+
+        // Generate a unique hospitalId
+        $data['localPharmacyId'] = 'LP' . Str::random(6); // Random 6-character string with prefix
+
+        // Save hospital data
+        LocalPharmacy::create($data);
+
+        return back()->with('success', 'Local Pharmacy added successfully!');
+    } catch (\Exception $e) {
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+public function LocalPharmacyUpdate(Request $request)
+{
+    // Find the hospital by ID
+    $hospital = LocalPharmacy::find($request->id);
+
+    if (!$hospital) {
+        return back()->withErrors(['error' => 'Pharmacy not found!']);
+    }
+
+    // Validate inputs
+    $request->validate([
+        'name' => 'required|string|max:255', // Hospital name is required
+        'address' => 'required|string|max:500', // Address is required
+        'email' => 'required|email|unique:local_pharmacies,email,' . $request->id, // Ensure email is unique
+        'phoneNo' => 'required|string|max:15', // Phone number is required
+        'location' => 'required|string|max:255', // Location is required
+        'openTime' => 'required', // Open hours in valid time format
+        'closeTime' => 'required', // Close hours must be after open hours
+        'openDays' => 'required|in:Weekdays,Weekends,All Days', // Open days description
+        'description' => 'required|string|max:1000', // Description is required
+    ], [
+        'email.unique' => 'The email address is already registered.',
+        'closeTime.after' => 'Closing time must be after opening time.',
+    ]);
+
+    try {
+        // Prepare data for update
+        $data = [
+            'name' => $request->name,
+            'address' => $request->address,
+            'email' => $request->email,
+            'phoneNo' => $request->phoneNo,
+            'location' => $request->location,
+            'openTime' => $request->openTime,
+            'closeTime' => $request->closeTime,
+            'openDays' => $request->openDays,
+            'description' => $request->description,
+        ];
+
+        // Update hospital details
+        $hospital->update($data); // Using the update method to save changes
+
+        return redirect()->back()->with('success', 'Pharmacy updated successfully!');
+    } catch (\Exception $e) {
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+public function LocalPharmacyDelete(Request $request)
+{
+    try {
+        // Validate the request
+        $request->validate([
+            'id' => 'required|integer|exists:local_pharmacies,id', // Ensure the `local_pharmacies` table and `id` column are correct
+        ]);
+
+        // Find the hospital by ID
+        $local_pharmacies = LocalPharmacy::findOrFail($request->id); // Find the hospital by ID
+
+        // Delete the hospital record
+        $local_pharmacies->delete();
+
+        // Return success response
+        return back()->with('success', 'Pharmacy Details deleted successfully!');
+    } catch (\Exception $e) {
+        // Return error response with more descriptive message
+        return back()->withErrors(['error' => 'An error occurred while deleting the hospital: ' . $e->getMessage()]);
+    }
+}
+
+
 
 
 }
