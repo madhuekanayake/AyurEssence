@@ -109,12 +109,22 @@ Route::prefix('Setting')->group(function () {
         Route::post('/herbalGardenAdd', [LocationController::class, 'HerbalGardenAdd'])->name('Location.herbalGardenAdd');
         Route::post('/herbalGardenDelete', [LocationController::class, 'HerbalGardenDelete'])->name('Location.herbalGardenDelete');
         Route::post('/herbalGardenUpdate', [LocationController::class, 'HerbalGardenUpdate'])->name('Location.herbalGardenUpdate');
+
         Route::post('/GardenImageAdd', [LocationController::class, 'GardenImageAdd'])->name('Location.gardenImageAdd');
 
         Route::get('/viewGardenImageAll/{gardenId}', [LocationController::class, "ViewGardenImageAll"])->name('Location.viewGardenImageAll');
-        Route::post('/viewGardenImageDelete', [LocationController::class, 'ViewGardenImageDelete'])->name('Location.viewGardenImage');
+        Route::post('/viewGardenImageDelete', [LocationController::class, 'ViewGardenImageDelete'])->name('Location.viewGardenImageDelete');
 
-        Route::get('/herbalGardenAll', [LocationController::class, "HerbalGardenAll"])->name('Location.herbalGardenAll');
+        Route::get('/ayurvedicHospitalAll', [LocationController::class, "AyurvedicHospitalAll"])->name('Location.ayurvedicHospitalAll');
+        Route::post('/ayurvedicHospitalAdd', [LocationController::class, 'AyurvedicHospitalAdd'])->name('Location.ayurvedicHospitalAdd');
+        Route::post('/ayurvedicHospitalDelete', [LocationController::class, 'AyurvedicHospitalDelete'])->name('Location.ayurvedicHospitalDelete');
+        Route::post('/ayurvedicHospitalUpdate', [LocationController::class, 'AyurvedicHospitalUpdate'])->name('Location.ayurvedicHospitalUpdate');
+
+        Route::post('/AyurvedicHospitalImageAdd', [LocationController::class, 'AyurvedicHospitalImageAdd'])->name('Location.ayurvedicHospitalImageAdd');
+
+
+        Route::get('/viewAyurvedicHospitalImageAll/{ayurvedicHospitalId}', [LocationController::class, "ViewAyurvedicHospitalImageAll"])->name('Location.viewAyurvedicHospitalImageAll');
+        Route::post('/viewAyurvedicHospitalImageDelete', [LocationController::class, 'ViewAyurvedicHospitalImageDelete'])->name('Location.viewAyurvedicHospitalImageDelete');
 
 
 

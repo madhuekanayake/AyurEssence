@@ -3,6 +3,8 @@
 namespace App\Http\Controllers\AdminArea;
 
 use App\Http\Controllers\Controller;
+use App\Models\AyurvedicHospital;
+use App\Models\AyurvedicHospitalImages;
 use App\Models\GardenImage;
 use App\Models\HerbalGarden;
 use Illuminate\Http\Request;
@@ -214,6 +216,201 @@ public function ViewGardenImageDelete(Request $request)
         return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
     }
 }
+
+public function AyurvedicHospitalAll()
+{
+    try {
+
+        $ayurvedic_hospitals = AyurvedicHospital::all();
+
+
+        return view('AdminArea.Pages.Location.ayurvedicHospitals', compact('ayurvedic_hospitals'));
+
+    } catch (\Exception $e) {
+        // Handle any errors that occur
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+public function AyurvedicHospitalAdd(Request $request)
+{
+    // Validate input data
+    $request->validate([
+        'name' => 'required|string|max:255', // Hospital name is required
+        'address' => 'required|string|max:500', // Address is required
+        'email' => 'required|email|unique:ayurvedic_hospitals,email', // Ensure email is unique
+        'phone' => 'required|string|max:15', // Phone number is required
+        'location' => 'required|string|max:255', // Location is required
+        'openTime' => 'required|date_format:H:i', // Open hours in valid time format
+        'closeTime' => 'required|date_format:H:i|after:openTime', // Close hours must be after open hours
+        'openDays' => 'required|in:Weekdays,Weekends,All Days', // Open days description
+        'description' => 'required|string|max:1000', // Description is required
+    ], [
+        'email.unique' => 'The email address is already registered.',
+        'closeTime.after' => 'Closing time must be after opening time.',
+    ]);
+
+    try {
+        $data = $request->all();
+
+        // Generate a unique hospitalId
+        $data['ayurvedicHospitalId'] = 'HOSP' . Str::random(6); // Random 6-character string with prefix
+
+        // Save hospital data
+        AyurvedicHospital::create($data);
+
+        return back()->with('success', 'Ayurvedic Hospital added successfully!');
+    } catch (\Exception $e) {
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+public function AyurvedicHospitalUpdate(Request $request)
+{
+    // Find the hospital by ID
+    $hospital = AyurvedicHospital::find($request->id);
+
+    if (!$hospital) {
+        return back()->withErrors(['error' => 'Hospital not found!']);
+    }
+
+    // Validate inputs
+    $request->validate([
+        'name' => 'required|string|max:255', // Hospital name is required
+        'address' => 'required|string|max:500', // Address is required
+        'email' => 'required|email|unique:ayurvedic_hospitals,email,' . $request->id, // Ensure email is unique
+        'phone' => 'required|string|max:15', // Phone number is required
+        'location' => 'required|string|max:255', // Location is required
+        'openTime' => 'required', // Open hours in valid time format
+        'closeTime' => 'required', // Close hours must be after open hours
+        'openDays' => 'required|in:Weekdays,Weekends,All Days', // Open days description
+        'description' => 'required|string|max:1000', // Description is required
+    ], [
+        'email.unique' => 'The email address is already registered.',
+        'closeTime.after' => 'Closing time must be after opening time.',
+    ]);
+
+    try {
+        // Prepare data for update
+        $data = [
+            'name' => $request->name,
+            'address' => $request->address,
+            'email' => $request->email,
+            'phone' => $request->phone,
+            'location' => $request->location,
+            'openTime' => $request->openTime,
+            'closeTime' => $request->closeTime,
+            'openDays' => $request->openDays,
+            'description' => $request->description,
+        ];
+
+        // Update hospital details
+        $hospital->update($data); // Using the update method to save changes
+
+        return redirect()->back()->with('success', 'Hospital updated successfully!');
+    } catch (\Exception $e) {
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+public function AyurvedicHospitalDelete(Request $request)
+{
+    try {
+        // Validate the request
+        $request->validate([
+            'id' => 'required|integer|exists:ayurvedic_hospitals,id', // Ensure the `ayurvedic_hospitals` table and `id` column are correct
+        ]);
+
+        // Find the hospital by ID
+        $ayurvedic_hospital = AyurvedicHospital::findOrFail($request->id); // Find the hospital by ID
+
+        // Delete the hospital record
+        $ayurvedic_hospital->delete();
+
+        // Return success response
+        return back()->with('success', 'Hospital Details deleted successfully!');
+    } catch (\Exception $e) {
+        // Return error response with more descriptive message
+        return back()->withErrors(['error' => 'An error occurred while deleting the hospital: ' . $e->getMessage()]);
+    }
+}
+
+public function AyurvedicHospitalImageAdd(Request $request)
+    {
+        // Validate input data
+        $request->validate([
+            'ayurvedicHospitalId' => 'required',
+            'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
+        ]);
+
+
+        try {
+            $data = $request->all();
+
+            // Generate a unique employeeId
+            $data['ayurvedicHospitalImageId'] = 'AHI' . Str::random(6); // Random 6-character string with a prefix
+
+            // Handle file upload using Laravel Storage
+            if ($request->hasFile('image')) {
+                // Get the uploaded file
+                $file = $request->file('image');
+
+                // Store the file in a specific directory and get its path
+                $path = $file->store('uploads/location/ayurvedicHospital', 'public');
+
+                // Save the file path to the $data array
+                $data['image'] = $path;
+            }
+
+            // Save data
+            AyurvedicHospitalImages::create($data);
+
+            return back()->with('success', 'Image added successfully!');
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+        }
+    }
+
+    public function ViewAyurvedicHospitalImageAll($ayurvedicHospitalId)
+{
+    try {
+        // Fetch gallery data related to the specific gardenId
+        $ayurvedic_hospital_images = AyurvedicHospitalImages::where('ayurvedicHospitalId', $ayurvedicHospitalId)->get();
+
+        return view('AdminArea.Pages.Location.viewAyurvedicHospitalImage', compact('ayurvedic_hospital_images'));
+    } catch (\Exception $e) {
+        // Handle any errors that occur
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+public function ViewAyurvedicHospitalImageDelete(Request $request)
+{
+    try {
+        // Validate the request
+        $request->validate([
+            'id' => 'required|integer|exists:ayurvedic_hospital_images,id',
+        ]);
+
+        // Find the student by ID
+        $ayurvedic_hospital_images = AyurvedicHospitalImages::findOrFail($request->id);
+
+        // Delete the associated image if it exists
+        if ($ayurvedic_hospital_images->image && file_exists(public_path('uploads/' . $ayurvedic_hospital_images->image))) {
+            unlink(public_path('uploads/' . $ayurvedic_hospital_images->image));
+        }
+
+        // Delete the student record
+        $ayurvedic_hospital_images->delete();
+
+        // Return success response
+        return back()->with('success', 'Image deleted successfully!');
+    } catch (\Exception $e) {
+        // Return error response
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
 
 }
 
