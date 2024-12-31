@@ -49,7 +49,7 @@
 
                                                 <td>
                                                     <button type="button" class="btn btn-link text-primary p-0 mr-2"
-                                                        onclick="addAyurvedicImage(
+                                                        onclick="addAyurvedicHospitalImage(
                                                         '{{ $hospital->id }}',
                                                         '{{ $hospital->ayurvedicHospitalId }}',
 
@@ -457,7 +457,7 @@
     </script>
 
     <script>
-        function addAyurvedicImage(id, ayurvedicHospitalId) {
+        function addAyurvedicHospitalImage(id, ayurvedicHospitalId) {
     document.getElementById('id').value = id;
     document.getElementById('ayurvedicHospitalId').value = ayurvedicHospitalId;
 
@@ -465,4 +465,20 @@
 }
 
     </script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+    const addRoomToGrcModal = document.getElementById('addAyurvedicHospitalImageModal');
+    addRoomToGrcModal.addEventListener('show.bs.modal', function (event) {
+        const button = event.relatedTarget; // Button that triggered the modal
+        const ayurvedicHospitalId = button.getAttribute('data-ayurvedicHospitalId');
+
+
+        // Update the modal's input fields
+        addRoomToGrcModal.querySelector('#ayurvedicHospitalId').value = ayurvedicHospitalId;
+
+
+    });
+});
+</script>
 @endpush

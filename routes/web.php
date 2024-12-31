@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminArea\AdminController;
+use App\Http\Controllers\AdminArea\EducationalContentController;
 use App\Http\Controllers\AdminArea\FormController;
 use App\Http\Controllers\AdminArea\SampleController;
 use App\Http\Controllers\AdminArea\TodoController;
@@ -46,10 +47,10 @@ Route::get('/sample', [SampleController::class, 'index']);
 Route::post('/add', [SampleController::class, 'add']);
 
 Route::get('/todo', [TodoController::class, "index"]);
-    Route::post('/store', [TodoController::class, "store"]);
+Route::post('/store', [TodoController::class, "store"]);
 
-    Route::get('/emp', [EmployeeController::class, "index"]);
-    Route::post('/add', [EmployeeController::class, 'store']);
+Route::get('/emp', [EmployeeController::class, "index"]);
+Route::post('/add', [EmployeeController::class, 'store']);
 Route::post('/delete', [EmployeeController::class, 'delete']);
 Route::post('/update', [EmployeeController::class, 'update']);
 
@@ -61,29 +62,26 @@ Route::post('/update', [EmployeeController::class, 'update']);
 
 Route::prefix('Student')->group(function () {
 
-Route::get('/all', [StudentController::class, "All"])->name('Student.all');
-Route::post('/add', [StudentController::class, 'Add'])->name('Student.add');
-Route::post('/delete', [StudentController::class, 'Delete'])->name('Student.delete');
-Route::post('/update', [StudentController::class, 'Update'])->name('Student.update');
-
+    Route::get('/all', [StudentController::class, "All"])->name('Student.all');
+    Route::post('/add', [StudentController::class, 'Add'])->name('Student.add');
+    Route::post('/delete', [StudentController::class, 'Delete'])->name('Student.delete');
+    Route::post('/update', [StudentController::class, 'Update'])->name('Student.update');
 });
 
 Route::prefix('Gallery')->group(function () {
 
-Route::get('/all', [GalleryController::class, "All"])->name('Gallery.all');
-Route::post('/add', [GalleryController::class, 'Add'])->name('Gallery.add');
-Route::post('/delete', [GalleryController::class, 'Delete'])->name('Gallery.delete');
-Route::post('/update', [GalleryController::class, 'Update'])->name('Gallery.update');
-
+    Route::get('/all', [GalleryController::class, "All"])->name('Gallery.all');
+    Route::post('/add', [GalleryController::class, 'Add'])->name('Gallery.add');
+    Route::post('/delete', [GalleryController::class, 'Delete'])->name('Gallery.delete');
+    Route::post('/update', [GalleryController::class, 'Update'])->name('Gallery.update');
 });
 
 Route::prefix('Service')->group(function () {
 
-Route::get('/all', [ServiceController::class, "All"])->name('Service.all');
-Route::post('/add', [ServiceController::class, 'Add'])->name('Service.add');
-Route::post('/delete', [ServiceController::class, 'Delete'])->name('Service.delete');
-Route::post('/update', [ServiceController::class, 'Update'])->name('Service.update');
-
+    Route::get('/all', [ServiceController::class, "All"])->name('Service.all');
+    Route::post('/add', [ServiceController::class, 'Add'])->name('Service.add');
+    Route::post('/delete', [ServiceController::class, 'Delete'])->name('Service.delete');
+    Route::post('/update', [ServiceController::class, 'Update'])->name('Service.update');
 });
 
 Route::prefix('Setting')->group(function () {
@@ -100,44 +98,42 @@ Route::prefix('Setting')->group(function () {
     Route::post('/userRoleUpdate', [SettingController::class, 'UserRoleUpdate'])->name('Setting.userRoleUpdate');
     Route::post('/userRoleDelete', [SettingController::class, 'UserRoleDelete'])->name('Setting.userRoleDelete');
     Route::get('/userRoleStatus/{id}', [SettingController::class, 'UserRoleStatus'])->name('Setting.userRoleStatus');
+});
 
-    });
+Route::prefix('Location')->group(function () {
 
-    Route::prefix('Location')->group(function () {
+    Route::get('/herbalGardenAll', [LocationController::class, "HerbalGardenAll"])->name('Location.herbalGardenAll');
+    Route::post('/herbalGardenAdd', [LocationController::class, 'HerbalGardenAdd'])->name('Location.herbalGardenAdd');
+    Route::post('/herbalGardenDelete', [LocationController::class, 'HerbalGardenDelete'])->name('Location.herbalGardenDelete');
+    Route::post('/herbalGardenUpdate', [LocationController::class, 'HerbalGardenUpdate'])->name('Location.herbalGardenUpdate');
 
-        Route::get('/herbalGardenAll', [LocationController::class, "HerbalGardenAll"])->name('Location.herbalGardenAll');
-        Route::post('/herbalGardenAdd', [LocationController::class, 'HerbalGardenAdd'])->name('Location.herbalGardenAdd');
-        Route::post('/herbalGardenDelete', [LocationController::class, 'HerbalGardenDelete'])->name('Location.herbalGardenDelete');
-        Route::post('/herbalGardenUpdate', [LocationController::class, 'HerbalGardenUpdate'])->name('Location.herbalGardenUpdate');
+    Route::post('/GardenImageAdd', [LocationController::class, 'GardenImageAdd'])->name('Location.gardenImageAdd');
 
-        Route::post('/GardenImageAdd', [LocationController::class, 'GardenImageAdd'])->name('Location.gardenImageAdd');
+    Route::get('/viewGardenImageAll/{gardenId}', [LocationController::class, "ViewGardenImageAll"])->name('Location.viewGardenImageAll');
+    Route::post('/viewGardenImageDelete', [LocationController::class, 'ViewGardenImageDelete'])->name('Location.viewGardenImageDelete');
 
-        Route::get('/viewGardenImageAll/{gardenId}', [LocationController::class, "ViewGardenImageAll"])->name('Location.viewGardenImageAll');
-        Route::post('/viewGardenImageDelete', [LocationController::class, 'ViewGardenImageDelete'])->name('Location.viewGardenImageDelete');
+    Route::get('/ayurvedicHospitalAll', [LocationController::class, "AyurvedicHospitalAll"])->name('Location.ayurvedicHospitalAll');
+    Route::post('/ayurvedicHospitalAdd', [LocationController::class, 'AyurvedicHospitalAdd'])->name('Location.ayurvedicHospitalAdd');
+    Route::post('/ayurvedicHospitalDelete', [LocationController::class, 'AyurvedicHospitalDelete'])->name('Location.ayurvedicHospitalDelete');
+    Route::post('/ayurvedicHospitalUpdate', [LocationController::class, 'AyurvedicHospitalUpdate'])->name('Location.ayurvedicHospitalUpdate');
 
-        Route::get('/ayurvedicHospitalAll', [LocationController::class, "AyurvedicHospitalAll"])->name('Location.ayurvedicHospitalAll');
-        Route::post('/ayurvedicHospitalAdd', [LocationController::class, 'AyurvedicHospitalAdd'])->name('Location.ayurvedicHospitalAdd');
-        Route::post('/ayurvedicHospitalDelete', [LocationController::class, 'AyurvedicHospitalDelete'])->name('Location.ayurvedicHospitalDelete');
-        Route::post('/ayurvedicHospitalUpdate', [LocationController::class, 'AyurvedicHospitalUpdate'])->name('Location.ayurvedicHospitalUpdate');
-
-        Route::post('/AyurvedicHospitalImageAdd', [LocationController::class, 'AyurvedicHospitalImageAdd'])->name('Location.ayurvedicHospitalImageAdd');
-
-
-        Route::get('/viewAyurvedicHospitalImageAll/{ayurvedicHospitalId}', [LocationController::class, "ViewAyurvedicHospitalImageAll"])->name('Location.viewAyurvedicHospitalImageAll');
-        Route::post('/viewAyurvedicHospitalImageDelete', [LocationController::class, 'ViewAyurvedicHospitalImageDelete'])->name('Location.viewAyurvedicHospitalImageDelete');
+    Route::post('/ayurvedicHospitalImageAdd', [LocationController::class, 'AyurvedicHospitalImageAdd'])->name('Location.ayurvedicHospitalImageAdd');
 
 
-        Route::get('/localPharmacyAll', [LocationController::class, "LocalPharmacyAll"])->name('Location.localPharmacyAll');
-        Route::post('/localPharmacyAdd', [LocationController::class, 'LocalPharmacyAdd'])->name('Location.localPharmacyAdd');
-        Route::post('/localPharmacyDelete', [LocationController::class, 'LocalPharmacyDelete'])->name('Location.localPharmacyDelete');
-        Route::post('/localPharmacyUpdate', [LocationController::class, 'LocalPharmacyUpdate'])->name('Location.localPharmacyUpdate');
+    Route::get('/viewAyurvedicHospitalImageAll/{ayurvedicHospitalId}', [LocationController::class, "ViewAyurvedicHospitalImageAll"])->name('Location.viewAyurvedicHospitalImageAll');
+    Route::post('/viewAyurvedicHospitalImageDelete', [LocationController::class, 'ViewAyurvedicHospitalImageDelete'])->name('Location.viewAyurvedicHospitalImageDelete');
 
 
+    Route::get('/localPharmacyAll', [LocationController::class, "LocalPharmacyAll"])->name('Location.localPharmacyAll');
+    Route::post('/localPharmacyAdd', [LocationController::class, 'LocalPharmacyAdd'])->name('Location.localPharmacyAdd');
+    Route::post('/localPharmacyDelete', [LocationController::class, 'LocalPharmacyDelete'])->name('Location.localPharmacyDelete');
+    Route::post('/localPharmacyUpdate', [LocationController::class, 'LocalPharmacyUpdate'])->name('Location.localPharmacyUpdate');
+});
 
-        });
+Route::prefix('EducationalContent')->group(function () {
 
-
-
-
-
-
+    Route::get('/ayurvedaGuideAll', [EducationalContentController::class, "AyurvedaGuideAll"])->name('EducationalContent.ayurvedaGuideAll');
+    Route::post('/ayurvedaGuideAdd', [EducationalContentController::class, 'AyurvedaGuideAdd'])->name('EducationalContent.ayurvedaGuideAdd');
+    Route::post('/ayurvedaGuideDelete', [EducationalContentController::class, 'AyurvedaGuideDelete'])->name('EducationalContent.ayurvedaGuideDelete');
+    Route::post('/ayurvedaGuideUpdate', [EducationalContentController::class, 'AyurvedaGuideUpdate'])->name('EducationalContent.ayurvedaGuideUpdate');
+});
