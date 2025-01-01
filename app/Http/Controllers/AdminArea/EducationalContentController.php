@@ -49,5 +49,61 @@ public function AyurvedaGuideAdd(Request $request)
         return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
     }
 }
+public function AyurvedaGuideUpdate(Request $request)
+{
+    // Find the hospital by ID
+    $ayurveda_guides = AyurvedaGuide::find($request->id);
 
+    if (!$ayurveda_guides) {
+        return back()->withErrors(['error' => 'Ayurveda Guide not found!']);
+    }
+
+    // Validate inputs
+    $request->validate([
+        'title' => 'required|string|max:255|unique:ayurveda_guides,title', // Ensure title is unique
+        'information' => 'required|string|max:1000', // Information is required
+        'description' => 'required|string|max:500', // Description is required
+    ], [
+        'title.unique' => 'The title must be unique. Please choose another title.',
+    ]);
+
+    try {
+        // Prepare data for update
+        $data = [
+            'title' => $request->title,
+            'information' => $request->information,
+            'description' => $request->description,
+
+        ];
+
+        // Update hospital details
+        $ayurveda_guides->update($data); // Using the update method to save changes
+
+        return redirect()->back()->with('success', 'Ayurveda Guide updated successfully!');
+    } catch (\Exception $e) {
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+public function AyurvedaGuideDelete(Request $request)
+{
+    try {
+        // Validate the request
+        $request->validate([
+            'id' => 'required|integer|exists:ayurveda_guides,id', // Ensure the `ayurveda_guides` table and `id` column are correct
+        ]);
+
+        // Find the hospital by ID
+        $ayurveda_guides = AyurvedaGuide::findOrFail($request->id); // Find the hospital by ID
+
+        // Delete the hospital record
+        $ayurveda_guides->delete();
+
+        // Return success response
+        return back()->with('success', 'Ayurveda Guides deleted successfully!');
+    } catch (\Exception $e) {
+        // Return error response with more descriptive message
+        return back()->withErrors(['error' => 'An error occurred while deleting the hospital: ' . $e->getMessage()]);
+    }
+}
 }
