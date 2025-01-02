@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AyurvedaGuide;
 use App\Models\Blog;
 use App\Models\BlogImage;
+use App\Models\MeetingAndEvent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -236,7 +237,7 @@ public function BlogImageAdd(Request $request)
                 $file = $request->file('image');
 
                 // Store the file in a specific directory and get its path
-                $path = $file->store('uploads/location/blog', 'public');
+                $path = $file->store('uploads/educationalContent/blog', 'public');
 
                 // Save the file path to the $data array
                 $data['image'] = $path;
@@ -315,5 +316,68 @@ public function isPrimary($id)
         return redirect()->back()->with('error', 'Something went wrong!');
     }
 }
+
+public function MeetingAndEventAll()
+{
+    try {
+        // Fetch all gallery data
+        $meeting_and_events = MeetingAndEvent::all();
+
+        return view('AdminArea.Pages.EducationalContent.meetingAndEvent', compact('meeting_and_events'));
+
+
+    } catch (\Exception $e) {
+        // Handle any errors that occur
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+public function MeetingAndEventAdd(Request $request)
+    {
+        // Validate input data
+        $request->validate([
+            
+            'title' => 'required|string|max:255|unique:meeting_and_events,title', // Unique title
+            'content' => 'required|string|max:2000', // Content should be a string
+            'startDate' => 'required|date|before_or_equal:endDate', // Ensure it's a valid date before or equal to endDate
+            'endDate' => 'required|date|after_or_equal:startDate', // Ensure it's a valid date after or equal to startDate
+            'startTime' => 'required|date_format:H:i', // Valid time format (HH:mm)
+            'endTime' => 'required|date_format:H:i|after:startTime', // Ensure it's after startTime
+            'contactNo' => 'required|string|regex:/^\+?[0-9]{10,15}$/', // Validate contact number format
+            'description' => 'nullable|string|max:500', // Optional description
+        ], [
+
+            'title.unique' => 'The title must be unique. Please choose another title.',
+
+        ]);
+
+        try {
+            $data = $request->all();
+
+            // Generate a unique employeeId
+            $data['meetingAndEventlId'] = 'MAE' . Str::random(6); // Random 6-character string with a prefix
+
+            // Handle file upload using Laravel Storage
+            if ($request->hasFile('image')) {
+                // Get the uploaded file
+                $file = $request->file('image');
+
+                // Store the file in a specific directory and get its path
+                $path = $file->store('uploads/educationalContent/meetingAndEvent', 'public');
+
+                // Save the file path to the $data array
+                $data['image'] = $path;
+            }
+
+            // Save data
+            MeetingAndEvent::create($data);
+
+            return back()->with('success', 'Meeting And Event added successfully!');
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+        }
+    }
+
+
 
 }

@@ -442,7 +442,7 @@
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{{ route('EducationalContent.ayurvedaGuideAll') }}">Add Ayurveda Guide</a></li>
             <li class="nav-item"> <a class="nav-link" href="{{ route('EducationalContent.blogAll') }}">Add Blogs</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/badges.html">Meeting/ Events</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('EducationalContent.meetingAndEventAll') }}">Meeting/ Events</a></li>
 
           </ul>
           </div>
