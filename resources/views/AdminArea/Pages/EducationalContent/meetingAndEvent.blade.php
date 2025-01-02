@@ -35,7 +35,6 @@
                                         <th>End Time</th>
                                         <th>Contact No</th>
                                         <th>Image</th>
-
                                         <th>Actions</th>
                                     </tr>
                                 </thead>
@@ -58,16 +57,27 @@
                                                 @endif
                                             </td>
 
-                                            {{-- <td>
+                                            <td>
                                                 <button type="button" class="btn btn-link text-primary p-0 mr-2"
-                                                    onclick="editGallery('{{ $item->id }}', '{{ $item->title }}', '{{ $item->description }}')">
-                                                    <i class="fas fa-edit menu-icon"></i>
-                                                </button>
+    onclick="editMeetingAndEvent(
+        '{{ $item->id }}',
+        '{{ $item->title }}',
+        '{{ $item->content }}',
+        '{{ $item->startDate }}',
+        '{{ $item->endDate }}',
+        '{{ $item->startTime }}',
+        '{{ $item->endTime }}',
+        '{{ $item->contactNo }}',
+        '{{ $item->description }}'
+    )">
+    <i class="fas fa-edit menu-icon"></i>
+</button>
+
                                                 <button type="button" class="btn btn-link text-danger p-0"
                                                     onclick="confirmDelete('{{ $item->id }}')">
                                                     <i class="fas fa-trash menu-icon"></i>
                                                 </button>
-                                            </td> --}}
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -141,7 +151,136 @@
     </div>
 </div>
 
+{{-- Edit Meeting and Event Modal --}}
+<div class="modal fade" id="editMeetingAndEvent" tabindex="-1" role="dialog" aria-labelledby="editMeetingEventLabel" aria-hidden="true">
+
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="editMeetingEventLabel">Edit Meeting or Event</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="editMeetingEventForm" action="{{ route('EducationalContent.meetingAndEventUpdate') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" name="id" id="edit_meeting_event_id">
+
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="edit_title">Title <span style="color: red;">*</span></label>
+                            <input type="text" class="form-control" id="edit_title" name="title" placeholder="Enter title" required>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label for="edit_content">Content <span style="color: red;">*</span></label>
+                            <textarea class="form-control" id="edit_content" name="content" rows="3" placeholder="Enter content" required></textarea>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="edit_startDate">Start Date <span style="color: red;">*</span></label>
+                            <input type="date" class="form-control" id="edit_startDate" name="startDate" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="edit_endDate">End Date <span style="color: red;">*</span></label>
+                            <input type="date" class="form-control" id="edit_endDate" name="endDate" required>
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            <label for="edit_startTime">Start Time <span style="color: red;">*</span></label>
+                            <input type="time" class="form-control" id="edit_startTime" name="startTime" required>
+                        </div>
+                        <div class="form-group col-md-6">
+                            <label for="edit_endTime">End Time <span style="color: red;">*</span></label>
+                            <input type="time" class="form-control" id="edit_endTime" name="endTime" required>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label for="edit_contactNo">Contact Number <span style="color: red;">*</span></label>
+                            <input type="text" class="form-control" id="edit_contactNo" name="contactNo" placeholder="Enter contact number" required pattern="^\+?[0-9]{10,15}$" title="Please enter a valid phone number.">
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label for="edit_description">Description <span style="color: red;">*</span></label>
+                            <textarea class="form-control" id="edit_description" name="description" rows="3" placeholder="Enter description" required></textarea>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label for="edit_image">Update Image</label>
+                            <input type="file" class="form-control" id="edit_image" name="image" accept="image/*">
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Update</button>
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+{{-- Delete Modal --}}
+<div class="modal fade" id="deleteMeetingAndEventModal" tabindex="-1" role="dialog" aria-labelledby="deleteMeetingAndEventLabel" aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content" style="max-height: 300px;">
+            <div class="modal-header" style="padding: 10px;">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body text-center" style="padding: 15px;">
+                <div class="mb-2">
+                    <img src="{{ asset('AdminArea/images/bin.gif') }}" alt="Delete Confirmation" width="80">
+                </div>
+                <h5>Are you sure you want to delete this gallery item?</h5>
+
+            </div>
+            <div class="modal-footer" style="padding: 10px;">
+                <form id="deleteMeetingAndEventForm" action="{{ route('EducationalContent.meetingAndEventDelete') }}" method="POST">
+                    @csrf
+                    <input type="hidden" name="id" id="meetingAndEventlId">
+                    <button type="submit" class="btn btn-danger"><i class="fas fa-trash menu-icon"></i> Delete</button>
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 
 @endsection
+
+@push('js')
+    <script>
+        function editMeetingAndEvent(id, title, content, startDate, endDate, startTime, endTime, contactNo, description) {
+    
+
+    // Set the values of the inputs in the modal
+    document.getElementById('edit_meeting_event_id').value = id;
+    document.getElementById('edit_title').value = title;
+    document.getElementById('edit_content').value = content;
+    document.getElementById('edit_startDate').value = startDate;
+    document.getElementById('edit_endDate').value = endDate;
+    document.getElementById('edit_startTime').value = startTime;
+    document.getElementById('edit_endTime').value = endTime;
+    document.getElementById('edit_contactNo').value = contactNo;
+    document.getElementById('edit_description').value = description;
+
+    // Show the edit modal
+    $('#editMeetingAndEvent').modal('show');
+}
+
+
+        function confirmDelete(meetingAndEventlId) {
+            // Set the student ID in the hidden input field of the delete modal
+            document.getElementById('meetingAndEventlId').value = meetingAndEventlId;
+
+            // Show the delete modal
+            $('#deleteMeetingAndEventModal').modal('show');
+        }
+    </script>
+@endpush
+
+
 
