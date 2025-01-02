@@ -8,6 +8,7 @@ use App\Http\Controllers\AdminArea\TodoController;
 use App\Http\Controllers\AdminArea\EmployeeController;
 use App\Http\Controllers\AdminArea\GalleryController;
 use App\Http\Controllers\AdminArea\LocationController;
+use App\Http\Controllers\AdminArea\ProductManagementController;
 use App\Http\Controllers\AdminArea\ServiceController;
 use App\Http\Controllers\AdminArea\SettingController;
 use App\Http\Controllers\AdminArea\StudentController;
@@ -154,4 +155,12 @@ Route::prefix('EducationalContent')->group(function () {
     Route::post('/meetingAndEventDelete', [EducationalContentController::class, 'MeetingAndEventDelete'])->name('EducationalContent.meetingAndEventDelete');
     Route::post('/meetingAndEventUpdate', [EducationalContentController::class, 'MeetingAndEventUpdate'])->name('EducationalContent.meetingAndEventUpdate');
 
+});
+
+Route::prefix('ProductManagement')->group(function () {
+
+    Route::get('/productCategoryAll', [ProductManagementController::class, "ProductCategoryAll"])->name('ProductManagement.productCategoryAll');
+    Route::post('/productCategoryAdd', [ProductManagementController::class, 'ProductCategoryAdd'])->name('ProductManagement.productCategoryAdd');
+    Route::post('/productCategoryDelete', [ProductManagementController::class, 'ProductCategoryDelete'])->name('ProductManagement.productCategoryDelete');
+    Route::post('/productCategoryUpdate', [ProductManagementController::class, 'ProductCategoryUpdate'])->name('ProductManagement.productCategoryUpdate');
 });
