@@ -291,4 +291,29 @@ public function ViewBlogImageDelete(Request $request)
     }
 }
 
+public function isPrimary($id)
+{
+    try {
+        $item = BlogImage::findOrFail($id);
+
+        if ($item->isPrimary == 0) {
+            // Deactivate all other records
+            BlogImage::where('id', '!=', $id)->update(['isPrimary' => 0]);
+
+            // Activate the selected record
+            $item->isPrimary = 1;
+        } else {
+            // Deactivate the current record
+            $item->isPrimary = 0;
+        }
+
+        $item->save();
+
+        $message = $item->isPrimary ? 'Item activated successfully!' : 'Item deactivated successfully!';
+        return redirect()->back()->with('success', $message);
+    } catch (\Exception $e) {
+        return redirect()->back()->with('error', 'Something went wrong!');
+    }
+}
+
 }

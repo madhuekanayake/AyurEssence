@@ -147,4 +147,6 @@ Route::prefix('EducationalContent')->group(function () {
     Route::get('/viewBlogImageAll/{blogId}', [EducationalContentController::class, "ViewBlogImageAll"])->name('EducationalContent.viewBlogImageAll');
     Route::post('/viewBlogImageDelete', [EducationalContentController::class, 'ViewBlogImageDelete'])->name('EducationalContent.viewBlogImageDelete');
 
+    Route::get('/isPrimary/{id}', [EducationalContentController::class, 'IsPrimary'])->name('EducationalContent.isPrimary');
+
 });
