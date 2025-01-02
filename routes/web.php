@@ -136,4 +136,9 @@ Route::prefix('EducationalContent')->group(function () {
     Route::post('/ayurvedaGuideAdd', [EducationalContentController::class, 'AyurvedaGuideAdd'])->name('EducationalContent.ayurvedaGuideAdd');
     Route::post('/ayurvedaGuideDelete', [EducationalContentController::class, 'AyurvedaGuideDelete'])->name('EducationalContent.ayurvedaGuideDelete');
     Route::post('/ayurvedaGuideUpdate', [EducationalContentController::class, 'AyurvedaGuideUpdate'])->name('EducationalContent.ayurvedaGuideUpdate');
+
+    Route::get('/blogAll', [EducationalContentController::class, "BlogAll"])->name('EducationalContent.blogAll');
+    Route::post('/blogAdd', [EducationalContentController::class, 'BlogAdd'])->name('EducationalContent.blogAdd');
+    Route::post('/blogDelete', [EducationalContentController::class, 'BlogDelete'])->name('EducationalContent.blogDelete');
+    Route::post('/blogUpdate', [EducationalContentController::class, 'BlogUpdate'])->name('EducationalContent.blogUpdate');
 });
