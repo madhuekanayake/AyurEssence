@@ -163,4 +163,11 @@ Route::prefix('ProductManagement')->group(function () {
     Route::post('/productCategoryAdd', [ProductManagementController::class, 'ProductCategoryAdd'])->name('ProductManagement.productCategoryAdd');
     Route::post('/productCategoryDelete', [ProductManagementController::class, 'ProductCategoryDelete'])->name('ProductManagement.productCategoryDelete');
     Route::post('/productCategoryUpdate', [ProductManagementController::class, 'ProductCategoryUpdate'])->name('ProductManagement.productCategoryUpdate');
+
+
+    Route::get('/productAll', [ProductManagementController::class, "ProductAll"])->name('ProductManagement.productAll');
+    Route::post('/productAdd', [ProductManagementController::class, 'ProductAdd'])->name('ProductManagement.productAdd');
+    Route::post('/productDelete', [ProductManagementController::class, 'ProductDelete'])->name('ProductManagement.productDelete');
+    Route::post('/productUpdate', [ProductManagementController::class, 'ProductUpdate'])->name('ProductManagement.productUpdate');
+
 });

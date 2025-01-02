@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\AdminArea;
 
 use App\Http\Controllers\Controller;
+use App\Models\Product;
 use App\Models\ProductCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -136,4 +137,46 @@ public function ProductCategoryDelete(Request $request)
         return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
     }
 }
+
+// Controller
+public function ProductAll()
+{
+    try {
+        // Fetch products with their categories
+        $products = Product::with('category')->get();
+        $product_categories = ProductCategory::all();
+
+        return view('AdminArea.Pages.ProductManagement.product', compact('products','product_categories'));
+    } catch (\Exception $e) {
+        // Handle any errors that occur
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+
+
+public function ProductAdd(Request $request)
+{
+    // Validate input data
+    $request->validate([
+        'productName' => 'required|string|max:255',
+        'productCategoryId' => 'required|string|exists:product_categories,productCategoryId',
+        'description' => 'required|string|max:500',
+    ]);
+
+    try {
+        $data = $request->all();
+
+        // Generate a unique productId
+        $data['productId'] = 'PR' . Str::random(6);
+
+        // Save the product data
+        Product::create($data);
+
+        return back()->with('success', 'Product added successfully!');
+    } catch (\Exception $e) {
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
 }

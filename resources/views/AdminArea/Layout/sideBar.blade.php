@@ -457,7 +457,7 @@
         <div class="collapse" id="ui-advanced">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{{ route('ProductManagement.productCategoryAll') }}">Products Category</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/clipboard.html">Products</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('ProductManagement.productAll') }}">Products</a></li>
 
           </ul>
         </div>
