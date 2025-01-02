@@ -149,4 +149,9 @@ Route::prefix('EducationalContent')->group(function () {
 
     Route::get('/isPrimary/{id}', [EducationalContentController::class, 'IsPrimary'])->name('EducationalContent.isPrimary');
 
+    Route::get('/meetingAndEventAll', [EducationalContentController::class, "MeetingAndEventAll"])->name('EducationalContent.meetingAndEventAll');
+    Route::post('/meetingAndEventAdd', [EducationalContentController::class, 'MeetingAndEventAdd'])->name('EducationalContent.meetingAndEventAdd');
+    Route::post('/meetingAndEventDelete', [EducationalContentController::class, 'MeetingAndEventDelete'])->name('EducationalContent.meetingAndEventDelete');
+    Route::post('/meetingAndEventUpdate', [EducationalContentController::class, 'MeetingAndEventUpdate'])->name('EducationalContent.meetingAndEventUpdate');
+
 });
