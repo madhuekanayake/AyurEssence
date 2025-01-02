@@ -11,7 +11,7 @@
                     <li class="breadcrumb-item">
                         <button type="button" class="btn btn-primary btn-sm" data-toggle="modal"
                             data-target="#addProductCategoryModal">
-                            Add Product Category Image <i class="fa fa-plus-circle ml-1"></i>
+                            Add Product Category <i class="fa fa-plus-circle ml-1"></i>
                         </button>
                     </li>
                 </ol>
