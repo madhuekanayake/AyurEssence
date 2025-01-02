@@ -23,7 +23,7 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="table-responsive">
-                            <table id="guide-listing" class="table">
+                            <table id="order-listing" class="table">
                                 <thead>
                                     <tr>
                                         <th>#</th>
