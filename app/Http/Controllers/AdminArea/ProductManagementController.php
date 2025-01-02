@@ -179,4 +179,67 @@ public function ProductAdd(Request $request)
     }
 }
 
+public function ProductUpdate(Request $request)
+{
+    // Find the hospital by ID
+    $products = Product::find($request->id);
+
+    if (!$products) {
+        return back()->withErrors(['error' => 'Ayurveda Guide not found!']);
+    }
+
+    // Validate inputs
+    $request->validate([
+        'productName' => 'required|string|max:255',
+        'productCategoryId' => 'required|string|exists:product_categories,productCategoryId',
+        'description' => 'required|string|max:500',
+    ]);
+
+
+    try {
+        // Prepare data for update
+        $data = [
+            'productName' => $request->productName,
+            'productCategoryId' => $request->productCategoryId,
+            'description' => $request->description,
+
+
+        ];
+
+        // Update hospital details
+        $products->update($data); // Using the update method to save changes
+
+        return redirect()->back()->with('success', 'Product updated successfully!');
+    } catch (\Exception $e) {
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+
+
+
+
+
+    public function ProductDelete(Request $request)
+{
+    try {
+        // Validate the request
+        $request->validate([
+            'id' => 'required|integer|exists:products,id', // Ensure the `blogs` table and `id` column are correct
+        ]);
+
+        // Find the hospital by ID
+        $products = Product::findOrFail($request->id); // Find the hospital by ID
+
+        // Delete the hospital record
+        $products->delete();
+
+        // Return success response
+        return back()->with('success', 'Product deleted successfully!');
+    } catch (\Exception $e) {
+        // Return error response with more descriptive message
+        return back()->withErrors(['error' => 'An error occurred while deleting the blog: ' . $e->getMessage()]);
+    }
+}
+
 }
