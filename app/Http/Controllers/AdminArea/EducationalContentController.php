@@ -5,6 +5,7 @@ namespace App\Http\Controllers\AdminArea;
 use App\Http\Controllers\Controller;
 use App\Models\AyurvedaGuide;
 use App\Models\Blog;
+use App\Models\BlogImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -210,6 +211,83 @@ public function BlogDelete(Request $request)
     } catch (\Exception $e) {
         // Return error response with more descriptive message
         return back()->withErrors(['error' => 'An error occurred while deleting the blog: ' . $e->getMessage()]);
+    }
+}
+
+public function BlogImageAdd(Request $request)
+    {
+        // Validate input data
+    $request->validate([
+
+        'blogId' => 'required',
+
+        'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048', // Optional image field (with max size)
+    ]);
+
+        try {
+            $data = $request->all();
+
+            // Generate a unique employeeId
+            $data['blogImageId'] = 'BI' . Str::random(6); // Random 6-character string with a prefix
+
+            // Handle file upload using Laravel Storage
+            if ($request->hasFile('image')) {
+                // Get the uploaded file
+                $file = $request->file('image');
+
+                // Store the file in a specific directory and get its path
+                $path = $file->store('uploads/location/blog', 'public');
+
+                // Save the file path to the $data array
+                $data['image'] = $path;
+            }
+
+            // Save data
+            BlogImage::create($data);
+
+            return back()->with('success', 'Image added successfully!');
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+        }
+    }
+
+    public function ViewBlogImageAll($blogId)
+{
+    try {
+        // Fetch gallery data related to the specific gardenId
+        $blog_images = BlogImage::where('blogId', $blogId)->get();
+
+        return view('AdminArea.Pages.EducationalContent.viewBlogImage', compact('blog_images'));
+    } catch (\Exception $e) {
+        // Handle any errors that occur
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+public function ViewBlogImageDelete(Request $request)
+{
+    try {
+        // Validate the request
+        $request->validate([
+            'id' => 'required|integer|exists:blog_images,id',
+        ]);
+
+        // Find the student by ID
+        $blog_images = BlogImage::findOrFail($request->id);
+
+        // Delete the associated image if it exists
+        if ($blog_images->image && file_exists(public_path('uploads/' . $blog_images->image))) {
+            unlink(public_path('uploads/' . $blog_images->image));
+        }
+
+        // Delete the student record
+        $blog_images->delete();
+
+        // Return success response
+        return back()->with('success', 'Image deleted successfully!');
+    } catch (\Exception $e) {
+        // Return error response
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
     }
 }
 

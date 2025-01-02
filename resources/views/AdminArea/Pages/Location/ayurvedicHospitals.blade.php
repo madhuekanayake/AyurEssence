@@ -57,12 +57,12 @@
                                                         <i class="fas fa-plus-circle menu-icon"></i>
                                                     </button>
 
-                                                    {{-- <a
-                                                        href="{{ route('Location.ViewAyurvedicHospitalImageAll', $hospital->ayurvedicHospitalId) }}">
+                                                    <a
+                                                        href="{{ route('Location.viewAyurvedicHospitalImageAll', $hospital->ayurvedicHospitalId) }}">
                                                         <i class="fas fa-eye menu-icon"></i>
 
 
-                                                    </a> --}}
+                                                    </a>
 
                                                 </td>
                                                 <td>

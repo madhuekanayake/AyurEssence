@@ -340,12 +340,12 @@ public function AyurvedicHospitalImageAdd(Request $request)
     {
         // Validate input data
         $request->validate([
-            'ayurvedicHospitalId' => '',
+            'ayurvedicHospitalId' => 'required',
             'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
         ]);
 
 
-        // try {
+        try {
             $data = $request->all();
 
 
@@ -368,9 +368,9 @@ public function AyurvedicHospitalImageAdd(Request $request)
             AyurvedicHospitalImages::create($data);
 
             return back()->with('success', 'Image added successfully!');
-        // } catch (\Exception $e) {
-        //     return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
-        // }
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+        }
     }
 
     public function ViewAyurvedicHospitalImageAll($ayurvedicHospitalId)
