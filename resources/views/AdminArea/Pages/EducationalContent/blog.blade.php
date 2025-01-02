@@ -31,6 +31,7 @@
                                             <th>Content</th>
                                             <th>Date</th>
                                             <th>Description</th>
+                                            <th>Image</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
@@ -43,6 +44,24 @@
                                                 <td>{{ Str::limit(strip_tags($blog->content), 50) }}</td>
                                                 <td>{{ $blog->date }}</td>
                                                 <td>{{ $blog->description }}</td>
+
+                                                <td>
+                                                    <button type="button" class="btn btn-link text-primary p-0 mr-2"
+                                                        onclick="addImage(
+                                                            '{{ $blog->id }}',
+                                                            '{{ $blog->blogId }}',
+
+                                                        )">
+                                                        <i class="fas fa-plus-circle menu-icon"></i>
+                                                    </button>
+
+                                                    <a href="{{ route('EducationalContent.viewBlogImageAll', $blog->blogId) }}">
+                                                        <i class="fas fa-eye menu-icon"></i>
+
+
+                                                    </a>
+
+                                                </td>
                                                 <td>
                                                     <button type="button" class="btn btn-link text-primary p-0 mr-2"
                                                         onclick="editBlog(
@@ -131,6 +150,38 @@
             </div>
         </div>
     </div>
+
+    {{-- Add Image Modal --}}
+    <div class="modal fade" id="addImageModal" tabindex="-1" role="dialog" aria-labelledby="addImageLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addImageLabel">Add New Image</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('EducationalContent.blogImageAdd') }}" method="POST" enctype="multipart/form-data">
+                    @csrf
+                    <input type="hidden" id="blogId" name="blogId">
+                    <input type="hidden" id="id" name="id">
+                    <div class="form-row">
+                        <div class="form-group col-md-12">
+                            <label for="image">File Upload <span style="color: red;">*</span></label>
+                            <input type="file" class="form-control" id="image" name="image" required>
+                        </div>
+
+                    </div>
+                    <button type="submit" class="btn btn-primary">Save</button>
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 
     {{-- Edit Blog Modal --}}
 <div class="modal fade" id="editBlogModal" tabindex="-1" role="dialog" aria-labelledby="editBlogLabel" aria-hidden="true">
@@ -386,6 +437,17 @@ function editBlog(id, title, content, date, description) {
         // Show the delete modal
         $('#deleteBlogModal').modal('show');
     }
+</script>
+
+<script>
+    function addImage(id, blogId) {
+    // Set the values of the inputs in the modal
+    document.getElementById('id').value = id;
+    document.getElementById('blogId').value = blogId;  // Update to 'edit_title'
+
+    // Show the edit modal
+    $('#addImageModal').modal('show');
+}
 </script>
 
 @endpush

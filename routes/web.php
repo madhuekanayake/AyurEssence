@@ -141,4 +141,10 @@ Route::prefix('EducationalContent')->group(function () {
     Route::post('/blogAdd', [EducationalContentController::class, 'BlogAdd'])->name('EducationalContent.blogAdd');
     Route::post('/blogDelete', [EducationalContentController::class, 'BlogDelete'])->name('EducationalContent.blogDelete');
     Route::post('/blogUpdate', [EducationalContentController::class, 'BlogUpdate'])->name('EducationalContent.blogUpdate');
+
+    Route::post('/blogImageAdd', [EducationalContentController::class, 'BlogImageAdd'])->name('EducationalContent.blogImageAdd');
+
+    Route::get('/viewBlogImageAll/{blogId}', [EducationalContentController::class, "ViewBlogImageAll"])->name('EducationalContent.viewBlogImageAll');
+    Route::post('/viewBlogImageDelete', [EducationalContentController::class, 'ViewBlogImageDelete'])->name('EducationalContent.viewBlogImageDelete');
+
 });
