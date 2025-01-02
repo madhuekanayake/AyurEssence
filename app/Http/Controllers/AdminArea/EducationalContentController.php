@@ -8,6 +8,7 @@ use App\Models\Blog;
 use App\Models\BlogImage;
 use App\Models\MeetingAndEvent;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class EducationalContentController extends Controller
@@ -336,7 +337,7 @@ public function MeetingAndEventAdd(Request $request)
     {
         // Validate input data
         $request->validate([
-            
+
             'title' => 'required|string|max:255|unique:meeting_and_events,title', // Unique title
             'content' => 'required|string|max:2000', // Content should be a string
             'startDate' => 'required|date|before_or_equal:endDate', // Ensure it's a valid date before or equal to endDate
@@ -378,6 +379,85 @@ public function MeetingAndEventAdd(Request $request)
         }
     }
 
+    public function MeetingAndEventUpdate(Request $request)
+    {
+        // Find the gallery item by ID
+        $meeting_and_events = MeetingAndEvent::find($request->id);
 
+        // Validate inputs
+        $request->validate([
+
+            'title' => 'required|string|max:255|unique:meeting_and_events,title', // Unique title
+            'content' => 'required|string|max:2000', // Content should be a string
+            'startDate' => 'required|date|before_or_equal:endDate', // Ensure it's a valid date before or equal to endDate
+            'endDate' => 'required|date|after_or_equal:startDate', // Ensure it's a valid date after or equal to startDate
+            'startTime' => 'required', // Valid time format (HH:mm)
+            'endTime' => 'required', // Ensure it's after startTime
+            'contactNo' => 'required|string|regex:/^\+?[0-9]{10,15}$/', // Validate contact number format
+            'description' => 'nullable|string|max:500', // Optional description
+        ], [
+
+            'title.unique' => 'The title must be unique. Please choose another title.',
+
+        ]);
+
+        try {
+            $data = $request->all();
+
+            // Handle image upload using Laravel Storage
+            if ($request->hasFile('image')) {
+                // Delete the old image if it exists
+                if ($meeting_and_events->image) {
+                    Storage ::disk('public')->delete($meeting_and_events->image);
+                }
+
+                // Store the new image in 'uploads/images'
+                $data['image'] = $request->file('image')->store('uploads/educationalContent/meetingAndEvent', 'public');
+            } else {
+                // Retain the existing image path if no new image is uploaded
+                $data['image'] = $meeting_and_events->image;
+            }
+
+            // Update employee details
+            $meeting_and_events->update([
+                'title' => $data['title'],
+                'content' => $data['content'],
+                'startDate' => $data['startDate'],
+                'endDate' => $data['endDate'],
+                'startTime' => $data['startTime'],
+                'endTime' => $data['endTime'],
+                'contactNo' => $data['contactNo'],
+                'description' => $data['description'],
+                'image' => $data['image'],
+
+            ]);
+
+            return redirect()->back()->with('success', 'Employee updated successfully!');
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+        }
+    }
+
+    public function MeetingAndEventDelete(Request $request)
+{
+    try {
+        // Validate the request
+        $request->validate([
+            'id' => 'required|integer|exists:meeting_and_events,id', // Ensure the `blogs` table and `id` column are correct
+        ]);
+
+        // Find the hospital by ID
+        $meeting_and_events = MeetingAndEvent::findOrFail($request->id); // Find the hospital by ID
+
+        // Delete the hospital record
+        $meeting_and_events->delete();
+
+        // Return success response
+        return back()->with('success', 'Blog deleted successfully!');
+    } catch (\Exception $e) {
+        // Return error response with more descriptive message
+        return back()->withErrors(['error' => 'An error occurred while deleting the blog: ' . $e->getMessage()]);
+    }
+}
 
 }
