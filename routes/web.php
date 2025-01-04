@@ -12,6 +12,7 @@ use App\Http\Controllers\AdminArea\ProductManagementController;
 use App\Http\Controllers\AdminArea\ServiceController;
 use App\Http\Controllers\AdminArea\SettingController;
 use App\Http\Controllers\AdminArea\StudentController;
+use App\Http\Controllers\AdminArea\TreatmentController;
 use App\Http\Controllers\PublicArea\AboutUsController;
 use App\Http\Controllers\PublicArea\BlogController;
 use App\Http\Controllers\PublicArea\ContactUsController;
@@ -170,4 +171,14 @@ Route::prefix('ProductManagement')->group(function () {
     Route::post('/productDelete', [ProductManagementController::class, 'ProductDelete'])->name('ProductManagement.productDelete');
     Route::post('/productUpdate', [ProductManagementController::class, 'ProductUpdate'])->name('ProductManagement.productUpdate');
 
+    Route::post('/productImageAdd', [ProductManagementController::class, 'ProductImageAdd'])->name('ProductManagement.productImageAdd');
+
+});
+
+Route::prefix('Treatment')->group(function () {
+
+    Route::get('/all', [TreatmentController::class, "All"])->name('Treatment.all');
+    Route::post('/add', [TreatmentController::class, 'Add'])->name('Treatment.add');
+    Route::post('/delete', [TreatmentController::class, 'Delete'])->name('Treatment.delete');
+    Route::post('/update', [TreatmentController::class, 'Update'])->name('Treatment.update');
 });

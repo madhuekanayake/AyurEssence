@@ -81,12 +81,12 @@
                                                     <button type="button" class="btn btn-link text-primary p-0 mr-2"
                                                         data-toggle="modal" data-target="#viewBlogModal"
                                                         onclick="viewBlog(
-        '{{ $blog->id }}',
-        '{{ $blog->title }}',
-        '{{ $blog->content }}',
-        '{{ $blog->date }}',
-        '{{ $blog->description }}'
-    )">
+                                                            '{{ $blog->id }}',
+                                                            '{{ $blog->title }}',
+                                                            '{{ $blog->content }}',
+                                                            '{{ $blog->date }}',
+                                                            '{{ $blog->description }}'
+                                                        )">
                                                         <i class="fas fa-arrow-right menu-icon"></i>
                                                     </button>
 
