@@ -480,7 +480,7 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('/todo') }}">
+        <a class="nav-link" href="{{ route('Treatment.all') }}">
             <i class="fas fa-leaf menu-icon"></i>
           <span class="menu-title">Treatments</span>
         </a>
