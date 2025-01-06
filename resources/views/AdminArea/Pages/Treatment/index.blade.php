@@ -54,6 +54,13 @@
                                                         <i class="fas fa-plus-circle menu-icon"></i>
                                                     </button>
 
+                                                    <a
+                                                    href="{{ route('Treatment.viewTreatmentImageAll', $treatment->treatmentId) }}">
+                                                    <i class="fas fa-eye menu-icon"></i>
+
+                                                </a>
+
+
                                                 </td>
 
                                                 <td>

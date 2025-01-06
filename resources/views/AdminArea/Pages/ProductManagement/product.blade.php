@@ -43,7 +43,7 @@
                                             <td>{{ $item->productName }}</td>
                                             <td>{{ $item->category->categoryName ?? 'N/A' }}</td> <!-- Display category name -->
                                             <td>{{ $item->description }}</td>
-                                            
+
 
                                             <td>
                                                 <button type="button" class="btn btn-link text-primary p-0"
@@ -52,11 +52,11 @@
                                                     <i class="fas fa-plus-circle menu-icon"></i>
                                                 </button>
 
-                                                {{-- <a
-                                                    href="{{ route('Location.viewAyurvedicHospitalImageAll', $item->productId) }}">
+                                                <a
+                                                    href="{{ route('ProductManagement.viewProductImageAll', $item->productId) }}">
                                                     <i class="fas fa-eye menu-icon"></i>
 
-                                                </a> --}}
+                                                </a>
 
                                             </td>
 
