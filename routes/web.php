@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminArea\AdminController;
+use App\Http\Controllers\AdminArea\DoctorManagementController;
 use App\Http\Controllers\AdminArea\EducationalContentController;
 use App\Http\Controllers\AdminArea\FormController;
 use App\Http\Controllers\AdminArea\SampleController;
@@ -192,4 +193,13 @@ Route::prefix('Treatment')->group(function () {
 
     Route::get('/viewTreatmentImageAll/{treatmentId}', [TreatmentController::class, "ViewTreatmentImageAll"])->name('Treatment.viewTreatmentImageAll');
     Route::post('/viewTreatmentImageDelete', [TreatmentController::class, 'ViewTreatmentImageDelete'])->name('Treatment.viewTreatmentImageDelete');
+});
+
+
+Route::prefix('DoctorManagement')->group(function () {
+
+    Route::get('/specializationAll', [DoctorManagementController::class, "SpecializationAll"])->name('DoctorManagement.specializationAll');
+    Route::post('/specializationAdd', [DoctorManagementController::class, 'SpecializationAdd'])->name('DoctorManagement.specializationAdd');
+    Route::post('/specializationDelete', [DoctorManagementController::class, 'SpecializationDelete'])->name('DoctorManagement.specializationDelete');
+    Route::post('/specializationUpdate', [DoctorManagementController::class, 'SpecializationUpdate'])->name('DoctorManagement.specializationUpdate');
 });
