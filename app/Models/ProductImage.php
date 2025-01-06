@@ -12,6 +12,7 @@ class ProductImage extends Model
         'productImageId',
         'productId',
         'image',
-        
+        'isPrimary',
+
     ];
 }

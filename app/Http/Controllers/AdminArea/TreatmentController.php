@@ -149,4 +149,43 @@ public function TreatmentImageAdd(Request $request)
         }
     }
 
+    public function ViewTreatmentImageAll($treatmentId)
+{
+    try {
+        // Fetch gallery data related to the specific gardenId
+        $treatment_images = TreatmentImage::where('treatmentId', $treatmentId)->get();
+
+        return view('AdminArea.Pages.Treatment.viewTreatmentImage', compact('treatment_images'));
+    } catch (\Exception $e) {
+        // Handle any errors that occur
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+public function ViewTreatmentImageDelete(Request $request)
+{
+    try {
+        // Validate the request
+        $request->validate([
+            'id' => 'required|integer|exists:treatment_images,id',
+        ]);
+
+        // Find the student by ID
+        $treatment_images = TreatmentImage::findOrFail($request->id);
+
+        // Delete the associated image if it exists
+        if ($treatment_images->image && file_exists(public_path('uploads/' . $treatment_images->image))) {
+            unlink(public_path('uploads/' . $treatment_images->image));
+        }
+
+        // Delete the student record
+        $treatment_images->delete();
+
+        // Return success response
+        return back()->with('success', 'Image deleted successfully!');
+    } catch (\Exception $e) {
+        // Return error response
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
 }

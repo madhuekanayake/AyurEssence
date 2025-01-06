@@ -279,4 +279,69 @@ public function ProductImageAdd(Request $request)
         }
     }
 
+    public function ViewProductImageAll($productId)
+{
+    try {
+        // Fetch gallery data related to the specific gardenId
+        $product_images = ProductImage::where('productId', $productId)->get();
+
+        return view('AdminArea.Pages.ProductManagement.viewProductImage', compact('product_images'));
+    } catch (\Exception $e) {
+        // Handle any errors that occur
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+public function ViewProductImageDelete(Request $request)
+{
+    try {
+        // Validate the request
+        $request->validate([
+            'id' => 'required|integer|exists:product_images,id',
+        ]);
+
+        // Find the student by ID
+        $product_images = ProductImage::findOrFail($request->id);
+
+        // Delete the associated image if it exists
+        if ($product_images->image && file_exists(public_path('uploads/' . $product_images->image))) {
+            unlink(public_path('uploads/' . $product_images->image));
+        }
+
+        // Delete the student record
+        $product_images->delete();
+
+        // Return success response
+        return back()->with('success', 'Image deleted successfully!');
+    } catch (\Exception $e) {
+        // Return error response
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+public function IsPrimary($id)
+{
+    try {
+        $item = ProductImage::findOrFail($id);
+
+        if ($item->isPrimary == 0) {
+            // Deactivate all other records
+            ProductImage::where('id', '!=', $id)->update(['isPrimary' => 0]);
+
+            // Activate the selected record
+            $item->isPrimary = 1;
+        } else {
+            // Deactivate the current record
+            $item->isPrimary = 0;
+        }
+
+        $item->save();
+
+        $message = $item->isPrimary ? 'Item activated successfully!' : 'Item deactivated successfully!';
+        return redirect()->back()->with('success', $message);
+    } catch (\Exception $e) {
+        return redirect()->back()->with('error', 'Something went wrong!');
+    }
+}
+
 }

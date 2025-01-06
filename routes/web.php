@@ -173,6 +173,11 @@ Route::prefix('ProductManagement')->group(function () {
 
     Route::post('/productImageAdd', [ProductManagementController::class, 'ProductImageAdd'])->name('ProductManagement.productImageAdd');
 
+    Route::get('/viewProductImageAll/{productId}', [ProductManagementController::class, "ViewProductImageAll"])->name('ProductManagement.viewProductImageAll');
+    Route::post('/viewProductImageDelete', [ProductManagementController::class, 'ViewProductImageDelete'])->name('ProductManagement.viewProductImageDelete');
+
+    Route::get('/isPrimary/{id}', [ProductManagementController::class, 'IsPrimary'])->name('ProductManagement.isPrimary');
+
 });
 
 Route::prefix('Treatment')->group(function () {
@@ -184,4 +189,7 @@ Route::prefix('Treatment')->group(function () {
 
 
     Route::post('/treatmentImageAdd', [TreatmentController::class, 'TreatmentImageAdd'])->name('Treatment.treatmentImageAdd');
+
+    Route::get('/viewTreatmentImageAll/{treatmentId}', [TreatmentController::class, "ViewTreatmentImageAll"])->name('Treatment.viewTreatmentImageAll');
+    Route::post('/viewTreatmentImageDelete', [TreatmentController::class, 'ViewTreatmentImageDelete'])->name('Treatment.viewTreatmentImageDelete');
 });
