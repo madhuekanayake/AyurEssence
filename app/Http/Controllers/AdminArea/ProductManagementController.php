@@ -243,40 +243,40 @@ public function ProductUpdate(Request $request)
     }
 }
 
+
 public function ProductImageAdd(Request $request)
-{
-    // Validate input data
-    $request->validate([
-        'productId' => 'required', // Ensure productId is required
-        'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048', // Optional image field (with max size)
-    ]);
+    {
+        // Validate input data
+        $request->validate([
+            'productId' => 'required|exists:products,productId',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
 
-    try {
-        $data = $request->all();
+        try {
+            $data = $request->all();
 
-        // Generate a unique productImageId
-        $data['productImageId'] = 'PI' . Str::random(6); // Random 6-character string with a prefix
+            // Generate a unique employeeId
+            $data['productImageId'] = 'TI' . Str::random(6); // Random 6-character string with a prefix
 
-        // Handle file upload using Laravel Storage
-        if ($request->hasFile('image')) {
-            // Get the uploaded file
-            $file = $request->file('image');
+            // Handle file upload using Laravel Storage
+            if ($request->hasFile('image')) {
+                // Get the uploaded file
+                $file = $request->file('image');
 
-            // Store the file in a specific directory and get its path
-            $path = $file->store('uploads/productManagement/product', 'public');
+                // Store the file in a specific directory and get its path
+                $path = $file->store('uploads/productManagement/product', 'public');
 
-            // Save the file path to the $data array
-            $data['image'] = $path;
+                // Save the file path to the $data array
+                $data['image'] = $path;
+            }
+
+            // Save data
+            ProductImage::create($data);
+
+            return back()->with('success', 'Image added successfully!');
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
         }
-
-        // Save data
-        ProductImage::create($data);
-
-        return back()->with('success', 'Image added successfully!');
-    } catch (\Exception $e) {
-        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
     }
-}
-
 
 }

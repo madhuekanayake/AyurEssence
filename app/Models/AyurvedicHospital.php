@@ -19,6 +19,11 @@ class AyurvedicHospital extends Model
         'closeTime',
         'openDays',
         'description',
-        
+
     ];
+
+    public function images()
+{
+    return $this->hasMany(AyurvedicHospitalImages::class, 'ayurvedicHospitalId', 'id');
+}
 }

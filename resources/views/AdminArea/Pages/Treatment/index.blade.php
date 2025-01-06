@@ -32,6 +32,7 @@
                                             <th>Content</th>
                                             <th>Ingredients</th>
                                             <th>Benefits</th>
+                                            <th>Image</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -45,6 +46,16 @@
                                                 <td>{{ Str::limit(strip_tags($treatment->content), 50) }}</td>
                                                 <td>{{ $treatment->ingredients }}</td>
                                                 <td>{{ $treatment->benefits }}</td>
+
+                                                <td>
+                                                    <button type="button" class="btn btn-link text-primary p-0"
+                                                        data-toggle="modal" data-target="#uploadImageModal"
+                                                        onclick="openUploadImageModal('{{ $treatment->treatmentId }}')">
+                                                        <i class="fas fa-plus-circle menu-icon"></i>
+                                                    </button>
+
+                                                </td>
+
                                                 <td>
                                                     <button type="button" class="btn btn-link text-primary p-0 mr-2"
                                                         onclick="editTreatment('{{ $treatment->id }}', '{{ $treatment->name }}', '{{ $treatment->description }}','{{ $treatment->content }}','{{ $treatment->ingredients }}','{{ $treatment->benefits }}')">
@@ -57,9 +68,10 @@
                                                     </button>
 
                                                     <button type="button" class="btn btn-link text-primary p-0 mr-2"
-                                                        onclick="viewTreatment({{ $treatment->id }}, `{{ $treatment->name }}`, `{{ $treatment->description }}`, `{{ $treatment->content }}`, `{{ $treatment->ingredients }}`, `{{ $treatment->benefits }}`)">
+                                                        onclick="viewTreatment({{ $treatment->id }}, {{ $treatment->name }}, {{ $treatment->description }}, {{ $treatment->content }}, {{ $treatment->ingredients }}, {{ $treatment->benefits }})">
                                                         <i class="fas fa-arrow-right menu-icon"></i>
                                                     </button>
+
 
                                                 </td>
                                             </tr>
@@ -144,7 +156,7 @@
                 </div>
                 <div class="modal-body">
                     <form action="{{ route('Treatment.update') }}" method="POST" enctype="multipart/form-data" id="editTreatmentForm">
-                       
+
                         @csrf
                         <input type="hidden" name="id" id="edit_treatment_id">
 
@@ -276,9 +288,48 @@
             </div>
         </div>
     </div>
+
+
+    {{-- Add Image Modal --}}
+    <div class="modal fade" id="uploadImageModal" tabindex="-1" role="dialog" aria-labelledby="uploadImageLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-md" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="uploadImageLabel">Upload Treatment Image</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form action="{{ route('Treatment.treatmentImageAdd') }}" method="POST" enctype="multipart/form-data"
+                    id="uploadImageForm">
+                    @csrf
+                    <input type="hidden" id="uploadTreatmentId" name="treatmentId">
+                    <div class="form-group">
+                        <label for="image">Select Image <span style="color: red;">*</span></label>
+                        <input type="file" class="form-control" id="image" name="image" required
+                            accept="image/*">
+                    </div>
+                    <button type="submit" class="btn btn-primary">Upload</button>
+                    <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 @endsection
 
 @push('js')
+
+<script>
+    function openUploadImageModal(treatmentId) {
+    document.getElementById('uploadTreatmentId').value = treatmentId;
+}
+
+</script>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const quill = new Quill('#quillExample1', {
@@ -432,4 +483,6 @@ document.addEventListener('DOMContentLoaded', () => {
             $('#deleteTreatmentModal').modal('show');
         }
     </script>
+
+
 @endpush

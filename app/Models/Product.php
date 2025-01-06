@@ -23,5 +23,8 @@ public function category()
 {
     return $this->belongsTo(ProductCategory::class, 'productCategoryId', 'productCategoryId');
 }
-
+public function images()
+{
+    return $this->hasMany(ProductImage::class, 'productId', 'id');
+}
 }

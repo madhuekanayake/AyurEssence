@@ -4,6 +4,7 @@ namespace App\Http\Controllers\AdminArea;
 
 use App\Http\Controllers\Controller;
 use App\Models\Treatment;
+use App\Models\TreatmentImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 
@@ -112,5 +113,40 @@ public function Delete(Request $request)
         return back()->withErrors(['error' => 'An error occurred while deleting the blog: ' . $e->getMessage()]);
     }
 }
+
+public function TreatmentImageAdd(Request $request)
+    {
+        // Validate input data
+        $request->validate([
+            'treatmentId' => 'required|exists:treatments,treatmentId',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        try {
+            $data = $request->all();
+
+            // Generate a unique employeeId
+            $data['treatmentImageId'] = 'TI' . Str::random(6); // Random 6-character string with a prefix
+
+            // Handle file upload using Laravel Storage
+            if ($request->hasFile('image')) {
+                // Get the uploaded file
+                $file = $request->file('image');
+
+                // Store the file in a specific directory and get its path
+                $path = $file->store('uploads/treatment', 'public');
+
+                // Save the file path to the $data array
+                $data['image'] = $path;
+            }
+
+            // Save data
+            TreatmentImage::create($data);
+
+            return back()->with('success', 'Image added successfully!');
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+        }
+    }
 
 }

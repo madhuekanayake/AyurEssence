@@ -43,20 +43,18 @@
                                             <td>{{ $item->productName }}</td>
                                             <td>{{ $item->category->categoryName ?? 'N/A' }}</td> <!-- Display category name -->
                                             <td>{{ $item->description }}</td>
-                                            <td>{{ $item->productId }}</td>
+                                            
 
                                             <td>
-                                                <a href="#addImageModal" class="btn btn-link text-primary p-0 mr-2"
-                                                data-toggle="modal"
-                                                onclick="addImage('{{ $item->id }}', '{{ $item->productId }}')">
-                                                <i class="fas fa-plus-circle menu-icon"></i>
-                                             </a>
+                                                <button type="button" class="btn btn-link text-primary p-0"
+                                                    data-toggle="modal" data-target="#uploadImageModal"
+                                                    onclick="openUploadImageModal('{{ $item->productId }}')">
+                                                    <i class="fas fa-plus-circle menu-icon"></i>
+                                                </button>
 
-
-
-                                                {{-- <a href="{{ route('EducationalContent.viewBlogImageAll', $item->productId) }}">
+                                                {{-- <a
+                                                    href="{{ route('Location.viewAyurvedicHospitalImageAll', $item->productId) }}">
                                                     <i class="fas fa-eye menu-icon"></i>
-
 
                                                 </a> --}}
 
@@ -210,42 +208,46 @@
 
 
 {{-- Add Image Modal --}}
-<div class="modal fade" id="addImageModal" tabindex="-1" role="dialog" aria-labelledby="addImageLabel"
-     aria-hidden="true">
-    <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="addImageLabel">Add New Image</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="{{ route('ProductManagement.productImageAdd') }}" method="POST" enctype="multipart/form-data">
-                    @csrf
-
-                    <div class="form-row">
-                        <input type="hidden" id="productId" name="productId">
-<input type="hidden" id="id" name="id">
-
-
-                        <div class="form-group col-md-12">
-                            <label for="image">File Upload <span style="color: red;">*</span></label>
-                            <input type="file" class="form-control" id="image" name="image" required>
-                        </div>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Save</button>
-                    <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
-                </form>
-            </div>
+<div class="modal fade" id="uploadImageModal" tabindex="-1" role="dialog" aria-labelledby="uploadImageLabel"
+aria-hidden="true">
+<div class="modal-dialog modal-md" role="document">
+    <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title" id="uploadImageLabel">Upload Treatment Image</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <form action="{{ route('ProductManagement.productImageAdd') }}" method="POST" enctype="multipart/form-data"
+                id="uploadImageForm">
+                @csrf
+                <input type="hidden" id="uploadproductId" name="productId">
+                <div class="form-group">
+                    <label for="image">Select Image <span style="color: red;">*</span></label>
+                    <input type="file" class="form-control" id="image" name="image" required
+                        accept="image/*">
+                </div>
+                <button type="submit" class="btn btn-primary">Upload</button>
+                <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+            </form>
         </div>
     </div>
+</div>
 </div>
 
 
 @endsection
 
 @push('js')
+
+<script>
+    function openUploadImageModal(productId) {
+    document.getElementById('uploadproductId').value = productId;
+}
+
+</script>
+
     <script>
         function editProduct(id, productName,productCategoryId, description) {
             // Set the values of the inputs in the modal
@@ -267,16 +269,5 @@
         }
     </script>
 
-<script>
-    function addImage(id, productId) {
-    // Set the values of the hidden inputs in the modal
-    document.getElementById('id').value = id;
-    document.getElementById('productId').value = productId;
 
-    // Open the modal
-    $('#addImageModal').modal('show');
-}
-
-
-</script>
 @endpush
