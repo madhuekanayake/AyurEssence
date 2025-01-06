@@ -45,15 +45,13 @@
                                                 <td>{{ $hospital->email }}</td>
 
                                                 <td>{{ $hospital->description }}</td>
-                                                <td>{{ $hospital->ayurvedicHospitalId }}</td>
+
+
 
                                                 <td>
-                                                    <button type="button" class="btn btn-link text-primary p-0 mr-2"
-                                                        onclick="addAyurvedicHospitalImage(
-                                                        '{{ $hospital->id }}',
-                                                        '{{ $hospital->ayurvedicHospitalId }}',
-
-                                                    )">
+                                                    <button type="button" class="btn btn-link text-primary p-0"
+                                                        data-toggle="modal" data-target="#uploadImageModal"
+                                                        onclick="openUploadImageModal('{{ $hospital->ayurvedicHospitalId }}')">
                                                         <i class="fas fa-plus-circle menu-icon"></i>
                                                     </button>
 
@@ -65,6 +63,10 @@
                                                     </a>
 
                                                 </td>
+
+
+
+
                                                 <td>
                                                     <button type="button" class="btn btn-link text-primary p-0 mr-2"
                                                         onclick="editHospital(
@@ -88,17 +90,17 @@
 
                                                     <button type="button" class="btn btn-link text-primary p-0 mr-2"
                                                         onclick="viewHospital(
-        '{{ $hospital->id }}',
-        '{{ $hospital->name }}',
-        '{{ $hospital->address }}',
-        '{{ $hospital->email }}',
-        '{{ $hospital->phone }}',
-        '{{ $hospital->location }}',
-        '{{ $hospital->openTime }}',
-        '{{ $hospital->closeTime }}',
-        '{{ $hospital->openDays }}',
-        '{{ $hospital->description }}'
-    )">
+                                                                            '{{ $hospital->id }}',
+                                                                            '{{ $hospital->name }}',
+                                                                            '{{ $hospital->address }}',
+                                                                            '{{ $hospital->email }}',
+                                                                            '{{ $hospital->phone }}',
+                                                                            '{{ $hospital->location }}',
+                                                                            '{{ $hospital->openTime }}',
+                                                                            '{{ $hospital->closeTime }}',
+                                                                            '{{ $hospital->openDays }}',
+                                                                            '{{ $hospital->description }}'
+                                                                        )">
                                                         <i class="fas fa-arrow-right menu-icon"></i>
                                                     </button>
                                                 </td>
@@ -276,7 +278,8 @@
 
 
     {{-- View Ayurvedic Hospital Modal --}}
-    <div class="modal fade" id="viewHospitalModal" tabindex="-1" role="dialog" aria-labelledby="viewHospitalLabel" aria-hidden="true">
+    <div class="modal fade" id="viewHospitalModal" tabindex="-1" role="dialog" aria-labelledby="viewHospitalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -375,30 +378,27 @@
     </div>
 
     {{-- Add Image Modal --}}
-    <div class="modal fade" id="addAyurvedicHospitalImageModal" tabindex="-1" role="dialog" aria-labelledby="addAyurvedicHospitalImageLabel"
+    <div class="modal fade" id="uploadImageModal" tabindex="-1" role="dialog" aria-labelledby="uploadImageLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-md" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addAyurvedicHospitalImageLabel">Add New Image</h5>
+                    <h5 class="modal-title" id="uploadImageLabel">Upload Treatment Image</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <form action="{{ route('Location.ayurvedicHospitalImageAdd') }}" method="POST"
-                        enctype="multipart/form-data">
+                        enctype="multipart/form-data" id="uploadImageForm">
                         @csrf
-                        <input type="hidden" id="ayurvedicHospitalId" name="ayurvedicHospitalId">
-                        <input type="hidden" id="id" name="id" >
-                        <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <label for="image">File Upload <span style="color: red;">*</span></label>
-                                <input type="file" class="form-control" id="image" name="image" required>
-                            </div>
-
+                        <input type="hidden" id="uploadayurvedicHospitalId" name="ayurvedicHospitalId">
+                        <div class="form-group">
+                            <label for="image">Select Image <span style="color: red;">*</span></label>
+                            <input type="file" class="form-control" id="image" name="image" required
+                                accept="image/*">
                         </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">Upload</button>
                         <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
                     </form>
                 </div>
@@ -408,6 +408,11 @@
 @endsection
 
 @push('js')
+    <script>
+        function openUploadImageModal(ayurvedicHospitalId) {
+            document.getElementById('uploadayurvedicHospitalId').value = ayurvedicHospitalId;
+        }
+    </script>
     <script>
         // Function to populate and show the Edit Hospital Modal
         function editHospital(id, name, address, email, phone, location, openTime, closeTime, openDays, description) {
@@ -439,46 +444,38 @@
         }
 
         function viewHospital(id, name, address, email, phone, location, openTime, closeTime, openDays, description) {
-    // Set the values of the inputs in the modal
-    document.getElementById('view_hospital_id').value = id;
-    document.getElementById('view_name').value = name;
-    document.getElementById('view_address').value = address;
-    document.getElementById('view_email').value = email;
-    document.getElementById('view_phone').value = phone;
-    document.getElementById('view_location').value = location;
-    document.getElementById('view_openTime').value = openTime;
-    document.getElementById('view_closeTime').value = closeTime;
-    document.getElementById('view_openDays').value = openDays;
-    document.getElementById('view_description').value = description;
+            // Set the values of the inputs in the modal
+            document.getElementById('view_hospital_id').value = id;
+            document.getElementById('view_name').value = name;
+            document.getElementById('view_address').value = address;
+            document.getElementById('view_email').value = email;
+            document.getElementById('view_phone').value = phone;
+            document.getElementById('view_location').value = location;
+            document.getElementById('view_openTime').value = openTime;
+            document.getElementById('view_closeTime').value = closeTime;
+            document.getElementById('view_openDays').value = openDays;
+            document.getElementById('view_description').value = description;
 
-    // Show the modal
-    $('#viewHospitalModal').modal('show');
-}
+            // Show the modal
+            $('#viewHospitalModal').modal('show');
+        }
     </script>
+
+
 
     <script>
-        function addAyurvedicHospitalImage(id, ayurvedicHospitalId) {
-    document.getElementById('id').value = id;
-    document.getElementById('ayurvedicHospitalId').value = ayurvedicHospitalId;
+        document.addEventListener('DOMContentLoaded', function() {
+            const addRoomToGrcModal = document.getElementById('addAyurvedicHospitalImageModal');
+            addRoomToGrcModal.addEventListener('show.bs.modal', function(event) {
+                const button = event.relatedTarget; // Button that triggered the modal
+                const ayurvedicHospitalId = button.getAttribute('data-ayurvedicHospitalId');
 
-    $('#addAyurvedicHospitalImageModal').modal('show');
-}
 
+                // Update the modal's input fields
+                addRoomToGrcModal.querySelector('#ayurvedicHospitalId').value = ayurvedicHospitalId;
+
+
+            });
+        });
     </script>
-
-<script>
-    document.addEventListener('DOMContentLoaded', function () {
-    const addRoomToGrcModal = document.getElementById('addAyurvedicHospitalImageModal');
-    addRoomToGrcModal.addEventListener('show.bs.modal', function (event) {
-        const button = event.relatedTarget; // Button that triggered the modal
-        const ayurvedicHospitalId = button.getAttribute('data-ayurvedicHospitalId');
-
-
-        // Update the modal's input fields
-        addRoomToGrcModal.querySelector('#ayurvedicHospitalId').value = ayurvedicHospitalId;
-
-
-    });
-});
-</script>
 @endpush

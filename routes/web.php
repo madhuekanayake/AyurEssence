@@ -181,4 +181,7 @@ Route::prefix('Treatment')->group(function () {
     Route::post('/add', [TreatmentController::class, 'Add'])->name('Treatment.add');
     Route::post('/delete', [TreatmentController::class, 'Delete'])->name('Treatment.delete');
     Route::post('/update', [TreatmentController::class, 'Update'])->name('Treatment.update');
+
+
+    Route::post('/treatmentImageAdd', [TreatmentController::class, 'TreatmentImageAdd'])->name('Treatment.treatmentImageAdd');
 });

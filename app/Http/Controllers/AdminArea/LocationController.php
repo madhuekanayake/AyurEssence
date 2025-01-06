@@ -340,17 +340,15 @@ public function AyurvedicHospitalImageAdd(Request $request)
     {
         // Validate input data
         $request->validate([
-            'ayurvedicHospitalId' => 'required',
-            'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048',
+            'ayurvedicHospitalId' => 'required|exists:ayurvedic_hospitals,ayurvedicHospitalId',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
         ]);
-
 
         try {
             $data = $request->all();
 
-
             // Generate a unique employeeId
-            $data['ayurvedicHospitalImageId'] = 'AHI' . Str::random(6); // Random 6-character string with a prefix
+            $data['ayurvedicHospitalImageId'] = 'TI' . Str::random(6); // Random 6-character string with a prefix
 
             // Handle file upload using Laravel Storage
             if ($request->hasFile('image')) {
@@ -358,7 +356,7 @@ public function AyurvedicHospitalImageAdd(Request $request)
                 $file = $request->file('image');
 
                 // Store the file in a specific directory and get its path
-                $path = $file->store('uploads/location/ayurvedicHospital', 'public');
+                $path = $file->store('uploads/location/ayurvedic_hospital', 'public');
 
                 // Save the file path to the $data array
                 $data['image'] = $path;

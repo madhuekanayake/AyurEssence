@@ -17,4 +17,9 @@ class Treatment extends Model
         'benefits',
 
     ];
+
+    public function images()
+{
+    return $this->hasMany(TreatmentImage::class, 'treatmentId', 'id');
+}
 }

@@ -5,7 +5,7 @@
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title">Gallery Data Table</h3>
+            <h3 class="page-title">Ayurvedic Hospital Data Table</h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
@@ -19,7 +19,7 @@
         </div>
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Gallery Records</h4>
+                <h4 class="card-title">Ayurvedic Hospital Records</h4>
                 <div class="row">
                     <div class="col-12">
                         <div class="table-responsive">
@@ -47,7 +47,7 @@
                                                     No Image
                                                 @endif
                                             </td>
-                                            <td>{{ $item->description ?? 'No Description Available' }}</td>
+                                            
                                             <td>
                                                 {{-- <button type="button" class="btn btn-link text-primary p-0 mr-2"
                                                     onclick="editImage('{{ $item->id }}', '{{ $item->title }}', '{{ $item->description }}')">
