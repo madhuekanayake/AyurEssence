@@ -80,7 +80,7 @@
                 <form action="{{ route('DoctorManagement.specializationAdd') }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
                             <label for="specializationName">Specialization Name <span style="color: red;">*</span></label>
                             <input type="text" class="form-control" id="specializationName" name="specializationName" placeholder="Specialization Name" required pattern=".*\S.*" title="Whitespace-only input is not allowed.">
                         </div>
@@ -115,7 +115,7 @@
                     <input type="hidden" name="id" id="edit_specialization_id">
 
                     <div class="form-row">
-                        <div class="form-group col-md-6">
+                        <div class="form-group col-md-12">
                             <label for="edit_specializationName">Specialization Name <span style="color: red;">*</span></label>
                             <input type="text" class="form-control" id="edit_specializationName" name="specializationName" placeholder="Specialization Name" required>
                         </div>

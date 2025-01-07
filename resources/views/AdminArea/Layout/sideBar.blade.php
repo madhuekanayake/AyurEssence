@@ -425,7 +425,7 @@
         <div class="collapse" id="sidebar-layouts">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{{ route('DoctorManagement.specializationAll') }}">Specialization</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/layout/sidebar-collapsed.html">Add Doctors</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('DoctorManagement.doctorAll') }}">Add Doctors</a></li>
             <li class="nav-item"> <a class="nav-link" href="pages/layout/sidebar-hidden.html">View Appointment</a></li>
 
           </ul>

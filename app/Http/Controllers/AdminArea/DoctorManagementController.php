@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\AdminArea;
 
 use App\Http\Controllers\Controller;
+use App\Models\Doctor;
 use App\Models\Specialzation;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
@@ -110,4 +111,72 @@ public function SpecializationDelete(Request $request)
         return back()->withErrors(['error' => 'An error occurred while deleting the blog: ' . $e->getMessage()]);
     }
 }
+
+public function DoctorAll()
+{
+    try {
+        // Fetch doctors with specializations
+        $doctors = Doctor::with('specialzations')->get();
+        $specialzations = Specialzation::all();
+
+        return view('AdminArea.Pages.DoctorManagement.doctor', compact('doctors', 'specialzations'));
+    } catch (\Exception $e) {
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+public function DoctorAdd(Request $request)
+    {
+        // Validate input data
+        $request->validate([
+
+            'name' => 'required|string|max:255', // Name should be a string with max length
+            'email' => 'required|email|unique:doctors,email', // Ensure email is unique and valid
+            'phoneNo' => 'required|string|regex:/^[0-9]{10}$/', // Phone number validation (e.g., 10 digits)
+            'gender' => 'required', // Gender can be one of male, female, or other
+            'profilePicture' => 'nullable|image|mimes:jpg,png,jpeg|max:2048', // Optional image field
+            'specializationId' => 'required|string|exists:specialzations,specializationId',
+            'yearsOfExperience' => 'required|integer|min:0', // Years of experience must be a non-negative integer
+            'qualification' => 'required|string|max:500', // Qualification should be a string
+            'registerNo' => 'required|string|max:255|unique:doctors,registerNo', // Ensure registerNo is unique
+            'workplaceName' => 'required|string|max:255', // Workplace name should be a string
+            'availableDays' => 'required', // Available days should be an array with at least one value
+            'consultationStartTime' => 'required', // Start time should follow HH:mm format
+            'consultationEndTime' => 'required', // End time should be after start time
+            'description' => 'required|string|max:1000', // Description should be a string with a max length
+        ], [
+
+            'email.unique' => 'The email address is already registered.',
+            'registerNo.unique' => 'The registration number must be unique.',
+            'phoneNo.regex' => 'The phone number must be a valid 10-digit number.',
+
+        ]);
+
+
+        try {
+            $data = $request->all();
+
+            // Generate a unique employeeId
+            $data['doctorId'] = 'DI' . Str::random(6); // Random 6-character string with a prefix
+
+            // Handle file upload using Laravel Storage
+            if ($request->hasFile('profilePicture')) {
+                // Get the uploaded file
+                $file = $request->file('profilePicture');
+
+                // Store the file in a specific directory and get its path
+                $path = $file->store('uploads/doctor', 'public');
+
+                // Save the file path to the $data array
+                $data['profilePicture'] = $path;
+            }
+
+            // Save data
+            Doctor::create($data);
+
+            return back()->with('success', 'Doctor added successfully!');
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+        }
+    }
 }
