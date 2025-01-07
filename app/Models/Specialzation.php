@@ -12,9 +12,14 @@ class Specialzation extends Model
         'specializationId',
         'specializationName',
         'description',
-        
+
 
 
 
     ];
+
+    public function doctors()
+{
+    return $this->hasMany(Doctor::class, 'specializationId', 'specializationId');
+}
 }

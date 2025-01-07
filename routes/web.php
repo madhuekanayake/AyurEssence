@@ -202,4 +202,10 @@ Route::prefix('DoctorManagement')->group(function () {
     Route::post('/specializationAdd', [DoctorManagementController::class, 'SpecializationAdd'])->name('DoctorManagement.specializationAdd');
     Route::post('/specializationDelete', [DoctorManagementController::class, 'SpecializationDelete'])->name('DoctorManagement.specializationDelete');
     Route::post('/specializationUpdate', [DoctorManagementController::class, 'SpecializationUpdate'])->name('DoctorManagement.specializationUpdate');
+
+    Route::get('/doctorAll', [DoctorManagementController::class, "DoctorAll"])->name('DoctorManagement.doctorAll');
+    Route::post('/doctorAdd', [DoctorManagementController::class, 'DoctorAdd'])->name('DoctorManagement.doctorAdd');
+    Route::post('/doctorDelete', [DoctorManagementController::class, 'DoctorDelete'])->name('DoctorManagement.doctorDelete');
+    Route::post('/doctorUpdate', [DoctorManagementController::class, 'DoctorUpdate'])->name('DoctorManagement.doctorUpdate');
+
 });
