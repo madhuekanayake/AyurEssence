@@ -412,7 +412,7 @@
           <ul class="nav flex-column sub-menu">
             <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="{{ route('PlantManagement.plantCategoryAll') }}">Add Category</a></li>
             <li class="nav-item"> <a class="nav-link" href="{{ route('PlantManagement.plantAll') }}">Add Plants</a></li>
-            <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="pages/layout/horizontal-menu.html">Horizontal Menu</a></li>
+            <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="{{ route('PlantManagement.plantDiseasesAll') }}">Plant Diseases</a></li>
           </ul>
         </div>
       </li>
