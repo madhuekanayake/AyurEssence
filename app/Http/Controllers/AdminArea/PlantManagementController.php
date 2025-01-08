@@ -5,6 +5,8 @@ namespace App\Http\Controllers\AdminArea;
 use App\Http\Controllers\Controller;
 use App\Models\Plant;
 use App\Models\PlantCategory;
+use App\Models\PlantDiseases;
+use App\Models\PlantDiseasesImage;
 use App\Models\PlantImage;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -363,6 +365,193 @@ public function IsPrimary($id)
         return redirect()->back()->with('success', $message);
     } catch (\Exception $e) {
         return redirect()->back()->with('error', 'Something went wrong!');
+    }
+}
+
+public function PlantDiseasesAll()
+{
+    try {
+        // Fetch all gallery data
+        $plant_diseases = PlantDiseases::all();
+
+        return view('AdminArea.Pages.PlantManagement.plantDiseases', compact('plant_diseases'));
+    } catch (\Exception $e) {
+        // Handle any errors that occur
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+public function PlantDiseasesAdd(Request $request)
+{
+    // Validate input data
+
+    $request->validate([
+        'diseasesName' => 'required|string|max:255|unique:plant_diseases,diseasesName', // Ensure diseasesName is unique
+        'symptoms' => 'required|string|max:1000', // Symptoms are required with a maximum length
+        'impact' => 'required|string|max:1000', // Impact is required
+        'cause' => 'required|string|max:1000', // Cause is required
+        'treatment' => 'required|string|max:1000', // Treatment is required
+        'plantsAffected' => 'required|string|max:1000', // Plants Affected is required
+    ], [
+        'diseasesName.unique' => 'The disease name must be unique. Please choose another name.',
+
+    ]);
+
+
+
+    try {
+        $data = $request->all();
+
+        // Generate a unique blog ID
+        $data['diseasesId'] = 'DS' . Str::random(6); // Random 6-character string with prefix
+
+        // Save blog data
+        PlantDiseases::create($data);
+
+        return back()->with('success', 'Plant Deseases added successfully!');
+    } catch (\Exception $e) {
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+public function PlantDiseasesUpdate(Request $request)
+{
+    // Find the hospital by ID
+    $plant_diseases = PlantDiseases::find($request->id);
+
+    if (!$plant_diseases) {
+        return back()->withErrors(['error' => 'Plant Deseases Guide not found!']);
+    }
+
+    // Validate inputs
+    $request->validate([
+        'edit_diseasesName' => 'required|string|max:255|unique:plant_diseases,diseasesName,' . $plant_diseases->id,
+        'edit_symptoms' => 'required|string|max:1000',
+        'edit_impact' => 'required|string|max:1000',
+        'edit_cause' => 'required|string|max:1000',
+        'edit_treatment' => 'required|string|max:1000',
+        'edit_plantsAffected' => 'required|string|max:1000',
+    ], [
+        'edit_diseasesName.required' => 'Disease Name is required.',
+
+    ]);
+
+
+    try {
+        // Prepare data for update
+        $data = [
+            'diseasesName' => $request->edit_diseasesName,
+            'symptoms' => $request->edit_symptoms,
+            'impact' => $request->edit_impact,
+            'cause' => $request->edit_cause,
+            'treatment' => $request->edit_treatment,
+            'plantsAffected' => $request->edit_plantsAffected,
+
+        ];
+
+        // Update hospital details
+        $plant_diseases->update($data); // Using the update method to save changes
+
+        return redirect()->back()->with('success', 'Plant Diseases  updated successfully!');
+    } catch (\Exception $e) {
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+public function PlantDiseasesDelete(Request $request)
+{
+    try {
+        // Validate the request
+        $request->validate([
+            'id' => 'required|integer|exists:plant_diseases,id', // Ensure the `blogs` table and `id` column are correct
+        ]);
+
+        // Find the hospital by ID
+        $plant_diseases = PlantDiseases::findOrFail($request->id); // Find the hospital by ID
+
+        // Delete the hospital record
+        $plant_diseases->delete();
+
+        // Return success response
+        return back()->with('success', 'Plant Diseases deleted successfully!');
+    } catch (\Exception $e) {
+        // Return error response with more descriptive message
+        return back()->withErrors(['error' => 'An error occurred while deleting the blog: ' . $e->getMessage()]);
+    }
+}
+
+public function PlantDiseasesImageAdd(Request $request)
+    {
+        // Validate input data
+        $request->validate([
+            'diseasesId' => 'required|exists:plant_diseases,diseasesId',
+            'image' => 'required|image|mimes:jpeg,png,jpg,gif|max:2048',
+        ]);
+
+        try {
+            $data = $request->all();
+
+            // Generate a unique employeeId
+            $data['plantDiseasesImageId'] = 'PDI' . Str::random(6); // Random 6-character string with a prefix
+
+            // Handle file upload using Laravel Storage
+            if ($request->hasFile('image')) {
+                // Get the uploaded file
+                $file = $request->file('image');
+
+                // Store the file in a specific directory and get its path
+                $path = $file->store('uploads/plantManagement/plantDiseases', 'public');
+
+                // Save the file path to the $data array
+                $data['image'] = $path;
+            }
+
+            // Save data
+            PlantDiseasesImage::create($data);
+
+            return back()->with('success', 'Image added successfully!');
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+        }
+    }
+
+    public function ViewPlantDiseasesImageAll($diseasesId)
+{
+    try {
+        // Fetch gallery data related to the specific gardenId
+        $plant_diseases_images = PlantDiseasesImage::where('diseasesId', $diseasesId)->get();
+
+        return view('AdminArea.Pages.PlantManagement.viewPlantDiseasesImage', compact('plant_diseases_images'));
+    } catch (\Exception $e) {
+        // Handle any errors that occur
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+public function ViewPlantDiseasesImageDelete(Request $request)
+{
+    try {
+        // Validate the request
+        $request->validate([
+            'id' => 'required|integer|exists:plant_diseases_images,id',
+        ]);
+
+        // Find the student by ID
+        $plant_diseases_images = PlantDiseasesImage::findOrFail($request->id);
+
+        // Delete the associated image if it exists
+        if ($plant_diseases_images->image && file_exists(public_path('uploads/' . $plant_diseases_images->image))) {
+            unlink(public_path('uploads/' . $plant_diseases_images->image));
+        }
+
+        // Delete the student record
+        $plant_diseases_images->delete();
+
+        // Return success response
+        return back()->with('success', 'Image deleted successfully!');
+    } catch (\Exception $e) {
+        // Return error response
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
     }
 }
 }

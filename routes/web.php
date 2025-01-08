@@ -230,4 +230,17 @@ Route::prefix('PlantManagement')->group(function () {
 
     Route::get('/isPrimary/{id}', [PlantManagementController::class, 'IsPrimary'])->name('PlantManagement.isPrimary');
 
+    Route::get('/plantDiseasesAll', [PlantManagementController::class, "PlantDiseasesAll"])->name('PlantManagement.plantDiseasesAll');
+    Route::post('/plantDiseasesAdd', [PlantManagementController::class, 'PlantDiseasesAdd'])->name('PlantManagement.plantDiseasesAdd');
+    Route::post('/plantDiseasesDelete', [PlantManagementController::class, 'PlantDiseasesDelete'])->name('PlantManagement.plantDiseasesDelete');
+    Route::post('/plantDiseasesUpdate', [PlantManagementController::class, 'PlantDiseasesUpdate'])->name('PlantManagement.plantDiseasesUpdate');
+
+    Route::post('/plantDiseasesImageAdd', [PlantManagementController::class, 'PlantDiseasesImageAdd'])->name('PlantManagement.plantDiseasesImageAdd');
+
+    Route::get('/viewPlantDiseasesImageAll/{diseasesId}', [PlantManagementController::class, "ViewPlantDiseasesImageAll"])->name('PlantManagement.ViewPlantDiseasesImageAll');
+    Route::post('/viewPlantDiseasesImageDelete', [PlantManagementController::class, 'ViewPlantDiseasesImageDelete'])->name('PlantManagement.viewPlantDiseasesImageDelete');
+
+
+
+
 });
