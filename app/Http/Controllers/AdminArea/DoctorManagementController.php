@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Doctor;
 use App\Models\Specialzation;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class DoctorManagementController extends Controller
@@ -179,4 +180,103 @@ public function DoctorAdd(Request $request)
             return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
         }
     }
+
+    public function DoctorUpdate(Request $request)
+{
+    // Find the gallery item by ID
+    $doctors = Doctor::find($request->id);
+
+    // Validate inputs
+    $request->validate([
+
+        'name' => 'required|string|max:255', // Name should be a string with max length
+        'email' => 'required|email|unique:doctors,email', // Ensure email is unique and valid
+        'phoneNo' => 'required|string|regex:/^[0-9]{10}$/', // Phone number validation (e.g., 10 digits)
+        'gender' => 'required', // Gender can be one of male, female, or other
+        'profilePicture' => 'nullable|image|mimes:jpg,png,jpeg|max:2048', // Optional image field
+        'specializationId' => 'required|string|exists:specialzations,specializationId',
+        'yearsOfExperience' => 'required|integer|min:0', // Years of experience must be a non-negative integer
+        'qualification' => 'required|string|max:500', // Qualification should be a string
+        'registerNo' => 'required|string|max:255|unique:doctors,registerNo', // Ensure registerNo is unique
+        'workplaceName' => 'required|string|max:255', // Workplace name should be a string
+        'availableDays' => 'required', // Available days should be an array with at least one value
+        'consultationStartTime' => 'required', // Start time should follow HH:mm format
+        'consultationEndTime' => 'required', // End time should be after start time
+        'description' => 'required|string|max:1000', // Description should be a string with a max length
+    ], [
+
+        'email.unique' => 'The email address is already registered.',
+        'registerNo.unique' => 'The registration number must be unique.',
+        'phoneNo.regex' => 'The phone number must be a valid 10-digit number.',
+
+    ]);
+
+    try {
+        $data = $request->all();
+
+        // Handle image upload using Laravel Storage
+        if ($request->hasFile('profilePicture')) {
+            // Delete the old profilePicture if it exists
+            if ($doctors->profilePicture) {
+                Storage ::disk('public')->delete($doctors->profilePicture);
+            }
+
+            // Store the new profilePicture in 'uploads/profilePictures'
+            $data['profilePicture'] = $request->file('profilePicture')->store('uploads/doctor', 'public');
+        } else {
+            // Retain the existing profilePicture path if no new profilePicture is uploaded
+            $data['profilePicture'] = $doctors->profilePicture;
+        }
+
+        // Update employee details
+        $doctors->update([
+            'name' => $data['name'],
+            'email' => $data['email'],
+            'phoneNo' => $data['phoneNo'],
+            'gender' => $data['gender'],
+            'profilePicture' => $data['profilePicture'],
+            'specializationId' => $data['specializationId'],
+            'yearsOfExperience' => $data['yearsOfExperience'],
+            'qualification' => $data['qualification'],
+            'registerNo' => $data['registerNo'],
+            'workplaceName' => $data['workplaceName'],
+            'availableDays' => $data['availableDays'],
+            'consultationStartTime' => $data['consultationStartTime'],
+            'consultationEndTime' => $data['consultationEndTime'],
+            'description' => $data['description'],
+        ]);
+
+        return redirect()->back()->with('success', 'Doctor updated successfully!');
+    } catch (\Exception $e) {
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+public function DoctorDelete(Request $request)
+{
+    try {
+        // Validate the request
+        $request->validate([
+            'id' => 'required|integer|exists:doctors,id',
+        ]);
+
+        // Find the student by ID
+        $doctors = Doctor::findOrFail($request->id);
+
+        // Delete the associated image if it exists
+        if ($doctors->profilePicture && file_exists(public_path('uploads/' . $doctors->profilePicture))) {
+            unlink(public_path('uploads/' . $doctors->profilePicture));
+        }
+
+        // Delete the student record
+        $doctors->delete();
+
+        // Return success response
+        return back()->with('success', 'Doctor deleted successfully!');
+    } catch (\Exception $e) {
+        // Return error response
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
 }
