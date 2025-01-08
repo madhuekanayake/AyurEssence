@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminArea\TodoController;
 use App\Http\Controllers\AdminArea\EmployeeController;
 use App\Http\Controllers\AdminArea\GalleryController;
 use App\Http\Controllers\AdminArea\LocationController;
+use App\Http\Controllers\AdminArea\PlantManagementController;
 use App\Http\Controllers\AdminArea\ProductManagementController;
 use App\Http\Controllers\AdminArea\ServiceController;
 use App\Http\Controllers\AdminArea\SettingController;
@@ -208,4 +209,12 @@ Route::prefix('DoctorManagement')->group(function () {
     Route::post('/doctorDelete', [DoctorManagementController::class, 'DoctorDelete'])->name('DoctorManagement.doctorDelete');
     Route::post('/doctorUpdate', [DoctorManagementController::class, 'DoctorUpdate'])->name('DoctorManagement.doctorUpdate');
 
+});
+
+Route::prefix('PlantManagement')->group(function () {
+
+    Route::get('/plantCategoryAll', [PlantManagementController::class, "PlantCategoryAll"])->name('PlantManagement.plantCategoryAll');
+    Route::post('/plantCategoryAdd', [PlantManagementController::class, 'PlantCategoryAdd'])->name('PlantManagement.plantCategoryAdd');
+    Route::post('/plantCategoryDelete', [PlantManagementController::class, 'PlantCategoryDelete'])->name('PlantManagement.plantCategoryDelete');
+    Route::post('/plantCategoryUpdate', [PlantManagementController::class, 'PlantCategoryUpdate'])->name('PlantManagement.plantCategoryUpdate');
 });

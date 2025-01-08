@@ -55,10 +55,10 @@
                                                     </button>
 
                                                     <a
-                                                    href="{{ route('Treatment.viewTreatmentImageAll', $treatment->treatmentId) }}">
-                                                    <i class="fas fa-eye menu-icon"></i>
+                                                        href="{{ route('Treatment.viewTreatmentImageAll', $treatment->treatmentId) }}">
+                                                        <i class="fas fa-eye menu-icon"></i>
 
-                                                </a>
+                                                    </a>
 
 
                                                 </td>
@@ -75,7 +75,7 @@
                                                     </button>
 
                                                     <button type="button" class="btn btn-link text-primary p-0 mr-2"
-                                                        onclick="viewTreatment({{ $treatment->id }}, {{ $treatment->name }}, {{ $treatment->description }}, {{ $treatment->content }}, {{ $treatment->ingredients }}, {{ $treatment->benefits }})">
+                                                        onclick="viewTreatment('{{ $treatment->id }}', '{{ $treatment->name }}', '{{ $treatment->description }}', '{{ $treatment->content }}', '{{ $treatment->ingredients }}', '{{ $treatment->benefits }}')">
                                                         <i class="fas fa-arrow-right menu-icon"></i>
                                                     </button>
 
@@ -139,7 +139,8 @@
 
                             <div class="form-group col-md-12">
                                 <label for="benefits">Benefits <span style="color: red;">*</span></label>
-                                <textarea class="form-control" id="benefits" name="benefits" rows="3" placeholder="Treatment Benefits" required></textarea>
+                                <textarea class="form-control" id="benefits" name="benefits" rows="3" placeholder="Treatment Benefits"
+                                    required></textarea>
                             </div>
                         </div>
                         <button type="submit" class="btn btn-primary">Save</button>
@@ -162,7 +163,8 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('Treatment.update') }}" method="POST" enctype="multipart/form-data" id="editTreatmentForm">
+                    <form action="{{ route('Treatment.update') }}" method="POST" enctype="multipart/form-data"
+                        id="editTreatmentForm">
 
                         @csrf
                         <input type="hidden" name="id" id="edit_treatment_id">
@@ -299,43 +301,40 @@
 
     {{-- Add Image Modal --}}
     <div class="modal fade" id="uploadImageModal" tabindex="-1" role="dialog" aria-labelledby="uploadImageLabel"
-    aria-hidden="true">
-    <div class="modal-dialog modal-md" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="uploadImageLabel">Upload Treatment Image</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form action="{{ route('Treatment.treatmentImageAdd') }}" method="POST" enctype="multipart/form-data"
-                    id="uploadImageForm">
-                    @csrf
-                    <input type="hidden" id="uploadTreatmentId" name="treatmentId">
-                    <div class="form-group">
-                        <label for="image">Select Image <span style="color: red;">*</span></label>
-                        <input type="file" class="form-control" id="image" name="image" required
-                            accept="image/*">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Upload</button>
-                    <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
-                </form>
+        aria-hidden="true">
+        <div class="modal-dialog modal-md" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="uploadImageLabel">Upload Treatment Image</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form action="{{ route('Treatment.treatmentImageAdd') }}" method="POST"
+                        enctype="multipart/form-data" id="uploadImageForm">
+                        @csrf
+                        <input type="hidden" id="uploadTreatmentId" name="treatmentId">
+                        <div class="form-group">
+                            <label for="image">Select Image <span style="color: red;">*</span></label>
+                            <input type="file" class="form-control" id="image" name="image" required
+                                accept="image/*">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Upload</button>
+                        <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
-</div>
-
 @endsection
 
 @push('js')
-
-<script>
-    function openUploadImageModal(treatmentId) {
-    document.getElementById('uploadTreatmentId').value = treatmentId;
-}
-
-</script>
+    <script>
+        function openUploadImageModal(treatmentId) {
+            document.getElementById('uploadTreatmentId').value = treatmentId;
+        }
+    </script>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
@@ -351,59 +350,63 @@
         });
 
         function editTreatment(id, name, description, content, ingredients, benefits) {
-    // Set the values of the inputs in the modal
-    document.getElementById('edit_treatment_id').value = id;
-    document.getElementById('edit_treatment_name').value = name;
-    document.getElementById('edit_treatment_description').value = description;
-    document.getElementById('edit_treatment_content').value = content;
-    document.getElementById('edit_treatment_ingredients').value = ingredients;
-    document.getElementById('edit_treatment_benefits').value = benefits;
+            // Set the values of the inputs in the modal
+            document.getElementById('edit_treatment_id').value = id;
+            document.getElementById('edit_treatment_name').value = name;
+            document.getElementById('edit_treatment_description').value = description;
+            document.getElementById('edit_treatment_content').value = content;
+            document.getElementById('edit_treatment_ingredients').value = ingredients;
+            document.getElementById('edit_treatment_benefits').value = benefits;
 
-    // If Quill editor exists, set its content
-    if (quillEditTreatment) {
-        quillEditTreatment.root.innerHTML = content;
-    }
+            // If Quill editor exists, set its content
+            if (quillEditTreatment) {
+                quillEditTreatment.root.innerHTML = content;
+            }
 
-    // Show the edit modal
-    $('#editTreatmentModal').modal('show');
-}
-
-document.addEventListener('DOMContentLoaded', () => {
-    let quillEditTreatment = null;
-
-    $('#editTreatmentModal').on('shown.bs.modal', function () {
-        // Initialize Quill editor if not already initialized
-        if (!quillEditTreatment) {
-            quillEditTreatment = new Quill('#edit_treatment_quillEditor', {
-                theme: 'snow',
-                placeholder: 'Enter treatment content here...',
-                modules: {
-                    toolbar: [
-                        ['bold', 'italic', 'underline'],
-                        [{ list: 'ordered' }, { list: 'bullet' }],
-                        ['link', 'image'],
-                        ['clean'],
-                    ],
-                },
-            });
+            // Show the edit modal
+            $('#editTreatmentModal').modal('show');
         }
 
-        // Set the content from the hidden input when modal opens
-        const contentInput = document.getElementById('edit_treatment_content');
-        quillEditTreatment.root.innerHTML = contentInput.value || '';
+        document.addEventListener('DOMContentLoaded', () => {
+            let quillEditTreatment = null;
 
-        // Update hidden input when Quill content changes
-        quillEditTreatment.on('text-change', function() {
-            contentInput.value = quillEditTreatment.root.innerHTML;
+            $('#editTreatmentModal').on('shown.bs.modal', function() {
+                // Initialize Quill editor if not already initialized
+                if (!quillEditTreatment) {
+                    quillEditTreatment = new Quill('#edit_treatment_quillEditor', {
+                        theme: 'snow',
+                        placeholder: 'Enter treatment content here...',
+                        modules: {
+                            toolbar: [
+                                ['bold', 'italic', 'underline'],
+                                [{
+                                    list: 'ordered'
+                                }, {
+                                    list: 'bullet'
+                                }],
+                                ['link', 'image'],
+                                ['clean'],
+                            ],
+                        },
+                    });
+                }
+
+                // Set the content from the hidden input when modal opens
+                const contentInput = document.getElementById('edit_treatment_content');
+                quillEditTreatment.root.innerHTML = contentInput.value || '';
+
+                // Update hidden input when Quill content changes
+                quillEditTreatment.on('text-change', function() {
+                    contentInput.value = quillEditTreatment.root.innerHTML;
+                });
+            });
+
+            // Add form submit handler to ensure Quill content is included
+            document.getElementById('editTreatmentForm').addEventListener('submit', function(e) {
+                const contentInput = document.getElementById('edit_treatment_content');
+                contentInput.value = quillEditTreatment.root.innerHTML;
+            });
         });
-    });
-
-    // Add form submit handler to ensure Quill content is included
-    document.getElementById('editTreatmentForm').addEventListener('submit', function(e) {
-        const contentInput = document.getElementById('edit_treatment_content');
-        contentInput.value = quillEditTreatment.root.innerHTML;
-    });
-});
 
 
         document.addEventListener('DOMContentLoaded', () => {
@@ -490,6 +493,4 @@ document.addEventListener('DOMContentLoaded', () => {
             $('#deleteTreatmentModal').modal('show');
         }
     </script>
-
-
 @endpush
