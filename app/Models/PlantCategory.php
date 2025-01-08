@@ -16,4 +16,9 @@ class PlantCategory extends Model
 
 
     ];
+
+    public function plants()
+{
+    return $this->hasMany(Plant::class, 'plantCategoryId', 'plantCategoryId');
+}
 }

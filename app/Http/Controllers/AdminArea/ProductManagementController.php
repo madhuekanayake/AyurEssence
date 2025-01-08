@@ -216,11 +216,6 @@ public function ProductUpdate(Request $request)
     }
 }
 
-
-
-
-
-
     public function ProductDelete(Request $request)
 {
     try {

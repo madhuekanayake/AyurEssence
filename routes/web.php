@@ -217,4 +217,17 @@ Route::prefix('PlantManagement')->group(function () {
     Route::post('/plantCategoryAdd', [PlantManagementController::class, 'PlantCategoryAdd'])->name('PlantManagement.plantCategoryAdd');
     Route::post('/plantCategoryDelete', [PlantManagementController::class, 'PlantCategoryDelete'])->name('PlantManagement.plantCategoryDelete');
     Route::post('/plantCategoryUpdate', [PlantManagementController::class, 'PlantCategoryUpdate'])->name('PlantManagement.plantCategoryUpdate');
+
+    Route::get('/plantAll', [PlantManagementController::class, "PlantAll"])->name('PlantManagement.plantAll');
+    Route::post('/plantAdd', [PlantManagementController::class, 'PlantAdd'])->name('PlantManagement.plantAdd');
+    Route::post('/plantDelete', [PlantManagementController::class, 'PlantDelete'])->name('PlantManagement.plantDelete');
+    Route::post('/plantUpdate', [PlantManagementController::class, 'PlantUpdate'])->name('PlantManagement.plantUpdate');
+
+    Route::post('/plantImageAdd', [PlantManagementController::class, 'PlantImageAdd'])->name('PlantManagement.plantImageAdd');
+
+    Route::get('/viewPlantImageAll/{planttId}', [PlantManagementController::class, "ViewPlantImageAll"])->name('PlantManagement.viewPlantImageAll');
+    Route::post('/viewPlantImageDelete', [PlantManagementController::class, 'ViewPlantImageDelete'])->name('PlantManagement.viewPlantImageDelete');
+
+    Route::get('/isPrimary/{id}', [PlantManagementController::class, 'IsPrimary'])->name('PlantManagement.isPrimary');
+
 });
