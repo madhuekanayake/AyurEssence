@@ -411,7 +411,7 @@
         <div class="collapse" id="page-layouts">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="{{ route('PlantManagement.plantCategoryAll') }}">Add Category</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/layout/rtl-layout.html">Add Plants</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('PlantManagement.plantAll') }}">Add Plants</a></li>
             <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="pages/layout/horizontal-menu.html">Horizontal Menu</a></li>
           </ul>
         </div>
