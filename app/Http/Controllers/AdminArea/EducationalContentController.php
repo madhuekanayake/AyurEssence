@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\AyurvedaGuide;
 use App\Models\Blog;
 use App\Models\BlogImage;
+use App\Models\ConservationAwareness;
 use App\Models\MeetingAndEvent;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -454,6 +455,105 @@ public function MeetingAndEventAdd(Request $request)
 
         // Return success response
         return back()->with('success', 'Blog deleted successfully!');
+    } catch (\Exception $e) {
+        // Return error response with more descriptive message
+        return back()->withErrors(['error' => 'An error occurred while deleting the blog: ' . $e->getMessage()]);
+    }
+}
+
+public function ConservationAwarenessAll()
+{
+    try {
+        // Fetch all gallery data
+        $conservation_awarenesses = ConservationAwareness::all();
+
+        return view('AdminArea.Pages.EducationalContent.conservationAwarenesses', compact('conservation_awarenesses'));
+
+
+    } catch (\Exception $e) {
+        // Handle any errors that occur
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+public function ConservationAwarenessAdd(Request $request)
+{
+    // Validate input data
+    $request->validate([
+        'endangeredStatus' => 'required|string|max:255', // Ensure status is required and valid string
+        'sustainableHarvesting' => 'required', // Must be a boolean value
+        'reforestationProjects' => 'required|string|max:500', // Ensure this field is required and limited to 500 characters
+        'biodiversityImportance' => 'required|string|max:1000', // Ensure this field is required and has a maximum length of 1000 characters
+    ]);
+
+    try {
+        $data = $request->all();
+
+        // Generate a unique blog ID
+        $data['conservationAwarenessesId'] = 'CA' . Str::random(6); // Random 6-character string with prefix
+
+        // Save blog data
+        ConservationAwareness::create($data);
+
+        return back()->with('success', 'Conservation Awarenesses added successfully!');
+    } catch (\Exception $e) {
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+public function ConservationAwarenessUpdate(Request $request)
+{
+    // Find the hospital by ID
+    $conservation_awarenesses = ConservationAwareness::find($request->id);
+
+    if (!$conservation_awarenesses) {
+        return back()->withErrors(['error' => 'Conservation Awarenesses Guide not found!']);
+    }
+
+    // Validate inputs
+    $request->validate([
+        'endangeredStatus' => 'required|string|max:255', // Ensure status is required and valid string
+        'sustainableHarvesting' => 'required', // Must be a boolean value
+        'reforestationProjects' => 'required|string|max:500', // Ensure this field is required and limited to 500 characters
+        'biodiversityImportance' => 'required|string|max:1000', // Ensure this field is required and has a maximum length of 1000 characters
+    ]);
+
+
+    try {
+        // Prepare data for update
+        $data = [
+            'endangeredStatus' => $request->endangeredStatus,
+            'sustainableHarvesting' => $request->sustainableHarvesting,
+            'reforestationProjects' => $request->reforestationProjects,
+            'biodiversityImportance' => $request->biodiversityImportance,
+
+        ];
+
+        // Update hospital details
+        $conservation_awarenesses->update($data); // Using the update method to save changes
+
+        return redirect()->back()->with('success', 'Conservation Awarenesses updated successfully!');
+    } catch (\Exception $e) {
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+public function ConservationAwarenessDelete(Request $request)
+{
+    try {
+        // Validate the request
+        $request->validate([
+            'id' => 'required|integer|exists:conservation_awarenesses,id', // Ensure the `blogs` table and `id` column are correct
+        ]);
+
+        // Find the hospital by ID
+        $conservation_awarenesses = ConservationAwareness::findOrFail($request->id); // Find the hospital by ID
+
+        // Delete the hospital record
+        $conservation_awarenesses->delete();
+
+        // Return success response
+        return back()->with('success', 'Conservation Awarenesses deleted successfully!');
     } catch (\Exception $e) {
         // Return error response with more descriptive message
         return back()->withErrors(['error' => 'An error occurred while deleting the blog: ' . $e->getMessage()]);

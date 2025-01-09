@@ -174,6 +174,11 @@ Route::prefix('EducationalContent')->group(function () {
     Route::post('/meetingAndEventDelete', [EducationalContentController::class, 'MeetingAndEventDelete'])->name('EducationalContent.meetingAndEventDelete');
     Route::post('/meetingAndEventUpdate', [EducationalContentController::class, 'MeetingAndEventUpdate'])->name('EducationalContent.meetingAndEventUpdate');
 
+    Route::get('/conservationAwarenessAll', [EducationalContentController::class, "ConservationAwarenessAll"])->name('EducationalContent.conservationAwarenessAll');
+    Route::post('/conservationAwarenessAdd', [EducationalContentController::class, 'ConservationAwarenessAdd'])->name('EducationalContent.conservationAwarenessAdd');
+    Route::post('/conservationAwarenessDelete', [EducationalContentController::class, 'ConservationAwarenessDelete'])->name('EducationalContent.conservationAwarenessDelete');
+    Route::post('/conservationAwarenessUpdate', [EducationalContentController::class, 'ConservationAwarenessUpdate'])->name('EducationalContent.conservationAwarenessUpdate');
+
 });
 
 Route::prefix('ProductManagement')->group(function () {
