@@ -30,7 +30,7 @@
                                         <th>ID</th>
 
                                         <th>Image</th>
-                                        {{-- <th>Status</th> --}}
+                                        <th>Status</th>
 
                                         <th>Actions</th>
                                     </tr>
@@ -52,21 +52,21 @@
                                                 $hasActive = $plant_diseases_images->contains('isPrimary', 1);
                                             @endphp
 
-                                            {{-- <td>
+                                            <td>
                                                 @if ($item->isPrimary == 1)
                                                     <span class="badge badge-pill badge-soft-success font-size-12 rounded-pill">Primary</span>
-                                                    <a href="{{ route('PlantManagement.isPrimary', $item->id) }}" class="text-danger ms-2">
+                                                    <a href="{{ route('PlantManagement.plantDiseasesIsPrimary', $item->id) }}" class="text-danger ms-2">
                                                         <i class="fas fa-toggle-on fa-lg"></i>
                                                     </a>
                                                 @else
                                                     <span class="badge badge-pill badge-soft-danger font-size-12 rounded-pill">Secondary</span>
-                                                    <a href="{{ route('PlantManagement.isPrimary', $item->id) }}"
+                                                    <a href="{{ route('PlantManagement.plantDiseasesIsPrimary', $item->id) }}"
                                                        class="text-primary ms-2 {{ $hasActive ? 'disabled' : '' }}"
                                                        style="{{ $hasActive ? 'pointer-events: none; opacity: 0.5;' : '' }}">
                                                         <i class="fas fa-toggle-off fa-lg"></i>
                                                     </a>
                                                 @endif
-                                            </td> --}}
+                                            </td>
                                             </td>
 
                                             <td>

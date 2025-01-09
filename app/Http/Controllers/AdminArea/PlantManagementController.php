@@ -203,7 +203,7 @@ public function PlantUpdate(Request $request)
     $request->validate([
         'edit_plantname' => 'required|string|max:255',
         'edit_scientificName' => 'required|string|max:255',
-        'edit_plantCategoryId' => 'required|string|exists:plant_categories,plantCategoryId',
+        'edit_plantCategoryId' => 'required',
         'edit_availability' => 'required|boolean', // Assuming availability is a Yes/No field
         'edit_growthRequirements' => 'nullable|string|max:1000',
         'edit_geographicalDistribution' => 'nullable|string|max:1000',
@@ -552,6 +552,31 @@ public function ViewPlantDiseasesImageDelete(Request $request)
     } catch (\Exception $e) {
         // Return error response
         return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+public function PlantDiseasesIsPrimary($id)
+{
+    try {
+        $item = PlantDiseasesImage::findOrFail($id);
+
+        if ($item->isPrimary == 0) {
+            // Deactivate all other records
+            PlantDiseasesImage::where('id', '!=', $id)->update(['isPrimary' => 0]);
+
+            // Activate the selected record
+            $item->isPrimary = 1;
+        } else {
+            // Deactivate the current record
+            $item->isPrimary = 0;
+        }
+
+        $item->save();
+
+        $message = $item->isPrimary ? 'Item activated successfully!' : 'Item deactivated successfully!';
+        return redirect()->back()->with('success', $message);
+    } catch (\Exception $e) {
+        return redirect()->back()->with('error', 'Something went wrong!');
     }
 }
 }

@@ -12,7 +12,8 @@ class PlantDiseasesImage extends Model
         'plantDiseasesImageId',
         'diseasesId',
         'image',
-        
+        'isPrimary',
+
 
     ];
 }
