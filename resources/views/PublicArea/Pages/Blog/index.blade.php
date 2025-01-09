@@ -104,6 +104,39 @@
                                 </div>
                             </div><!-- featured-imagebox-post end -->
                         </div>
+                        <tbody>
+                            @foreach ($blogs as $blog)
+                                <tr>
+                                    <td>{{ $loop->iteration }}</td>
+                                    <td>{{ $blog->id }}</td>
+                                    <td>{{ $blog->title }}</td>
+                                    <td>{{ Str::limit(strip_tags($blog->content), 50) }}</td>
+                                    <td>{{ $blog->date }}</td>
+                                    <td>{{ $blog->description }}</td>
+
+                                    <td>
+                                        <button type="button" class="btn btn-link text-primary p-0 mr-2"
+                                            onclick="addImage(
+                                                '{{ $blog->id }}',
+                                                '{{ $blog->blogId }}',
+
+                                            )">
+                                            <i class="fas fa-plus-circle menu-icon"></i>
+                                        </button>
+
+                                        <a href="{{ route('EducationalContent.viewBlogImageAll', $blog->blogId) }}">
+                                            <i class="fas fa-eye menu-icon"></i>
+
+
+                                        </a>
+
+                                    </td>
+                                    
+
+
+                                </tr>
+                            @endforeach
+                        </tbody>
                         <div class="col-lg-4 col-md-4 col-sm-12">
                             <!-- featured-imagebox-post -->
                             <div class="featured-imagebox featured-imagebox-post style1">

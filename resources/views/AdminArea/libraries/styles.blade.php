@@ -10,6 +10,7 @@
   <link rel="shortcut icon" href="http://www.urbanui.com/" />
   <link rel="shortcut icon" href="{{ asset('AdminArea/images/favicon.png') }}" />
   <link rel="stylesheet" href="{{ asset('AdminArea/vendors/summernote/dist/summernote-bs4.css') }}">
- 
+  <link rel="shortcut icon" href="{{ asset('AdminArea/images/favicon.png') }}" />
+
 
 @stack('css')

@@ -15,7 +15,7 @@ return new class extends Migration
             $table->id();
             $table->string('plantId')->unique();
             $table->string('plantname')->nullable();
-            $table->string('plantCategoryId')->unique();
+            $table->string('plantCategoryId')->nullable();
             $table->string('medicalUses')->nullable();
             $table->string('scientificName')->nullable();
             $table->string('growthRequirements')->nullable();

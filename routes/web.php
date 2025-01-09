@@ -9,6 +9,7 @@ use App\Http\Controllers\AdminArea\TodoController;
 use App\Http\Controllers\AdminArea\EmployeeController;
 use App\Http\Controllers\AdminArea\GalleryController;
 use App\Http\Controllers\AdminArea\LocationController;
+use App\Http\Controllers\AdminArea\LoginController;
 use App\Http\Controllers\AdminArea\PlantManagementController;
 use App\Http\Controllers\AdminArea\ProductManagementController;
 use App\Http\Controllers\AdminArea\ServiceController;
@@ -39,6 +40,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/', [HomeController::class, 'index']);
+
 Route::get('/blog', [BlogController::class, 'index']);
 // Route::get('/service', [ServiceController::class, 'index']);
 Route::get('/aboutUs', [AboutUsController::class, 'index']);
@@ -58,10 +60,24 @@ Route::post('/add', [EmployeeController::class, 'store']);
 Route::post('/delete', [EmployeeController::class, 'delete']);
 Route::post('/update', [EmployeeController::class, 'update']);
 
+Route::prefix('CustomerBlog')->group(function () {
+
+    Route::get('/all', [BlogController::class, "All"])->name('CustomerBlog.all');
+
+});
+
 // Route::get('/getAllStudents', [StudentController::class, "GetAllStudents"]);
 //     Route::post('/addStudents', [StudentController::class, 'AddStudents']);
 // Route::post('/deleteStudents', [StudentController::class, 'DeleteStudents']);
 // Route::post('/updateStudents', [StudentController::class, 'UpdateStudents']);
+
+Route::prefix('AdminLogin')->group(function () {
+
+    Route::get('/index', [LoginController::class, "Index"])->name('AdminLogin.index');
+    Route::post('/login', [LoginController::class, 'Login'])->name('AdminLogin.login');
+    Route::post('/logout', [LoginController::class, 'Logout'])->name('AdminLogin.logout');
+
+});
 
 
 Route::prefix('Student')->group(function () {
@@ -240,7 +256,6 @@ Route::prefix('PlantManagement')->group(function () {
     Route::get('/viewPlantDiseasesImageAll/{diseasesId}', [PlantManagementController::class, "ViewPlantDiseasesImageAll"])->name('PlantManagement.ViewPlantDiseasesImageAll');
     Route::post('/viewPlantDiseasesImageDelete', [PlantManagementController::class, 'ViewPlantDiseasesImageDelete'])->name('PlantManagement.viewPlantDiseasesImageDelete');
 
-
-
+    Route::get('/plantDiseasesIsPrimary/{id}', [PlantManagementController::class, 'PlantDiseasesIsPrimary'])->name('PlantManagement.plantDiseasesIsPrimary');
 
 });

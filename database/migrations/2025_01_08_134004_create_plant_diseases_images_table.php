@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('plantDiseasesImageId')->unique();
             $table->string('diseasesId')->nullable();
             $table->string('image')->nullable();
+            $table->boolean('isPrimary')->default(0);
             $table->timestamps();
         });
     }
