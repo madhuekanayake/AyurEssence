@@ -427,6 +427,7 @@
             <li class="nav-item"> <a class="nav-link" href="{{ route('EducationalContent.ayurvedaGuideAll') }}">Add Ayurveda Guide</a></li>
             <li class="nav-item"> <a class="nav-link" href="{{ route('EducationalContent.blogAll') }}">Add Blogs</a></li>
             <li class="nav-item"> <a class="nav-link" href="{{ route('EducationalContent.meetingAndEventAll') }}">Meeting/ Events</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('EducationalContent.conservationAwarenessAll') }}">Conservation/ Awareness</a></li>
 
           </ul>
           </div>
