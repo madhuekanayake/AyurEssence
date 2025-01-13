@@ -299,9 +299,12 @@ public function isPrimary($id)
     try {
         $item = BlogImage::findOrFail($id);
 
+        // Check the blog ID of the selected image
+        $blogId = $item->blogId;
+
         if ($item->isPrimary == 0) {
-            // Deactivate all other records
-            BlogImage::where('id', '!=', $id)->update(['isPrimary' => 0]);
+            // Deactivate all other records for the same blogId
+            BlogImage::where('blogId', $blogId)->update(['isPrimary' => 0]);
 
             // Activate the selected record
             $item->isPrimary = 1;
@@ -312,10 +315,10 @@ public function isPrimary($id)
 
         $item->save();
 
-        $message = $item->isPrimary ? 'Item activated successfully!' : 'Item deactivated successfully!';
+        $message = $item->isPrimary ? 'Image marked as primary successfully!' : 'Image unmarked as primary successfully!';
         return redirect()->back()->with('success', $message);
     } catch (\Exception $e) {
-        return redirect()->back()->with('error', 'Something went wrong!');
+        return redirect()->back()->with('error', 'Something went wrong: ' . $e->getMessage());
     }
 }
 

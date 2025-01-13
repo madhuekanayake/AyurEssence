@@ -23,6 +23,65 @@
                 <div class="row">
                     <div class="col-12">
                         <div class="table-responsive">
+                            {{-- <table id="order-listing" class="table">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>ID</th>
+                                        <th>Image</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach ($blog_images as $item)
+                                        <tr>
+                                            <td>{{ $loop->iteration }}</td>
+                                            <td>{{ $item->id }}</td>
+
+                                            <td>
+                                                @if ($item->image)
+                                                    <img src="{{ asset('storage/' . $item->image) }}" alt="Blog Image" width="100">
+                                                @else
+                                                    No Image
+                                                @endif
+                                            </td>
+
+                                            @php
+                                                // Check if the current blog has a primary image
+                                                $hasPrimary = $blog_images->where('blogId', $item->blogId)->contains('isPrimary', 1);
+                                            @endphp
+
+                                            <td>
+                                                @if ($item->isPrimary == 1)
+                                                    <span class="badge badge-pill badge-success">Primary</span>
+                                                @else
+                                                    <span class="badge badge-pill badge-danger">Secondary</span>
+                                                @endif
+                                            </td>
+
+                                            <td>
+                                                @if ($item->isPrimary == 0 || !$hasPrimary)
+                                                    <a href="{{ route('EducationalContent.isPrimary', $item->id) }}" class="">
+                                                        <i class="fas fa-tag menu-icon"></i>
+
+
+                                                    </a>
+                                                @else
+                                                    <span class="text-muted">Cannot Change</span>
+                                                @endif
+
+                                                <button type="button" class="btn btn-link text-danger p-0" onclick="confirmDelete('{{ $item->id }}')">
+                                                    <i class="fas fa-trash menu-icon"></i>
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    @endforeach
+                                </tbody>
+
+
+                            </table> --}}
+
                             <table id="order-listing" class="table">
                                 <thead>
                                     <tr>
@@ -60,8 +119,8 @@
                                                 @else
                                                     <span class="badge badge-pill badge-soft-danger font-size-12 rounded-pill">Secondary</span>
                                                     <a href="{{ route('EducationalContent.isPrimary', $item->id) }}"
-                                                       class="text-primary ms-2 {{ $hasActive ? 'disabled' : '' }}"
-                                                       style="{{ $hasActive ? 'pointer-events: none; opacity: 0.5;' : '' }}">
+                                                        class="text-primary ms-2 {{ $hasActive ? 'disabled' : '' }}"
+                                                        style="{{ $hasActive ? 'pointer-events: none; opacity: 0.5;' : '' }}">
                                                         <i class="fas fa-toggle-off fa-lg"></i>
                                                     </a>
                                                 @endif
@@ -76,7 +135,6 @@
                                         </tr>
                                     @endforeach
                                 </tbody>
-
                             </table>
                         </div>
                     </div>
