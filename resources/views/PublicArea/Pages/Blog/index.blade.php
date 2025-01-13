@@ -78,6 +78,7 @@
                 </div>
             </section>
 
+
             <!--blog-section end-->
 
             <!-- cta-sectopn -->
@@ -144,3 +145,13 @@
         </div><!-- site-main end-->
 
 @endsection
+
+@push('css')
+<style>
+    .featured-thumbnail img {
+        border-radius: 10px; /* Adjust the value as needed */
+        overflow: hidden; /* Ensures proper rendering of rounded corners */
+    }
+</style>
+
+@endpush
