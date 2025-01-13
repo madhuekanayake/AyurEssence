@@ -17,4 +17,9 @@ class Blog extends Model
 
 
     ];
+
+    public function images()
+{
+    return $this->hasMany(BlogImage::class, 'blogId', 'blogId');
+}
 }

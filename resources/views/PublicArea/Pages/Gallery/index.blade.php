@@ -32,28 +32,40 @@
             <section class="prt-row blog-section prt-blog-single clearfix">
                 <div class="container">
                     <div class="row">
-                        <div class="container">
-                            <h1>Blogs</h1>
-                            @foreach ($blogs as $blog)
-                                <div class="blog-card">
-                                    <h2>{{ $blog->title }}</h2>
-                                    <p>{{ $blog->description }}</p>
-                                    <p><strong>Date:</strong> {{ $blog->date }}</p>
-                                    <p>{{ Str::limit(strip_tags($blog->content), 150) }} <a href="#">Read More</a></p>
-
-                                    <div class="blog-images">
-                                        @foreach ($blog->images as $image)
-                                            <img src="{{ asset('storage/' . $image->image) }}" alt="Blog Image" width="200" style="margin-right: 10px;">
-                                        @endforeach
+                        @foreach ($galleries as $item)
+                            <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
+                                <!-- featured-imagebox-post -->
+                                <div class="featured-imagebox featured-imagebox-post style1">
+                                    <div class="featured-thumbnail">
+                                        @if ($item->image)
+                                            <img width="303" height="300" class="img-fluid" src="{{ asset('storage/' . $item->image) }}" alt="Gallery Image">
+                                        @else
+                                            <img width="303" height="300" class="img-fluid" src="{{ asset('PublicArea/images/default-image.jpg') }}" alt="Default Image">
+                                        @endif
                                     </div>
-                                </div>
-                            @endforeach
-                        </div>
+                                    <!-- featured-content -->
+                                    <div class="featured-content">
+                                        <div class="featured-content-inner">
+                                            <div class="post-header">
+                                                
 
-
-                    </div>
-                </div>
+                                                <div class="post-title featured-title">
+                                                    <h3>
+                                                        <a href="{{ url('gallery-details/' . $item->id) }}">{{ $item->title }}</a>
+                                                    </h3>
+                                                </div>
+                                            </div>
+                                        </div><!-- featured-content-inner end -->
+                                    </div><!-- featured-content end -->
+                                </div><!-- featured-imagebox-post end -->
+                            </div><!-- col-lg-4 end -->
+                        @endforeach
+                    </div><!-- row end -->
+                </div><!-- container end -->
             </section>
+
+
+
             <!--blog-section end-->
 
             <!-- cta-sectopn -->

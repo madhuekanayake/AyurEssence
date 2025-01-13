@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AdminArea\AdminController;
+use App\Http\Controllers\AdminArea\CustomerManagementController;
 use App\Http\Controllers\AdminArea\DoctorManagementController;
 use App\Http\Controllers\AdminArea\EducationalContentController;
 use App\Http\Controllers\AdminArea\FormController;
@@ -19,9 +20,13 @@ use App\Http\Controllers\AdminArea\TreatmentController;
 use App\Http\Controllers\PublicArea\AboutUsController;
 use App\Http\Controllers\PublicArea\BlogController;
 use App\Http\Controllers\PublicArea\ContactUsController;
+use App\Http\Controllers\PublicArea\CustomerBlogController;
+use App\Http\Controllers\PublicArea\CustomerDoctorController;
+use App\Http\Controllers\PublicArea\CustomerGalleryController;
+use App\Http\Controllers\PublicArea\CustomerServiceController;
 use App\Http\Controllers\PublicArea\DoctorsController;
 use App\Http\Controllers\PublicArea\HomeController;
-
+use App\Http\Controllers\PublicArea\WebsiteDataController;
 // use App\Http\Controllers\PublicArea\ServiceController;
 
 use App\Models\Sample;
@@ -44,7 +49,7 @@ Route::get('/', [HomeController::class, 'index']);
 Route::get('/blog', [BlogController::class, 'index']);
 // Route::get('/service', [ServiceController::class, 'index']);
 Route::get('/aboutUs', [AboutUsController::class, 'index']);
-Route::get('/contactUs', [ContactUsController::class, 'index']);
+// Route::get('/contactUs', [ContactUsController::class, 'index']);
 Route::get('/doctors', [DoctorsController::class, 'index']);
 
 Route::get('/dashboard', [AdminController::class, 'index']);
@@ -62,9 +67,52 @@ Route::post('/update', [EmployeeController::class, 'update']);
 
 Route::prefix('CustomerBlog')->group(function () {
 
-    Route::get('/all', [BlogController::class, "All"])->name('CustomerBlog.all');
+    Route::get('/all', [CustomerBlogController::class, "All"])->name('CustomerBlog.all');
 
 });
+
+
+
+Route::prefix('CustomerService')->group(function () {
+
+    Route::get('/all', [CustomerServiceController::class, "All"])->name('CustomerService.all');
+
+});
+
+Route::prefix('CustomerGallery')->group(function () {
+
+    Route::get('/all', [CustomerGalleryController::class, "All"])->name('CustomerGallery.all');
+
+});
+
+Route::prefix('WebsiteData')->group(function () {
+
+    Route::get('/footerAll', [WebsiteDataController::class, "FooterAll"])->name('WebsiteData.footerAll');
+
+});
+
+Route::prefix('CustomerDoctor')->group(function () {
+
+    Route::get('/all', [CustomerDoctorController::class, "All"])->name('CustomerDoctor.all');
+
+    Route::get('/doctor/{id}', [CustomerDoctorController::class, 'show'])->name('CustomerDoctor.details');
+});
+
+Route::prefix('ContactUs')->group(function () {
+
+    Route::get('/all', [ContactUsController::class, "All"])->name('ContactUs.all');
+
+    Route::post('/add', [ContactUsController::class, 'Add'])->name('ContactUs.add');
+
+    Route::post('/newsLetterAdd', [ContactUsController::class, 'NewsLetterAdd'])->name('ContactUs.newsLetterAdd');
+
+});
+
+
+
+
+
+
 
 // Route::get('/getAllStudents', [StudentController::class, "GetAllStudents"]);
 //     Route::post('/addStudents', [StudentController::class, 'AddStudents']);
@@ -262,5 +310,15 @@ Route::prefix('PlantManagement')->group(function () {
     Route::post('/viewPlantDiseasesImageDelete', [PlantManagementController::class, 'ViewPlantDiseasesImageDelete'])->name('PlantManagement.viewPlantDiseasesImageDelete');
 
     Route::get('/plantDiseasesIsPrimary/{id}', [PlantManagementController::class, 'PlantDiseasesIsPrimary'])->name('PlantManagement.plantDiseasesIsPrimary');
+
+});
+
+Route::prefix('CustomerManagement')->group(function () {
+
+    Route::get('/contactUsAll', [CustomerManagementController::class, "ContactUsAll"])->name('CustomerManagement.contactUsAll');
+    Route::post('/contactUsDelete', [CustomerManagementController::class, 'ContactUsDelete'])->name('CustomerManagement.contactUsDelete');
+
+    Route::get('/newsLetterAll', [CustomerManagementController::class, "NewsLetterAll"])->name('CustomerManagement.newsLetterAll');
+    Route::post('/newsLetterDelete', [CustomerManagementController::class, 'NewsLetterDelete'])->name('CustomerManagement.newsLetterDelete');
 
 });
