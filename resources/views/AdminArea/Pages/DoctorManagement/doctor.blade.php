@@ -44,8 +44,8 @@
                                             <td>{{ $loop->iteration }}</td>
                                             <td>{{ $item->id }}</td>
                                             <td>{{ $item->name }}</td>
-                                            <td>{{ $item->email }}</td>
-                                            <td>{{ $item->gender }}</td>
+                                            <td>{{ $item->workplaceName }}</td>
+                                            <td>{{ $item->qualification }}</td>
 
 
                                             <td>
@@ -61,28 +61,28 @@
                                             <td>{{ $item->description }}</td>
                                             <td>
                                                 <button
-                                                    type="button"
-                                                    class="btn btn-link text-primary p-0 mr-2"
-                                                    onclick="editDoctor(
-                                                        `{{ $item->id }}`,
-                                                        `{{ $item->name }}`,
-                                                        `{{ $item->email }}`,
-                                                        `{{ $item->phoneNo }}`,
-                                                        `{{ $item->gender }}`,
-                                                        `{{ $item->profilePicture }}`,
-                                                        `{{ $item->specializationId }}`,
-                                                        `{{ $item->yearsOfExperience }}`,
-                                                        `{{ $item->qualification }}`,
-                                                        `{{ $item->registerNo }}`,
-                                                        `{{ $item->workplaceName }}`,
-                                                        `{{ $item->availableDays }}`,
-                                                        `{{ $item->consultationStartTime }}`,
-                                                        `{{ $item->consultationEndTime }}`,
-                                                        `{{ $item->description }}`
-                                                    )"
-                                                >
-                                                    <i class="fas fa-edit menu-icon"></i>
-                                                </button>
+                                                type="button"
+                                                class="btn btn-link text-primary p-0 mr-2"
+                                                onclick="editDoctor(
+                                                    '{{ $item->id }}',
+                                                    '{{ $item->name }}',
+                                                    '{{ $item->email }}',
+                                                    '{{ $item->phoneNo }}',
+                                                    '{{ $item->gender }}',
+                                                    '{{ $item->profilePicture }}',
+                                                    '{{ $item->specializationId }}',
+                                                    '{{ $item->yearsOfExperience }}',
+                                                    '{{ $item->qualification }}',
+                                                    '{{ $item->registerNo }}',
+                                                    '{{ $item->workplaceName }}',
+                                                    '{{ $item->availableDays }}',
+                                                    '{{ $item->consultationStartTime }}',
+                                                    '{{ $item->consultationEndTime }}',
+                                                    '{{ $item->description }}'
+                                                )"
+                                            >
+                                                <i class="fas fa-edit menu-icon"></i>
+                                            </button>
 
                                                 <button type="button" class="btn btn-link text-danger p-0"
                                                     onclick="confirmDelete('{{ $item->id }}')">
@@ -250,11 +250,11 @@
                     <!-- Row 1: Name and Email -->
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="name">Name <span style="color: red;">*</span></label>
+                            <label for="edit_name">Name <span style="color: red;">*</span></label>
                             <input type="text" class="form-control" id="edit_name" name="edit_name" placeholder="Full Name" required pattern=".*\S.*" title="Whitespace-only input is not allowed.">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="email">Email <span style="color: red;">*</span></label>
+                            <label for="edit_email">Email <span style="color: red;">*</span></label>
                             <input type="email" class="form-control" id="edit_email" name="edit_email" placeholder="Email Address" required>
                         </div>
                     </div>
@@ -262,11 +262,11 @@
                     <!-- Row 2: Phone Number and Gender -->
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="phoneNo">Phone Number <span style="color: red;">*</span></label>
+                            <label for="edit_phoneNo">Phone Number <span style="color: red;">*</span></label>
                             <input type="tel" class="form-control" id="edit_phoneNo" name="edit_phoneNo" placeholder="Phone Number" required pattern="[0-9]{10}" title="Enter a valid 10-digit phone number.">
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="gender">Gender <span style="color: red;">*</span></label>
+                            <label for="edit_gender">Gender <span style="color: red;">*</span></label>
                             <select class="form-control" id="edit_gender" name="edit_gender" required>
                                 <option value="" disabled selected>Select Gender</option>
                                 <option value="Male">Male</option>
@@ -278,11 +278,11 @@
                     <!-- Row 3: Profile Picture and Specialization -->
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="profilePicture">Profile Picture <span style="color: red;">*</span></label>
+                            <label for="edit_profilePicture">Profile Picture <span style="color: red;">*</span></label>
                             <input type="file" class="form-control" id="edit_profilePicture" name="edit_profilePicture" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="specializationId">Specialization <span class="text-danger">*</span></label>
+                            <label for="edit_specializationId">Specialization <span class="text-danger">*</span></label>
                             <select class="form-control" id="edit_specializationId" name="edit_specializationId" required>
                                 <option value="">-- Select Specialization --</option>
                                 @foreach ($specialzations as $specialization)
@@ -295,11 +295,11 @@
                     <!-- Row 4: Years of Experience and Qualification -->
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="yearsOfExperience">Years of Experience <span style="color: red;">*</span></label>
+                            <label for="edit_yearsOfExperience">Years of Experience <span style="color: red;">*</span></label>
                             <input type="number" class="form-control" id="edit_yearsOfExperience" name="edit_yearsOfExperience" placeholder="Years of Experience" required>
                         </div>
                         <div class="form-group col-md-6">
-                            <label for="qualification">Qualification <span style="color: red;">*</span></label>
+                            <label for="edit_qualification">Qualification <span style="color: red;">*</span></label>
                             <select class="form-control" id="edit_qualification" name="edit_qualification" required>
                                 <option value="" disabled selected>Select Qualification</option>
                                 <option value="BAMS">BAMS</option>
@@ -312,7 +312,7 @@
                     <!-- Row 5: Registration Number and Workplace Name -->
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="registerNo">Registration Number <span style="color: red;">*</span></label>
+                            <label for="edit_registerNo">Registration Number <span style="color: red;">*</span></label>
                             <input type="text" class="form-control" id="edit_registerNo" name="edit_registerNo" placeholder="Registration Number" required>
                         </div>
                         <div class="form-group col-md-6">
@@ -324,7 +324,7 @@
                     <!-- Row 6: Available Days and Consultation Times -->
                     <div class="form-row">
                         <div class="form-group col-md-6">
-                            <label for="availableDays">Available Days <span style="color: red;">*</span></label>
+                            <label for="edit_availableDays">Available Days <span style="color: red;">*</span></label>
                             <select class="form-control" id="edit_availableDays" name="edit_availableDays" required>
                                 <option value="" disabled selected>Select Open Days</option>
                                 <option value="Weekdays">Weekdays</option>
@@ -332,11 +332,11 @@
                             </select>
                         </div>
                         <div class="form-group col-md-3">
-                            <label for="consultationStartTime">Start Time <span style="color: red;">*</span></label>
+                            <label for="edit_consultationStartTime">Start Time <span style="color: red;">*</span></label>
                             <input type="time" class="form-control" id="edit_consultationStartTime" name="edit_consultationStartTime" required>
                         </div>
                         <div class="form-group col-md-3">
-                            <label for="consultationEndTime">End Time <span style="color: red;">*</span></label>
+                            <label for="edit_consultationEndTime">End Time <span style="color: red;">*</span></label>
                             <input type="time" class="form-control" id="edit_consultationEndTime" name="edit_consultationEndTime" required>
                         </div>
                     </div>
@@ -344,7 +344,7 @@
                     <!-- Row 7: Description -->
                     <div class="form-row">
                         <div class="form-group col-md-12">
-                            <label for="description">Description <span style="color: red;">*</span></label>
+                            <label for="edit_description">Description <span style="color: red;">*</span></label>
                             <textarea class="form-control" id="edit_description" name="edit_description" rows="3" placeholder="Brief Description about the Doctor" required></textarea>
                         </div>
                     </div>
@@ -395,14 +395,15 @@
 
 @push('js')
     <script>
-        function editDoctor(id,name,email,phoneNo,gender,profilePicture,specializationId,yearsOfExperience,qualification,registerNo,workplaceName,availableDays,consultationStartTime,consultationEndTime,description) {
+        function editDoctor(id, name, email, phoneNo, gender, profilePicture, specializationId, yearsOfExperience, qualification, registerNo, workplaceName, availableDays, consultationStartTime, consultationEndTime, description) {
     // Set the values of the inputs in the modal
-    document.getElementById('edit_doctor_id').value = id; // Assuming you have a hidden input for the doctor ID
+    document.getElementById('edit_doctor_id').value = id;
     document.getElementById('edit_name').value = name;
     document.getElementById('edit_email').value = email;
     document.getElementById('edit_phoneNo').value = phoneNo;
     document.getElementById('edit_gender').value = gender;
-    document.getElementById('edit_profilePicture').value = profilePicture; // Show preview of the profile picture
+    // Remove setting the value for profile picture as it's a file input
+    //document.getElementById('edit_profilePicture').value = profilePicture;
     document.getElementById('edit_specializationId').value = specializationId;
     document.getElementById('edit_yearsOfExperience').value = yearsOfExperience;
     document.getElementById('edit_qualification').value = qualification;

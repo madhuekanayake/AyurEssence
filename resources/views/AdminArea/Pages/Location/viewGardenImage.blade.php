@@ -5,7 +5,7 @@
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title">Gallery Data Table</h3>
+            <h3 class="page-title">Image Data Table</h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">

@@ -31,277 +31,59 @@
         <section class="prt-row team-section01 clearfix">
             <div class="container">
                 <div class="row row-equal-height" data-aos="fade-up" data-aos-duration="1000">
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-                        <!-- featured-imagebox -->
-                        <div class="featured-imagebox featured-imagebox-team style1">
-                            <div class="featured-thumbnail">
-                                <img width="303" height="327"
-                                    src="{{ asset('PublicArea/images/team-member/team-img01.png') }}" alt="image">
-                            </div>
-                            <div class="featured-content">
-                                <div class="featured-title-box">
-                                    <div class="featured-title">
-                                        <h3><a href="team-details.html">Dr. Reshta wann</a></h3>
-                                    </div>
-                                    <div class="featured-position">
-                                        <p>General doctor</p>
-                                    </div>
+                    @foreach ($doctors as $item)
+                        <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
+                            <!-- featured-imagebox -->
+                            <div class="featured-imagebox featured-imagebox-team style1">
+                                <div class="featured-thumbnail">
+                                    @if ($item->profilePicture)
+                                        <img class="doctor-image" src="{{ asset('storage/' . $item->profilePicture) }}" alt="{{ $item->name }}">
+                                    @else
+                                        <img class="doctor-image" src="{{ asset('PublicArea/images/team-member/team-img01.png') }}" alt="Default Image">
+                                    @endif
                                 </div>
-                                <div class="prt-history">
-                                    <p><i class="fa fa-check-circle"></i> 2214 Consultation done</p>
-                                    <div class="d-flex">
-                                        <span>4.8</span>
-                                        <div class="team-rating-star">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
+                                <div class="featured-content">
+                                    <div class="featured-title-box">
+                                        <div class="featured-title">
+                                            <h3><a href="team-details.html">{{ $item->name }}</a></h3>
+                                        </div>
+                                        <div class="featured-position">
+                                            <p>{{ $item->specialzations->specializationName ?? 'General doctor' }}</p>
+                                        </div>
+                                    </div>
+                                    <div class="prt-history">
+                                        <p><i class="fa fa-check-circle"></i> {{ $item->workplaceName }}</p>
+                                        <div class="d-flex">
+                                            <span>4.8</span>
+                                            <div class="team-rating-star">
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                                <i class="fas fa-star"></i>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- More Details Button -->
+                                    <div class="more-details">
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- featured-imagebox end -->
-                    </div>
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-                        <!-- featured-imagebox -->
-                        <div class="featured-imagebox featured-imagebox-team style1">
-                            <div class="featured-thumbnail">
-                                <img width="303" height="327"
-                                    src="{{ asset('PublicArea/images/team-member/team-img03.png') }}" alt="image">
-                            </div>
-                            <div class="featured-content">
-                                <div class="featured-title-box">
-                                    <div class="featured-title">
-                                        <h3><a href="team-details.html">Dr. Natalia zox</a></h3>
-                                    </div>
-                                    <div class="featured-position">
-                                        <p>Manager</p>
-                                    </div>
-                                </div>
-                                <div class="prt-history">
-                                    <p><i class="fa fa-check-circle"></i> 1086 Consultation done</p>
-                                    <div class="d-flex">
-                                        <span>4.8</span>
-                                        <div class="team-rating-star">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
 
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- featured-imagebox end -->
-                    </div>
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-                        <!-- featured-imagebox -->
-                        <div class="featured-imagebox featured-imagebox-team style1">
-                            <div class="featured-thumbnail">
-                                <img width="303" height="327"
-                                    src="{{ asset('PublicArea/images/team-member/team-img02.png') }}" alt="image">
-                            </div>
-                            <div class="featured-content">
-                                <div class="featured-title-box">
-                                    <div class="featured-title">
-                                        <h3><a href="team-details.html">Dr. Gordian mon</a></h3>
-                                    </div>
-                                    <div class="featured-position">
-                                        <p>Founder</p>
-                                    </div>
-                                </div>
-                                <div class="prt-history">
-                                    <p><i class="fa fa-check-circle"></i> 200 Consultation done</p>
-                                    <div class="d-flex">
-                                        <span>4.8</span>
-                                        <div class="team-rating-star">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
+                                        <a href="{{ route('CustomerDoctor.details', $item->id) }}" class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-darkcolor">
+                                            More Details
+                                        </a>
 
-                                        </div>
                                     </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- featured-imagebox end -->
-                    </div>
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-                        <!-- featured-imagebox -->
-                        <div class="featured-imagebox featured-imagebox-team style1">
-                            <div class="featured-thumbnail">
-                                <img width="303" height="327"
-                                    src="{{ asset('PublicArea/images/team-member/team-img04.png') }}" alt="image">
-                            </div>
-                            <div class="featured-content">
-                                <div class="featured-title-box">
-                                    <div class="featured-title">
-                                        <h3><a href="team-details.html">Dr. Broklyn simm</a></h3>
-                                    </div>
-                                    <div class="featured-position">
-                                        <p>Lab technician</p>
-                                    </div>
-                                </div>
-                                <div class="prt-history">
-                                    <p><i class="fa fa-check-circle"></i> 2015 Consultation done</p>
-                                    <div class="d-flex">
-                                        <span>4.8</span>
-                                        <div class="team-rating-star">
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
-                                            <i class="fas fa-star"></i>
 
-                                        </div>
-                                    </div>
                                 </div>
                             </div>
                         </div>
-                        <!-- featured-imagebox end -->
-                    </div>
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-                        <!-- featured-imagebox -->
-                        <div class="featured-imagebox featured-imagebox-team style1">
-                            <div class="featured-thumbnail">
-                                <img width="303" height="327"
-                                    src="{{ 'PublicArea/images/team-member/team-img05.png' }}" alt="image">
-                            </div>
-                            <div class="featured-content">
-                                <div class="featured-title-box">
-                                    <div class="featured-title">
-                                        <h3><a href="team-details.html">Dr. John martin</a></h3>
-                                    </div>
-                                    <div class="featured-position">
-                                        <p>Specialist</p>
-                                    </div>
-                                </div>
-                                <div class="prt-history">
-                                    <p><i class="fa fa-check-circle"></i> 2214 Consultation done</p>
-                                    <div class="d-flex">
-                                        <span>4.8</span>
-                                        <div class="team-rating-star">
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- featured-imagebox end -->
-                    </div>
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-                        <!-- featured-imagebox -->
-                        <div class="featured-imagebox featured-imagebox-team style1">
-                            <div class="featured-thumbnail">
-                                <img width="303" height="327"
-                                    src="{{ asset('PublicArea/images/team-member/team-img06.png') }}" alt="image">
-                            </div>
-                            <div class="featured-content">
-                                <div class="featured-title-box">
-                                    <div class="featured-title">
-                                        <h3><a href="team-details.html">Dr. Sarah rose</a></h3>
-                                    </div>
-                                    <div class="featured-position">
-                                        <p>Director</p>
-                                    </div>
-                                </div>
-                                <div class="prt-history">
-                                    <p><i class="fa fa-check-circle"></i> 1086 Consultation done</p>
-                                    <div class="d-flex">
-                                        <span>4.8</span>
-                                        <div class="team-rating-star">
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- featured-imagebox end -->
-                    </div>
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-                        <!-- featured-imagebox -->
-                        <div class="featured-imagebox featured-imagebox-team style1">
-                            <div class="featured-thumbnail">
-                                <img width="303" height="327"
-                                    src="{{ asset('PublicArea/images/team-member/team-img07.png') }}" alt="image">
-                            </div>
-                            <div class="featured-content">
-                                <div class="featured-title-box">
-                                    <div class="featured-title">
-                                        <h3><a href="team-details.html">Alex martin</a></h3>
-                                    </div>
-                                    <div class="featured-position">
-                                        <p>General doctor</p>
-                                    </div>
-                                </div>
-                                <div class="prt-history">
-                                    <p><i class="fa fa-check-circle"></i> 200 Consultation done</p>
-                                    <div class="d-flex">
-                                        <span>4.8</span>
-                                        <div class="team-rating-star">
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- featured-imagebox end -->
-                    </div>
-                    <div class="col-xl-3 col-lg-6 col-md-6 col-sm-12">
-                        <!-- featured-imagebox -->
-                        <div class="featured-imagebox featured-imagebox-team style1">
-                            <div class="featured-thumbnail">
-                                <img width="303" height="327"
-                                    src="{{ asset('PublicArea/images/team-member/team-img08.png') }}" alt="image">
-                            </div>
-                            <div class="featured-content">
-                                <div class="featured-title-box">
-                                    <div class="featured-title">
-                                        <h3><a href="team-details.html">Dr. David Coper</a></h3>
-                                    </div>
-                                    <div class="featured-position">
-                                        <p>General doctor</p>
-                                    </div>
-                                </div>
-                                <div class="prt-history">
-                                    <p><i class="fa fa-check-circle"></i> 2015 Consultation done</p>
-                                    <div class="d-flex">
-                                        <span>4.8</span>
-                                        <div class="team-rating-star">
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                            <i class="fa fa-star" aria-hidden="true"></i>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- featured-imagebox end -->
-                    </div>
+                    @endforeach
                 </div>
             </div>
         </section>
+
+
+
         <!-- team-section end -->
 
         <!--cta-section-->

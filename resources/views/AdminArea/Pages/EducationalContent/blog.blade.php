@@ -27,7 +27,7 @@
                                         <tr>
                                             <th>#</th>
                                             <th>ID</th>
-                                            <th>Guide Title</th>
+                                            <th>Title</th>
                                             <th>Content</th>
                                             <th>Date</th>
                                             <th>Description</th>

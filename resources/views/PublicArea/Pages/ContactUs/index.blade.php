@@ -180,39 +180,41 @@
                         <div class="col-xl-10 col-lg-12 m-auto">
                             <div class="prt-contactblock">
                                 <h3>Request a quote</h3>
-                                <p>Your inquiries matter to us and please don't hesitate to reach out today and let<br> begin a conversion leading you to the best solutions.</p>
-                                <form action="#" class="query_form-2 wrap-form clearfix mt-25" method="post">
+                                <p>Your inquiries matter to us. Please don't hesitate to reach out today and let<br> us begin a conversation leading you to the best solutions.</p>
+                                <form action="{{ route('ContactUs.add') }}" class="query_form-2 wrap-form clearfix mt-25" method="POST">
+                                    @csrf
                                     <div class="row">
                                         <div class="col-md-4">
                                             <span class="text-input">
-                                                <input name="name" type="text" value="" placeholder="Your name" required="required">
+                                                <input name="name" type="text"  placeholder="Your name" required>
                                             </span>
                                         </div>
                                         <div class="col-md-4">
                                             <span class="text-input">
-                                                <input name="email" type="text" value="" placeholder="Your email" required="required">
+                                                <input name="email" type="email"  placeholder="Your email" required>
                                             </span>
                                         </div>
                                         <div class="col-md-4">
                                             <span class="text-input">
-                                                <input name="phone" type="text" value="" placeholder="Phone number" required="required">
+                                                <input name="phoneNo" type="text"  placeholder="Phone number" required>
                                             </span>
                                         </div>
                                         <div class="col-md-12">
-                                           <span class="text-input">
-                                                <textarea name="message" rows="4" placeholder="Your message" required="required"></textarea>
+                                            <span class="text-input">
+                                                <textarea name="massage" rows="4" placeholder="Your massage" required></textarea>
                                             </span>
                                         </div>
+
                                         <div class="col-md-12">
                                             <p class="cookies text-center mt-10">
-                                                <input type="checkbox" name="cookies-consent" id="cookies-consent2">
+                                                <input type="checkbox" name="cookies-consent" id="cookies-consent2" required>
                                                 <label for="cookies-consent2"></label>
                                                 I accept the privacy and terms.
                                             </p>
                                         </div>
                                         <div class="col-md-12">
                                             <div class="mt-10">
-                                               <button class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-darkcolor w-100" type="submit">Make a appointment</button>
+                                               <button class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-darkcolor w-100" type="submit">Submit</button>
                                            </div>
                                         </div>
                                     </div>
@@ -222,6 +224,7 @@
                     </div>
                 </div>
             </section>
+
             <!-- contact-section end-->
 
             <!-- client-section -->

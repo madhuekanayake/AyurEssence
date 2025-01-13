@@ -486,12 +486,27 @@
       </li>
 
 
-      <li class="nav-item">
+      {{-- <li class="nav-item">
         <a class="nav-link" href="{{ url('/todo') }}">
             <i class="fas fa-star menu-icon"></i>
 
           <span class="menu-title">Customer Reviews</span>
         </a>
+      </li> --}}
+
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#customer" aria-expanded="false" aria-controls="customer">
+            <i class="fas fa-star menu-icon"></i>
+          <span class="menu-title">Customer</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="customer">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{{ route('CustomerManagement.contactUsAll') }}">Contact Us</a></li>
+            <li class="nav-item"> <a class="nav-link" href="#">Customer Reviews</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('CustomerManagement.newsLetterAll') }}">Subscription</a></li>
+          </ul>
+        </div>
       </li>
 
       <li class="nav-item">

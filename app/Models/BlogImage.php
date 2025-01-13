@@ -14,4 +14,9 @@ class BlogImage extends Model
         'image',
         'isPrimary',
     ];
+
+    public function blog()
+{
+    return $this->belongsTo(Blog::class, 'blogId', 'blogId');
+}
 }

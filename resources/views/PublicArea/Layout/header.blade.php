@@ -6,24 +6,9 @@
 <meta name="keywords" content="Medisat - Medical  and Ayurvedic HTML Template, Childrio - Multi Medical Services HTML Theme, themes & template, html5 template, WordPress theme, unlimited colors available, ui/ux,ui/ux design, best html template, html template, html, JavaScript, best css theme,css3, elementor theme, latest premium themes 2024, latest premium templates 2024, preyan technosys Pvt.Ltd,cymol themes, themetech mount, ttm store, ttm business, ttm clinic, ttm medical, ttm, themetechmount store, ttm plugins,Web 3.0,multi-theme, website theme and template, woocommerce, bootstrap template, web templates, responsive theme,services,web design and development, business, company,  medical theme, medical template, clinical template, clinical website, child care, dentist demo, dentist clinic, physiotherapy, psychologist services website, eye care clinic, orthopedic, surgeon, surgery services, Pediatrician services, Eye care blog" >
 <meta name="description" content="Medisat - Medical  and Ayurvedic HTML Template" >
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Medisat - Medical  and Ayurvedic HTML Template</title>
+<title>Ayur Assence</title>
 
-<link rel="shortcut icon" href="{{ asset('PublicArea/images/favicon.png') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/bootstrap.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/animate.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/all.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/fontello.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/flaticon.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/themify-icons.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/font-awesome.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/aos.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/slick.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/prettyPhoto.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/samarkannormal.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/shortcodes.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/main.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/megamenu.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/responsive.css') }}">
+
 
 </head>
 <body>
@@ -90,10 +75,11 @@
                                                             </ul>
                                                         </li>
                                                         <li class="mega-menu-item"><a href="{{ url('/aboutUs') }}">About Us</a></li>
-                                                        <li class="mega-menu-item"><a href="{{ url('/service') }}">Service</a></li>
-                                                        <li class="mega-menu-item"><a href="{{ url('/doctors') }}">Doctors</a></li>
+                                                        <li class="mega-menu-item"><a href="{{ route('CustomerService.all') }}">Service</a></li>
+                                                        <li class="mega-menu-item"><a href="{{ route('CustomerGallery.all') }}">Gallery</a></li>
+                                                        <li class="mega-menu-item"><a href="{{ route('CustomerDoctor.all') }}">Doctors</a></li>
                                                         <li class="mega-menu-item"><a href="{{ url('/blog') }}">Blog</a></li>
-                                                        <li class="mega-menu-item"><a href="{{ url('/contactUs') }}">Contact Us</a></li>
+                                                        <li class="mega-menu-item"><a href="{{ route('ContactUs.all') }}">Contact Us</a></li>
                                                     </ul>
                                                 </nav><!-- menu end -->
                                             </div>
