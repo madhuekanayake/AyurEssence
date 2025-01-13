@@ -343,14 +343,18 @@ public function ViewPlantImageDelete(Request $request)
     }
 }
 
-public function IsPrimary($id)
+
+public function isPrimary($id)
 {
     try {
         $item = PlantImage::findOrFail($id);
 
+        // Check the blog ID of the selected image
+        $plantId = $item->plantId;
+
         if ($item->isPrimary == 0) {
-            // Deactivate all other records
-            PlantImage::where('id', '!=', $id)->update(['isPrimary' => 0]);
+            // Deactivate all other records for the same blogId
+            PlantImage::where('plantId', $plantId)->update(['isPrimary' => 0]);
 
             // Activate the selected record
             $item->isPrimary = 1;
@@ -361,10 +365,10 @@ public function IsPrimary($id)
 
         $item->save();
 
-        $message = $item->isPrimary ? 'Item activated successfully!' : 'Item deactivated successfully!';
+        $message = $item->isPrimary ? 'Image marked as primary successfully!' : 'Image unmarked as primary successfully!';
         return redirect()->back()->with('success', $message);
     } catch (\Exception $e) {
-        return redirect()->back()->with('error', 'Something went wrong!');
+        return redirect()->back()->with('error', 'Something went wrong: ' . $e->getMessage());
     }
 }
 
@@ -555,14 +559,19 @@ public function ViewPlantDiseasesImageDelete(Request $request)
     }
 }
 
+
+
 public function PlantDiseasesIsPrimary($id)
 {
     try {
         $item = PlantDiseasesImage::findOrFail($id);
 
+        // Check the blog ID of the selected image
+        $diseasesId = $item->diseasesId;
+
         if ($item->isPrimary == 0) {
-            // Deactivate all other records
-            PlantDiseasesImage::where('id', '!=', $id)->update(['isPrimary' => 0]);
+            // Deactivate all other records for the same blogId
+            PlantDiseasesImage::where('diseasesId', $diseasesId)->update(['isPrimary' => 0]);
 
             // Activate the selected record
             $item->isPrimary = 1;
@@ -573,10 +582,10 @@ public function PlantDiseasesIsPrimary($id)
 
         $item->save();
 
-        $message = $item->isPrimary ? 'Item activated successfully!' : 'Item deactivated successfully!';
+        $message = $item->isPrimary ? 'Image marked as primary successfully!' : 'Image unmarked as primary successfully!';
         return redirect()->back()->with('success', $message);
     } catch (\Exception $e) {
-        return redirect()->back()->with('error', 'Something went wrong!');
+        return redirect()->back()->with('error', 'Something went wrong: ' . $e->getMessage());
     }
 }
 }
