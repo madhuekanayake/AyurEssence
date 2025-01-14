@@ -69,6 +69,8 @@ Route::prefix('CustomerBlog')->group(function () {
 
     Route::get('/all', [CustomerBlogController::class, "All"])->name('CustomerBlog.all');
 
+    Route::get('/blog/{id}', [CustomerBlogController::class, 'show'])->name('CustomerBlog.details');
+
 });
 
 
