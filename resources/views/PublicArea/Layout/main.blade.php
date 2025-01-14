@@ -9,7 +9,7 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   @include('PublicArea.libraries.styles')
-  <title>Ayur Assence-Admin</title>
+  <title>Ayur Assence</title>
   <!-- plugins:css -->
 
 

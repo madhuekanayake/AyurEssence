@@ -150,6 +150,14 @@ Route::prefix('Service')->group(function () {
     Route::post('/add', [ServiceController::class, 'Add'])->name('Service.add');
     Route::post('/delete', [ServiceController::class, 'Delete'])->name('Service.delete');
     Route::post('/update', [ServiceController::class, 'Update'])->name('Service.update');
+
+    Route::post('/serviceImageAdd', [ServiceController::class, 'ServiceImageAdd'])->name('Service.serviceImageAdd');
+
+    Route::get('/viewServiceImageAll/{serviceId}', [ServiceController::class, "ViewServiceImageAll"])->name('Service.viewServiceImageAll');
+    Route::post('/viewServiceImageDelete', [ServiceController::class, 'ViewServiceImageDelete'])->name('Service.viewServiceImageDelete');
+
+    Route::get('/isPrimary/{id}', [ServiceController::class, 'IsPrimary'])->name('Service.isPrimary');
+
 });
 
 Route::prefix('Setting')->group(function () {
