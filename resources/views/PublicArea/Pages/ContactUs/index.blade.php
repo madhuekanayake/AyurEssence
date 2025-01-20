@@ -48,7 +48,8 @@
                                                     <div class="featured-icon-box icon-align-before-content style4 border-left">
                                                         <div class="featured-icon">
                                                             <div class="prt-icon prt-icon_element-onlytxt prt-icon_element-size-lg prt-icon_element-color-darkcolor">
-                                                                <i class="flaticon flaticon-call"></i>
+                                                                <i class="fas fa-phone"></i>
+
                                                             </div>
                                                         </div>
                                                         <div class="featured-content">
@@ -57,10 +58,10 @@
                                                             </div>
                                                             <div class="featured-desc">
                                                                <div class="featured-list">
-                                                                    Mobile : <span><a href="tel:1234567890">+3 8096 272 2100</a></span>
+                                                                    Mobile : <span><a href="tel:1234567890">+94 222 468 5678</a></span>
                                                                 </div>
                                                                 <div class="featured-list">
-                                                                    Phone  : <span><a href="tel:1234567890">+12-323-778-405</a></span>
+                                                                    Phone  : <span><a href="tel:1234567890">+94 323 778 8405</a></span>
                                                                 </div>
                                                             </div>
                                                         </div>
@@ -72,7 +73,8 @@
                                                     <div class="featured-icon-box icon-align-before-content style4 border-top">
                                                         <div class="featured-icon">
                                                             <div class="prt-icon prt-icon_element-onlytxt prt-icon_element-size-lg prt-icon_element-color-darkcolor">
-                                                                <i class="flaticon flaticon-email"></i>
+                                                                <i class="fas fa-envelope"></i>
+
                                                             </div>
                                                         </div>
                                                         <div class="featured-content">
@@ -81,8 +83,8 @@
                                                             </div>
                                                             <div class="featured-desc featured-link">
                                                                <p>
-                                                                <a class="underline" href="tel:1234567890">mail@veda-lab.com</a><br>
-                                                                <a href="tel:1234567890">vedas@veda-lab.com</a>
+                                                                <a class="underline" href="tel:1234567890">contact.ayuressence@gmail.com</a><br>
+
                                                                </p>
                                                             </div>
                                                         </div>
@@ -94,7 +96,8 @@
                                                     <div class="featured-icon-box icon-align-before-content style4 border-top border-left">
                                                         <div class="featured-icon">
                                                             <div class="prt-icon prt-icon_element-onlytxt prt-icon_element-size-lg prt-icon_element-color-darkcolor">
-                                                                <i class="flaticon flaticon-worldwide"></i>
+                                                                <i class="fas fa-pause"></i>
+
                                                             </div>
                                                         </div>
                                                         <div class="featured-content">

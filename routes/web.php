@@ -121,12 +121,25 @@ Route::prefix('ContactUs')->group(function () {
 // Route::post('/deleteStudents', [StudentController::class, 'DeleteStudents']);
 // Route::post('/updateStudents', [StudentController::class, 'UpdateStudents']);
 
-Route::prefix('AdminLogin')->group(function () {
+// Route::prefix('AdminLogin')->group(function () {
 
-    Route::get('/index', [LoginController::class, "Index"])->name('AdminLogin.index');
+//     Route::get('/index', [LoginController::class, "Index"])->name('AdminLogin.index');
+//     Route::post('/login', [LoginController::class, 'Login'])->name('AdminLogin.login');
+//     Route::post('/logout', [LoginController::class, 'Logout'])->name('AdminLogin.logout');
+
+// });
+
+Route::middleware(['admin'])->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
+    // Add other admin routes here...
+
+});
+
+
+Route::prefix('AdminLogin')->group(function () {
+    Route::get('/index', [LoginController::class, 'Index'])->name('AdminLogin.index');
     Route::post('/login', [LoginController::class, 'Login'])->name('AdminLogin.login');
     Route::post('/logout', [LoginController::class, 'Logout'])->name('AdminLogin.logout');
-
 });
 
 
