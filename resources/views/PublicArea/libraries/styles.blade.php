@@ -32,12 +32,15 @@
 <link rel="stylesheet" type="text/css" href="{{ 'PublicArea/css/main.css' }}">
 <link rel="stylesheet" type="text/css" href="{{ 'PublicArea/css/megamenu.css' }}">
 <link rel="stylesheet" type="text/css" href="{{ 'PublicArea/css/responsive.css' }}">
+<<<<<<< Updated upstream
 
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
 
 
 {{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css"> --}}
+=======
+>>>>>>> Stashed changes
 
 
 @stack('css')
