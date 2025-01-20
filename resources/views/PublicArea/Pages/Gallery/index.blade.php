@@ -47,7 +47,7 @@
                                     <div class="featured-content">
                                         <div class="featured-content-inner">
                                             <div class="post-header">
-                                                
+
 
                                                 <div class="post-title featured-title">
                                                     <h3>
@@ -86,7 +86,7 @@
                                     <h3 class="cta-titlepre">Get a free medical checkup</h3>
                                 </div>
                                 <div class="cta-bnt mt-40 fadeup-amin">
-                                    <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-skincolor" href="contact-us.html">+3 (092) 508-38-01</a>
+                                    <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-skincolor" href="contact-us.html">+94 222 468 5678</a>
                                 </div>
                             </div>
                             <!-- section title end-->

@@ -28,7 +28,7 @@
                                                 <i class="fas fa-check-circle"></i>
 
                                             </div>
-                                            <div><h3>Vaterian hospital services manufacture In 1996</h3></div>
+                                            <div><h3>Identify the Medicinal Plants – Embrace Ayur Essence</h3></div>
                                         </div>
                                     </div>
                                 </div>
@@ -51,8 +51,8 @@
                                                         <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-skincolor mr-25 mb-10" href="contact-us.html">Make an appointment</a>
                                                     </div>
                                                     <div class="prt-hero-link">
-                                                        <div class="prt-call"><i class="icon-whatsapp"></i> <a href="tel:1234567890">+123 456 7890</a></div>
-                                                        <div class="prt-email"><a href="mailto:info@example.com">contact.vedacare@gmail.com</a></div>
+                                                        <div class="prt-call"><i class="fab fa-whatsapp"></i> <a href="tel:1234567890">+94 222 468 5678</a></div>
+                                                        <div class="prt-email"><a href="mailto:info@example.com">contact.ayuressence@gmail.com</a></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -61,7 +61,7 @@
                                             <div class="prt-icon prt-icon_element-onlytxt prt-icon_element-size-lg prt-icon_element-color-darkcolor">
                                                 <i class="fas fa-check-circle"></i>
                                             </div>
-                                            <div><h3>Vaterian hospital services manufacture In 1996</h3></div>
+                                            <div><h3>Identify the Medicinal Plants – Embrace Ayur Essence</h3></div>
                                         </div>
                                     </div>
                                 </div>
@@ -74,43 +74,7 @@
 
         </div>
 
-        <table id="order-listing" class="table">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Age</th>
-                    <th>Grade</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Image</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($students as $student)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $student->id }}</td>
-                        <td>{{ $student->name }}</td>
-                        <td>{{ $student->age }}</td>
-                        <td>{{ $student->grade }}</td>
-                        <td>{{ $student->email }}</td>
-                        <td>{{ $student->phone }}</td>
-                        <td>
-                            @if ($student->image)
-                                <img src="{{ asset('uploads/student/' . $student->image) }}"
-                                    alt="Student Image" width="50" height="50">
-                            @else
-                                N/A
-                            @endif
-                        </td>
 
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
 
         <!-- site-main start -->
         <div class="site-main">
@@ -124,10 +88,10 @@
                                 <!-- section title -->
                                 <div class="section-title">
                                     <div class="title-header">
-                                        <h2 class="title">Short story about dr. veda of nature and science.</h2>
+                                        <h2 class="title">Identify Medicinal Plants Where Nature Meets the Science of Ayurveda.</h2>
                                     </div>
                                     <div class="title-desc">
-                                        <p class="prt-about-desc">A passionate advocate for the nature and the science and united these realms, defying their separation.</p>
+                                        <p class="prt-about-desc">Discover the Secrets of Healing: Identify Medicinal Plants Blending Nature and Ayurveda.</p>
                                     </div>
                                 </div>
                                 <!-- section title end-->
@@ -149,7 +113,7 @@
                                 <!-- section title -->
                                 <div class="section-title">
                                     <div class="title-desc">
-                                        <p>In her tranquil cottage on the edge of a pristine forest, she conducted groundbreaking research that brought together the wisdom of the natural world and the precision of scientific inquiry.</p>
+                                        <p>Suggests a deeper connection between traditional knowledge and the identification of healing plants that promote overall wellness.</p>
                                     </div>
                                 </div>
                                 <!-- section title end-->
@@ -312,7 +276,7 @@
                                     <h3 class="cta-titlepre">Get a free medical checkup</h3>
                                 </div>
                                 <div class="cta-bnt mt-40 fadeup-amin">
-                                    <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-skincolor" href="contact-us.html">+3 (092) 508-38-01</a>
+                                    <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-skincolor" href="contact-us.html">+94 222 468 5678</a>
                                 </div>
                             </div>
                             <!-- section title end-->
@@ -742,7 +706,7 @@
                             <div class="prt-cta-mainblock ">
                                 <div class="d-flex align-items-center justify-content-center">
                                     <div class="prt-cta-call">
-                                        <p>Looking for consultation? <a href="tel:1234567890">+1 3333 000 444</a></p>
+                                        <p>Looking for consultation? <a href="tel:1234567890">+94 222 468 5678</a></p>
                                     </div>
                                     <div class="prt-cta-title"><h3>We are <span>certified</span> ayurved company</h3></div>
                                 </div>

@@ -110,7 +110,7 @@
                         <div class="prt_single_image-wrapper cta-img mt-40 res-991-mt-20" data-cursor-tooltip="">
                             <div class="prt_single_image-wrapper">
                                 <a href="team-details.html"><img width="1920" height="400" class="img-fluid"
-                                        src="images/single-img-05.png" alt="image"></a>
+                                        src="{{ asset('PublicArea/images/single-img-05.png') }}" alt="image"></a>
                             </div>
                             <div class="prt-pfbox-overlay">
                                 <div class="ctaimg-title">

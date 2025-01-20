@@ -89,10 +89,10 @@
                                             <!-- header_extra -->
                                             <div class="header_extra d-flex align-items-center">
                                                 <div class="contact_item-link">
-                                                    <span><a href="mailto:info@example.com">contact.vedacare@gmail.com</a></span>
+                                                    <span><a href="mailto:info@example.com">contact.ayuressence@gmail.com</a></span>
                                                 </div>
                                                 <div class="contact_item with-icon">
-                                                    <span><i class="fab fa-whatsapp"></i><a href="tel:1234567890"> +123 456 7890</a></span>
+                                                    <span><i class="fab fa-whatsapp"></i><a href="tel:1234567890"> +94 222 468 5678</a></span>
                                                 </div>
                                                 <ul class="social-icons">
                                                     <li><a href="#" rel="noopener" aria-label="facebook"><i class="fab fa-facebook"></i></a></li>

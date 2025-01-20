@@ -11,17 +11,16 @@ use Illuminate\Support\Facades\Hash;
 class LoginController extends Controller
 {
     public function Index()
-{
-    try {
-        // Fetch all gallery data
-
+    {
+        if (session()->has('user_id')) {
+            return redirect()->route('admin.dashboard');
+        }
 
         return view('AdminArea.Pages.Authentication.login');
-    } catch (\Exception $e) {
-        // Handle any errors that occur
-        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
     }
-}
+
+
+
 public function Login(Request $request)
 {
     // Validate input data

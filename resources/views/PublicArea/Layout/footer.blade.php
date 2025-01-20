@@ -50,9 +50,9 @@
                             <div class="footer-widget-box prt-pl">
                                 <h3 class="widget-title-h3">Contact</h3>
                                 <ul class="prt-list footer-cta-list">
-                                    <li class="list-items">UA: <a href="tel:1234567890">+3 8096 272 2100</a></li>
+                                    <li class="list-items">SL: <a href="tel:1234567890">+94 222 468 5678</a></li>
                                     <li class="list-items">59 Street, 1200 Techpark</li>
-                                    <li class="list-items"><a href="tel:1234567890">mail@veda-lab.com</a></li>
+                                    <li class="list-items"><a href="tel:1234567890">contact.ayuressence@gmail.com</a></li>
                                 </ul>
                                 <!-- social-icons -->
                                 <div class="social-icons">
@@ -83,7 +83,7 @@
                                             <li><a href="#"> Help </a></li>
                                         </ul>
                                         <div class="cpy-text">
-                                            <p>2023 Vedacare © All rights reserved</p>
+                                            <p>2025 AyurEssence © All rights reserved</p>
                                         </div>
                                     </div>
                                 </div>
