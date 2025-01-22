@@ -182,6 +182,18 @@
                     <div class="row">
                         <div class="col-xl-10 col-lg-12 m-auto">
                             <div class="prt-contactblock">
+                                <div class="my-2">
+                                    @if (session('success'))
+                                        <div class="alert alert-success">
+                                            {{ session('success') }}
+                                        </div>
+                                    @endif
+                                    @if ($errors->any())
+                                        <div class="alert alert-danger">
+                                            {{ $errors->first('error') }}
+                                        </div>
+                                    @endif
+                                </div>
                                 <h3>Request a quote</h3>
                                 <p>Your inquiries matter to us. Please don't hesitate to reach out today and let<br> us begin a conversation leading you to the best solutions.</p>
                                 <form action="{{ route('ContactUs.add') }}" class="query_form-2 wrap-form clearfix mt-25" method="POST">
@@ -189,17 +201,17 @@
                                     <div class="row">
                                         <div class="col-md-4">
                                             <span class="text-input">
-                                                <input name="name" type="text"  placeholder="Your name" required>
+                                                <input name="name" type="text" placeholder="Your name" required>
                                             </span>
                                         </div>
                                         <div class="col-md-4">
                                             <span class="text-input">
-                                                <input name="email" type="email"  placeholder="Your email" required>
+                                                <input name="email" type="email" placeholder="Your email" required>
                                             </span>
                                         </div>
                                         <div class="col-md-4">
                                             <span class="text-input">
-                                                <input name="phoneNo" type="text"  placeholder="Phone number" required>
+                                                <input name="phoneNo" type="text" placeholder="Phone number" required>
                                             </span>
                                         </div>
                                         <div class="col-md-12">
@@ -217,8 +229,8 @@
                                         </div>
                                         <div class="col-md-12">
                                             <div class="mt-10">
-                                               <button class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-darkcolor w-100" type="submit">Submit</button>
-                                           </div>
+                                                <button class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-darkcolor w-100" type="submit">Submit</button>
+                                            </div>
                                         </div>
                                     </div>
                                 </form>
@@ -227,6 +239,7 @@
                     </div>
                 </div>
             </section>
+
 
             <!-- contact-section end-->
 

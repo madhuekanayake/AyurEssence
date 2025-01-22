@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('name')->nullable(); // Name of the user
             $table->string('email')->nullable();// Email of the user, unique to prevent duplicates
             $table->string('phoneNo')->nullable(); // Phone number
+            $table->text('reply_message')->nullable();
+            $table->boolean('isReply')->default(false);
             $table->text('massage')->nullable(); // Role (e.g., Admin, Super Admin)
             $table->timestamps();
         });

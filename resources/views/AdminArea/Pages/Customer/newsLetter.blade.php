@@ -9,6 +9,9 @@
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
+                        <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#sendEmailModal">
+                            Send Email <i class="fa fa-plus-circle ml-1"></i>
+                        </button>
 
                     </li>
                 </ol>
@@ -59,6 +62,38 @@
 </div>
 
 </div>
+
+<!-- Send Email Modal -->
+<div class="modal fade" id="sendEmailModal" tabindex="-1" role="dialog" aria-labelledby="sendEmailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="sendEmailModalLabel">Send Bulk Email</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <form action="{{ route('ContactUs.sendBulkEmail') }}" method="POST">
+                @csrf
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="emailSubject">Email Subject</label>
+                        <input type="text" name="subject" id="emailSubject" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="emailMessage">Email Body</label>
+                        <textarea name="message" id="emailMessage" rows="5" class="form-control" required></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Send Email</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
 
 
 

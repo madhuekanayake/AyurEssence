@@ -35,37 +35,36 @@ AOS.init({
 });
 </script>
 @if (session('success'))
-<script>
-    toastr.success("{{ session('success') }}", '', {
-        closeButton: true,
-        progressBar: true,
-        positionClass: 'toast-top-right'
-    });
-</script>
+  <script>
+      toastr.success("{{ session('success') }}", '', {
+          closeButton: true,
+          progressBar: true,
+          positionClass: 'toast-top-right'
+      });
+  </script>
 @endif
 
 @if ($errors->any())
-@foreach ($errors->all() as $error)
-    <script>
-        toastr.error("{{ $error }}", '', {
-            closeButton: true,
-            progressBar: true,
-            positionClass: 'toast-top-right'
-        });
-    </script>
-@endforeach
+  @foreach ($errors->all() as $error)
+      <script>
+          toastr.error("{{ $error }}", '', {
+              closeButton: true,
+              progressBar: true,
+              positionClass: 'toast-top-right'
+          });
+      </script>
+  @endforeach
 @endif
 
 @if (session('error'))
-<script>
-    toastr.error("{{ session('error') }}", '', {
-        closeButton: true,
-        progressBar: true,
-        positionClass: 'toast-top-right'
-    });
-</script>
+  <script>
+      toastr.error("{{ session('error') }}", '', {
+          closeButton: true,
+          progressBar: true,
+          positionClass: 'toast-top-right'
+      });
+  </script>
 @endif
-
 
 
 

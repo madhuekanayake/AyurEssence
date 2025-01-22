@@ -40,6 +40,7 @@ class ContactUsController extends Controller
 
         // Redirect back with success message
         return back()->with('success', 'Thank you! Your message has been received.');
+        
     } catch (\Exception $e) {
         // Return back with an error message
         return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);

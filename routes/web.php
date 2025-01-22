@@ -108,6 +108,11 @@ Route::prefix('ContactUs')->group(function () {
 
     Route::post('/newsLetterAdd', [ContactUsController::class, 'NewsLetterAdd'])->name('ContactUs.newsLetterAdd');
 
+    Route::post('/reply', [CustomerManagementController::class, 'sendReply'])->name('ContactUs.reply');
+
+    Route::post('/ContactUs/send-bulk-email', [CustomerManagementController::class, 'sendBulkEmail'])->name('ContactUs.sendBulkEmail');
+
+
 });
 
 
@@ -132,7 +137,6 @@ Route::prefix('ContactUs')->group(function () {
 Route::middleware(['admin'])->group(function () {
     Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
     // Add other admin routes here...
-
 });
 
 
@@ -343,5 +347,7 @@ Route::prefix('CustomerManagement')->group(function () {
 
     Route::get('/newsLetterAll', [CustomerManagementController::class, "NewsLetterAll"])->name('CustomerManagement.newsLetterAll');
     Route::post('/newsLetterDelete', [CustomerManagementController::class, 'NewsLetterDelete'])->name('CustomerManagement.newsLetterDelete');
+
+
 
 });

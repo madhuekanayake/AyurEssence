@@ -14,6 +14,8 @@ class ContactUs extends Model
         'email',
         'phoneNo',
         'massage',
+        'reply_message',
+        'isReply',
 
 
 

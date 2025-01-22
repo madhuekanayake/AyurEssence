@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\ContactUs;
 use App\Models\NewsLetter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Mail;
 
 class CustomerManagementController extends Controller
 {
@@ -82,4 +83,55 @@ public function NewsLetterAll()
         return back()->withErrors(['error' => 'An error occurred while deleting the blog: ' . $e->getMessage()]);
     }
 }
+
+public function sendReply(Request $request)
+{
+    $request->validate([
+        'id' => 'required|exists:contact_us,id',
+        'email' => 'required|email',
+        'subject' => 'required|string|max:255',
+        'message' => 'required|string',
+    ]);
+
+    $contact = ContactUs::findOrFail($request->id);
+
+    // Update the database
+    $contact->update([
+        'reply_message' => $request->message,
+        'isReply' => true,
+    ]);
+
+    // Send email using Laravel's Mailable
+    try {
+        Mail::to($request->email)->queue(new \App\Mail\ContactReply($request->subject, $request->message));
+
+        return back()->with('success', 'Reply sent and saved successfully.');
+    } catch (\Exception $e) {
+        return back()->withErrors(['error' => 'Mail sending failed: ' . $e->getMessage()]);
+    }
+}
+
+public function sendBulkEmail(Request $request)
+{
+    $request->validate([
+        'subject' => 'required|string|max:255',
+        'message' => 'required|string',
+    ]);
+
+    // Get all subscription emails
+    $subscriptions = Newsletter::pluck('email');
+
+    try {
+        foreach ($subscriptions as $email) {
+            // Send email using Laravel's Mailable
+            Mail::to($email)->queue(new \App\Mail\ContactReply($request->subject, $request->message));
+        }
+
+        return back()->with('success', 'Emails sent successfully.');
+    } catch (\Exception $e) {
+        return back()->withErrors(['error' => 'Failed to send emails: ' . $e->getMessage()]);
+    }
+}
+
+
 }
