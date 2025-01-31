@@ -30,4 +30,10 @@ class Plant extends Model
 {
     return $this->belongsTo(PlantCategory::class, 'plantCategoryId', 'plantCategoryId');
 }
+
+
+public function images()
+{
+    return $this->hasMany(PlantImage::class, 'plantId', 'plantId');
+}
 }

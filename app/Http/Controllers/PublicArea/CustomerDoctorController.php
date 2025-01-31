@@ -8,20 +8,23 @@ use Illuminate\Http\Request;
 
 class CustomerDoctorController extends Controller
 {
-    public function All()
-    {
-        try {
-            // Fetch all gallery data
-            $doctors = Doctor::all();
+    public function All(Request $request)
+{
+    try {
+        // Fetch all doctors or filter by search query
+        $search = $request->query('search');
 
-            return view('PublicArea.Pages.Doctors.index', compact('doctors'));
+        $doctors = Doctor::when($search, function ($query, $search) {
+            return $query->where('name', 'like', '%' . $search . '%');
+        })->get();
 
+        return view('PublicArea.Pages.Doctors.index', compact('doctors'));
 
-        } catch (\Exception $e) {
-            // Handle any errors that occur
-            return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
-        }
+    } catch (\Exception $e) {
+        // Handle any errors that occur
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
     }
+}
 
     public function show($id)
     {

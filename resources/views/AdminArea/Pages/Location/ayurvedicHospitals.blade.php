@@ -157,8 +157,8 @@
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label for="location">Location <span style="color: red;">*</span></label>
-                                <input type="text" class="form-control" id="location" name="location"
+                                <label for="location">Location(URL) <span style="color: red;">*</span></label>
+                                <input type="link" class="form-control" id="location" name="location"
                                     placeholder="Location" required>
                             </div>
 
@@ -237,8 +237,8 @@
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label for="edit_location">Location <span style="color: red;">*</span></label>
-                                <input type="text" class="form-control" id="edit_location" name="location"
+                                <label for="edit_location">Location(URL) <span style="color: red;">*</span></label>
+                                <input type="link" class="form-control" id="edit_location" name="location"
                                     placeholder="Location" required>
                             </div>
 
@@ -314,8 +314,8 @@
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label for="view_location">Location</label>
-                                <input type="text" class="form-control" id="view_location" readonly>
+                                <label for="view_location">Location(URL)</label>
+                                <input type="link" class="form-control" id="view_location" readonly>
                             </div>
 
                             <div class="form-group col-md-6">

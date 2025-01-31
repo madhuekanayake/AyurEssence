@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('sustainableHarvesting')->nullable();
             $table->string('reforestationProjects')->nullable();
             $table->string('biodiversityImportance')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
         });
     }

@@ -35,7 +35,7 @@ public function HerbalGardenAdd(Request $request)
         'gardenAddress' => 'required|string|max:500', // Address is required
         'gardenPhone' => 'required|string|max:15', // Phone number is required
         'gardenEmail' => 'required|email|unique:herbal_gardens,gardenEmail', // Ensure email is unique
-        'gardenLocation' => 'required|string|max:255', // Location is required
+        // 'gardenLocation' => 'required|string|max:255', // Location is required
         'gardenOpenTime' => 'required|date_format:H:i', // Open hours in valid time format
         'gardenCloseTime' => 'required|date_format:H:i|after:gardenOpenTime', // Close hours must be after open hours
         'gardenOpenDays' => 'required|string|in:Weekdays,Weekends', // Open days must be valid
@@ -79,7 +79,7 @@ public function HerbalGardenUpdate(Request $request)
         'gardenAddress' => 'required|string|max:500', // Address is required
         'gardenPhone' => 'required|string|max:15', // Phone number is required
         'gardenEmail' => 'required|email|unique:herbal_gardens,gardenEmail,' . $request->id, // Ensure email is unique
-        'gardenLocation' => 'required|string|max:255', // Location is required
+        // 'gardenLocation' => 'required|string|max:255', // Location is required
         'gardenOpenTime' => 'required',
         'gardenCloseTime' => 'required',
         'gardenOpenDays' => 'required|string|in:Weekdays,Weekends', // Open days must be valid

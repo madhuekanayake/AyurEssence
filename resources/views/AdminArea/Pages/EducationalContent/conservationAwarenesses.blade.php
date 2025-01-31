@@ -32,6 +32,7 @@
                                         <th>Sustainable Harvesting</th>
                                         <th>Reforestation Projects</th>
                                         <th>Biodiversity Importance</th>
+                                        <th>Image</th>
                                         <th>Actions</th>
 
                                     </tr>
@@ -45,6 +46,13 @@
                                             <td>{{ $item->sustainableHarvesting }}</td>
                                             <td>{{ $item->reforestationProjects }}</td>
                                             <td>{{ $item->biodiversityImportance }}</td>
+                                            <td>
+                                                @if ($item->image)
+                                                    <img src="{{ asset('storage/' . $item->image) }}" alt="Conservation And Awarenesses Image" width="100">
+                                                @else
+                                                    No Image
+                                                @endif
+                                            </td>
 
 
 
@@ -78,7 +86,7 @@
 
 {{-- Add Conservation Awareness Modal --}}
 <div class="modal fade" id="addconservationAwarenessModal" tabindex="-1" role="dialog" aria-labelledby="addconservationAwarenessLabel" aria-hidden="true">
-    <div class="modal-dialog modal-md" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="addconservationAwarenessLabel">Add ConservationAwareness Information</h5>
@@ -111,6 +119,11 @@
                             <textarea class="form-control" id="biodiversityImportance" name="biodiversityImportance" rows="3" placeholder="Biodiversity Importance" required></textarea>
                         </div>
 
+                        <div class="form-group col-md-12">
+                            <label for="image">File Upload <span style="color: red;">*</span></label>
+                            <input type="file" class="form-control" id="image" name="image" required>
+                        </div>
+
                     </div>
                     <button type="submit" class="btn btn-primary">Save</button>
                     <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
@@ -123,7 +136,7 @@
 
 {{-- Edit Conservation Awareness Modal --}}
 <div class="modal fade" id="editConservationAwarenessModal" tabindex="-1" role="dialog" aria-labelledby="editConservationAwarenessLabel" aria-hidden="true">
-    <div class="modal-dialog modal-md" role="document">
+    <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="editConservationAwarenessLabel">Edit Conservation Awareness Information</h5>
@@ -156,6 +169,11 @@
                         <div class="form-group col-md-12">
                             <label for="edit_biodiversityImportance">Biodiversity Importance <span style="color: red;">*</span></label>
                             <textarea class="form-control" id="edit_biodiversityImportance" name="biodiversityImportance" rows="3" placeholder="Biodiversity Importance" required></textarea>
+                        </div>
+
+                        <div class="form-group col-md-12">
+                            <label for="edit_image">Update Image</label>
+                            <input type="file" class="form-control" id="edit_image" name="image">
                         </div>
 
                     </div>

@@ -15,4 +15,9 @@ class PlantImage extends Model
         'isPrimary',
 
     ];
+
+    public function plant()
+    {
+        return $this->belongsTo(Plant::class, 'plantId', 'plantId');
+    }
 }

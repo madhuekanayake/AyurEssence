@@ -20,6 +20,6 @@ class Treatment extends Model
 
     public function images()
 {
-    return $this->hasMany(TreatmentImage::class, 'treatmentId', 'id');
+    return $this->hasMany(TreatmentImage::class, 'treatmentId', 'treatmentId');
 }
 }

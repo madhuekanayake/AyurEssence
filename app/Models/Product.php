@@ -25,6 +25,6 @@ public function category()
 }
 public function images()
 {
-    return $this->hasMany(ProductImage::class, 'productId', 'id');
+    return $this->hasMany(ProductImage::class, 'productId', 'productId');
 }
 }

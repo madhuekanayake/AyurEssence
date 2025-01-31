@@ -13,6 +13,8 @@ use App\Http\Controllers\AdminArea\LocationController;
 use App\Http\Controllers\AdminArea\LoginController;
 use App\Http\Controllers\AdminArea\PlantManagementController;
 use App\Http\Controllers\AdminArea\ProductManagementController;
+use App\Http\Controllers\AdminArea\QuestionsAndAnsersController;
+use App\Http\Controllers\AdminArea\QuestionsAndAnswersController;
 use App\Http\Controllers\AdminArea\ServiceController;
 use App\Http\Controllers\AdminArea\SettingController;
 use App\Http\Controllers\AdminArea\StudentController;
@@ -20,12 +22,21 @@ use App\Http\Controllers\AdminArea\TreatmentController;
 use App\Http\Controllers\PublicArea\AboutUsController;
 use App\Http\Controllers\PublicArea\BlogController;
 use App\Http\Controllers\PublicArea\ContactUsController;
+use App\Http\Controllers\PublicArea\CustomerAyurvedicGuideController;
 use App\Http\Controllers\PublicArea\CustomerBlogController;
+use App\Http\Controllers\PublicArea\CustomerConservationAndAwarenessController;
 use App\Http\Controllers\PublicArea\CustomerDoctorController;
 use App\Http\Controllers\PublicArea\CustomerGalleryController;
+use App\Http\Controllers\PublicArea\CustomerLocationsController;
+use App\Http\Controllers\PublicArea\CustomerMeetingsOrEventsController;
+use App\Http\Controllers\PublicArea\CustomerPlanttUsController;
+use App\Http\Controllers\PublicArea\CustomerProductController;
+use App\Http\Controllers\PublicArea\CustomerQandAController;
 use App\Http\Controllers\PublicArea\CustomerServiceController;
+use App\Http\Controllers\PublicArea\CustomerTreatmentController;
 use App\Http\Controllers\PublicArea\DoctorsController;
 use App\Http\Controllers\PublicArea\HomeController;
+use App\Http\Controllers\PublicArea\PlanttUsController;
 use App\Http\Controllers\PublicArea\WebsiteDataController;
 // use App\Http\Controllers\PublicArea\ServiceController;
 
@@ -48,7 +59,7 @@ Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/blog', [BlogController::class, 'index']);
 // Route::get('/service', [ServiceController::class, 'index']);
-Route::get('/aboutUs', [AboutUsController::class, 'index']);
+
 // Route::get('/contactUs', [ContactUsController::class, 'index']);
 Route::get('/doctors', [DoctorsController::class, 'index']);
 
@@ -73,11 +84,55 @@ Route::prefix('CustomerBlog')->group(function () {
 
 });
 
+Route::prefix('CustomerAyurvedicGuide')->group(function () {
+
+    Route::get('/all', [CustomerAyurvedicGuideController::class, "All"])->name('CustomerAyurvedicGuide.all');
+
+});
+
+Route::prefix('CustomerMeetingsOrEvents')->group(function () {
+
+    Route::get('/all', [CustomerMeetingsOrEventsController::class, "All"])->name('CustomerMeetingsOrEvents.all');
+
+    Route::get('/meetingsAndEvents/{id}', [CustomerMeetingsOrEventsController::class, 'show'])->name('CustomerMeetingsOrEvents.details');
+
+});
+
+Route::prefix('ConservationAndAwareness')->group(function () {
+
+    Route::get('/all', [CustomerConservationAndAwarenessController::class, "All"])->name('ConservationAndAwareness.all');
+
+    Route::get('/conservationAndAwareness/{id}', [CustomerConservationAndAwarenessController::class, 'show'])->name('ConservationAndAwareness.details');
+
+});
+
+
+Route::prefix('CustomerProduct')->group(function () {
+
+    Route::get('/all', [CustomerProductController::class, "All"])->name('CustomerProduct.all');
+
+    Route::get('/product/{id}', [CustomerProductController::class, 'show'])->name('CustomerProduct.details');
+
+});
+
+Route::prefix('CustomerTreatment')->group(function () {
+
+    Route::get('/all', [CustomerTreatmentController::class, "All"])->name('CustomerTreatment.all');
+
+    Route::get('/product/{id}', [CustomerTreatmentController::class, 'show'])->name('CustomerTreatment.details');
+
+});
 
 
 Route::prefix('CustomerService')->group(function () {
 
     Route::get('/all', [CustomerServiceController::class, "All"])->name('CustomerService.all');
+
+});
+
+Route::prefix('CustomerQandA')->group(function () {
+
+    Route::get('/all', [CustomerQandAController::class, "All"])->name('CustomerQandA.all');
 
 });
 
@@ -97,6 +152,7 @@ Route::prefix('CustomerDoctor')->group(function () {
 
     Route::get('/all', [CustomerDoctorController::class, "All"])->name('CustomerDoctor.all');
 
+
     Route::get('/doctor/{id}', [CustomerDoctorController::class, 'show'])->name('CustomerDoctor.details');
 });
 
@@ -110,8 +166,28 @@ Route::prefix('ContactUs')->group(function () {
 
     Route::post('/reply', [CustomerManagementController::class, 'sendReply'])->name('ContactUs.reply');
 
-    Route::post('/ContactUs/send-bulk-email', [CustomerManagementController::class, 'sendBulkEmail'])->name('ContactUs.sendBulkEmail');
+    Route::post('/contact-us/send-bulk-email', [CustomerManagementController::class, 'sendBulkEmail'])->name('ContactUs.sendBulkEmail');
 
+
+
+});
+
+
+
+Route::prefix('CustomerPlant')->group(function () {
+
+    Route::get('/all', [CustomerPlanttUsController::class, "All"])->name('CustomerPlant.all');
+
+    Route::get('/plant/{id}', [CustomerPlanttUsController::class, 'show'])->name('CustomerPlant.details');
+
+
+});
+
+Route::prefix('CustomerLocations')->group(function () {
+
+    Route::get('/ayurvedicHospitalsAll', [CustomerLocationsController::class, "AyurvedicHospitalsAll"])->name('CustomerLocations.ayurvedicHospitalsAll');
+    Route::get('/herbalGardensAll', [CustomerLocationsController::class, 'HerbalGardensAll'])->name('CustomerLocations.herbalGardensAll');
+    Route::get('/localPharmaciesAll', [CustomerLocationsController::class, 'LocalPharmaciesAll'])->name('CustomerLocations.localPharmaciesAll');
 
 });
 
@@ -290,6 +366,9 @@ Route::prefix('Treatment')->group(function () {
 
     Route::get('/viewTreatmentImageAll/{treatmentId}', [TreatmentController::class, "ViewTreatmentImageAll"])->name('Treatment.viewTreatmentImageAll');
     Route::post('/viewTreatmentImageDelete', [TreatmentController::class, 'ViewTreatmentImageDelete'])->name('Treatment.viewTreatmentImageDelete');
+
+
+    Route::get('/isPrimary/{id}', [TreatmentController::class, 'IsPrimary'])->name('Treatment.isPrimary');
 });
 
 
@@ -350,4 +429,12 @@ Route::prefix('CustomerManagement')->group(function () {
 
 
 
+});
+
+Route::prefix('QuestionsAndAnswers')->group(function () {
+
+    Route::get('/all', [QuestionsAndAnswersController::class, "All"])->name('QuestionsAndAnswers.all');
+    Route::post('/add', [QuestionsAndAnswersController::class, 'Add'])->name('QuestionsAndAnswers.add');
+    Route::post('/delete', [QuestionsAndAnswersController::class, 'Delete'])->name('QuestionsAndAnswers.delete');
+    Route::post('/update', [QuestionsAndAnswersController::class, 'Update'])->name('QuestionsAndAnswers.update');
 });

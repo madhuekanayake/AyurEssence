@@ -12,6 +12,7 @@ class AyurvedaGuide extends Model
         'ayurvedaGuideId',
         'title',
         'information',
+        'image',
         'description',
 
 

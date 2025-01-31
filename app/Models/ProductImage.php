@@ -15,4 +15,9 @@ class ProductImage extends Model
         'isPrimary',
 
     ];
+
+    public function product()
+    {
+        return $this->belongsTo(Product::class, 'productId', 'productId');
+    }
 }

@@ -14,6 +14,7 @@ class ConservationAwareness extends Model
         'sustainableHarvesting',
         'reforestationProjects',
         'biodiversityImportance',
+        'image',
 
 
     ];

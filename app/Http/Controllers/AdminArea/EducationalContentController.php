@@ -35,6 +35,7 @@ public function AyurvedaGuideAdd(Request $request)
     $request->validate([
         'title' => 'required|string|max:255|unique:ayurveda_guides,title', // Ensure title is unique
         'information' => 'required|string|max:1000', // Information is required
+        'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048', // Optional image field (with max size)
         'description' => 'required|string|max:500', // Description is required
     ], [
         'title.unique' => 'The title must be unique. Please choose another title.',
@@ -43,10 +44,22 @@ public function AyurvedaGuideAdd(Request $request)
     try {
         $data = $request->all();
 
-        // Generate a unique guide ID
-        $data['ayurvedaGuideId'] = 'GUIDE' . Str::random(6); // Random 6-character string with prefix
+        // Generate a unique employeeId
+        $data['ayurvedaGuideId'] = 'GUIDE' . Str::random(6); // Random 6-character string with a prefix
 
-        // Save guide data
+        // Handle file upload using Laravel Storage
+        if ($request->hasFile('image')) {
+            // Get the uploaded file
+            $file = $request->file('image');
+
+            // Store the file in a specific directory and get its path
+            $path = $file->store('uploads/ayurveda guides', 'public');
+
+            // Save the file path to the $data array
+            $data['image'] = $path;
+        }
+
+        // Save data
         AyurvedaGuide::create($data);
 
         return back()->with('success', 'Ayurvedic Guide added successfully!');
@@ -65,24 +78,38 @@ public function AyurvedaGuideUpdate(Request $request)
 
     // Validate inputs
     $request->validate([
-        'title' => 'required|string|max:255|unique:ayurveda_guides,title', // Ensure title is unique
+       // Ensure title is unique
         'information' => 'required|string|max:1000', // Information is required
+        'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048', // Optional image field (with max size)
         'description' => 'required|string|max:500', // Description is required
     ], [
         'title.unique' => 'The title must be unique. Please choose another title.',
     ]);
 
     try {
-        // Prepare data for update
-        $data = [
-            'title' => $request->title,
-            'information' => $request->information,
-            'description' => $request->description,
+        $data = $request->all();
 
-        ];
+        // Handle image upload using Laravel Storage
+        if ($request->hasFile('image')) {
+            // Delete the old image if it exists
+            if ($ayurveda_guides->image) {
+                Storage ::disk('public')->delete($ayurveda_guides->image);
+            }
 
-        // Update hospital details
-        $ayurveda_guides->update($data); // Using the update method to save changes
+            // Store the new image in 'uploads/images'
+            $data['image'] = $request->file('image')->store('uploads/ayurveda guides', 'public');
+        } else {
+            // Retain the existing image path if no new image is uploaded
+            $data['image'] = $ayurveda_guides->image;
+        }
+
+        // Update employee details
+        $ayurveda_guides->update([
+            'title' => $data['title'],
+            'description' => $data['description'],
+            'information' => $data['information'],
+            'image' => $data['image'],
+        ]);
 
         return redirect()->back()->with('success', 'Ayurveda Guide updated successfully!');
     } catch (\Exception $e) {
@@ -342,14 +369,14 @@ public function MeetingAndEventAdd(Request $request)
         // Validate input data
         $request->validate([
 
-            'title' => 'required|string|max:255|unique:meeting_and_events,title', // Unique title
+             // Unique title
             'content' => 'required|string|max:2000', // Content should be a string
             'startDate' => 'required|date|before_or_equal:endDate', // Ensure it's a valid date before or equal to endDate
             'endDate' => 'required|date|after_or_equal:startDate', // Ensure it's a valid date after or equal to startDate
             'startTime' => 'required|date_format:H:i', // Valid time format (HH:mm)
             'endTime' => 'required|date_format:H:i|after:startTime', // Ensure it's after startTime
             'contactNo' => 'required|string|regex:/^\+?[0-9]{10,15}$/', // Validate contact number format
-            'description' => 'nullable|string|max:500', // Optional description
+            'description' => 'nullable|string|max:1000', // Optional description
         ], [
 
             'title.unique' => 'The title must be unique. Please choose another title.',
@@ -391,14 +418,14 @@ public function MeetingAndEventAdd(Request $request)
         // Validate inputs
         $request->validate([
 
-            'title' => 'required|string|max:255|unique:meeting_and_events,title', // Unique title
+
             'content' => 'required|string|max:2000', // Content should be a string
             'startDate' => 'required|date|before_or_equal:endDate', // Ensure it's a valid date before or equal to endDate
             'endDate' => 'required|date|after_or_equal:startDate', // Ensure it's a valid date after or equal to startDate
             'startTime' => 'required', // Valid time format (HH:mm)
             'endTime' => 'required', // Ensure it's after startTime
             'contactNo' => 'required|string|regex:/^\+?[0-9]{10,15}$/', // Validate contact number format
-            'description' => 'nullable|string|max:500', // Optional description
+            'description' => 'nullable|string|max:1000', // Optional description
         ], [
 
             'title.unique' => 'The title must be unique. Please choose another title.',
@@ -436,7 +463,7 @@ public function MeetingAndEventAdd(Request $request)
 
             ]);
 
-            return redirect()->back()->with('success', 'Employee updated successfully!');
+            return redirect()->back()->with('success', 'Meeting And Event updated successfully!');
         } catch (\Exception $e) {
             return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
         }
@@ -482,58 +509,83 @@ public function ConservationAwarenessAll()
 public function ConservationAwarenessAdd(Request $request)
 {
     // Validate input data
-    $request->validate([
+     // // Validate input data
+
+     $request->validate([
         'endangeredStatus' => 'required|string|max:255', // Ensure status is required and valid string
         'sustainableHarvesting' => 'required', // Must be a boolean value
         'reforestationProjects' => 'required|string|max:500', // Ensure this field is required and limited to 500 characters
+        'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048', // Optional image field (with max size)
         'biodiversityImportance' => 'required|string|max:1000', // Ensure this field is required and has a maximum length of 1000 characters
     ]);
 
-    try {
-        $data = $request->all();
 
-        // Generate a unique blog ID
-        $data['conservationAwarenessesId'] = 'CA' . Str::random(6); // Random 6-character string with prefix
+        try {
+            $data = $request->all();
 
-        // Save blog data
-        ConservationAwareness::create($data);
+            // Generate a unique employeeId
+            $data['conservationAwarenessesId'] = 'CA' . Str::random(6); // Random 6-character string with a prefix
 
-        return back()->with('success', 'Conservation Awarenesses added successfully!');
-    } catch (\Exception $e) {
-        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+            // Handle file upload using Laravel Storage
+            if ($request->hasFile('image')) {
+                // Get the uploaded file
+                $file = $request->file('image');
+
+                // Store the file in a specific directory and get its path
+                $path = $file->store('uploads/conservationAwarenesses', 'public');
+
+                // Save the file path to the $data array
+                $data['image'] = $path;
+            }
+
+            // Save data
+            ConservationAwareness::create($data);
+
+            return back()->with('success', 'Conservation Awarenesses added successfully!');
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+        }
     }
-}
+
 
 public function ConservationAwarenessUpdate(Request $request)
 {
     // Find the hospital by ID
     $conservation_awarenesses = ConservationAwareness::find($request->id);
 
-    if (!$conservation_awarenesses) {
-        return back()->withErrors(['error' => 'Conservation Awarenesses Guide not found!']);
-    }
 
-    // Validate inputs
-    $request->validate([
-        'endangeredStatus' => 'required|string|max:255', // Ensure status is required and valid string
-        'sustainableHarvesting' => 'required', // Must be a boolean value
-        'reforestationProjects' => 'required|string|max:500', // Ensure this field is required and limited to 500 characters
-        'biodiversityImportance' => 'required|string|max:1000', // Ensure this field is required and has a maximum length of 1000 characters
-    ]);
-
-
+        $request->validate([
+            'endangeredStatus' => 'required|string|max:255', // Ensure status is required and valid string
+            'sustainableHarvesting' => 'required', // Must be a boolean value
+            'reforestationProjects' => 'required|string|max:500', // Ensure this field is required and limited to 500 characters
+            'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048', // Optional image field (with max size)
+            'biodiversityImportance' => 'required|string|max:1000', // Ensure this field is required and has a maximum length of 1000 characters
+        ]);
     try {
-        // Prepare data for update
-        $data = [
-            'endangeredStatus' => $request->endangeredStatus,
-            'sustainableHarvesting' => $request->sustainableHarvesting,
-            'reforestationProjects' => $request->reforestationProjects,
-            'biodiversityImportance' => $request->biodiversityImportance,
+        $data = $request->all();
 
-        ];
+        // Handle image upload using Laravel Storage
+        if ($request->hasFile('image')) {
+            // Delete the old image if it exists
+            if ($conservation_awarenesses->image) {
+                Storage ::disk('public')->delete($conservation_awarenesses->image);
+            }
 
-        // Update hospital details
-        $conservation_awarenesses->update($data); // Using the update method to save changes
+            // Store the new image in 'uploads/images'
+            $data['image'] = $request->file('image')->store('uploads/conservationAwarenesses', 'public');
+        } else {
+            // Retain the existing image path if no new image is uploaded
+            $data['image'] = $conservation_awarenesses->image;
+        }
+
+        // Update employee details
+        $conservation_awarenesses->update([
+            'endangeredStatus' => $data['endangeredStatus'],
+            'sustainableHarvesting' => $data['sustainableHarvesting'],
+            'reforestationProjects' => $data['reforestationProjects'],
+            'biodiversityImportance' => $data['biodiversityImportance'],
+            'image' => $data['image'],
+        ]);
 
         return redirect()->back()->with('success', 'Conservation Awarenesses updated successfully!');
     } catch (\Exception $e) {

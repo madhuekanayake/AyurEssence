@@ -16,19 +16,30 @@ class SubscriptionReply extends Mailable
     public $subjectText;
     public $messageBody;
 
+    /**
+     * Create a new message instance.
+     *
+     * @param string $subject
+     * @param string $messageBody
+     */
     public function __construct($subject, $messageBody)
     {
         $this->subjectText = $subject;
         $this->messageBody = $messageBody;
     }
 
-    public function envelope(): Envelope
+    /**
+     * Build the message.
+     *
+     * @return $this
+     */
+    public function build()
     {
-        return new Envelope(subject: $this->subjectText);
-    }
-
-    public function content(): Content
-    {
-        return new Content(view: 'emails.subscriptionReply');
+        return $this->view('emails.subscriptionReply')
+            ->subject($this->subjectText)
+            ->with([
+                'messageBody' => $this->messageBody,
+                'recipientName' => 'Subscriber', // Placeholder name
+            ]);
     }
 }

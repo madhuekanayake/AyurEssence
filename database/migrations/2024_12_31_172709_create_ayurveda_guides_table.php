@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('ayurvedaGuideId')->unique();
             $table->string('title')->nullable(); // Hospital Name
             $table->string('information')->nullable(); // Address
+            $table->string('image')->nullable();
             $table->string('description')->nullable(); // Email
             $table->timestamps();
         });

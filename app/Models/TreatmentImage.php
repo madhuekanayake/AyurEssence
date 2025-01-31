@@ -11,7 +11,13 @@ class TreatmentImage extends Model
     protected $fillable = [
         'treatmentImageId',
         'treatmentId',
+        'isPrimary',
         'image',
 
     ];
+
+    public function treatment()
+    {
+        return $this->belongsTo(Treatment::class, 'treatmentId', 'treatmentId');
+    }
 }

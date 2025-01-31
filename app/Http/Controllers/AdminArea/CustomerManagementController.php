@@ -111,20 +111,23 @@ public function sendReply(Request $request)
     }
 }
 
+
 public function sendBulkEmail(Request $request)
 {
+    // Validate input
     $request->validate([
-        'subject' => 'required|string|max:255',
-        'message' => 'required|string',
+        'subject' => 'required|string|max:255|regex:/^\S.*$/',
+        'message' => 'required|string|regex:/^\S.*$/',
     ]);
 
-    // Get all subscription emails
+    // Fetch all subscription emails
     $subscriptions = Newsletter::pluck('email');
 
     try {
+        // Use Laravel's queue for sending bulk emails
         foreach ($subscriptions as $email) {
-            // Send email using Laravel's Mailable
-            Mail::to($email)->queue(new \App\Mail\ContactReply($request->subject, $request->message));
+            Mail::to($email)->queue((new \App\Mail\SubscriptionReply($request->subject, $request->message))->onQueue('emails'));
+
         }
 
         return back()->with('success', 'Emails sent successfully.');
@@ -132,6 +135,7 @@ public function sendBulkEmail(Request $request)
         return back()->withErrors(['error' => 'Failed to send emails: ' . $e->getMessage()]);
     }
 }
+
 
 
 }

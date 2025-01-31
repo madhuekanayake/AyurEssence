@@ -168,7 +168,7 @@ public function PlantAdd(Request $request)
         'traditionalUses' => 'nullable|string|max:1000',
         'modernUses' => 'nullable|string|max:1000',
         'toxicityInformation' => 'nullable|string|max:1000',
-        'availability' => 'required|boolean', // Assuming availability is a Yes/No field
+        'availability' => 'required', // Assuming availability is a Yes/No field
         'associatedDiseases' => 'nullable|string|max:1000',
         'description' => 'required|string|max:1000',
     ]);
@@ -204,7 +204,7 @@ public function PlantUpdate(Request $request)
         'edit_plantname' => 'required|string|max:255',
         'edit_scientificName' => 'required|string|max:255',
         'edit_plantCategoryId' => 'required',
-        'edit_availability' => 'required|boolean', // Assuming availability is a Yes/No field
+        'edit_availability' => 'required', // Assuming availability is a Yes/No field
         'edit_growthRequirements' => 'nullable|string|max:1000',
         'edit_geographicalDistribution' => 'nullable|string|max:1000',
         'edit_partUsed' => 'nullable|string|max:255',

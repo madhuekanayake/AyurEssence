@@ -369,24 +369,6 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('/todo') }}">
-          <i class="fa fa-puzzle-piece menu-icon"></i>
-          <span class="menu-title">Widgets</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url('/emp') }}">
-          <i class="fa fa-puzzle-piece menu-icon"></i>
-          <span class="menu-title">Widgets</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{ route('Student.all') }}">
-          <i class="fa fa-puzzle-piece menu-icon"></i>
-          <span class="menu-title">Student</span>
-        </a>
-      </li>
-      <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false" aria-controls="page-layouts">
             <i class="fas fa-seedling menu-icon"></i>
             <span class="menu-title">Plants Management</span>
@@ -471,19 +453,12 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('/todo') }}">
+        <a class="nav-link" href="{{ route('QuestionsAndAnswers.all') }}">
             <i class="fas fa-mortar-pestle menu-icon"></i>
-          <span class="menu-title">Medicine</span>
+          <span class="menu-title">Q And A</span>
         </a>
       </li>
 
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url('/todo') }}">
-            <i class="fas fa-envelope menu-icon"></i>
-
-          <span class="menu-title">Manage Visitor Massages</span>
-        </a>
-      </li>
 
 
       {{-- <li class="nav-item">

@@ -24,9 +24,21 @@
     </div>
     <!-- page-title end-->
 
+    <!-- Search Form -->
+    <div class="container mt-4">
+        <form action="{{ route('CustomerDoctor.all') }}" method="GET">
+            <div class="input-group mb-3">
+                <input type="text" name="search" class="form-control me-2" placeholder="Search by doctor's name" value="{{ request('search') }}">
+                <div class="input-group-append">
+                    <button class="btn btn-outline-secondary ms-2" type="submit">Search</button>
+                </div>
+            </div>
+        </form>
+    </div>
+
+
     <!-- site-main start -->
     <div class="site-main">
-
         <!-- team-section -->
         <section class="prt-row team-section01 clearfix">
             <div class="container">
@@ -66,14 +78,10 @@
                                     </div>
                                     <!-- More Details Button -->
                                     <div class="more-details">
-
-
                                         <a href="{{ route('CustomerDoctor.details', $item->id) }}" class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-darkcolor">
                                             More Details
                                         </a>
-
                                     </div>
-
                                 </div>
                             </div>
                         </div>
@@ -81,83 +89,6 @@
                 </div>
             </div>
         </section>
-
-
-
         <!-- team-section end -->
-
-        <!--cta-section-->
-        <section class="prt-row padding_zero-section cta-section03 animation clearfix">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="cta-content text-center">
-                            <div class="section-title title-style-center_text">
-                                <div class="title-header">
-                                    <h2 class="cta-title">Need a help</h2>
-                                    <h3 class="cta-titlepre">Are you facing any problem in your health?</h3>
-                                </div>
-                                <div class="cta-bnt mt-40 fadeup-amin">
-                                    <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-darkcolor"
-                                        href="contact-us.html">Contact us now</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="prt_single_image-wrapper cta-img mt-40 res-991-mt-20" data-cursor-tooltip="">
-                            <div class="prt_single_image-wrapper">
-                                <a href="team-details.html"><img width="1920" height="400" class="img-fluid"
-                                        src="{{ asset('PublicArea/images/single-img-05.png') }}" alt="image"></a>
-                            </div>
-                            <div class="prt-pfbox-overlay">
-                                <div class="ctaimg-title">
-                                    <a href="team-details.html">Meet our team</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!--cta-section end-->
-
-        <!-- info-section -->
-        <section class="prt-row padding_zero-section prt-bg bg-base-skin info-section clearfix ">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12 col-md-12">
-                        <div class="prt-info-main-block">
-                            <div class="info_btn mr-30 res-767-mb-15">
-                                <a class="prt-btn prt-btn-size-md prt-btn-shape-round  prt-btn-style-border prt-btn-color-darkcolor"
-                                    href="#">COVID-19 resources</a>
-                            </div>
-                            <!-- featured-icon-box -->
-                            <div class="featured-icon-box icon-align-before-content style2">
-                                <div class="featured-icon">
-                                    <div
-                                        class="prt-icon prt-icon_element-onlytxt prt-icon_element-size-lg prt-icon_element-color-darkcolor">
-                                        <i class="flaticon-alert"></i>
-                                    </div>
-                                </div>
-                                <div class="featured-content">
-                                    <div class="featured-title">
-                                        <h3>Get The Health package</h3>
-                                    </div>
-                                    <div class="featured-desc">
-                                        <p>What you need to know about the 2019 - 2023 fly season.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- featured-icon-box end -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-        <!-- info-section -->
-
     </div><!-- site-main end-->
 @endsection

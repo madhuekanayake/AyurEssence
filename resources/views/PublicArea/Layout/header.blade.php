@@ -61,25 +61,40 @@
                                                 <nav class="main-menu menu-mobile" id="menu">
                                                     <ul class="menu">
                                                         <li class="mega-menu-item active">
-                                                            <a href="{{ url('/') }}" class="mega-menu-link">Homes</a>
-                                                            <ul class="mega-submenu">
-                                                                <li><a href="https://themetechmount.com/html/medisat/neurology/">Neurology</a></li>
-                                                                <li><a href="https://themetechmount.com/html/medisat/hematology/">Hematology</a></li>
-                                                                <li><a href="https://themetechmount.com/html/medisat/medica/">Medica</a></li>
-                                                                <li><a href="https://themetechmount.com/html/medisat/radiology/">Radiology</a></li>
-                                                                <li><a href="https://themetechmount.com/html/medisat/childrio/">Childrio</a></li>
-                                                                <li class="active"><a href="https://themetechmount.com/html/medisat/ayurvedic/">Ayurvedic</a></li>
-                                                                <li><a href="https://themetechmount.com/html/medisat/eyeco/">Eyeco</a></li>
-                                                                <li><a href="https://www.themetechmount.com/html/medisat/cancer-care/">Cancer-care</a></li>
-                                                                <li><a href="https://www.themetechmount.com/html/medisat/surgery/">Surgery</a></li>
-                                                            </ul>
+                                                            <a href="{{ url('/') }}" class="mega-menu-link">Home</a>
+
                                                         </li>
-                                                        <li class="mega-menu-item"><a href="{{ url('/aboutUs') }}">About Us</a></li>
+                                                        <li class="mega-menu-item"><a href="{{ route('CustomerQandA.all') }}">About Us</a></li>
                                                         <li class="mega-menu-item"><a href="{{ route('CustomerService.all') }}">Service</a></li>
                                                         <li class="mega-menu-item"><a href="{{ route('CustomerGallery.all') }}">Gallery</a></li>
                                                         <li class="mega-menu-item"><a href="{{ route('CustomerDoctor.all') }}">Doctors</a></li>
-                                                        <li class="mega-menu-item"><a href="{{ url('/blog') }}">Blog</a></li>
+                                                        {{-- <li class="mega-menu-item"><a href="{{ url('/blog') }}">Blog</a></li> --}}
+
                                                         <li class="mega-menu-item"><a href="{{ route('ContactUs.all') }}">Contact Us</a></li>
+                                                        <li class="mega-menu-item"><a href="{{ route('CustomerPlant.all') }}">Plants</a></li>
+                                                        <li class="mega-menu-item"><a href="{{ route('CustomerProduct.all') }}">Products</a></li>
+                                                        <li class="mega-menu-item"><a href="{{ route('CustomerTreatment.all') }}">Treatments</a></li>
+                                                        <li class="mega-menu-item active">
+                                                            <a href="{{ url('/blog') }}" class="mega-menu-link">Education</a>
+                                                            <ul class="mega-submenu">
+                                                                <li><a href="{{ route('CustomerBlog.all') }}">Blog</a></li>
+                                                                <li><a href="{{ route('CustomerAyurvedicGuide.all') }}">Ayurvedic Guides</a></li>
+                                                                <li><a href="{{ route('CustomerMeetingsOrEvents.all') }}">Meetings/ Events</a></li>
+                                                                <li><a href="{{ route('ConservationAndAwareness.all') }}">Conservation/ Awareness</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        {{-- <li class="mega-menu-item active">
+                                                            <a href="{{ route('CustomerLocations.herbalGardensAll') }}" class="mega-menu-link">Locations</a>
+                                                            <ul class="mega-submenu">
+                                                                <li><a href="{{ route('CustomerLocations.herbalGardensAll') }}">Herbal Gardens</a></li>
+                                                                <li><a href="{{ route('CustomerLocations.ayurvedicHospitalsAll') }}">Ayurvedic Hospitals</a></li>
+                                                                <li><a href="{{ route('CustomerLocations.localPharmaciesAll') }}">Local Pharmacies</a></li>
+
+                                                            </ul>
+                                                        </li> --}}
+
+
+
                                                     </ul>
                                                 </nav><!-- menu end -->
                                             </div>
@@ -89,11 +104,9 @@
                                             <!-- header_extra -->
                                             <div class="header_extra d-flex align-items-center">
                                                 <div class="contact_item-link">
-                                                    <span><a href="mailto:info@example.com">contact.ayuressence@gmail.com</a></span>
+                                                    {{-- <span><a href="mailto:info@example.com">contact.ayuressence@gmail.com</a></span> --}}
                                                 </div>
-                                                <div class="contact_item with-icon">
-                                                    <span><i class="fab fa-whatsapp"></i><a href="tel:1234567890"> +94 222 468 5678</a></span>
-                                                </div>
+
                                                 <ul class="social-icons">
                                                     <li><a href="#" rel="noopener" aria-label="facebook"><i class="fab fa-facebook"></i></a></li>
                                                     <li><a href="#" rel="noopener" aria-label="twitter"><i class="fab fa-twitter"></i></a></li>

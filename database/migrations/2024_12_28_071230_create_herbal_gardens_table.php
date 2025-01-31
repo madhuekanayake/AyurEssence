@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('gardenAddress');
             $table->string('gardenPhone');
             $table->string('gardenEmail')->unique();
-            $table->string('gardenLocation');
+            $table->text('gardenLocation');
             $table->time('gardenOpenTime');  // Changed from date to time
             $table->time('gardenCloseTime'); // Changed from date to time
             $table->string('gardenOpenDays');

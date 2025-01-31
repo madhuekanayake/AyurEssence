@@ -188,4 +188,32 @@ public function ViewTreatmentImageDelete(Request $request)
         return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
     }
 }
+
+public function isPrimary($id)
+{
+    try {
+        $treatment = TreatmentImage::findOrFail($id);
+
+        // Check the blog ID of the selected image
+        $treatmentId = $treatment->treatmentId;
+
+        if ($treatment->isPrimary == 0) {
+            // Deactivate all other records for the same blogId
+            TreatmentImage::where('treatmentId', $treatmentId)->update(['isPrimary' => 0]);
+
+            // Activate the selected record
+            $treatment->isPrimary = 1;
+        } else {
+            // Deactivate the current record
+            $treatment->isPrimary = 0;
+        }
+
+        $treatment->save();
+
+        $message = $treatment->isPrimary ? 'Image marked as primary successfully!' : 'Image unmarked as primary successfully!';
+        return redirect()->back()->with('success', $message);
+    } catch (\Exception $e) {
+        return redirect()->back()->with('error', 'Something went wrong: ' . $e->getMessage());
+    }
+}
 }

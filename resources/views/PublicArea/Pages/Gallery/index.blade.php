@@ -15,7 +15,7 @@
                                     <span>
                                         <a title="Homepage" href="{{ url('/') }}">Home</a>
                                     </span>
-                                    <span>Blog</span>
+                                    <span>Gallery</span>
                                 </div>
                             </div>
                         </div>

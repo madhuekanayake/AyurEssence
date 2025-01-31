@@ -30,7 +30,7 @@
                                             <th>Plant Name</th>
                                             <th>Plant Category</th>
                                             <th>Scientific Name</th>
-                                            <th>Availability</th>
+                                            <th>Survival of the Plant</th>
                                             <th>Description</th>
                                             <th>Images</th>
                                             <th>Actions</th>
@@ -139,11 +139,12 @@
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label for="availability">Availability <span style="color: red;">*</span></label>
+                                <label for="availability">Survival of the Plant <span style="color: red;">*</span></label>
                                 <select class="form-control" id="availability" name="availability" required>
-                                    <option value="">-- Select Availability --</option>
-                                    <option value="1">Available</option>
-                                    <option value="0">Not Available</option>
+                                    <option value="" disabled selected>Select Availability</option>
+                                    <option value="The plants is not extinct">The plants is not extinct</option>
+                                    <option value="The plants is extincting">The plants is not extincting</option>
+                                    <option value="The plants is extinct">The plants is extinct</option>
                                 </select>
                             </div>
                         </div>
@@ -229,143 +230,120 @@
         </div>
     </div>
 
-    {{-- Edit Plant Modal --}}
-    <div class="modal fade" id="editPlantModal" tabindex="-1" role="dialog" aria-labelledby="editPlantLabel"
-        aria-hidden="true">
+    <div class="modal fade" id="editPlantModal" tabindex="-1" role="dialog" aria-labelledby="editPlantLabel" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="editPlantLabel">Add New Plant</h5>
+                    <h5 class="modal-title" id="editPlantLabel">Edit Plant</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
-                    <form action="{{ route('PlantManagement.plantUpdate') }}" method="POST"
-                        enctype="multipart/form-data">
+                    <form action="{{ route('PlantManagement.plantUpdate') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <input type="hidden" name="id" id="edit_plant_id">
+
+                        <!-- Plant Name and Scientific Name -->
                         <div class="form-row">
-
                             <div class="form-group col-md-6">
-                                <label for="edit_plantName">Plant Name <span style="color: red;">*</span></label>
-                                <input type="text" class="form-control" id="edit_plantName" name="edit_plantname"
-                                    placeholder="Plant Name" required pattern=".*\S.*"
-                                    title="Whitespace-only input is not allowed.">
+                                <label for="edit_plantName">Plant Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="edit_plantName" name="edit_plantname" placeholder="Plant Name" required>
                             </div>
-
                             <div class="form-group col-md-6">
-                                <label for="edit_scientificName">Scientific Name <span
-                                        style="color: red;">*</span></label>
-                                <input type="text" class="form-control" id="edit_scientificName"
-                                    name="edit_scientificName" placeholder="Scientific Name" required>
+                                <label for="edit_scientificName">Scientific Name <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="edit_scientificName" name="edit_scientificName" placeholder="Scientific Name" required>
                             </div>
                         </div>
 
+                        <!-- Plant Category and Availability -->
                         <div class="form-row">
-
                             <div class="form-group col-md-6">
-                                <label for="edit_plantCategoryId">Plant Category <span
-                                        style="color: red;">*</span></label>
-                                <select class="form-control" id="edit_plantCategoryId" name="edit_plantCategoryId"
-                                    required>
+                                <label for="edit_plantCategoryId">Plant Category <span class="text-danger">*</span></label>
+                                <select class="form-control" id="edit_plantCategoryId" name="edit_plantCategoryId" required>
                                     <option value="">-- Select Category --</option>
                                     @foreach ($plant_categories as $category)
-                                        <option value="{{ $category->plantCategoryId }}">{{ $category->categoryName }}
-                                        </option>
+                                        <option value="{{ $category->plantCategoryId }}">{{ $category->categoryName }}</option>
                                     @endforeach
                                 </select>
                             </div>
-
                             <div class="form-group col-md-6">
-                                <label for="edit_availability">Availability <span style="color: red;">*</span></label>
+                                <label for="edit_availability">Survival of the Plant <span style="color: red;">*</span></label>
                                 <select class="form-control" id="edit_availability" name="edit_availability" required>
-                                    <option value="">-- Select Availability --</option>
-                                    <option value="1">Available</option>
-                                    <option value="0">Not Available</option>
+                                    <option value="" disabled selected>Select Availability</option>
+                                    <option value="The plants is not extinct">The plants is not extinct</option>
+                                    <option value="The plants is extincting">The plants is not extincting</option>
+                                    <option value="The plants is extinct">The plants is extinct</option>
                                 </select>
                             </div>
                         </div>
 
+                        <!-- Growth Requirements and Geographical Distribution -->
                         <div class="form-row">
-
                             <div class="form-group col-md-6">
                                 <label for="edit_growthRequirements">Growth Requirements</label>
-                                <textarea class="form-control" id="edit_growthRequirements" name="edit_growthRequirements" rows="2"
-                                    placeholder="Growth Requirements"></textarea>
+                                <textarea class="form-control" id="edit_growthRequirements" name="edit_growthRequirements" rows="2" placeholder="Growth Requirements"></textarea>
                             </div>
-
                             <div class="form-group col-md-6">
                                 <label for="edit_geographicalDistribution">Geographical Distribution</label>
-                                <textarea class="form-control" id="edit_geographicalDistribution" name="edit_geographicalDistribution"
-                                    rows="2" placeholder="Geographical Distribution"></textarea>
+                                <textarea class="form-control" id="edit_geographicalDistribution" name="edit_geographicalDistribution" rows="2" placeholder="Geographical Distribution"></textarea>
                             </div>
                         </div>
 
+                        <!-- Part Used and Traditional Uses -->
                         <div class="form-row">
-
                             <div class="form-group col-md-6">
                                 <label for="edit_partUsed">Part Used</label>
-                                <input type="text" class="form-control" id="edit_partUsed" name="edit_partUsed"
-                                    placeholder="Part Used">
+                                <input type="text" class="form-control" id="edit_partUsed" name="edit_partUsed" placeholder="Part Used">
                             </div>
-
                             <div class="form-group col-md-6">
                                 <label for="edit_traditionalUses">Traditional Uses</label>
-                                <textarea class="form-control" id="edit_traditionalUses" name="edit_traditionalUses" rows="2"
-                                    placeholder="Traditional Uses"></textarea>
+                                <textarea class="form-control" id="edit_traditionalUses" name="edit_traditionalUses" rows="2" placeholder="Traditional Uses"></textarea>
                             </div>
                         </div>
 
+                        <!-- Modern Uses and Toxicity Information -->
                         <div class="form-row">
-
                             <div class="form-group col-md-6">
                                 <label for="edit_modernUses">Modern Uses</label>
-                                <textarea class="form-control" id="edit_modernUses" name="edit_modernUses" rows="2"
-                                    placeholder="Modern Uses"></textarea>
+                                <textarea class="form-control" id="edit_modernUses" name="edit_modernUses" rows="2" placeholder="Modern Uses"></textarea>
                             </div>
-
                             <div class="form-group col-md-6">
                                 <label for="edit_toxicityInformation">Toxicity Information</label>
-                                <textarea class="form-control" id="edit_toxicityInformation" name="edit_toxicityInformation" rows="2"
-                                    placeholder="Toxicity Information"></textarea>
+                                <textarea class="form-control" id="edit_toxicityInformation" name="edit_toxicityInformation" rows="2" placeholder="Toxicity Information"></textarea>
                             </div>
                         </div>
 
+                        <!-- Associated Diseases and Medical Uses -->
                         <div class="form-row">
-
                             <div class="form-group col-md-6">
                                 <label for="edit_associatedDiseases">Associated Diseases</label>
-                                <textarea class="form-control" id="edit_associatedDiseases" name="edit_associatedDiseases" rows="2"
-                                    placeholder="Associated Diseases"></textarea>
+                                <textarea class="form-control" id="edit_associatedDiseases" name="edit_associatedDiseases" rows="2" placeholder="Associated Diseases"></textarea>
                             </div>
-
                             <div class="form-group col-md-6">
-                                <label for="edit_medicalUses">Medical Uses <span style="color: red;">*</span></label>
-                                <textarea class="form-control" id="edit_medicalUses" name="edit_medicalUses" rows="2"
-                                    placeholder="Medical Uses" required></textarea>
+                                <label for="edit_medicalUses">Medical Uses <span class="text-danger">*</span></label>
+                                <textarea class="form-control" id="edit_medicalUses" name="edit_medicalUses" rows="2" placeholder="Medical Uses" required></textarea>
                             </div>
                         </div>
 
-
-                        <div class="form-row">
-
-                            <div class="form-group col-md-12">
-                                <label for="edit_description">Description <span style="color: red;">*</span></label>
-                                <textarea class="form-control" id="edit_description" name="edit_description" rows="3"
-                                    placeholder="Plant Description" required></textarea>
-                            </div>
+                        <!-- Description -->
+                        <div class="form-group">
+                            <label for="edit_description">Description <span class="text-danger">*</span></label>
+                            <textarea class="form-control" id="edit_description" name="edit_description" rows="3" placeholder="Plant Description" required></textarea>
                         </div>
 
-
-                        <button type="submit" class="btn btn-primary">Save</button>
-                        <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                        <!-- Buttons -->
+                        <div class="modal-footer">
+                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
+                        </div>
                     </form>
-
                 </div>
             </div>
         </div>
     </div>
+
+
 
     {{-- View Plant Modal --}}
     <div class="modal fade" id="viewPlantModal" tabindex="-1" role="dialog" aria-labelledby="viewPlantLabel"
@@ -416,13 +394,15 @@
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label for="view_availability">Availability <span style="color: red;">*</span></label>
+                                <label for="view_availability">Survival of the Plant <span style="color: red;">*</span></label>
                                 <select class="form-control" id="view_availability" name="view_availability" disabled>
-                                    <option value="">-- Select Availability --</option>
-                                    <option value="1">Available</option>
-                                    <option value="0">Not Available</option>
+                                    <option value="" disabled selected>Select Availability</option>
+                                    <option value="The plants is not extinct">The plants is not extinct</option>
+                                    <option value="The plants is extincting">The plants is not extincting</option>
+                                    <option value="The plants is extinct">The plants is extinct</option>
                                 </select>
                             </div>
+
                         </div>
 
                         <div class="form-row">

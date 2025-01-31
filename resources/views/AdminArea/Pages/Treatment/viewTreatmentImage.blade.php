@@ -42,12 +42,31 @@
 
                                             <td>
                                                 @if ($treatment->image)
-                                                    <img src="{{ asset('storage/' . $treatment->image) }}" alt="Treatment Image" width="100">
+                                                    <img src="{{ asset('storage/' . $treatment->image) }}" alt="Product Image" width="100">
                                                 @else
                                                     No Image
                                                 @endif
-                                            </td>
 
+                                                @php
+                                                $hasActive = $treatment_images->contains('isPrimary', 1);
+                                            @endphp
+
+                                            <td>
+                                                @if ($treatment->isPrimary == 1)
+                                                    <span class="badge badge-pill badge-soft-success font-size-12 rounded-pill">Primary</span>
+                                                    <a href="{{ route('Treatment.isPrimary', $treatment->id) }}" class="text-danger ms-2">
+                                                        <i class="fas fa-toggle-on fa-lg"></i>
+                                                    </a>
+                                                @else
+                                                    <span class="badge badge-pill badge-soft-danger font-size-12 rounded-pill">Secondary</span>
+                                                    <a href="{{ route('Treatment.isPrimary', $treatment->id) }}"
+                                                       class="text-primary ms-2 {{ $hasActive ? 'disabled' : '' }}"
+                                                       style="{{ $hasActive ? 'pointer-events: none; opacity: 0.5;' : '' }}">
+                                                        <i class="fas fa-toggle-off fa-lg"></i>
+                                                    </a>
+                                                @endif
+                                            </td>
+                                            </td>
                                             <td>
                                                 {{-- <button type="button" class="btn btn-link text-primary p-0 mr-2"
                                                     onclick="editImage('{{ $item->id }}', '{{ $item->title }}', '{{ $item->description }}')">

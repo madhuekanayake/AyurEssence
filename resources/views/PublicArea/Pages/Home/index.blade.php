@@ -121,8 +121,8 @@
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <ul class="prt-list prt-list-style-icon-01 pr-10 res-575-pr-0">
                                             <li class="prt-list-li-content"><i class="fas fa-user-md"></i> Professional doctors</li>
-    <li class="prt-list-li-content"><i class="fas fa-flask"></i> Digital laboratory</li>
-    <li class="prt-list-li-content"><i class="fas fa-calendar-check"></i> Online schedule</li>
+                                            <li class="prt-list-li-content"><i class="fas fa-flask"></i> Digital laboratory</li>
+                                            <li class="prt-list-li-content"><i class="fas fa-calendar-check"></i> Online schedule</li>
                                         </ul>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">

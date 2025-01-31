@@ -241,7 +241,7 @@
                             <div class="featured-thumbnail">
 
                                 <img width="303" height="327"
-                                    src="{{ 'PublicArea/images/team-member/team-img01.png' }}" alt="image">
+                                    src="{{ asset('PublicArea/images/team-member/team-img01.png') }}" alt="image">
                             </div>
                             <div class="featured-content">
                                 <div class="featured-title-box">
@@ -388,56 +388,18 @@
                     <div class="col-lg-7 spacing-4">
                         <div class="accordion style1">
                             <!-- toggle -->
-                            <div class="toggle prt-toggle_style_classic prt-control-right-true">
-                                <div class="toggle-title"><a href="#" class="active">How does ayurveda work?</a>
+                            @foreach($questions_and_answers as $qa)
+                                <div class="toggle prt-toggle_style_classic prt-control-right-true">
+                                    <div class="toggle-title">
+                                        <a href="#" class="active">{{ $qa->question }}</a>
+                                    </div>
+                                    <div class="toggle-content show">
+                                        <p>{{ $qa->answer }}</p>
+                                    </div>
                                 </div>
-                                <div class="toggle-content show">
-                                    <p>Ayurveda works by the assessing of an individual's unique constitution and using the
-                                        natural remedies, diet, and lifestyle adjustments to restore balance.</p>
-                                </div>
-                            </div><!-- toggle end -->
-                            <!-- toggle -->
-                            <div class="toggle prt-toggle_style_classic prt-control-right-true">
-                                <div class="toggle-title"><a href="#">What are the three doshas in ayurveda?</a>
-                                </div>
-                                <div class="toggle-content">
-                                    <p>Ayurveda categorizes individuals into three the doshas and they are the vata, pitta,
-                                        and kapha, each representing different elemental energies in the body.</p>
-                                </div>
-                            </div><!-- toggle end -->
-                            <!-- toggle -->
-                            <div class="toggle prt-toggle_style_classic prt-control-right-true">
-                                <div class="toggle-title"><a href="#">What conditions can ayurveda treat?</a></div>
-                                <div class="toggle-content">
-                                    <p>Ayurveda can address the various health issues by including the digestive problems,
-                                        stress, skin disorders, and chronic diseases, by addressing the root causes.</p>
-                                </div>
-                            </div><!-- toggle end -->
-                            <!-- toggle -->
-                            <div class="toggle prt-toggle_style_classic prt-control-right-true">
-                                <div class="toggle-title"><a href="#">Is the ayurvedic treatment safe?</a></div>
-                                <div class="toggle-content">
-                                    <p>When administered by trained professionals, ayurvedic treatments are generally safe.
-                                        however, consult with an ayurvedic practitioner for personalized guidance.</p>
-                                </div>
-                            </div><!-- toggle end -->
-                            <!-- toggle -->
-                            <div class="toggle prt-toggle_style_classic prt-control-right-true">
-                                <div class="toggle-title"><a href="#">What is panchakarma in ayurveda?</a></div>
-                                <div class="toggle-content">
-                                    <p>Panchakarma is a detoxification and rejuvenation therapy in the ayurveda that
-                                        involves the cleansing and eliminating the toxins from the body.</p>
-                                </div>
-                            </div><!-- toggle end -->
-                            <!-- toggle -->
-                            <div class="toggle prt-toggle_style_classic prt-control-right-true">
-                                <div class="toggle-title"><a href="#">Are ayurvedic herbs safe to use?</a></div>
-                                <div class="toggle-content">
-                                    <p>Ayurvedic herbs are generally the safe when used under the great expert guidance.
-                                        self-prescribing herbs may lead to adverse effects, so consult an ayurvedic
-                                        practitioner.</p>
-                                </div>
-                            </div><!-- toggle end -->
+                            @endforeach
+
+
                         </div>
                     </div>
                     <div class="col-lg-5">
