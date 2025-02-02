@@ -12,14 +12,14 @@
                                         <div class="hero-content-block">
                                             <div class="hero-content">
                                                 <div class="pretitle">
-                                                    <h3>Harmony with </h3>
+                                                    <h3>Nature with </h3>
                                                 </div>
                                                 <div class="">
-                                                    <h2 class="title"><span>Ayurveda</span> Care</h2>
+                                                    <h2 class="title"><span>Ayur</span>Essence</h2>
                                                 </div>
                                                 <div class="hero-slider_btn mt-10 res-991-mt-30">
                                                     <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-skincolor mr-15 mb-10" href="contact-us.html">Make an appointment</a>
-                                                    <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-border prt-btn-color-whitecolor mb-10" href="contact-us.html">Contact us</a>
+                                                    <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-border prt-btn-color-whitecolor mb-10" href="{{ route('ContactUs.all') }}">Contact us</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -44,7 +44,7 @@
                                                     <h3>Welcome to the</h3>
                                                 </div>
                                                 <div class="">
-                                                    <h2 class="title">Ayurveda</h2>
+                                                    <h2 class="title">Ayur Essence</h2>
                                                 </div>
                                                 <div class="d-flex align-items-center mt-50 res-991-mt-30">
                                                     <div class="hero-slider_btn">
@@ -485,7 +485,7 @@
                     <div class="row">
                         <div class="col-xl-7 col-lg-10 col-md-12 m-auto">
                             <div class="prt-product-text">
-                                <p>Explore a wide selection of products in our inventory <a class="prt-btn btn-inline prt-btn-color-whitecolor btn-underline" href="#">View all products</a></p>
+                                <p>Explore a wide selection of products in our inventory <a class="prt-btn btn-inline prt-btn-color-whitecolor btn-underline" href="{{ route('CustomerProduct.all') }}">View all products</a></p>
                             </div>
                         </div>
                     </div>
@@ -606,7 +606,7 @@
                                     </div>
                                     <div class="title-desc">
                                         <p>Stay informed and inspired with our freshest content, delivering insights and stories that matter.</p>
-                                        <a class="prt-btn btn-inline prt-btn-color-darkcolor btn-underline" href="#">View all stories</a>
+                                        <a class="prt-btn btn-inline prt-btn-color-darkcolor btn-underline" href="{{ route('CustomerBlog.all') }}">View all stories</a>
                                     </div>
                                 </div>
                                 <!-- section title end-->

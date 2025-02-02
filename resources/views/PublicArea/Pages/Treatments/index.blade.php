@@ -37,11 +37,26 @@
                         <div class="col-xl-4 col-lg-6 col-md-6 col-sm-6">
                             <!-- featured-box -->
                             <div class="featured-box style2">
-                                <div class="featured-thumbnail">
+                                {{-- <div class="featured-thumbnail">
                                     @if ($treatment->images->isNotEmpty())
                                         <img width="413" height="150" class="img-fluid" src="{{ asset('storage/' . $treatment->images->first()->image) }}" alt="Treatment Image">
                                     @else
                                         <img width="413" height="150" class="img-fluid" src="{{ asset('PublicArea/images/treatment/default-image.png') }}" alt="Default Image">
+                                    @endif
+                                </div> --}}
+
+                                <div class="featured-thumbnail">
+                                    @php
+                                        // Find the primary image for the blog
+                                        $primaryImage = $treatment->images->firstWhere('isPrimary', 1);
+                                    @endphp
+
+                                    @if ($primaryImage)
+                                        <img width="413" height="150" class="img-fluid" src="{{ asset('storage/' . $primaryImage->image) }}" alt="Primary Blog Image">
+                                    @elseif ($treatment->images->isNotEmpty())
+                                        <img width="413" height="150" class="img-fluid" src="{{ asset('storage/' . $treatment->images->first()->image) }}" alt="plant Image">
+                                    @else
+                                        <img width="413" height="150" class="img-fluid" src="{{ asset('PublicArea/images/treatments/default-image.png') }}" alt="Default Image">
                                     @endif
                                 </div>
 

@@ -91,7 +91,7 @@
                             <div class="plant-info">
                                 <h3 class="mb-3">{{ $plant->plantname }}</h3>
                                 <p class="text-muted mb-4"><strong>Scientific Name:</strong> {{ $plant->scientificName }}</p>
-                                <p><strong>Category:</strong> {{ $plant->category->name ?? 'Uncategorized' }}</p>
+                                <p><strong>Category:</strong> {{ $plant->category->categoryName ?? 'Uncategorized' }}</p>
                                 <p><strong>Growth Requirements:</strong> {{ $plant->growthRequirements }}</p>
                                 <p><strong>Geographical Distribution:</strong> {{ $plant->geographicalDistribution }}</p>
                                 <p><strong>Part Used:</strong> {{ $plant->partUsed }}</p>

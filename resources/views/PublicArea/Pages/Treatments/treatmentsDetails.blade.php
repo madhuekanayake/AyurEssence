@@ -30,42 +30,61 @@
         <section class="prt-row treatment-details-section clearfix">
             <div class="container">
                 <div class="row">
-                    <!-- Treatment Images (Left Side) -->
+                    <!-- Treatment Images -->
                     <div class="col-lg-6">
                         <div class="treatment-card p-4"
                             style="border: 0.5px solid #ddd; border-radius: 0px; box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);">
-
-                            <!-- Large Primary Image -->
-                            <div class="primary-image mb-3">
-                                @if ($treatment->images->isNotEmpty())
-                                    <img class="img-fluid rounded shadow"
-                                        src="{{ asset('storage/' . $treatment->images->first()->image) }}"
-                                        alt="{{ $treatment->name }}"
-                                        style="width: 100%; height: 500px; object-fit: cover;">
-                                @else
-                                    <img class="img-fluid rounded shadow"
-                                        src="{{ asset('PublicArea/images/treatments/default-image.png') }}"
-                                        alt="Default Treatment Image"
-                                        style="width: 100%; height: 500px; object-fit: cover;">
-                                @endif
+                            <!-- Treatment Image Slider -->
+                            <div class="treatment-image-slider mb-4">
+                                <div class="swiper treatmentSwiper">
+                                    <div class="swiper-wrapper">
+                                        @if ($treatment->images->isNotEmpty())
+                                            @foreach ($treatment->images as $image)
+                                                <div class="swiper-slide">
+                                                    <img class="img-fluid rounded shadow main-image"
+                                                        src="{{ asset('storage/' . $image->image) }}"
+                                                        alt="{{ $treatment->name }}"
+                                                        style="width: 100%; height: 500px; object-fit: cover;">
+                                                </div>
+                                            @endforeach
+                                        @else
+                                            <div class="swiper-slide">
+                                                <img class="img-fluid rounded shadow"
+                                                    src="{{ asset('PublicArea/images/treatments/default-image.png') }}"
+                                                    alt="Default Treatment Image"
+                                                    style="width: 100%; height: 500px; object-fit: cover;">
+                                            </div>
+                                        @endif
+                                    </div>
+                                    <!-- Navigation -->
+                                    <div class="swiper-button-next"></div>
+                                    <div class="swiper-button-prev"></div>
+                                    <!-- Pagination -->
+                                    <div class="swiper-pagination"></div>
+                                </div>
                             </div>
 
-                            <!-- Additional Images -->
+                            <!-- Thumbnail Navigation -->
                             @if ($treatment->images->count() > 1)
-                                <div class="additional-images d-flex gap-2">
-                                    @foreach ($treatment->images->slice(1) as $image)
-                                        <img class="img-thumbnail rounded shadow"
-                                            src="{{ asset('storage/' . $image->image) }}"
-                                            alt="{{ $treatment->name }}"
-                                            style="width: 150px; height: 150px; object-fit: cover; cursor: pointer;"
-                                            onclick="document.querySelector('.primary-image img').src = this.src;">
-                                    @endforeach
+                                <div class="thumbnail-slider">
+                                    <div class="swiper thumbnailSwiper">
+                                        <div class="swiper-wrapper">
+                                            @foreach ($treatment->images as $image)
+                                                <div class="swiper-slide">
+                                                    <img class="img-thumbnail rounded shadow"
+                                                        src="{{ asset('storage/' . $image->image) }}"
+                                                        alt="{{ $treatment->name }}"
+                                                        style="width: 110px; height: 110px; object-fit: cover; cursor: pointer;">
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                    </div>
                                 </div>
                             @endif
                         </div>
                     </div>
 
-                    <!-- Treatment Info (Right Side) -->
+                    <!-- Treatment Info -->
                     <div class="col-lg-6">
                         <div class="treatment-info">
                             <h3 class="mb-3">{{ $treatment->name }}</h3>
@@ -73,6 +92,7 @@
                             <p><strong>Content:</strong> {{ Str::limit(strip_tags($treatment->content), 150) }}</p>
                             <p><strong>Ingredients:</strong> {{ $treatment->ingredients }}</p>
                             <p><strong>Benefits:</strong> {{ $treatment->benefits }}</p>
+                        </div>
                         </div>
                     </div>
                 </div>
@@ -84,23 +104,137 @@
 
 @push('css')
     <style>
-        .primary-image img {
-            border-radius: 4px;
+        /* Image Styles */
+        .main-image {
             transition: transform 0.3s ease-in-out;
         }
 
-        .primary-image img:hover {
-            transform: scale(1.04);
+        .main-image:hover {
+            transform: scale(1.02);
         }
 
-        .additional-images img {
-            border: 0.5px solid transparent;
-            transition: border 0.3s ease-in-out;
+        /* Swiper Styles */
+        .treatmentSwiper {
+            width: 100%;
+            height: 500px;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-bottom: 20px;
         }
 
-        .additional-images img:hover {
-            border: 0.1px solid #020202;
-            transform: scale(1.05);
+        .thumbnailSwiper {
+            width: 100%;
+            height: 120px;
+            padding: 10px 0;
+        }
+
+        .thumbnail-slider .swiper-slide img {
+            width: 120px;
+            height: 120px;
+            object-fit: cover;
+            cursor: pointer;
+            border: 2px solid #ddd;
+            border-radius: 6px;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .thumbnail-slider .swiper-slide img:hover {
+            transform: scale(1.1);
+        }
+
+        .thumbnail-slider .swiper-slide {
+            opacity: 0.6;
+            transition: opacity 0.3s ease;
+        }
+
+        .thumbnail-slider .swiper-slide-thumb-active {
+            opacity: 1;
+        }
+
+        /* Navigation Buttons */
+        .swiper-button-next,
+        .swiper-button-prev {
+            color: #fff;
+            background: rgba(0, 0, 0, 0.5);
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            padding: 20px;
+        }
+
+        .swiper-button-next:after,
+        .swiper-button-prev:after {
+            font-size: 16px;
+        }
+
+        .swiper-button-next:hover,
+        .swiper-button-prev:hover {
+            background: rgba(0, 0, 0, 0.7);
+        }
+
+        /* Pagination */
+        .swiper-pagination-bullet {
+            background: #fff;
+            opacity: 0.7;
+        }
+
+        .swiper-pagination-bullet-active {
+            background: #fff;
+            opacity: 1;
+        }
+
+        /* Treatment Info Styles */
+        .treatment-info {
+            padding: 20px;
+        }
+
+        .treatment-info h3 {
+            font-size: 24px;
+            margin-bottom: 15px;
+        }
+
+        .treatment-info h4 {
+            font-size: 18px;
+            margin-bottom: 10px;
+            color: #333;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        .treatment-meta p {
+            margin-bottom: 8px;
         }
     </style>
+@endpush
+
+@push('js')
+    <script>
+        // Initialize thumbnail swiper
+        var thumbnailSwiper = new Swiper(".thumbnailSwiper", {
+            spaceBetween: 10,
+            slidesPerView: 4,
+            freeMode: true,
+            watchSlidesProgress: true,
+        });
+
+        // Initialize main swiper
+        var mainSwiper = new Swiper(".treatmentSwiper", {
+            spaceBetween: 30,
+            navigation: {
+                nextEl: ".swiper-button-next",
+                prevEl: ".swiper-button-prev",
+            },
+            pagination: {
+                el: ".swiper-pagination",
+                clickable: true,
+            },
+            thumbs: {
+                swiper: thumbnailSwiper,
+            },
+            autoplay: {
+                delay: 3000,
+                disableOnInteraction: false,
+            },
+        });
+    </script>
 @endpush
