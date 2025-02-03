@@ -13,6 +13,11 @@ class GardenImage extends Model
         'gardenId',
         'image',
         'description',
-        
+
     ];
+
+    public function herbalGarden()
+    {
+        return $this->belongsTo(HerbalGarden::class, 'gardenId', 'gardenId');
+    }
 }

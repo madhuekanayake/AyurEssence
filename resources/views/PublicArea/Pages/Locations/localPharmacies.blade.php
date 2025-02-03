@@ -9,13 +9,13 @@
                         <div class="col-lg-12">
                             <div class="prt-page-title-row-heading">
                                 <div class="page-title-heading">
-                                    <h2 class="title">Herbal Gardens</h2>
+                                    <h2 class="title">Local Pharmacies</h2>
                                 </div>
                                 <div class="breadcrumb-wrapper">
                                     <span>
                                         <a title="Homepage" href="{{ url('/') }}">Home</a>
                                     </span>
-                                    <span>Herbal Gardens Map</span>
+                                    <span>Local Pharmacies Map</span>
                                 </div>
                             </div>
                         </div>
@@ -34,27 +34,21 @@
                 <div id="map" style="width: 100%; height: 500px;"></div>
 
                 <div class="row mt-4">
-                    @foreach ($herbal_gardens as $garden)
+                    @foreach ($local_pharmacies as $pharmacy)
                         <div class="col-lg-4 col-md-6 col-sm-12 mb-4">
                             <div class="featured-content">
                                 <div class="featured-title">
                                     <h3>
-                                        <a href="{{ url('herbalGarden-details/' . $garden->id) }}">{{ $garden->gardenName }}</a>
+                                        <a href="{{ url('ayurvedicHospitals-details/' . $pharmacy->id) }}">{{ $pharmacy->name }}</a>
                                     </h3>
-                                    <p><strong>Location:</strong> {{ $garden->gardenLocation }}</p>
-                                    <p><strong>Address:</strong> {{ $garden->gardenAddress }}</p>
-                                    <p><strong>Phone:</strong> {{ $garden->gardenPhone }}
-                                        <a href="{{ route('CustomerLocations.herbalGardensDetails', $garden->id) }}" class="prt-btn btn-inline prt-btn-color-darkcolor btn-underline">
-                                            Read More..
-                                        </a>
-                                    </p>
-                                    {{-- <p><strong>Email:</strong> {{ $garden->gardenEmail }}</p>
-                                    <p><strong>Open Time:</strong> {{ $garden->gardenOpenTime }}</p>
-                                    <p><strong>Close Time:</strong> {{ $garden->gardenCloseTime }}</p>
-                                    <p><strong>Local Tiket Price:</strong> {{ $garden->localTicketPrice }}</p>
-                                    <p><strong>Foreign Tiket Price:</strong> {{ $garden->foreignTicketPrice }}</p>
-                                    <p><strong>Open Days:</strong> {{ $garden->gardenOpenDays }}</p>
-                                    <p><strong>Description:</strong> {{ $garden->gardenDescription }}</p> --}}
+                                    <p><strong>Location:</strong> {{ $pharmacy->location }}</p>
+                                    <p><strong>Address:</strong> {{ $pharmacy->address }}</p>
+                                    <p><strong>Phone:</strong> {{ $pharmacy->phone }}</p>
+                                    <p><strong>Email:</strong> {{ $pharmacy->email }}</p>
+                                    <p><strong>Open Time:</strong> {{ $pharmacy->openTime }}</p>
+                                    <p><strong>Close Time:</strong> {{ $pharmacy->closeTime }}</p>
+                                    <p><strong>Open Days:</strong> {{ $pharmacy->openDays }}</p>
+                                    <p><strong>Description:</strong> {{ $pharmacy->description }}</p>
                                 </div>
                             </div>
                         </div>
@@ -144,11 +138,11 @@
         });
 
         // Locations array from Laravel data
-        var locations = @json($herbal_gardens);
+        var locations = @json($local_pharmacies);
 
         // Loop through locations and add markers
-        locations.forEach(function(garden) {
-            geocodeAddress(garden.gardenLocation, map, garden.gardenName);
+        locations.forEach(function(pharmacy) {
+            geocodeAddress(pharmacy.location, map, pharmacy.name);
         });
     }
 
@@ -183,17 +177,17 @@
             center: { lat: 7.8731, lng: 80.7718 } // Default to Sri Lanka
         });
 
-        var locations = @json($herbal_gardens);
+        var locations = @json($local_pharmacies);
 
-        locations.forEach(function(garden) {
+        locations.forEach(function(pharmacy) {
             var marker = new google.maps.Marker({
-                position: { lat: parseFloat(garden.latitude), lng: parseFloat(garden.longitude) },
+                position: { lat: parseFloat(pharmacy.latitude), lng: parseFloat(pharmacy.longitude) },
                 map: map,
-                title: garden.gardenName
+                title: pharmacy.name
             });
 
             var infoWindow = new google.maps.InfoWindow({
-                content: '<h5>' + garden.gardenName + '</h5><p>' + garden.gardenLocation + '</p>'
+                content: '<h5>' + pharmacy.name + '</h5><p>' + pharmacy.location + '</p>'
             });
 
             marker.addListener("click", function() {

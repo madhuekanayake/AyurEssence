@@ -95,7 +95,8 @@
 
                                 </p>
                                 <div class="blog-content">
-                                    {!! $blog->content !!}
+                                     {!! $blog->content !!}
+                                    <p><strong>Description:</strong> {{ $blog->description }}</p>
                                 </div>
                             </div>
                         </div>

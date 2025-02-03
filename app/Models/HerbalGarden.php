@@ -21,5 +21,12 @@ class HerbalGarden extends Model
         'localTicketPrice',
         'foreignTicketPrice',
         'gardenDescription',
+        'latitude',
+        'longitude',
     ];
+
+    public function images()
+{
+    return $this->hasMany(GardenImage::class, 'gardenId', 'id');
+}
 }

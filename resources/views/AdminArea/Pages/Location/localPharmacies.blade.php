@@ -106,7 +106,7 @@
     {{-- Add Pharmacy Modal --}}
     <div class="modal fade" id="addPharmacyModal" tabindex="-1" role="dialog" aria-labelledby="addPharmacyLabel"
         aria-hidden="true">
-        <div class="modal-dialog modal-md" role="document">
+        <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="addPharmacyLabel">Add New Pharmacy</h5>
@@ -146,10 +146,22 @@
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label for="location">Location <span style="color: red;">*</span></label>
-                                <input type="text" class="form-control" id="location" name="location"
-                                    placeholder="Pharmacy Location" required>
+                                <label for="location">Location <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="location" name="location" placeholder="Location" required>
                             </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="latitude">Latitude <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="latitude" name="latitude" placeholder="Latitude" readonly required>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="longitude">Longitude <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="longitude" name="longitude" placeholder="Longitude" readonly required>
+                            </div>
+
+                            <!-- Add a Google Map for Selecting Location -->
+                            <div id="map" style="width: 100%; height: 400px;"></div>
 
                             <div class="form-group col-md-6">
                                 <label for="openTime">Open Time <span style="color: red;">*</span></label>
@@ -438,4 +450,46 @@
             $('#viewPharmacyModal').modal('show');
         }
     </script>
+
+<script>
+    function initMap() {
+        var defaultLocation = { lat: 7.8731, lng: 80.7718 }; // Default to Sri Lanka
+        var map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 8,
+            center: defaultLocation
+        });
+
+        var marker = new google.maps.Marker({
+            position: defaultLocation,
+            map: map,
+            draggable: true
+        });
+
+        google.maps.event.addListener(marker, 'dragend', function(event) {
+            document.getElementById("latitude").value = event.latLng.lat();
+            document.getElementById("longitude").value = event.latLng.lng();
+        });
+
+        // Auto-complete for the location field
+        var input = document.getElementById('gardenLocation');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.bindTo('bounds', map);
+
+        autocomplete.addListener('place_changed', function() {
+            var place = autocomplete.getPlace();
+            if (!place.geometry) {
+                return;
+            }
+
+            if (place.geometry.location) {
+                marker.setPosition(place.geometry.location);
+                map.setCenter(place.geometry.location);
+                document.getElementById("latitude").value = place.geometry.location.lat();
+                document.getElementById("longitude").value = place.geometry.location.lng();
+            }
+        });
+    }
+    </script>
+
+    
 @endpush

@@ -19,6 +19,8 @@ class AyurvedicHospital extends Model
         'closeTime',
         'openDays',
         'description',
+        'latitude',
+        'longitude',
 
     ];
 

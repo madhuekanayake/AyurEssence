@@ -19,6 +19,8 @@ class LocalPharmacy extends Model
         'closeTime',
         'openDays',
         'description',
+        'latitude',
+        'longitude',
 
     ];
 }

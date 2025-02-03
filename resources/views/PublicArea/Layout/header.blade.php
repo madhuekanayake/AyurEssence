@@ -73,17 +73,18 @@
                                                         <li class="mega-menu-item"><a href="{{ route('ContactUs.all') }}">Contact Us</a></li>
                                                         <li class="mega-menu-item"><a href="{{ route('CustomerPlant.all') }}">Plants</a></li>
                                                         <li class="mega-menu-item"><a href="{{ route('CustomerProduct.all') }}">Products</a></li>
-                                                        <li class="mega-menu-item"><a href="{{ route('CustomerTreatment.all') }}">Treatments</a></li>
+
                                                         <li class="mega-menu-item active">
-                                                            <a href="{{ url('/blog') }}" class="mega-menu-link">Education</a>
+                                                            <a href="{{ route('CustomerBlog.all') }}" class="mega-menu-link">Education</a>
                                                             <ul class="mega-submenu">
                                                                 <li><a href="{{ route('CustomerBlog.all') }}">Blog</a></li>
+                                                                <li><a href="{{ route('CustomerTreatment.all') }}">Treatments</a></li>
                                                                 <li><a href="{{ route('CustomerAyurvedicGuide.all') }}">Ayurvedic Guides</a></li>
                                                                 <li><a href="{{ route('CustomerMeetingsOrEvents.all') }}">Meetings/ Events</a></li>
                                                                 <li><a href="{{ route('ConservationAndAwareness.all') }}">Conservation/ Awareness</a></li>
                                                             </ul>
                                                         </li>
-                                                        {{-- <li class="mega-menu-item active">
+                                                        <li class="mega-menu-item active">
                                                             <a href="{{ route('CustomerLocations.herbalGardensAll') }}" class="mega-menu-link">Locations</a>
                                                             <ul class="mega-submenu">
                                                                 <li><a href="{{ route('CustomerLocations.herbalGardensAll') }}">Herbal Gardens</a></li>
@@ -91,7 +92,7 @@
                                                                 <li><a href="{{ route('CustomerLocations.localPharmaciesAll') }}">Local Pharmacies</a></li>
 
                                                             </ul>
-                                                        </li> --}}
+                                                        </li>
 
 
 

@@ -27,33 +27,29 @@ class LocationController extends Controller
     }
 }
 
+
+
 public function HerbalGardenAdd(Request $request)
 {
-    // Validate input data
     $request->validate([
-        'gardenName' => 'required|string|max:255', // Garden name is required
-        'gardenAddress' => 'required|string|max:500', // Address is required
-        'gardenPhone' => 'required|string|max:15', // Phone number is required
-        'gardenEmail' => 'required|email|unique:herbal_gardens,gardenEmail', // Ensure email is unique
-        // 'gardenLocation' => 'required|string|max:255', // Location is required
-        'gardenOpenTime' => 'required|date_format:H:i', // Open hours in valid time format
-        'gardenCloseTime' => 'required|date_format:H:i|after:gardenOpenTime', // Close hours must be after open hours
-        'gardenOpenDays' => 'required|string|in:Weekdays,Weekends', // Open days must be valid
-        'localTicketPrice' => 'required|numeric|min:0', // Local ticket price must be a positive number
-        'foreignTicketPrice' => 'required|numeric|min:0', // Foreign ticket price must be a positive number
-        'gardenDescription' => 'required|string|max:1000', // Description is required
-    ], [
-        'gardenEmail.unique' => 'The email address is already registered.',
-        'gardenCloseTime.after' => 'Close hours must be after open hours.',
+        'gardenName' => 'required|string|max:255',
+        'gardenAddress' => 'required|string|max:500',
+        'gardenPhone' => 'required|string|max:15',
+        'gardenEmail' => 'required|email|unique:herbal_gardens,gardenEmail',
+        'gardenLocation' => 'required|string|max:255',
+        'gardenOpenTime' => 'required|date_format:H:i',
+        'gardenCloseTime' => 'required|date_format:H:i|after:gardenOpenTime',
+        'gardenOpenDays' => 'required|string|in:Weekdays,Weekends',
+        'localTicketPrice' => 'required|numeric|min:0',
+        'foreignTicketPrice' => 'required|numeric|min:0',
+        'gardenDescription' => 'required|string|max:1000',
+        'latitude' => 'required|numeric',
+        'longitude' => 'required|numeric',
     ]);
 
     try {
         $data = $request->all();
-
-        // Generate a unique gardenId
-        $data['gardenId'] = 'GDN' . Str::random(6); // Random 6-character string with prefix
-
-        // Save garden data
+        $data['gardenId'] = 'GDN' . Str::random(6);
         HerbalGarden::create($data);
 
         return back()->with('success', 'Garden added successfully!');
@@ -246,9 +242,8 @@ public function AyurvedicHospitalAdd(Request $request)
         'closeTime' => 'required|date_format:H:i|after:openTime', // Close hours must be after open hours
         'openDays' => 'required|in:Weekdays,Weekends,All Days', // Open days description
         'description' => 'required|string|max:1000', // Description is required
-    ], [
-        'email.unique' => 'The email address is already registered.',
-        'closeTime.after' => 'Closing time must be after opening time.',
+        'latitude' => 'required|numeric',
+        'longitude' => 'required|numeric',
     ]);
 
     try {
@@ -438,9 +433,9 @@ public function LocalPharmacyAdd(Request $request)
         'closeTime' => 'required|date_format:H:i|after:openTime', // Close hours must be after open hours
         'openDays' => 'required|in:Weekdays,Weekends,All Days', // Open days description
         'description' => 'required|string|max:1000', // Description is required
-    ], [
-        'email.unique' => 'The email address is already registered.',
-        'closeTime.after' => 'Closing time must be after opening time.',
+        'latitude' => 'required|numeric',
+        'longitude' => 'required|numeric',
+
     ]);
 
     try {

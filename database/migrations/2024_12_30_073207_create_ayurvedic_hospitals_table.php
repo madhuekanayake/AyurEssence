@@ -23,6 +23,8 @@ return new class extends Migration
             $table->time('closeTime')->nullable(); // Closing Time
             $table->string('openDays')->nullable(); // Open Days
             $table->text('description')->nullable(); // Description
+            $table->decimal('latitude', 10, 7)->nullable();
+            $table->decimal('longitude', 10, 7)->nullable();
             $table->timestamps();
         });
     }

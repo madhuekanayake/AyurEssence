@@ -32,4 +32,17 @@ class CustomerBlogController extends Controller
         }
     }
 
+
+    public function HomeAll()
+    {
+        try {
+            // Fetch blogs with their related images
+            $blogs = Blog::with('images')->get();
+
+            return view('PublicArea.Pages.Home.index', compact('blogs'));
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+        }
+    }
+
 }

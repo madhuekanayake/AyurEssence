@@ -82,6 +82,9 @@ Route::prefix('CustomerBlog')->group(function () {
 
     Route::get('/blog/{id}', [CustomerBlogController::class, 'show'])->name('CustomerBlog.details');
 
+    Route::get('/homeAll', [CustomerBlogController::class, "HomeAll"])->name('CustomerBlog.homeAll');
+
+
 });
 
 Route::prefix('CustomerAyurvedicGuide')->group(function () {
@@ -186,8 +189,13 @@ Route::prefix('CustomerPlant')->group(function () {
 Route::prefix('CustomerLocations')->group(function () {
 
     Route::get('/ayurvedicHospitalsAll', [CustomerLocationsController::class, "AyurvedicHospitalsAll"])->name('CustomerLocations.ayurvedicHospitalsAll');
+    Route::get('/ayurvedicHospitalsAll/{id}', [CustomerLocationsController::class, 'show'])->name('CustomerLocations.ayurvedicHospitalsDetails');
+
     Route::get('/herbalGardensAll', [CustomerLocationsController::class, 'HerbalGardensAll'])->name('CustomerLocations.herbalGardensAll');
+    Route::get('/herbalGardensAll/{id}', [CustomerLocationsController::class, 'HerbalGardensShow'])->name('CustomerLocations.herbalGardensDetails');
+
     Route::get('/localPharmaciesAll', [CustomerLocationsController::class, 'LocalPharmaciesAll'])->name('CustomerLocations.localPharmaciesAll');
+
 
 });
 

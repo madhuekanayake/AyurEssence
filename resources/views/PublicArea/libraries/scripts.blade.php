@@ -19,7 +19,9 @@
 
 <script src="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js"></script>
 
-<script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_API_KEY&callback=initMap" async defer></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRxCvC_tYnWNUso0oJf-YAmRQVkh8204s&callback=initMap" async defer></script>
+
+
 
 
 
@@ -67,6 +69,19 @@ AOS.init({
       });
   </script>
 @endif
+
+<script>
+    (function(){if(!window.chatbase||window.chatbase("getState")!=="initialized"){window.chatbase=(...arguments)=>{if(!window.chatbase.q){window.chatbase.q=[]}window.chatbase.q.push(arguments)};window.chatbase=new Proxy(window.chatbase,{get(target,prop){if(prop==="q"){return target.q}return(...args)=>target(prop,...args)}})}const onLoad=function(){const script=document.createElement("script");script.src="https://www.chatbase.co/embed.min.js";script.id="Xl5zA67p23P1uM4ArOLC4";script.domain="www.chatbase.co";document.body.appendChild(script)};if(document.readyState==="complete"){onLoad()}else{window.addEventListener("load",onLoad)}})();
+    </script>
+
+    <script>
+        const crypto = require('crypto');
+
+const secret = '7q03ccdemo6o6incly3tejr7xtrpndu5'; // Your verification secret key
+const userId = current_user.id // A string UUID to identify your user
+
+const hash = crypto.createHmac('sha256', secret).update(userId).digest('hex');
+    </script>
 
 
 

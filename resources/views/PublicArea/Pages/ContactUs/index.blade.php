@@ -170,7 +170,7 @@
             <div id="google_map" class="google_map">
                 <div class="map_container">
                     <div id="map">
-                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.5404230618797!2d-0.12174774859469174!3d51.5033006187238!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x487604b900d26973%3A0x4291f3172409ea92!2slastminute.com%20London%20Eye!5e0!3m2!1sen!2sin!4v1629115262628!5m2!1sen!2sin"></iframe>
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d7915.083269395646!2d80.61798825860028!3d7.292874665495783!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae36881520181b1%3A0xd46cdaf0d79ff678!2sKandy%20Herbal%20Ayurvedic%20Treatment%20Center!5e0!3m2!1sen!2slk!4v1738574406896!5m2!1sen!2slk" loading="lazy"></iframe>
                     </div>
                 </div>
             </div>
