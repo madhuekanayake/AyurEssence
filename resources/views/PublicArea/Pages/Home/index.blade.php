@@ -354,18 +354,18 @@
                             <div class="featured-imagebox featured-imagebox-product style1">
                                 <div class="featured-thumbnail">
 
-                                    <img width="303" height="280" class="img-fluid" src="{{ asset('PublicArea/images/product/product-img-01.png') }}" alt="img">
+                                    <img width="303" height="280" class="img-fluid" src="{{ asset('PublicArea/images/plants/gotukola.jpeg') }}" alt="img">
                                 </div>
                                 <div class="featured-content">
                                     <div class="featured-title">
-                                        <h3><a href="#">Acupuncture slipper</a></h3>
+                                        <h3><a href="#">Gotukola</a></h3>
                                     </div>
                                     <div class="featured-desc">
-                                        <p><span><a href="#">$329.00</a></span> <a href="#">$149.00</a></p>
+                                        <h7><a href="#">Centella Asiatica</a></h7>
                                     </div>
                                     <div class="prt-product-btn">
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor mr" href="#">Buy now</a>
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor" href="#">Add to card</a>
+                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor mr" href="{{ route('CustomerPlant.all') }}">View More</a>
+
                                     </div>
                                 </div>
                             </div>
@@ -376,18 +376,18 @@
                             <div class="featured-imagebox featured-imagebox-product style1">
                                 <div class="featured-thumbnail">
 
-                                    <img width="303" height="280" class="img-fluid" src="{{ asset('PublicArea/images/product/product-img-02.png') }}" alt="img">
+                                    <img width="303" height="280" class="img-fluid" src="{{ asset('PublicArea/images/plants/iramusu.jpg') }}" alt="img">
                                 </div>
                                 <div class="featured-content">
                                     <div class="featured-title">
-                                        <h3><a href="#">Massage stone</a></h3>
+                                        <h3><a href="#">Iramusu</a></h3>
                                     </div>
                                     <div class="featured-desc">
-                                        <p><span><a href="#">$120.00</a></span> <a href="#">$80.00</a></p>
+                                        <h7><a href="#">Desmodium Gangeticum</a></h7>
                                     </div>
                                     <div class="prt-product-btn">
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor mr" href="#">Buy now</a>
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor" href="#">Add to card</a>
+                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor mr" href="{{ route('CustomerPlant.all') }}">View More</a>
+
                                     </div>
                                 </div>
                             </div>
@@ -398,18 +398,18 @@
                             <div class="featured-imagebox featured-imagebox-product style1">
                                 <div class="featured-thumbnail">
 
-                                    <img width="303" height="280" class="img-fluid" src="{{ asset('PublicArea/images/product/product-img-03.png') }}" alt="img">
+                                    <img width="303" height="280" class="img-fluid" src="{{ asset('PublicArea/images/plants/alovera.jpg') }}" alt="img">
                                 </div>
                                 <div class="featured-content">
                                     <div class="featured-title">
-                                        <h3><a href="#">Teak massager</a></h3>
+                                        <h3><a href="#">Aloe Vera</a></h3>
                                     </div>
                                     <div class="featured-desc">
-                                        <p><span><a href="#">$160.00</a></span> <a href="#">$100.00</a></p>
+                                        <h7><a href="#">Aloe Barbadensis</a></h7>
                                     </div>
                                     <div class="prt-product-btn">
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor mr" href="#">Buy now</a>
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor" href="#">Add to card</a>
+                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor mr" href="{{ route('CustomerPlant.all') }}">View More</a>
+
                                     </div>
                                 </div>
                             </div>
@@ -420,18 +420,18 @@
                             <div class="featured-imagebox featured-imagebox-product style1">
                                 <div class="featured-thumbnail">
 
-                                    <img width="303" height="280" class="img-fluid" src="{{ asset('PublicArea/images/product/product-img-04.png') }}" alt="img">
+                                    <img width="303" height="280" class="img-fluid" src="{{ asset('PublicArea/images/plants/lemmon.png') }}" alt="img">
                                 </div>
                                 <div class="featured-content">
                                     <div class="featured-title">
-                                        <h3><a href="#">Wooden bodycalf</a></h3>
+                                        <h3><a href="#">Lemon</a></h3>
                                     </div>
                                     <div class="featured-desc">
-                                        <p><span><a href="#">$100.00</a></span> <a href="#">$90.00</a></p>
+                                        <h7><a href="#">Citrus Limon</a></h7>
                                     </div>
                                     <div class="prt-product-btn">
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor mr" href="#">Buy now</a>
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor" href="#">Add to card</a>
+                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor mr" href="{{ route('CustomerPlant.all') }}">View More</a>
+
                                     </div>
                                 </div>
                             </div>
@@ -442,18 +442,18 @@
                             <div class="featured-imagebox featured-imagebox-product style1">
                                 <div class="featured-thumbnail">
 
-                                    <img width="303" height="280" class="img-fluid" src="{{ asset('PublicArea/images/product/product-img-05.jpg') }}" alt="img">
+                                    <img width="303" height="280" class="img-fluid" src="{{ asset('PublicArea/images/plants/sandawood.jpeg') }}" alt="img">
                                 </div>
                                 <div class="featured-content">
                                     <div class="featured-title">
-                                        <h3><a href="#">Herbal medicine</a></h3>
+                                        <h3><a href="#">Sandalwood</a></h3>
                                     </div>
                                     <div class="featured-desc">
-                                        <p><span><a href="#">$100.00</a></span> <a href="#">$90.00</a></p>
+                                        <h7><a href="#">Santalum Album</a></h7>
                                     </div>
                                     <div class="prt-product-btn">
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor mr" href="#">Buy now</a>
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor" href="#">Add to card</a>
+                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor mr" href="{{ route('CustomerPlant.all') }}">View More</a>
+
                                     </div>
                                 </div>
                             </div>
@@ -464,18 +464,18 @@
                             <div class="featured-imagebox featured-imagebox-product style1">
                                 <div class="featured-thumbnail">
 
-                                    <img width="303" height="280" class="img-fluid" src="{{ asset('PublicArea/images/product/product-img-06.jpg') }}" alt="img">
+                                    <img width="303" height="280" class="img-fluid" src="{{ asset('PublicArea/images/plants/cinnamon.jpeg') }}" alt="img">
                                 </div>
                                 <div class="featured-content">
                                     <div class="featured-title">
-                                        <h3><a href="#">Massage brush</a></h3>
+                                        <h3><a href="#">Cinnamon</a></h3>
                                     </div>
                                     <div class="featured-desc">
-                                        <p><span><a href="#">$80.00</a></span> <a href="#">$50.00</a></p>
+                                        <h7><a href="#">Cinnamomum Verum</a></h7>
                                     </div>
                                     <div class="prt-product-btn">
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor mr" href="#">Buy now</a>
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor" href="#">Add to card</a>
+                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor mr" href="{{ route('CustomerPlant.all') }}">View More</a>
+
                                     </div>
                                 </div>
                             </div>
@@ -485,7 +485,7 @@
                     <div class="row">
                         <div class="col-xl-7 col-lg-10 col-md-12 m-auto">
                             <div class="prt-product-text">
-                                <p>Explore a wide selection of products in our inventory <a class="prt-btn btn-inline prt-btn-color-whitecolor btn-underline" href="{{ route('CustomerProduct.all') }}">View all products</a></p>
+                                <p>Explore a wide selection of plants in our collection. <a class="prt-btn btn-inline prt-btn-color-whitecolor btn-underline" href="{{ route('CustomerPlant.all') }}">View all plants</a></p>
                             </div>
                         </div>
                     </div>
@@ -508,48 +508,51 @@
                             <!-- section title end-->
                         </div>
                     </div>
-                    <div class="row mt-25">
+                    <div class="row mt-4">
                         <div class="col-lg-12">
                             <div class="prt-appointment-block">
-                                <form action="#" class="query_form wrap-form clearfix" method="post">
+                                @if(session('success'))
+                                    <div class="alert alert-success">{{ session('success') }}</div>
+                                @endif
+                                <form action="{{ route('GetHealth.add') }}" method="POST" class="query_form wrap-form clearfix">
+                                    @csrf
                                     <div class="row">
                                         <div class="col-lg-8 col-md-12">
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <span class="text-input">
-                                                        <input name="name" type="text" value="" placeholder="Name*" required="required">
+                                                        <input name="name" type="text" placeholder="Name*" required>
                                                     </span>
+
                                                 </div>
                                                 <div class="col-md-6">
                                                     <span class="text-input">
-                                                        <input name="phone" type="text" value="" placeholder="Phone*" required="required">
+                                                        <input name="phone" type="text" placeholder="Phone*" required>
                                                     </span>
+
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <span class="text-input select-option">
-                                                         <select id="subject" name="user_state">
-                                                            <option value="select-subject">Subject*</option>
-                                                            <option value="subject1">General Medicine</option>
-                                                            <option value="subject2">Pediatrics</option>
-                                                            <option value="subject3">Detox & Rejuvenation</option>
-                                                            <option value="subject4">Eye, ENT & Dental Care</option>
-                                                        </select>
+                                                    <span class="text-input">
+                                                        <input name="email" type="email" placeholder="Email*" required>
                                                     </span>
+
                                                 </div>
                                                 <div class="col-md-6">
-                                                   <span class="text-input">
-                                                        <input name="date" type="date" value="" required="required">
-                                                   </span>
+                                                    <span class="text-input">
+                                                        <input name="subject" type="text" placeholder="Subject*" required>
+                                                    </span>
+
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-12">
                                             <span class="text-input">
-                                                <textarea name="message" rows="4" placeholder="Message*" required="required"></textarea>
+                                                <textarea name="massage" rows="4" placeholder="Massage*" required></textarea>
                                             </span>
+
                                         </div>
                                         <div class="col-md-12 text-center">
-                                           <button class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-darkcolor" type="submit">Make a appointment</button>
+                                            <button class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-darkcolor" type="submit">Make an Appointment</button>
                                         </div>
                                     </div>
                                 </form>
@@ -557,6 +560,7 @@
                         </div>
                     </div>
                 </div>
+
             </section>
             <!-- appointment-sectopn end-->
 

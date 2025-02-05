@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\AdminArea;
 
 use App\Http\Controllers\Controller;
+use App\Mail\GetHealthReply;
 use App\Models\ContactUs;
+use App\Models\GetHealth;
 use App\Models\NewsLetter;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
@@ -136,6 +138,68 @@ public function sendBulkEmail(Request $request)
     }
 }
 
+public function GetHealthAll()
+    {
+        try {
+            // Fetch all gallery data
+            $get_healths = GetHealth::all();
 
+            return view('AdminArea.Pages.Customer.getHealth', compact('get_healths'));
+
+
+        } catch (\Exception $e) {
+            // Handle any errors that occur
+            return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+        }
+    }
+
+    public function GetHealthDelete(Request $request)
+{
+    try {
+        // Validate the request
+        $request->validate([
+            'id' => 'required|integer|exists:get_healths,id', // Ensure the `blogs` table and `id` column are correct
+        ]);
+
+        // Find the hospital by ID
+        $get_healths = GetHealth::findOrFail($request->id); // Find the hospital by ID
+
+        // Delete the hospital record
+        $get_healths->delete();
+
+        // Return success response
+        return back()->with('success', 'Info deleted successfully!');
+    } catch (\Exception $e) {
+        // Return error response with more descriptive message
+        return back()->withErrors(['error' => 'An error occurred while deleting the get healths: ' . $e->getMessage()]);
+    }
+}
+
+public function GetHealthSendReply(Request $request)
+{
+    $request->validate([
+        'id' => 'required|exists:get_healths,id',
+        'email' => 'required|email',
+        'subject' => 'required|string|max:255',
+        'message' => 'required|string',
+    ]);
+
+    $get_healths = GetHealth::findOrFail($request->id);
+
+    // Update the database
+    $get_healths->update([
+        'reply_message' => $request->message,
+        'isReply' => true,
+    ]);
+
+    // Send email using Laravel's Mailable
+    try {
+        Mail::to($request->email)->queue(new GetHealthReply($request->subject, $request->message));
+
+        return back()->with('success', 'Reply sent and saved successfully.');
+    } catch (\Exception $e) {
+        return back()->withErrors(['error' => 'Mail sending failed: ' . $e->getMessage()]);
+    }
+}
 
 }

@@ -15,6 +15,7 @@ use App\Http\Controllers\AdminArea\PlantManagementController;
 use App\Http\Controllers\AdminArea\ProductManagementController;
 use App\Http\Controllers\AdminArea\QuestionsAndAnsersController;
 use App\Http\Controllers\AdminArea\QuestionsAndAnswersController;
+use App\Http\Controllers\AdminArea\SalePlantsController;
 use App\Http\Controllers\AdminArea\ServiceController;
 use App\Http\Controllers\AdminArea\SettingController;
 use App\Http\Controllers\AdminArea\StudentController;
@@ -35,6 +36,7 @@ use App\Http\Controllers\PublicArea\CustomerQandAController;
 use App\Http\Controllers\PublicArea\CustomerServiceController;
 use App\Http\Controllers\PublicArea\CustomerTreatmentController;
 use App\Http\Controllers\PublicArea\DoctorsController;
+use App\Http\Controllers\PublicArea\GetHealthController;
 use App\Http\Controllers\PublicArea\HomeController;
 use App\Http\Controllers\PublicArea\PlanttUsController;
 use App\Http\Controllers\PublicArea\WebsiteDataController;
@@ -170,6 +172,18 @@ Route::prefix('ContactUs')->group(function () {
     Route::post('/reply', [CustomerManagementController::class, 'sendReply'])->name('ContactUs.reply');
 
     Route::post('/contact-us/send-bulk-email', [CustomerManagementController::class, 'sendBulkEmail'])->name('ContactUs.sendBulkEmail');
+
+    Route::post('/getHealthSendReply', [CustomerManagementController::class, 'GetHealthSendReply'])->name('ContactUs.getHealthSendReply');
+
+
+
+});
+
+Route::prefix('GetHealth')->group(function () {
+
+    Route::get('/all', [GetHealthController::class, "All"])->name('GetHealth.all');
+
+    Route::post('/add', [GetHealthController::class, 'Add'])->name('GetHealth.add');
 
 
 
@@ -435,6 +449,9 @@ Route::prefix('CustomerManagement')->group(function () {
     Route::get('/newsLetterAll', [CustomerManagementController::class, "NewsLetterAll"])->name('CustomerManagement.newsLetterAll');
     Route::post('/newsLetterDelete', [CustomerManagementController::class, 'NewsLetterDelete'])->name('CustomerManagement.newsLetterDelete');
 
+    Route::get('/getHealthAll', [CustomerManagementController::class, "GetHealthAll"])->name('CustomerManagement.getHealthAll');
+    Route::post('/getHealthDelete', [CustomerManagementController::class, 'GetHealthDelete'])->name('CustomerManagement.getHealthDelete');
+
 
 
 });
@@ -445,4 +462,19 @@ Route::prefix('QuestionsAndAnswers')->group(function () {
     Route::post('/add', [QuestionsAndAnswersController::class, 'Add'])->name('QuestionsAndAnswers.add');
     Route::post('/delete', [QuestionsAndAnswersController::class, 'Delete'])->name('QuestionsAndAnswers.delete');
     Route::post('/update', [QuestionsAndAnswersController::class, 'Update'])->name('QuestionsAndAnswers.update');
+});
+
+Route::prefix('SalePlants')->group(function () {
+
+    Route::get('/all', [SalePlantsController::class, "All"])->name('SalePlants.all');
+    Route::post('/add', [SalePlantsController::class, 'Add'])->name('SalePlants.add');
+    Route::post('/delete', [SalePlantsController::class, 'Delete'])->name('SalePlants.delete');
+    Route::post('/update', [SalePlantsController::class, 'Update'])->name('SalePlants.update');
+
+    Route::post('/plantImageAdd', [SalePlantsController::class, 'PlantImageAdd'])->name('SalePlants.plantImageAdd');
+
+    Route::get('/viewPlantImageAll/{salePlantId}', [SalePlantsController::class, "ViewPlantImageAll"])->name('SalePlants.viewPlantImageAll');
+    Route::post('/viewPlantImageDelete', [SalePlantsController::class, 'ViewPlantImageDelete'])->name('SalePlants.viewPlantImageDelete');
+
+    Route::get('/isPrimary/{id}', [SalePlantsController::class, 'IsPrimary'])->name('SalePlants.isPrimary');
 });
