@@ -27,6 +27,7 @@ class HerbalGarden extends Model
 
     public function images()
 {
-    return $this->hasMany(GardenImage::class, 'gardenId', 'id');
+    return $this->hasMany(GardenImage::class, 'gardenId', 'gardenId');
 }
+
 }

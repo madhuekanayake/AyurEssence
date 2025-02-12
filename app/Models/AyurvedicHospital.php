@@ -26,6 +26,6 @@ class AyurvedicHospital extends Model
 
     public function images()
 {
-    return $this->hasMany(AyurvedicHospitalImages::class, 'ayurvedicHospitalId', 'id');
+    return $this->hasMany(AyurvedicHospitalImages::class, 'ayurvedicHospitalId', 'ayurvedicHospitalId');
 }
 }

@@ -16,8 +16,8 @@ class SalePlantImage extends Model
 
     ];
 
-    public function salePlant()
+    public function salePlants()
     {
-        return $this->belongsTo(SalePlants::class, 'salePlantId', 'salePlantId');
+        return $this->belongsTo(SalePlants::class, 'id', 'id');
     }
 }

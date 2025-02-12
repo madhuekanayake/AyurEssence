@@ -40,6 +40,11 @@ use App\Http\Controllers\PublicArea\GetHealthController;
 use App\Http\Controllers\PublicArea\HomeController;
 use App\Http\Controllers\PublicArea\PlanttUsController;
 use App\Http\Controllers\PublicArea\WebsiteDataController;
+use App\Http\Controllers\ShopPlants\ShopPlantsController;
+use App\Http\Controllers\ShopPlants\ShopProductContactController;
+use App\Http\Controllers\ShopPlants\ShopProductController;
+use App\Http\Controllers\ShopPlants\ShopProductHomeController;
+use App\Http\Controllers\ShopPlants\ShopProductPortfolioController;
 // use App\Http\Controllers\PublicArea\ServiceController;
 
 use App\Models\Sample;
@@ -477,4 +482,38 @@ Route::prefix('SalePlants')->group(function () {
     Route::post('/viewPlantImageDelete', [SalePlantsController::class, 'ViewPlantImageDelete'])->name('SalePlants.viewPlantImageDelete');
 
     Route::get('/isPrimary/{id}', [SalePlantsController::class, 'IsPrimary'])->name('SalePlants.isPrimary');
+});
+
+
+
+
+////////////////////////////////////////////////////////////////////////////////////// Shop Plants ///////////////////////////
+
+Route::prefix('ShopPlants')->group(function () {
+
+    Route::get('/index', [ShopPlantsController::class, "Index"])->name('ShopPlants.index');
+
+});
+
+
+Route::prefix('ShopProduct')->group(function () {
+
+    Route::get('/all', [ShopProductController::class, "All"])->name('ShopProduct.all');
+
+    Route::get('/ShopPlant/{id}', [ShopProductController::class, 'show'])->name('ShopProduct.details');
+
+});
+
+
+Route::prefix('ShopProductPortfolio')->group(function () {
+
+    Route::get('/all', [ShopProductPortfolioController::class, "All"])->name('ShopProductPortfolio.all');
+
+});
+
+
+Route::prefix('ShopProductContact')->group(function () {
+
+    Route::get('/all', [ShopProductContactController::class, "All"])->name('ShopProductContact.all');
+
 });

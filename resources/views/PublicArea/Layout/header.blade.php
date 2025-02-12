@@ -74,6 +74,8 @@
                                                         <li class="mega-menu-item"><a href="{{ route('CustomerPlant.all') }}">Plants</a></li>
                                                         <li class="mega-menu-item"><a href="{{ route('CustomerProduct.all') }}">Products</a></li>
 
+                                                        <li class="mega-menu-item"><a href="{{ route('ShopPlants.index') }}">Shop</a></li>
+
                                                         <li class="mega-menu-item"><a href="http://localhost:8502">Test</a></li>
 
                                                         <li class="mega-menu-item active">

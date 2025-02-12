@@ -31,8 +31,7 @@ class SalePlants extends Model
 
 public function images()
 {
-    return $this->hasMany(SalePlantImage::class, 'salePlantId', 'salePlantId');
+    return $this->hasMany(SalePlantImage::class, 'id', 'id');
 }
-
 
 }
