@@ -8,13 +8,12 @@
                                 <h3 class="widget-title-h3">Quick link</h3>
                                 <div class="footer-menu-links">
                                     <ul class="footer-menu-list">
-                                        <li class="footer-menu-item"><a href="#" class="footer-menu-item-link">About us</a></li>
-                                        <li class="footer-menu-item"><a href="#" class="footer-menu-item-link">Experiences</a></li>
-                                        <li class="footer-menu-item"><a href="#" class="footer-menu-item-link">Our patients</a></li>
-                                        <li class="footer-menu-item"><a href="#" class="footer-menu-item-link">Home care</a></li>
-                                        <li class="footer-menu-item"><a href="#" class="footer-menu-item-link">Services</a></li>
-                                        <li class="footer-menu-item"><a href="#" class="footer-menu-item-link">Success story</a></li>
-                                        <li class="footer-menu-item"><a href="#" class="footer-menu-item-link">Doctors</a></li>
+                                        <li class="footer-menu-item"><a href="{{ route('ImageUpload.all') }}" class="footer-menu-item-link">Plant Identification</a></li>
+                                        <li class="footer-menu-item"><a href="{{ route('CustomerPlant.all') }}" class="footer-menu-item-link">Plants</a></li>
+                                        <li class="footer-menu-item"><a href="{{ route('ShopPlants.index') }}" class="footer-menu-item-link">Shop</a></li>
+                                        <li class="footer-menu-item"><a href="{{ route('CustomerBlog.all') }}" class="footer-menu-item-link">Education</a></li>
+                                        <li class="footer-menu-item"><a href="{{ route('CustomerLocations.herbalGardensAll') }}" class="footer-menu-item-link">Location</a></li>
+                                        
                                     </ul>
                                 </div>
                                 <!-- Newsletter -->
@@ -42,7 +41,7 @@
                             <div class="footer-widget-box">
                                 <div class="footer-img">
 
-                                    <a href="#"><img width="441" height="385" class="img-fluid w-100 border-rad_10" src="{{ asset('PublicArea/images/footer-img.jpg') }}" alt="image"></a>
+                                    <a href="#"><img width="441" height="385" class="img-fluid w-100 border-rad_10" src="{{ asset('PublicArea/images/footer.jpeg') }}" alt="image"></a>
                                 </div>
                             </div>
                         </div>
@@ -94,27 +93,7 @@
             </div>
             <div class="bottom-footer">
                 <div class="container-fluid p-0">
-                    <!-- row -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="marquee-block overflow-hidden">
-                                <div class="marquee">
-                                    <div class="marquee-content">
-                                        <div class="marquee-text">Like & follow from you. new free to use projects from us. </div>
-                                        <div class="marquee-text">Like & follow from you. new free to use projects from us. </div>
-                                        <div class="marquee-text">Like & follow from you. new free to use projects from us. </div>
-                                        <div class="marquee-text">Like & follow from you. new free to use projects from us. </div>
-                                        <div class="marquee-text">Like & follow from you. new free to use projects from us. </div>
-                                        <div class="marquee-text">Like & follow from you. new free to use projects from us. </div>
-                                        <div class="marquee-text">Like & follow from you. new free to use projects from us. </div>
-                                        <div class="marquee-text">Like & follow from you. new free to use projects from us. </div>
-                                        <div class="marquee-text">Like & follow from you. new free to use projects from us. </div>
-                                        <div class="marquee-text">Like & follow from you. new free to use projects from us. </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- row end -->
+
                 </div>
             </div>
         </footer>

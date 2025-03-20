@@ -1,4 +1,4 @@
-<link rel="shortcut icon" href="{{ asset('PublicArea/images/favicon.png') }}">
+<link rel="shortcut icon" href="{{ asset('PublicArea/images/footer.jpeg') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/bootstrap.min.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/animate.css') }}">
 <link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/all.min.css') }}">

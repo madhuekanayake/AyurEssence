@@ -11,12 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sale_plant_images', function (Blueprint $table) {
+        Schema::create('portfolios', function (Blueprint $table) {
             $table->id();
-            $table->string('saleplantImageId')->unique();
-            $table->string('salePlantId')->nullable();
+            $table->string('portfolioId')->unique();
+            $table->string('title')->nullable();
             $table->string('image')->nullable();
-            $table->boolean('isPrimary')->default(0);
             $table->timestamps();
         });
     }
@@ -26,6 +25,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sale_plant_images');
+        Schema::dropIfExists('portfolios');
     }
 };

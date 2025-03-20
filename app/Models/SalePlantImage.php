@@ -9,7 +9,7 @@ class SalePlantImage extends Model
 {
     use HasFactory;
     protected $fillable = [
-        'salePlantImageId',
+        'saleplantImageId',
         'salePlantId',
         'image',
         'isPrimary',
@@ -18,6 +18,6 @@ class SalePlantImage extends Model
 
     public function salePlants()
     {
-        return $this->belongsTo(SalePlants::class, 'id', 'id');
+        return $this->belongsTo(SalePlants::class, 'salePlantId', 'salePlantId');
     }
 }

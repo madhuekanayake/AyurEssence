@@ -16,8 +16,8 @@
                 <div class="col-12">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="{{ route('ShopPlants.index') }}"><i class="fa fa-home"></i> Home</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Contact</li>
+                            <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Login</li>
                         </ol>
                     </nav>
                 </div>
@@ -27,34 +27,7 @@
     <!-- ##### Breadcrumb Area End ##### -->
 
     <!-- ##### Contact Area Info Start ##### -->
-    <div class="contact-area-info section-padding-0-100">
-        <div class="container">
-            <div class="row align-items-center justify-content-between">
-                <!-- Contact Thumbnail -->
-                <div class="col-12 col-md-6">
-                    <div class="contact--thumbnail">
-                        <img src="img/bg-img/25.jpg" alt="">
-                    </div>
-                </div>
 
-                <div class="col-12 col-md-5">
-                    <!-- Section Heading -->
-                    <div class="section-heading">
-                        <h2>CONTACT US</h2>
-                        <p>We are improving our services to serve you better.</p>
-                    </div>
-                    <!-- Contact Information -->
-                    <div class="contact-information">
-                        <p><span>Address:</span> 505 Silk Rd, New York</p>
-                        <p><span>Phone:</span> +1 234 122 122</p>
-                        <p><span>Email:</span> info.deercreative@gmail.com</p>
-                        <p><span>Open hours:</span> Mon - Sun: 8 AM to 9 PM</p>
-                        <p><span>Happy hours:</span> Sat: 2 PM to 4 PM</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
     <!-- ##### Contact Area Info End ##### -->
 
     <!-- ##### Contact Area Start ##### -->
@@ -69,35 +42,54 @@
                     </div>
                     <!-- Contact Form Area -->
                     <div class="contact-form-area mb-100">
-                        <form action="#" method="post">
+
+                            <!-- Display Error Message -->
+                            @if(session('error'))
+                                <div class="alert alert-danger">
+                                    {{ session('error') }}
+                                </div>
+                            @endif
+
+                            @if ($errors->any())
+                                <div class="alert alert-danger">
+                                    <ul>
+                                        @foreach ($errors->all() as $error)
+                                            <li>{{ $error }}</li>
+                                        @endforeach
+                                    </ul>
+                                </div>
+                            @endif
+                        <form action="{{ route('auth.login') }}" method="post">
+                            @csrf
                             <div class="row">
-                                <div class="col-12 col-md-6">
+                                <div class="col-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="contact-name" placeholder="Your Name">
-                                    </div>
-                                </div>
-                                <div class="col-12 col-md-6">
-                                    <div class="form-group">
-                                        <input type="email" class="form-control" id="contact-email" placeholder="Your Email">
+                                        <input type="email" class="form-control" name="email" placeholder="Email" required>
                                     </div>
                                 </div>
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <input type="text" class="form-control" id="contact-subject" placeholder="Subject">
+                                        <input type="password" class="form-control" name="password" placeholder="Password" required>
                                     </div>
                                 </div>
                                 <div class="col-12">
-                                    <div class="form-group">
-                                        <textarea class="form-control" name="message" id="message" cols="30" rows="10" placeholder="Message"></textarea>
-                                    </div>
+                                    <button type="submit" class="btn alazea-btn mt-15">Login</button>
                                 </div>
-                                <div class="col-12">
-                                    <button type="submit" class="btn alazea-btn mt-15">Send Message</button>
+
+                                <div class="col-12 mt-3">
+                                    <a href="{{ route('auth.index2') }}">Don't have an account? Register here</a>
+                                </div>
+                                <div class="col-12 mt-3">
+                                    <a href="{{ route('auth.google') }}" class="btn btn-danger">
+                                        <i class="fab fa-google"></i> Login with Google
+                                    </a>
                                 </div>
                             </div>
                         </form>
                     </div>
                 </div>
+
+
 
                 <div class="col-12 col-lg-6">
                     <!-- Google Maps -->

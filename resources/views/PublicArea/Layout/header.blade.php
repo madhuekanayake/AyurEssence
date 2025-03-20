@@ -27,7 +27,7 @@
                             <div class="col-lg-12">
                                 <div class="top_bar_contact_item text-center">
                                     <span class="top_bar_icon"><i class="fas fa-bell"></i></span>
-                                    Using its extensive fish farming experience and knowledge, Fleuren & Nooijen is now a market <a href="#">View more</a>
+                                    Ayur Essence – Harnessing the power of nature with AI-driven medicinal plant identification.<a href="#"></a>
                                 </div>
                             </div>
                         </div>
@@ -64,20 +64,10 @@
                                                             <a href="{{ url('/') }}" class="mega-menu-link">Home</a>
 
                                                         </li>
-                                                        <li class="mega-menu-item"><a href="{{ route('CustomerQandA.all') }}">About Us</a></li>
-                                                        <li class="mega-menu-item"><a href="{{ route('CustomerService.all') }}">Service</a></li>
-                                                        <li class="mega-menu-item"><a href="{{ route('CustomerGallery.all') }}">Gallery</a></li>
                                                         <li class="mega-menu-item"><a href="{{ route('CustomerDoctor.all') }}">Doctors</a></li>
-                                                        {{-- <li class="mega-menu-item"><a href="{{ url('/blog') }}">Blog</a></li> --}}
-
-                                                        <li class="mega-menu-item"><a href="{{ route('ContactUs.all') }}">Contact Us</a></li>
                                                         <li class="mega-menu-item"><a href="{{ route('CustomerPlant.all') }}">Plants</a></li>
                                                         <li class="mega-menu-item"><a href="{{ route('CustomerProduct.all') }}">Products</a></li>
-
                                                         <li class="mega-menu-item"><a href="{{ route('ShopPlants.index') }}">Shop</a></li>
-
-                                                        <li class="mega-menu-item"><a href="http://localhost:8502">Test</a></li>
-
                                                         <li class="mega-menu-item active">
                                                             <a href="{{ route('CustomerBlog.all') }}" class="mega-menu-link">Education</a>
                                                             <ul class="mega-submenu">
@@ -97,6 +87,23 @@
 
                                                             </ul>
                                                         </li>
+
+
+
+                                                        <li class="mega-menu-item"><a href="{{ route('CustomerService.all') }}">Service</a></li>
+                                                        <li class="mega-menu-item"><a href="{{ route('CustomerGallery.all') }}">Gallery</a></li>
+                                                        <li class="mega-menu-item"><a href="{{ route('CustomerQandA.all') }}">About Us</a></li>
+
+                                                        {{-- <li class="mega-menu-item"><a href="{{ url('/blog') }}">Blog</a></li> --}}
+
+                                                        <li class="mega-menu-item"><a href="{{ route('ContactUs.all') }}">Contact Us</a></li>
+
+
+
+                                                        {{-- <li class="mega-menu-item"><a href="http://localhost:8502">Test</a></li> --}}
+
+
+
 
 
 

@@ -11,12 +11,13 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('sale_plant_images', function (Blueprint $table) {
+        Schema::create('orders', function (Blueprint $table) {
             $table->id();
-            $table->string('saleplantImageId')->unique();
-            $table->string('salePlantId')->nullable();
-            $table->string('image')->nullable();
-            $table->boolean('isPrimary')->default(0);
+            $table->string('customer_id')->nullable(); // Allow NULL values
+            $table->string('customer_email');
+            $table->decimal('total_amount', 8, 2);
+            $table->string('payment_status');
+            $table->string('session_id');
             $table->timestamps();
         });
     }
@@ -26,6 +27,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('sale_plant_images');
+        Schema::dropIfExists('orders');
     }
 };

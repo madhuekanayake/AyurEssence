@@ -83,9 +83,9 @@
                         </div>
 
                         <div class="contact-information">
-                            <p><span>Address:</span> 505 Silk Rd, New York</p>
-                            <p><span>Phone:</span> +1 234 122 122</p>
-                            <p><span>Email:</span> info.deercreative@gmail.com</p>
+                            <p><span>Address:</span> No7, Colombo Road, Sri Lanka</p>
+                            <p><span>Phone:</span> +94 547 893 567</p>
+                            <p><span>Email:</span> ayuressenceshopplants@gmail.com</p>
                             <p><span>Open hours:</span> Mon - Sun: 8 AM to 9 PM</p>
                             <p><span>Happy hours:</span> Sat: 2 PM to 4 PM</p>
                         </div>

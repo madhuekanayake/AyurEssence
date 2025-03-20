@@ -4,9 +4,11 @@ namespace App\Http\Controllers\AdminArea;
 
 use App\Http\Controllers\Controller;
 use App\Models\PlantCategory;
+use App\Models\Portfolio;
 use App\Models\SalePlantImage;
 use App\Models\SalePlants;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class SalePlantsController extends Controller
@@ -139,7 +141,7 @@ public function PlantImageAdd(Request $request)
             $data = $request->all();
 
             // Generate a unique employeeId
-            $data['salePlantImageId'] = 'SPI' . Str::random(6); // Random 6-character string with a prefix
+            $data['saleplantImageId'] = 'SPI' . Str::random(6); // Random 6-character string with a prefix
 
             // Handle file upload using Laravel Storage
             if ($request->hasFile('image')) {
@@ -230,4 +232,134 @@ public function isPrimary($id)
         return redirect()->back()->with('error', 'Something went wrong: ' . $e->getMessage());
     }
 }
+
+public function PortfolioAll()
+{
+    try {
+        // Fetch all gallery data
+        $portfolios = Portfolio::all();
+
+        return view('AdminArea.Pages.Shop.portfolio', compact('portfolios'));
+    } catch (\Exception $e) {
+        // Handle any errors that occur
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+public function PortfolioAdd(Request $request)
+    {
+        // Validate input data
+    $request->validate([
+        'title' => 'required|string|max:255|unique:portfolios,title', // Ensure the title is unique
+
+        'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048', // Optional image field (with max size)
+    ], [
+        'title.unique' => 'The gallery title must be unique. Please choose another title.',
+    ]);
+
+        try {
+            $data = $request->all();
+
+            // Generate a unique employeeId
+            $data['portfolioId'] = 'PI' . Str::random(6); // Random 6-character string with a prefix
+
+            // Handle file upload using Laravel Storage
+            if ($request->hasFile('image')) {
+                // Get the uploaded file
+                $file = $request->file('image');
+
+                // Store the file in a specific directory and get its path
+                $path = $file->store('uploads/portfolio', 'public');
+
+                // Save the file path to the $data array
+                $data['image'] = $path;
+            }
+
+            // Save data
+            Portfolio::create($data);
+
+            return back()->with('success', 'Portfolio added successfully!');
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+        }
+    }
+
+
+    public function PortfolioUpdate(Request $request)
+    {
+        // Find the gallery item by ID
+        $portfolios = Portfolio::find($request->portfolioId); // Use portfolioId here
+
+        // Check if portfolio exists
+        if (!$portfolios) {
+            return redirect()->back()->withErrors(['error' => 'Portfolio not found.']);
+        }
+
+        // Validate inputs
+        $request->validate([
+            'title' => 'required|string|max:255|unique:portfolios,title,' . $portfolios->id, // Ensure the name is unique
+            'image' => 'nullable|image|mimes:jpg,png,jpeg|max:2048', // Optional image field
+        ], [
+            'title.unique' => 'The gallery title must be unique. Please choose another name.',
+        ]);
+
+        try {
+            $data = $request->all();
+
+            // Handle image upload using Laravel Storage
+            if ($request->hasFile('image')) {
+                // Delete the old image if it exists
+                if ($portfolios->image) {
+                    Storage::disk('public')->delete($portfolios->image);
+                }
+
+                // Store the new image in 'uploads/images'
+                $data['image'] = $request->file('image')->store('uploads/portfolio', 'public');
+            } else {
+                // Retain the existing image path if no new image is uploaded
+                $data['image'] = $portfolios->image;
+            }
+
+            // Update portfolio details
+            $portfolios->update([
+                'title' => $data['title'],
+                'image' => $data['image'],
+            ]);
+
+            return redirect()->back()->with('success', 'Portfolio updated successfully!');
+        } catch (\Exception $e) {
+            return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+        }
+    }
+
+
+public function PortfolioDelete(Request $request)
+{
+    try {
+        // Validate the request
+        $request->validate([
+            'id' => 'required|integer|exists:portfolios,id',
+        ]);
+
+        // Find the student by ID
+        $portfolios = Portfolio::findOrFail($request->id);
+
+        // Delete the associated image if it exists
+        if ($portfolios->image && file_exists(public_path('uploads/' . $portfolios->image))) {
+            unlink(public_path('uploads/' . $portfolios->image));
+        }
+
+        // Delete the student record
+        $portfolios->delete();
+
+        // Return success response
+        return back()->with('success', 'Portfolio deleted successfully!');
+    } catch (\Exception $e) {
+        // Return error response
+        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    }
+}
+
+
+
 }

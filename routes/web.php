@@ -38,8 +38,13 @@ use App\Http\Controllers\PublicArea\CustomerTreatmentController;
 use App\Http\Controllers\PublicArea\DoctorsController;
 use App\Http\Controllers\PublicArea\GetHealthController;
 use App\Http\Controllers\PublicArea\HomeController;
+use App\Http\Controllers\PublicArea\ImageUploadController;
 use App\Http\Controllers\PublicArea\PlanttUsController;
 use App\Http\Controllers\PublicArea\WebsiteDataController;
+use App\Http\Controllers\ShopPlants\AuthController;
+use App\Http\Controllers\ShopPlants\CartController;
+use App\Http\Controllers\ShopPlants\OrderController;
+use App\Http\Controllers\ShopPlants\PayController;
 use App\Http\Controllers\ShopPlants\ShopPlantsController;
 use App\Http\Controllers\ShopPlants\ShopProductContactController;
 use App\Http\Controllers\ShopPlants\ShopProductController;
@@ -216,6 +221,12 @@ Route::prefix('CustomerLocations')->group(function () {
     Route::get('/localPharmaciesAll', [CustomerLocationsController::class, 'LocalPharmaciesAll'])->name('CustomerLocations.localPharmaciesAll');
 
 
+});
+
+
+Route::prefix('ImageUpload')->group(function () {
+    Route::get('/all', [ImageUploadController::class, "All"])->name('ImageUpload.all');
+    Route::post('/upload', [ImageUploadController::class, "uploadAndPredict"])->name('ImageUpload.upload');
 });
 
 
@@ -482,6 +493,14 @@ Route::prefix('SalePlants')->group(function () {
     Route::post('/viewPlantImageDelete', [SalePlantsController::class, 'ViewPlantImageDelete'])->name('SalePlants.viewPlantImageDelete');
 
     Route::get('/isPrimary/{id}', [SalePlantsController::class, 'IsPrimary'])->name('SalePlants.isPrimary');
+
+
+
+    Route::get('/portfolioAll', [SalePlantsController::class, "PortfolioAll"])->name('SalePlants.portfolioAll');
+    Route::post('/portfolioAdd', [SalePlantsController::class, 'PortfolioAdd'])->name('SalePlants.portfolioAdd');
+    Route::post('/portfolioDelete', [SalePlantsController::class, 'PortfolioDelete'])->name('SalePlants.portfolioDelete');
+    Route::post('/portfolioUpdate', [SalePlantsController::class, 'PortfolioUpdate'])->name('SalePlants.portfolioUpdate');
+
 });
 
 
@@ -517,3 +536,35 @@ Route::prefix('ShopProductContact')->group(function () {
     Route::get('/all', [ShopProductContactController::class, "All"])->name('ShopProductContact.all');
 
 });
+
+
+Route::prefix('auth')->group(function () {
+
+    Route::get('/index', [AuthController::class, "index"])->name('auth.index');
+    Route::get('/index2', [AuthController::class, "index2"])->name('auth.index2');
+    Route::post('/register', [AuthController::class, 'register'])->name('auth.register');
+    Route::post('/login', [AuthController::class, 'login'])->name('auth.login');
+    Route::get('/logout', [AuthController::class, 'logout'])->name('auth.logout');
+    Route::get('google', [AuthController::class, 'redirectToGoogle'])->name('auth.google');
+    Route::get('google/callback', [AuthController::class, 'handleGoogleCallback'])->name('auth.google.callback');
+
+});
+
+
+Route::post('/cart/add/{id}', [CartController::class, 'addToCart'])->name('cart.add');
+Route::get('/cart', [CartController::class, 'showCart'])->name('cart.show');
+Route::delete('/cart/remove/{id}', [CartController::class, 'removeFromCart'])->name('cart.remove');
+Route::post('/cart/update/{id}', [CartController::class, 'updateCart'])->name('cart.update');
+Route::get('/checkout', [ShopProductController::class, 'checkout'])->name('checkout');
+
+
+Route::get('/checkout', [PayController::class, 'checkout'])->name('checkout');
+Route::get('/checkout/success', [PayController::class, 'success'])->name('checkout.success');
+Route::get('/checkout/cancel', [PayController::class, 'cancel'])->name('checkout.cancel');
+
+Route::get('/orders', [OrderController::class, 'showOrders'])->name('orders.show');
+
+Route::get('/orders/receipt/{orderId}', [OrderController::class, 'downloadReceipt'])->name('orders.receipt');
+
+
+

@@ -26,17 +26,40 @@ class ShopProductController extends Controller
 
     public function show($id)
 {
-    try {
+    // try {
         // Fetch the product with the given ID, including associated images and category
-        $product = SalePlants::with(['images'])->findOrFail($id);
-        
+        $SalePlant = SalePlants::with(['images'])->findOrFail($id);
+        $SalePlants = SalePlants::all();
+
 
         // Pass the product data to the view
-        return view('ShopPlants.Pages.ShopProducts.shopProductDetails', compact('product'));
-    } catch (\Exception $e) {
-        // Handle errors gracefully
-        return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
-    }
+        return view('ShopPlants.Pages.ShopProducts.shopProductDetails', compact('SalePlant','SalePlants'));
+    // } catch (\Exception $e) {
+    //     // Handle errors gracefully
+    //     return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+    // }
+}
+
+// public function show($id)
+// {
+//     try {
+//         // Fetch the product with the given ID, including associated images and category
+//         $product = SalePlants::with(['images', 'category'])->findOrFail($id);
+
+//         // Pass the product data to the view
+//         return view('ShopPlants.Pages.ShopProducts.shopProductDetails', compact('product'));
+//     } catch (\Exception $e) {
+//         // Handle errors gracefully
+//         return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
+//     }
+// }
+
+
+public function checkout(Request $request)
+{
+    $total = $request->query('total', 0); // Get the total price from the query parameter
+
+    return view('ShopPlants.Pages.ShopProducts.checkout', compact('total'));
 }
 
 }

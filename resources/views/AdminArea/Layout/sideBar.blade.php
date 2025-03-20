@@ -377,6 +377,7 @@
         <div class="collapse" id="sale-layouts">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="{{ route('SalePlants.all') }}">Sale Plants</a></li>
+            <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="{{ route('SalePlants.portfolioAll') }}">Add Portfilo</a></li>
 
           </ul>
         </div>

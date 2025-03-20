@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\ShopPlants;
 
 use App\Http\Controllers\Controller;
+use App\Models\Portfolio;
 use Illuminate\Http\Request;
 
 class ShopProductPortfolioController extends Controller
@@ -11,9 +12,9 @@ class ShopProductPortfolioController extends Controller
     {
         try {
             // Fetch all gallery data
+            $portfolios = Portfolio::all();
 
-
-            return view('ShopPlants.Pages.ShopPlantsPortfolio.index');
+            return view('ShopPlants.Pages.ShopPlantsPortfolio.index', compact('portfolios'));
 
 
         } catch (\Exception $e) {

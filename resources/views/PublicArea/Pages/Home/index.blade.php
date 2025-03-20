@@ -18,7 +18,7 @@
                                                     <h2 class="title"><span>Ayur</span>Essence</h2>
                                                 </div>
                                                 <div class="hero-slider_btn mt-10 res-991-mt-30">
-                                                    <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-skincolor mr-15 mb-10" href="contact-us.html">Make an appointment</a>
+                                                    <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-skincolor mr-15 mb-10" href="{{ route('ImageUpload.all') }}">Plant Idenitification</a>
                                                     <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-border prt-btn-color-whitecolor mb-10" href="{{ route('ContactUs.all') }}">Contact us</a>
                                                 </div>
                                             </div>
@@ -48,7 +48,7 @@
                                                 </div>
                                                 <div class="d-flex align-items-center mt-50 res-991-mt-30">
                                                     <div class="hero-slider_btn">
-                                                        <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-skincolor mr-25 mb-10" href="contact-us.html">Make an appointment</a>
+                                                        <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-skincolor mr-25 mb-10" href="{{ route('ImageUpload.all') }}">Plant Idenitification</a>
                                                     </div>
                                                     <div class="prt-hero-link">
                                                         <div class="prt-call"><i class="fab fa-whatsapp"></i> <a href="tel:1234567890">+94 222 468 5678</a></div>
@@ -637,8 +637,9 @@
                                                 <span class="prt-meta-line comment">10 Comment</span>
                                             </div><!-- post-meta end -->
                                             <div class="post-title featured-title">
-                                                <h3><a href="blog-single.html">Here’s the top promising shopify template of – 2023</a></h3>
+                                                <h3><a href="blog-single.html">Revolutionizing Herbal Medicine with AI-Powered Plant Identification</a></h3>
                                             </div>
+
                                         </div>
                                     </div><!-- featured-content end -->
                                 </div>
@@ -663,7 +664,7 @@
                                                     <span class="prt-meta-line comment">10 Comment</span>
                                                 </div><!-- post-meta end -->
                                                 <div class="post-title featured-title">
-                                                    <h3><a href="blog-single.html">Best lawyer services HTML template listed as multilingual WPML compatible</a></h3>
+                                                    <h3><a href="blog-single.html">Ayurvedic medicine, one of the world’s oldest holistic healing systems, originated in India over 3,000 years ago.</a></h3>
                                                 </div>
                                             </div>
                                         </div><!-- featured-content end -->
@@ -689,8 +690,9 @@
                                                 <span class="prt-meta-line comment">05 Comment</span>
                                             </div><!-- post-meta end -->
                                             <div class="post-title featured-title">
-                                                <h3><a href="blog-single.html">Get the best opencart template for the medical</a></h3>
+                                                <h3><a href="blog-single.html">Ayurvedic Therapy: Revolutionizing Healing with AI-Powered Plant Identification</a></h3>
                                             </div>
+
                                         </div>
                                     </div><!-- featured-content end -->
                                 </div>

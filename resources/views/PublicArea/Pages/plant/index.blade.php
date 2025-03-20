@@ -9,7 +9,7 @@
                         <div class="col-lg-12">
                             <div class="prt-page-title-row-heading">
                                 <div class="page-title-heading">
-                                    <h2 class="title">Our latest stories</h2>
+                                    <h2 class="title">Medicinal Plants</h2>
                                 </div>
                                 <div class="breadcrumb-wrapper">
                                     <span>
