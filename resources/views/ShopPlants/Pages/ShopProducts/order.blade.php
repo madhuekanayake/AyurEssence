@@ -13,7 +13,7 @@
             <div class="col-12">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('ShopPlants.index') }}"><i class="fa fa-home"></i> Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Orders</li>
                     </ol>
                 </nav>
@@ -42,7 +42,7 @@
                 @else
                     <div class="orders-container">
                         @foreach($orders as $order)
-                            <div class="order-card mb-4">
+                            <div class="order-card mb-4" id="order-{{ $order->id }}">
                                 <div class="order-header d-flex justify-content-between align-items-center bg-light p-3 rounded-top">
                                     <div>
                                         <span class="badge badge-success p-2 mr-2">{{ $order->payment_status }}</span>
@@ -85,10 +85,8 @@
                                                         <tr>
                                                             <td>
                                                                 <div class="d-flex align-items-center">
-
                                                                     <div class="product-info">
                                                                         <h6 class="mb-0">{{ $item->product->plantname ?? 'N/A' }}</h6>
-
                                                                     </div>
                                                                 </div>
                                                             </td>
@@ -103,8 +101,7 @@
                                     </div>
 
                                     <div class="order-actions text-right mt-3">
-
-                                        <a href="{{ route('orders.receipt', $order->id) }}" class="btn btn-sm btn-outline-secondary">Print Receipt</a>
+                                        <a href="javascript:void(0);" onclick="printOrder('order-{{ $order->id }}')" class="btn btn-sm btn-outline-secondary">Print Receipt</a>
                                     </div>
                                 </div>
                             </div>
@@ -115,5 +112,18 @@
         </div>
     </div>
 </div>
+
+<!-- JavaScript to Print Selected Order -->
+<script>
+    function printOrder(orderId) {
+        var orderContent = document.getElementById(orderId).innerHTML;
+        var originalContent = document.body.innerHTML;
+
+        document.body.innerHTML = orderContent;
+        window.print();
+        document.body.innerHTML = originalContent;
+        location.reload(); // Reload to restore the original content
+    }
+</script>
 
 @endsection

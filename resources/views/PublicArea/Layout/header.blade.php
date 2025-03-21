@@ -45,10 +45,15 @@
                                         <div class="site-navigation d-flex align-items-center">
                                             <!-- site-branding -->
                                             <div class="site-branding">
-                                                <h1><a class="home-link" href="index.html" title="Medisat" rel="home">
-                                                    <img id="logo-img" height="59" width="200" class="img-fluid auto_size" src="{{ asset('PublicArea/images/logo.svg') }}" alt="logo-img">
-                                                </a></h1>
+                                                <a class="home-link d-flex align-items-center" href="index.html" title="Ayur Essence" rel="home" style="text-decoration: none;">
+                                                    <h4 class="mb-0" style="font-weight: bold; color: #2b6415; font-family: 'Playfair Display', serif;">Ayur Essence</h4>
+                                                </a>
                                             </div>
+
+                                            <!-- Add this to the head section if using Google Fonts -->
+                                            <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+
                                             <!-- site-branding end -->
                                             <!-- menu-link -->
                                             <div class="menu-link">

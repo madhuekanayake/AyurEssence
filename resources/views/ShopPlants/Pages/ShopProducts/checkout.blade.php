@@ -13,7 +13,7 @@
             <div class="col-12">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('ShopPlants.index') }}"><i class="fa fa-home"></i> Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Checkout</li>
                     </ol>
                 </nav>
@@ -112,7 +112,7 @@
                     </div> --}}
                     <div class="subtotal d-flex justify-content-between align-items-center">
                         <h5>Subtotal</h5>
-                        <h5>${{ number_format($total, 2) }}</h5>
+                        <h5>Rs{{ number_format($total, 2) }}</h5>
                     </div>
                     <div class="shipping d-flex justify-content-between align-items-center">
                         <h5>Shipping</h5>
@@ -120,7 +120,7 @@
                     </div>
                     <div class="order-total d-flex justify-content-between align-items-center">
                         <h5>Order Total</h5>
-                        <h5>${{ number_format($total, 2) }}</h5>
+                        <h5>Rs{{ number_format($total, 2) }}</h5>
                     </div>
                 </div>
             </div>

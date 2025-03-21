@@ -171,12 +171,15 @@
                             <div class="cta-content text-center">
                                 <div class="section-title title-style-center_text">
                                     <div class="title-header">
-                                        <h2 class="cta-title">Need a help</h2>
-                                        <h3 class="cta-titlepre">Are you facing any problem in your health?</h3>
+                                        <h2 class="cta-title">Need a doctor</h2>
+                                        <h3 class="cta-titlepre">Are you want to meet doctors?</h3>
                                     </div>
                                     <div class="cta-bnt mt-40 fadeup-amin">
-                                        <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-darkcolor" href="contact-us.html">Contact us now</a>
+                                        <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-darkcolor" href="{{ route('CustomerDoctor.all') }}">
+                                            Contact us now <i class="fas fa-arrow-right ml-2"></i>
+                                        </a>
                                     </div>
+
                                 </div>
                             </div>
                         </div>

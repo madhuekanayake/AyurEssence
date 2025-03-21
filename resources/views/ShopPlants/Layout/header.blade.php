@@ -81,7 +81,9 @@
                     <nav class="classy-navbar justify-content-between" id="alazeaNav">
 
                         <!-- Nav Brand -->
-                        <a href="index.html" class="nav-brand"><img src="img/core-img/logo.png" alt=""></a>
+                        <a href="index.html" class="nav-brand">
+                            <h3 style="color: white;"> Ayur Essence </h3>
+                        </a>
 
                         <!-- Navbar Toggler -->
                         <div class="classy-navbar-toggler">
@@ -103,28 +105,19 @@
 
 
                                     <li><a href="{{ route('ShopProduct.all') }}">Shop</a></li>
+                                    <li><a href="{{ route('ShopProductPortfolio.all') }}">Portfolio</a></li>
                                     <li><a href="{{ route('cart.show') }}">Cart</a></li>
+
                                 </ul>
 
                                 <!-- Search Icon -->
-                                <div id="searchIcon">
-                                    <i class="fa fa-search" aria-hidden="true"></i>
-                                </div>
 
                             </div>
                             <!-- Navbar End -->
                         </div>
                     </nav>
 
-                    <!-- Search Form -->
-                    <div class="search-form">
-                        <form action="#" method="get">
-                            <input type="search" name="search" id="search" placeholder="Type keywords &amp; press enter...">
-                            <button type="submit" class="d-none"></button>
-                        </form>
-                        <!-- Close Icon -->
-                        <div class="closeIcon"><i class="fa fa-times" aria-hidden="true"></i></div>
-                    </div>
+
                 </div>
             </div>
         </div>

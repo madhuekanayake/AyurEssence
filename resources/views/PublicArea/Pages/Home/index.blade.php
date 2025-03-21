@@ -120,19 +120,20 @@
                                 <div class="row g-0">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <ul class="prt-list prt-list-style-icon-01 pr-10 res-575-pr-0">
-                                            <li class="prt-list-li-content"><i class="fas fa-user-md"></i> Professional doctors</li>
-                                            <li class="prt-list-li-content"><i class="fas fa-flask"></i> Digital laboratory</li>
-                                            <li class="prt-list-li-content"><i class="fas fa-calendar-check"></i> Online schedule</li>
+                                            <li class="prt-list-li-content"><i class="fas fa-seedling"></i> Plant Identification</li> <!-- Plant Icon -->
+                                            <li class="prt-list-li-content"><i class="fas fa-book-open"></i> Educational Resource</li> <!-- Book Icon -->
+                                            <li class="prt-list-li-content"><i class="fas fa-comments"></i> Chat Bot</li> <!-- Chat Icon -->
                                         </ul>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <ul class="prt-list prt-list-style-icon-01">
-                                            <li class="prt-list-li-content"><i class="fas fa-headset"></i> 24/7 Online support</li> <!-- Support Icon -->
-                                            <li class="prt-list-li-content"><i class="fas fa-cogs"></i> High packages</li> <!-- Package Icon -->
-                                            <li class="prt-list-li-btn"><a href="#"><i class="fas fa-arrow-right"></i> View more</a></li> <!-- Arrow Icon -->
+                                            <li class="prt-list-li-content"><i class="fas fa-shopping-basket"></i> Marketplace for Medicinal Plants</li> <!-- Marketplace Icon -->
+                                            <li class="prt-list-li-content"><i class="fas fa-map-marked-alt"></i> Interactive Mapping Service</li> <!-- Map Icon -->
+                                            <li class="prt-list-li-btn"><a href="{{ route('CustomerService.all') }}"><i class="fas fa-arrow-right"></i> View more</a></li> <!-- Arrow Icon -->
                                         </ul>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -704,27 +705,7 @@
             </section>
             <!--blog-section end-->
 
-            <!-- cta-sectopn -->
-            <section class="prt-row prt-bg bg-base-grey padding_zero-section cta-section01 clearfix">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-10 col-lg-12 m-auto">
-                            <div class="prt-cta-mainblock ">
-                                <div class="d-flex align-items-center justify-content-center">
-                                    <div class="prt-cta-call">
-                                        <p>Looking for consultation? <a href="tel:1234567890">+94 222 468 5678</a></p>
-                                    </div>
-                                    <div class="prt-cta-title"><h3>We are <span>certified</span> ayurved company</h3></div>
-                                </div>
-                                <div class="prt-cta-btn res-1199-mt-30">
-                                    <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor ml-20" href="contact-us.html">Contact us</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- cta-sectopn end-->
+
 
         </div><!-- site-main end-->
         @endsection

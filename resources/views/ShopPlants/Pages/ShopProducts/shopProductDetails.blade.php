@@ -14,7 +14,7 @@
             <div class="col-12">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('ShopPlants.index') }}"><i class="fa fa-home"></i> Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Shop</li>
                     </ol>
                 </nav>
@@ -68,7 +68,7 @@
                     <div class="col-12 col-md-6">
                         <div class="single_product_desc">
                             <h4 class="title">{{ $SalePlant->plantname }}</h4>
-                            <h4 class="price">${{ $SalePlant->finalPrice }}</h4>
+                            <h4 class="price">Rs{{ $SalePlant->finalPrice }}</h4>
                             <div class="short_overview">
                                 <p>{{ $SalePlant->description }}</p>
                             </div>
@@ -92,11 +92,12 @@
                             </div>
 
                             <div class="products--meta">
-                                <p><span>SKU:</span> <span>{{ $SalePlant->id }}</span></p>
-                                <p><span>Category:</span> <span>{{ $SalePlant->category->name ?? 'Uncategorized' }}</span></p>
-                                <p><span>Original Price:</span> <span>${{ $SalePlant->price }}</span></p>
-                                <p><span>Discount:</span> <span>{{ $SalePlant->discount }}%</span></p>
-                                <p><span>Stock:</span> <span>{{ $SalePlant->stockQuantity }} available</span></p>
+                                <p><span><strong>SKU:</strong></span> <span>{{ $SalePlant->id }}</span></p>
+                                <p><span><strong>Category:</strong></span> <span>{{ $SalePlant->category->categoryName ?? 'Uncategorized' }}</span></p>
+                                <p><span><strong>Original Price:</strong></span> <span>Rs{{ $SalePlant->price }}</span></p>
+                                <p><span><strong>Discount:</strong></span> <span>{{ $SalePlant->discount }}%</span></p>
+                                <p><span><strong>Stock:</strong></span> <span>{{ $SalePlant->stockQuantity }} available</span></p>
+
                                 <p>
                                     <span>Share on:</span>
                                     <span>

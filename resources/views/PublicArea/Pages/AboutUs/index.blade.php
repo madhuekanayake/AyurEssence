@@ -165,25 +165,7 @@
                                     </div>
                                     <div class="layer-content">
                                         <div class="prt-quotes-block" data-aos="fade-up" data-aos-duration="1000">
-                                            <!-- featured-icon-box -->
-                                            <div class="featured-icon-box icon-align-before-content style3">
-                                                <div class="featured-icon">
-                                                    <div
-                                                        class="prt-icon prt-icon_element-onlytxt prt-icon_element-size-lg prt-icon_element-color-darkcolor">
-                                                        <img width="56" height="44" src="{{ asset('PublicArea/images/icon-07.png') }}"
-                                                            class="img-fluid" alt="icon">
-                                                    </div>
-                                                </div>
-                                                <div class="featured-content">
-                                                    <div class="featured-title">
-                                                        <h3>Kimbery bari</h3>
-                                                    </div>
-                                                    <div class="featured-desc">
-                                                        <p>CEO, Vedas</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- featured-icon-box end -->
+
                                             <div class="mt-15">
                                                 <h3>We push the limits of <span>what's possible</span> for our patients.
                                                 </h3>
@@ -200,27 +182,26 @@
                                     </div>
                                     <div class="layer-content">
                                         <!-- section title -->
-                                        <div class="section-title ">
-                                            <div class="title-header">
-                                                <h2 class="title quotes-title">Welcome to veda care</h2>
-                                            </div>
-                                            <div class="title-desc">
-                                                <p class="prt-about-desc">Our clients are our priority, we offer quality
-                                                    medical services with a team of specialists.</p>
-                                                <p class="mt-30">welcome to veda care, where ancient wisdom eets modern
-                                                    healthcare. our mission is to nurture your well-being through
-                                                    personalized <u class="headingfont-color">ayurvedic solutions.</u> with
-                                                    a team of experienced practitioners and a commitment to holistic
-                                                    wellness, we provide comprehensive healthcare services tailored to your
-                                                    unique needs and we prioritize your health, treating not just the
-                                                    symptoms but the root causes of ailments.</p>
-                                                <p class="mt-10">Our state-of-the-art facilities and the client-centered
-                                                    approach ensure you receive the highest quality care. join us on a
-                                                    journey to optimal health and balance. welcome to veda care, your
-                                                    trusted partner in wellness.</p>
-                                            </div>
-                                        </div>
-                                        <!-- section title end-->
+<div class="section-title">
+    <div class="title-header">
+        <h2 class="title quotes-title">Welcome to Ayur Essence</h2>
+    </div>
+    <div class="title-desc">
+        <p class="prt-about-desc">Our mission is to preserve Sri Lanka’s rich Ayurvedic heritage by combining traditional knowledge with modern technology.</p>
+        <p class="mt-30">
+            Welcome to our Ayurvedic Plant Conservation platform, where nature’s wisdom meets innovation. Our goal is to bridge the knowledge gap by
+            offering a digital space where users can learn about, identify, and contribute to the preservation of medicinal plants.
+            <u class="headingfont-color">Empowered by AI technology,</u> our system enables accurate plant identification, ensuring that these valuable
+            species are recognized and protected.
+        </p>
+        <p class="mt-10">
+            Through a user-friendly interface and an extensive plant database, we provide resources for sustainable use and conservation.
+            Join us in preserving Sri Lanka’s invaluable natural medicine and ensuring its benefits for generations to come.
+        </p>
+    </div>
+</div>
+<!-- section title end -->
+
                                     </div>
                                 </div>
                             </div>
@@ -430,26 +411,10 @@
                         <div class="prt-info-main-block">
                             <div class="info_btn mr-30 res-767-mb-15">
                                 <a class="prt-btn prt-btn-size-md prt-btn-shape-round  prt-btn-style-border prt-btn-color-darkcolor"
-                                    href="#">COVID-19 resources</a>
+                                    href="{{ route('CustomerProduct.all') }}">Our Products</a>
                             </div>
-                            <!-- featured-icon-box -->
-                            <div class="featured-icon-box icon-align-before-content style2">
-                                <div class="featured-icon">
-                                    <div
-                                        class="prt-icon prt-icon_element-onlytxt prt-icon_element-size-lg prt-icon_element-color-darkcolor">
-                                        <i class="fas fa-exclamation-triangle"></i>
-                                    </div>
-                                </div>
-                                <div class="featured-content">
-                                    <div class="featured-title">
-                                        <h3>Get The Health package</h3>
-                                    </div>
-                                    <div class="featured-desc">
-                                        <p>What you need to know about the 2019 - 2023 fly season.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- featured-icon-box end -->
+
+
                         </div>
                     </div>
                 </div>

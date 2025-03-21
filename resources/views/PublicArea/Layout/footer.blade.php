@@ -13,7 +13,7 @@
                                         <li class="footer-menu-item"><a href="{{ route('ShopPlants.index') }}" class="footer-menu-item-link">Shop</a></li>
                                         <li class="footer-menu-item"><a href="{{ route('CustomerBlog.all') }}" class="footer-menu-item-link">Education</a></li>
                                         <li class="footer-menu-item"><a href="{{ route('CustomerLocations.herbalGardensAll') }}" class="footer-menu-item-link">Location</a></li>
-                                        
+
                                     </ul>
                                 </div>
                                 <!-- Newsletter -->
@@ -50,7 +50,7 @@
                                 <h3 class="widget-title-h3">Contact</h3>
                                 <ul class="prt-list footer-cta-list">
                                     <li class="list-items">SL: <a href="tel:1234567890">+94 222 468 5678</a></li>
-                                    <li class="list-items">59 Street, 1200 Techpark</li>
+                                    <li class="list-items">59 Street, Kandy, Sri Lanka</li>
                                     <li class="list-items"><a href="tel:1234567890">contact.ayuressence@gmail.com</a></li>
                                 </ul>
                                 <!-- social-icons -->

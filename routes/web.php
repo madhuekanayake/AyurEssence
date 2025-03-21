@@ -18,6 +18,7 @@ use App\Http\Controllers\AdminArea\QuestionsAndAnswersController;
 use App\Http\Controllers\AdminArea\SalePlantsController;
 use App\Http\Controllers\AdminArea\ServiceController;
 use App\Http\Controllers\AdminArea\SettingController;
+use App\Http\Controllers\AdminArea\ShopPlantsOrderController;
 use App\Http\Controllers\AdminArea\StudentController;
 use App\Http\Controllers\AdminArea\TreatmentController;
 use App\Http\Controllers\PublicArea\AboutUsController;
@@ -504,6 +505,13 @@ Route::prefix('SalePlants')->group(function () {
 });
 
 
+Route::prefix('orderManagement')->group(function () {
+
+    Route::get('/orders', [ShopPlantsOrderController::class, 'showOrders'])->name('orderManagement.show');
+    Route::post('/order/delete', [ShopPlantsOrderController::class, 'DeleteOrder'])->name('Order.delete');
+});
+
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////// Shop Plants ///////////////////////////
@@ -530,12 +538,6 @@ Route::prefix('ShopProductPortfolio')->group(function () {
 
 });
 
-
-Route::prefix('ShopProductContact')->group(function () {
-
-    Route::get('/all', [ShopProductContactController::class, "All"])->name('ShopProductContact.all');
-
-});
 
 
 Route::prefix('auth')->group(function () {

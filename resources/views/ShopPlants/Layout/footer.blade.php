@@ -29,16 +29,11 @@
                         </div>
                         <nav class="widget-nav">
                             <ul>
-                                <li><a href="#">Purchase</a></li>
-                                <li><a href="#">FAQs</a></li>
-                                <li><a href="#">Payment</a></li>
-                                <li><a href="#">News</a></li>
-                                <li><a href="#">Return</a></li>
-                                <li><a href="#">Advertise</a></li>
-                                <li><a href="#">Shipping</a></li>
-                                <li><a href="#">Career</a></li>
-                                <li><a href="#">Orders</a></li>
-                                <li><a href="#">Policities</a></li>
+                                <li><a href="{{ route('ShopPlants.index') }}">Home</a></li>
+                                <li><a href="{{ route('ShopProduct.all') }}">Shop</a></li>
+                                <li><a href="{{ route('cart.show') }}">Cart</a></li>
+                                <li><a href="{{ route('ShopProductPortfolio.all') }}">Portfolio</a></li>
+
                             </ul>
                         </nav>
                     </div>
@@ -51,27 +46,6 @@
                             <h5>BEST SELLER</h5>
                         </div>
 
-                        <!-- Single Best Seller Products -->
-                        <div class="single-best-seller-product d-flex align-items-center">
-                            <div class="product-thumbnail">
-                                <a href="shop-details.html"><img src="img/bg-img/4.jpg" alt=""></a>
-                            </div>
-                            <div class="product-info">
-                                <a href="shop-details.html">Cactus Flower</a>
-                                <p>$10.99</p>
-                            </div>
-                        </div>
-
-                        <!-- Single Best Seller Products -->
-                        <div class="single-best-seller-product d-flex align-items-center">
-                            <div class="product-thumbnail">
-                                <a href="shop-details.html"><img src="img/bg-img/5.jpg" alt=""></a>
-                            </div>
-                            <div class="product-info">
-                                <a href="shop-details.html">Tulip Flower</a>
-                                <p>$11.99</p>
-                            </div>
-                        </div>
                     </div>
                 </div>
 
@@ -106,7 +80,7 @@
                 <div class="col-12 col-md-6">
                     <div class="copywrite-text">
                         <p>&copy; <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Ayur Essence Shop Plants </a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 </p>
                     </div>
@@ -116,12 +90,11 @@ Copyright &copy;<script>document.write(new Date().getFullYear());</script> All r
                     <div class="footer-nav">
                         <nav>
                             <ul>
-                                <li><a href="#">Home</a></li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Service</a></li>
-                                <li><a href="#">Portfolio</a></li>
-                                <li><a href="#">Blog</a></li>
-                                <li><a href="#">Contact</a></li>
+                                <li><a href="{{ route('ShopPlants.index') }}">Home</a></li>
+                                <li><a href="{{ route('ShopProduct.all') }}">Shop</a></li>
+                                <li><a href="{{ route('cart.show') }}">Cart</a></li>
+                                <li><a href="{{ route('ShopProductPortfolio.all') }}">Portfolio</a></li>
+
                             </ul>
                         </nav>
                     </div>

@@ -13,7 +13,7 @@
             <div class="col-12">
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb">
-                        <li class="breadcrumb-item"><a href="#"><i class="fa fa-home"></i> Home</a></li>
+                        <li class="breadcrumb-item"><a href="{{ route('ShopPlants.index') }}"><i class="fa fa-home"></i> Home</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Cart</li>
                     </ol>
                 </nav>
@@ -68,7 +68,7 @@
                                         </div>
                                     </td>
                                     <td class="price"><span>${{ number_format($item['price'], 2) }}</span></td>
-                                    <td class="total_price"><span>${{ number_format($subtotal, 2) }}</span></td>
+                                    <td class="total_price"><span>Rs{{ number_format($subtotal, 2) }}</span></td>
                                     <td class="action">
                                         <form action="{{ route('cart.remove', $id) }}" method="POST">
                                             @csrf
@@ -111,7 +111,7 @@
                     </div>
                     <div class="total d-flex justify-content-between">
                         <h5>Total</h5>
-                        <h5>${{ number_format($total, 2) }}</h5>
+                        <h5>Rs{{ number_format($total, 2) }}</h5>
                     </div>
                     <div class="checkout-btn">
                         <a href="{{ route('checkout', ['total' => $total]) }}" class="btn alazea-btn w-100">PROCEED TO CHECKOUT</a>

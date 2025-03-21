@@ -68,7 +68,7 @@
                         <select class="form-control form-control-lg border-left-0" id="userRole" name="role" required>
                             <option value="" disabled selected>Select Role</option>
                             <option value="admin">Admin</option>
-                            <option value="super admin">Super Admin</option>
+                            
                         </select>
                     </div>
                 </div>
