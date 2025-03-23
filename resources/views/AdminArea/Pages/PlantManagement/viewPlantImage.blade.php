@@ -5,7 +5,7 @@
 <div class="main-panel">
     <div class="content-wrapper">
         <div class="page-header">
-            <h3 class="page-title">Plant Data Table</h3>
+            <h3 class="page-title">Plant Image Data Table</h3>
             <nav aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item">
@@ -19,7 +19,7 @@
         </div>
         <div class="card">
             <div class="card-body">
-                <h4 class="card-title">Plant Records</h4>
+                <h4 class="card-title">Plant Image</h4>
                 <div class="row">
                     <div class="col-12">
                         <div class="table-responsive">

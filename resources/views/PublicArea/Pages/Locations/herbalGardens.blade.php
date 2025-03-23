@@ -48,13 +48,7 @@
                                             Read More..
                                         </a>
                                     </p>
-                                    {{-- <p><strong>Email:</strong> {{ $garden->gardenEmail }}</p>
-                                    <p><strong>Open Time:</strong> {{ $garden->gardenOpenTime }}</p>
-                                    <p><strong>Close Time:</strong> {{ $garden->gardenCloseTime }}</p>
-                                    <p><strong>Local Tiket Price:</strong> {{ $garden->localTicketPrice }}</p>
-                                    <p><strong>Foreign Tiket Price:</strong> {{ $garden->foreignTicketPrice }}</p>
-                                    <p><strong>Open Days:</strong> {{ $garden->gardenOpenDays }}</p>
-                                    <p><strong>Description:</strong> {{ $garden->gardenDescription }}</p> --}}
+                                    
                                 </div>
                             </div>
                         </div>

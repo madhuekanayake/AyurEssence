@@ -43,38 +43,6 @@ class PayController extends Controller
         return redirect($session->url);
     }
 
-    // public function success(Request $request)
-    // {
-    //     $sessionId = $request->query('session_id');
-    //     $userEmail = session('customer_email');
-    //     $userId = session('customer_id');
-    //     $cart = session('cart', []);
-
-    //     // Save order details to the database
-    //     $order = Order::create([
-    //         'customer_id' => $userId,
-    //         'customer_email' => $userEmail,
-    //         'total_amount' => array_sum(array_map(function($item) {
-    //             return $item['price'] * $item['quantity'];
-    //         }, $cart)),
-    //         'payment_status' => 'paid',
-    //         'session_id' => $sessionId,
-    //     ]);
-
-    //     foreach ($cart as $id => $item) {
-    //         OrderItem::create([
-    //             'order_id' => $order->id,
-    //             'product_id' => $id,
-    //             'quantity' => $item['quantity'],
-    //             'price' => $item['price'],
-    //         ]);
-    //     }
-
-    //     // Clear the cart
-    //     session()->forget('cart');
-
-    //     return view('ShopPlants.Pages.ShopProducts.checkout_success', compact('order'));
-    // }
 
     public function success(Request $request)
     {

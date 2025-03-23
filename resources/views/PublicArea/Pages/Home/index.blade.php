@@ -273,12 +273,15 @@
                             <!-- section title -->
                             <div class="section-title title-style-center_text">
                                 <div class="title-header">
-                                    <h2 class="cta-title">Need a help</h2>
-                                    <h3 class="cta-titlepre">Get a free medical checkup</h3>
+                                    <h2 class="cta-title">Medicinal Plants </h2>
+                                    <h3 class="cta-titlepre">Purchase a medicinal Plants for your garden</h3>
                                 </div>
                                 <div class="cta-bnt mt-40 fadeup-amin">
-                                    <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-skincolor" href="contact-us.html">+94 222 468 5678</a>
+                                    <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-skincolor" href="{{ route('ShopProduct.all') }}">
+                                        Purchase <i class="fas fa-arrow-right ml-2"></i>
+                                    </a>
                                 </div>
+
                             </div>
                             <!-- section title end-->
                         </div>
@@ -503,7 +506,7 @@
                             <!-- section title -->
                             <div class="section-title title-style-center_text">
                                 <div class="title-header">
-                                    <h2 class="title">Explain your health problem</h2>
+                                    <h2 class="title">Get Health</h2>
                                 </div>
                             </div>
                             <!-- section title end-->
@@ -553,7 +556,7 @@
 
                                         </div>
                                         <div class="col-md-12 text-center">
-                                            <button class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-darkcolor" type="submit">Make an Appointment</button>
+                                            <button class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-darkcolor" type="submit">Submit</button>
                                         </div>
                                     </div>
                                 </form>
@@ -570,28 +573,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-12 col-md-12">
-                            <div class="prt-info-main-block">
-                                <div class="info_btn mr-30 res-767-mb-15">
-                                    <a class="prt-btn prt-btn-size-md prt-btn-shape-round  prt-btn-style-border prt-btn-color-darkcolor" href="#">COVID-19 resources</a>
-                                </div>
-                                <!-- featured-icon-box -->
-                                <div class="featured-icon-box icon-align-before-content style2">
-                                    <div class="featured-icon">
-                                        <div class="prt-icon prt-icon_element-onlytxt prt-icon_element-size-lg prt-icon_element-color-darkcolor">
-                                            <i class="fas fa-exclamation-triangle"></i>
-                                        </div>
-                                    </div>
-                                    <div class="featured-content">
-                                        <div class="featured-title">
-                                            <h3>Get The Health package</h3>
-                                        </div>
-                                        <div class="featured-desc">
-                                            <p>What you need to know about the 2019 - 2023 fly season.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- featured-icon-box end -->
-                            </div>
+
                         </div>
                     </div>
                 </div>

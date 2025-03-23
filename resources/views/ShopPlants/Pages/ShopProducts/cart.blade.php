@@ -86,16 +86,7 @@
 
         <div class="row">
             <!-- Coupon Discount -->
-            <div class="col-12 col-lg-6">
-                <div class="coupon-discount mt-70">
-                    <h5>COUPON DISCOUNT</h5>
-                    <p>Enter a valid coupon code to get a discount on your order.</p>
-                    <form action="#" method="post">
-                        <input type="text" name="coupon-code" placeholder="Enter your coupon code">
-                        <button type="submit">APPLY COUPON</button>
-                    </form>
-                </div>
-            </div>
+            
 
             <!-- Cart Totals -->
             <div class="col-12 col-lg-6">

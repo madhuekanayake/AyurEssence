@@ -16,4 +16,9 @@ class PlantDiseasesImage extends Model
 
 
     ];
+
+    public function plantDiseasses()
+    {
+        return $this->belongsTo(PlantDiseases::class, 'diseasesId', 'diseasesId');
+    }
 }

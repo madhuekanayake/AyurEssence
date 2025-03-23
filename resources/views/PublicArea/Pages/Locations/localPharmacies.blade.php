@@ -39,7 +39,7 @@
                             <div class="featured-content">
                                 <div class="featured-title">
                                     <h3>
-                                        <a href="{{ url('ayurvedicHospitals-details/' . $pharmacy->id) }}">{{ $pharmacy->name }}</a>
+                                        <a href="{{ url('localPharmacies-details/' . $pharmacy->id) }}">{{ $pharmacy->name }}</a>
                                     </h3>
                                     <p><strong>Location:</strong> {{ $pharmacy->location }}</p>
                                     <p><strong>Address:</strong> {{ $pharmacy->address }}</p>

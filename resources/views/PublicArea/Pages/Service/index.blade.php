@@ -163,44 +163,7 @@
             <!--service-section end-->
 
 
-            <!--cta-section-->
-            <section class="prt-row padding_zero-section cta-section03 animation clearfix">
-                <div class="container-fluid">
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="cta-content text-center">
-                                <div class="section-title title-style-center_text">
-                                    <div class="title-header">
-                                        <h2 class="cta-title">Need a doctor</h2>
-                                        <h3 class="cta-titlepre">Are you want to meet doctors?</h3>
-                                    </div>
-                                    <div class="cta-bnt mt-40 fadeup-amin">
-                                        <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-darkcolor" href="{{ route('CustomerDoctor.all') }}">
-                                            Contact us now <i class="fas fa-arrow-right ml-2"></i>
-                                        </a>
-                                    </div>
-
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="prt_single_image-wrapper cta-img mt-40 res-991-mt-20" data-cursor-tooltip="">
-                                <div class="prt_single_image-wrapper">
-                                    <a href="team-details.html"><img width="1920" height="400" class="img-fluid" src="{{ asset('PublicArea/images/single-img-05.png') }}" alt="image"></a>
-                                </div>
-                                <div class="prt-pfbox-overlay">
-                                    <div class="ctaimg-title">
-                                        <a href="team-details.html">Meet our team</a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!--cta-section end-->
+            
 
         </div><!-- site-main end-->
 

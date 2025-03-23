@@ -18,4 +18,9 @@ class PlantDiseases extends Model
         'plantsAffected',
 
     ];
+
+    public function images()
+{
+    return $this->hasMany(PlantDiseasesImage::class, 'diseasesId', 'diseasesId');
+}
 }

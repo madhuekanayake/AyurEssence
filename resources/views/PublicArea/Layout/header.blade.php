@@ -70,7 +70,14 @@
 
                                                         </li>
                                                         <li class="mega-menu-item"><a href="{{ route('CustomerDoctor.all') }}">Doctors</a></li>
-                                                        <li class="mega-menu-item"><a href="{{ route('CustomerPlant.all') }}">Plants</a></li>
+                                                        <li class="mega-menu-item active">
+                                                            <a href="" class="mega-menu-link">Plants</a>
+                                                            <ul class="mega-submenu">
+                                                                <li><a href="{{ route('CustomerPlant.all') }}">Plants</a></li>
+                                                                <li><a href="{{ route('CustomerPlantDeseases.PlantDiseasesAll') }}">Plant Deseases</a></li>
+
+                                                            </ul>
+                                                        </li>
                                                         <li class="mega-menu-item"><a href="{{ route('CustomerProduct.all') }}">Products</a></li>
                                                         <li class="mega-menu-item"><a href="{{ route('ShopPlants.index') }}">Shop</a></li>
                                                         <li class="mega-menu-item active">

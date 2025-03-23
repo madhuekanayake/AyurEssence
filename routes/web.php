@@ -204,9 +204,17 @@ Route::prefix('GetHealth')->group(function () {
 
 Route::prefix('CustomerPlant')->group(function () {
 
+
+
     Route::get('/all', [CustomerPlanttUsController::class, "All"])->name('CustomerPlant.all');
 
+    Route::get('/search', [CustomerPlanttUsController::class, "Search"])->name('CustomerPlant.search');
+
     Route::get('/plant/{id}', [CustomerPlanttUsController::class, 'show'])->name('CustomerPlant.details');
+
+    Route::get('/PlantDiseasesAll', [CustomerPlanttUsController::class, "PlantDiseasesAll"])->name('CustomerPlantDeseases.PlantDiseasesAll');
+
+    Route::get('/PlantDiseases/{id}', [CustomerPlanttUsController::class, 'showPlantDiseases'])->name('PlantDiseases.details');
 
 
 });

@@ -16,7 +16,7 @@
  .. Accordion
  .. Isotope
  .. Prettyphoto
- .. Slick_slider 
+ .. Slick_slider
 
  =============== */
 
@@ -33,11 +33,11 @@ jQuery(function($) {
         $(".loader-blob").fadeOut(),$("#preloader").delay(300).fadeOut("slow",function(){$(this).remove()});
 
     })
-  
+
 /*------------------------------------------------------------------------------*/
 /* Menu
 /*------------------------------------------------------------------------------*/
-        
+
         var menu = {
         initialize: function() {
             this.Menuhover();
@@ -49,18 +49,18 @@ jQuery(function($) {
                 getHeight = $(window).height(),
                 getIn = getNav.find("ul.menu").data("in"),
                 getOut = getNav.find("ul.menu").data("out");
-            
+
             if ( matchMedia( 'only screen and (max-width: 1200px)' ).matches ) {
-                                                     
+
                 // Enable click event
                 $("nav.main-menu ul.menu").each(function(){
-                    
+
                     // Dropdown Fade Toggle
                     $("a.mega-menu-link", this).on('click', function (e) {
                         e.preventDefault();
                         var t = $(this);
                         t.toggleClass('active').next('ul').toggleClass('active');
-                    });   
+                    });
 
                     // Megamenu style
                     $(".megamenu-fw", this).each(function(){
@@ -71,23 +71,23 @@ jQuery(function($) {
                                 $(this).closest(".col-menu").toggleClass("active");
                                 return false;
                                 e.preventDefault();
-                                
+
                             });
 
                         });
-                    });  
-                    
-                }); 
+                    });
+
+                });
             }
         },
     };
 
-    
+
     $('.btn-show-menu-mobile').on('click', function(e){
-        $(this).toggleClass('is-active'); 
-        $('.menu-mobile').toggleClass('show'); 
+        $(this).toggleClass('is-active');
+        $('.menu-mobile').toggleClass('show');
         return false;
-        e.preventDefault();  
+        e.preventDefault();
     });
 
     // Initialize
@@ -95,16 +95,16 @@ jQuery(function($) {
         menu.initialize();
 
     });
- 
+
 /*------------------------------------------------------------------------------*/
 /* Animation on scroll: Number rotator
 /*------------------------------------------------------------------------------*/
-    
+
     $("[data-appear-animation]").each(function() {
     var self      = $(this);
     var animation = self.data("appear-animation");
     var delay     = (self.data("appear-animation-delay") ? self.data("appear-animation-delay") : 0);
-        
+
         if( $(window).width() > 959 ) {
             self.html('0');
             self.waypoint(function(direction) {
@@ -132,11 +132,11 @@ jQuery(function($) {
     });
 
 
-   
+
 /*------------------------------------------------------------------------------*/
 /* Skillbar
 /*------------------------------------------------------------------------------*/
-    
+
     $('.prt-progress-bar').each(function() {
         $(this).find('.progress-bar').width(0);
     });
@@ -194,10 +194,10 @@ jQuery(function($) {
             var short_digit = digit / 100;
             var size_val = circle_box.data("size");
             jQuery(".prt-circle", circle_box)
-                .circleProgress({ value: 0, duration: 8000, size: size_val, startAngle: startangle_val, 
+                .circleProgress({ value: 0, duration: 8000, size: size_val, startAngle: startangle_val,
                     thickness: thickness_val, linecap:linecap_val, emptyFill: emptyFill_val, fill: fill_val })
                 .on("circle-animation-progress", function (event, progress, stepValue) {
-                    
+
                     circle_box.find(".prt-fid-number").html(before + Math.round(stepValue * 100) + after);
                 });
         }
@@ -218,19 +218,19 @@ jQuery(function($) {
 
 /*------------------------------------------------------------------------------*/
 /* Tab
-/*------------------------------------------------------------------------------*/ 
+/*------------------------------------------------------------------------------*/
 
      $(document).ready(function() {
 
-        $('.prt-tabs > .tabs').children('li').on('click', function(e) {  
+        $('.prt-tabs > .tabs').children('li').on('click', function(e) {
 
-            var tab = $(this).closest('.prt-tabs > .tabs > .tab'), 
+            var tab = $(this).closest('.prt-tabs > .tabs > .tab'),
 
             index = $(this).closest('.prt-tabs > .tabs > li').index();
 
-            $(this).parents('.prt-tabs').children(' .tabs').children('li.active ').removeClass('active'); 
+            $(this).parents('.prt-tabs').children(' .tabs').children('li.active ').removeClass('active');
 
-            $(this).addClass('active'); 
+            $(this).addClass('active');
             $(this).addClass('active').parents('.prt-tabs').children('.content-tab').find('.content-inner').not('.content-inner:eq(' + index + ')').slideUp();
             $(this).addClass('active').parents('.prt-tabs').children('.content-tab').find('.content-inner:eq(' + index + ')').slideDown();
 
@@ -244,7 +244,7 @@ jQuery(function($) {
     $('.prt-tabs-team').each(function() {
     $(this).children('.content-tab').children().hide();
     $(this).children('.content-tab').children().first().show();
-    $(this).find('.tabs').children('li').on('click', function(e) {  
+    $(this).find('.tabs').children('li').on('click', function(e) {
         var liActive = $(this).index(),
             contentActive = $(this).siblings().removeClass('active').parents('.prt-tabs-team').children('.content-tab').children().eq(liActive);
         contentActive.addClass('active').fadeIn('slow');
@@ -255,17 +255,17 @@ jQuery(function($) {
 });
 
 
-$('ul li:has(ul)');
-    $(document).ready(function() {
-    var e = '<div class="prt_floting_customsett">'+
-                '<a href="https://support.preyantechnosys.com/" target="_blank" class="tmtheme_fbar_icons"><i class="fa fa-headphones"></i><span>Support</span></a>'+
-                '<a href="https://preyantechnosys.com/contact-us/" target="_blank" class="tmtheme_fbar_icons"><i class="themifyicon themifyicon ti-pencil"></i><span>Customization</span></a>'+
-                '<a href="https://1.envato.market/LXr0D0" target="_blank" class="tmtheme_fbar_icons"><i class="themifyicon ti-shopping-cart"></i><span class="buy_link">Buy<span></span></span></a>'+
-                '<div class="clearfix"></div>'+
-            '</div>';
+// $('ul li:has(ul)');
+//     $(document).ready(function() {
+//     var e = '<div class="prt_floting_customsett">'+
+//                 '<a href="https://support.preyantechnosys.com/" target="_blank" class="tmtheme_fbar_icons"><i class="fa fa-headphones"></i><span>Support</span></a>'+
+//                 '<a href="https://preyantechnosys.com/contact-us/" target="_blank" class="tmtheme_fbar_icons"><i class="themifyicon themifyicon ti-pencil"></i><span>Customization</span></a>'+
+//                 '<a href="https://1.envato.market/LXr0D0" target="_blank" class="tmtheme_fbar_icons"><i class="themifyicon ti-shopping-cart"></i><span class="buy_link">Buy<span></span></span></a>'+
+//                 '<div class="clearfix"></div>'+
+//             '</div>';
 
-    $('body').append(e);
-});
+//     $('body').append(e);
+// });
 
 
 /*------------------------------------------------------------------------------*/
@@ -282,7 +282,7 @@ $('ul li:has(ul)');
 
         if ($this.next().hasClass('show')) {
 
-            $this.next().removeClass('show');   
+            $this.next().removeClass('show');
             $this.next().slideUp('easeInExpo');
 
         } else {
@@ -302,10 +302,10 @@ $('ul li:has(ul)');
 /* Isotope
 /*------------------------------------------------------------------------------*/
 
-   
+
    $(function () {
 
-        if ( $().isotope ) {           
+        if ( $().isotope ) {
             var $container = $('.isotope-project');
             $container.imagesLoaded(function(){
                 $container.isotope({
@@ -314,7 +314,7 @@ $('ul li:has(ul)');
                 });
             });
 
-            $('.team-filter li').on('click',function() {                           
+            $('.team-filter li').on('click',function() {
                 var selector = $(this).find("a").attr('data-filter');
                 $('.team-filter li').removeClass('active');
                 $(this).addClass('active');
@@ -325,7 +325,7 @@ $('ul li:has(ul)');
 
    });
 
-    
+
 /*------------------------------------------------------------------------------*/
 /* Prettyphoto
 /*------------------------------------------------------------------------------*/
@@ -339,17 +339,17 @@ $('ul li:has(ul)');
                     jQuery(this).attr('data-rel','prettyPhoto');
                 }
             }
-        });    
+        });
         jQuery('a[data-rel^="prettyPhoto"]').prettyPhoto();
     });
-    
+
 
     $(window).on('load', function(){
 
     function gridMasonry(){
         var grid = $(".masonry-grid")
         if( grid.length ){
-            
+
           grid.isotope({
             itemSelector: '.masonry-grid-item',
             percentPosition: true,
@@ -358,7 +358,7 @@ $('ul li:has(ul)');
               columnWidth: '.grid-sizer',
             },
           });
-            
+
         }
     }
     gridMasonry();
@@ -445,7 +445,7 @@ $('ul li:has(ul)');
         speed: 1000,
         infinite: true,
         arrows: false,
-        dots: false,                   
+        dots: false,
         autoplay: false,
         centerMode : false,
 
@@ -487,7 +487,7 @@ $('ul li:has(ul)');
         speed: 1000,
         infinite: true,
         arrows: false,
-        dots:false,                   
+        dots:false,
         autoplay: true,
         slidesToShow: 1,
         slidesToScroll: 1,
@@ -499,16 +499,16 @@ $('ul li:has(ul)');
 /* pricing-plan
 /*------------------------------------------------------------------------------*/
     jQuery(document).ready(function() {
-        setTimeout(function(){            
+        setTimeout(function(){
         }, 100);
         jQuery('.prt-pricingbox-style1 .prt-boxes-row-wrapper .prt-box-col-wrapper:first').addClass("active");
          jQuery('.prt-pricingbox-style1 .prt-boxes-row-wrapper .prt-box-col-wrapper').hover(function(){
             jQuery('.prt-pricingbox-style1 .prt-boxes-row-wrapper .prt-box-col-wrapper').removeClass("active");
             jQuery(this).addClass("active");
-         });    
+         });
     });
 
- 
+
 // left
    gsap.set(".animation .fadeleft-anim", { x: -100, opacity: 1 });
     gsap.to(".animation .fadeleft-anim", {

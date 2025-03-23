@@ -25,6 +25,16 @@
         </div>
         <!-- page-title end-->
 
+        <!-- Search Form -->
+    <div class="container mt-4">
+        <form action="{{ route('CustomerPlant.search') }}" method="GET">
+            <div class="input-group mb-3">
+                <input type="text" name="search" class="form-control me-2" placeholder="Search by plant's name" value="{{ request('search') }}" style="width: 100px; height: 40px;">
+                <button class="btn btn-outline-secondary ms-2" type="submit" style="height: 40px;">Search</button>
+            </div>
+        </form>
+    </div>
+
         <!-- site-main start -->
         <div class="site-main">
 

@@ -40,20 +40,6 @@ class ShopProductController extends Controller
     // }
 }
 
-// public function show($id)
-// {
-//     try {
-//         // Fetch the product with the given ID, including associated images and category
-//         $product = SalePlants::with(['images', 'category'])->findOrFail($id);
-
-//         // Pass the product data to the view
-//         return view('ShopPlants.Pages.ShopProducts.shopProductDetails', compact('product'));
-//     } catch (\Exception $e) {
-//         // Handle errors gracefully
-//         return back()->withErrors(['error' => 'An error occurred: ' . $e->getMessage()]);
-//     }
-// }
-
 
 public function checkout(Request $request)
 {

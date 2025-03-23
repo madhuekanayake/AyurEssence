@@ -28,10 +28,8 @@
         <div class="row flex-grow">
           <div class="col-lg-6 d-flex align-items-center justify-content-center">
             <div class="auth-form-transparent text-left p-3">
-              <div class="brand-logo">
-                <img src="{{ asset('AdminArea/images/logo.svg') }}" alt="logo">
-              </div>
-              <h4>Welcome back!</h4>
+
+              <h4>Welcome back Ayur Essence!</h4>
               <h6 class="font-weight-light">Happy to see you again!</h6>
               <form class="pt-3" action="{{ route('AdminLogin.login') }}" method="POST">
                 @csrf
@@ -68,7 +66,7 @@
                         <select class="form-control form-control-lg border-left-0" id="userRole" name="role" required>
                             <option value="" disabled selected>Select Role</option>
                             <option value="admin">Admin</option>
-                            
+
                         </select>
                     </div>
                 </div>
@@ -87,7 +85,7 @@
             </div>
           </div>
           <div class="col-lg-6 login-half-bg d-flex flex-row">
-            <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2018  All rights reserved.</p>
+            <p class="text-white font-weight-medium text-center flex-grow align-self-end">Copyright &copy; 2025 Ayur Essence.</p>
           </div>
         </div>
       </div>

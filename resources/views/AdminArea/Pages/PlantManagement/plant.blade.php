@@ -18,7 +18,7 @@
             </div>
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title">Plant Category Records</h4>
+                    <h4 class="card-title">Plant Details Records</h4>
                     <div class="row">
                         <div class="col-12">
                             <div class="table-responsive">

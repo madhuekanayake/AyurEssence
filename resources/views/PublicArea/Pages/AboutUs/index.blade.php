@@ -8,27 +8,10 @@
                     <div class="col-xl-6 col-lg-8 col-md-10 col-sm-9 ms-auto">
                         <div class="prt-schedule">
                             <div class="prt-schedule-title">
-                                <h2>Opening hours</h2>
-                                <p>Just make an appointment & you're done!</p>
+                                <h2>Ayur Essence</h2>
+                                <p>Ayur Essence is an innovative platform dedicated to preserving and promoting Sri Lanka’s rich Ayurvedic heritage. By combining traditional knowledge with modern AI technology, we aim to educate users about the medicinal uses, cultural significance, and conservation of Ayurvedic plants. Our mission is to bridge the gap between ancient wisdom and modern science, empowering individuals to identify, use, and protect these invaluable natural resources. Join us in our journey to conserve Sri Lanka’s biodiversity and celebrate the healing power of Ayurveda.</p>
                             </div>
-                            <div class="row mt-40 res-575-mt-20">
-                                <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <div class="prt-schedule-block">
-                                        <h3>Monday to Thursday</h3>
-                                        <p>9.30 am – 6.30 pm</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <div class="prt-schedule-block">
-                                        <h3>Friday to Sunday</h3>
-                                        <p>11.00 am – 5.00 pm</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-10">
-                                <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-border prt-btn-color-whitecolor"
-                                    href="contact-us.html">Make a appointment</a>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -56,9 +39,9 @@
                                         solutions</h3>
                                 </div>
                                 <ul class="prt-list prt-list-style-icon-02 mt-30 res-991-mt-15">
-                                    <li class="prt-list-li-content">Customized wellness plans</li>
-                                    <li class="prt-list-li-content"> Holistic lifestyle integration </li>
-                                    <li class="prt-list-li-content">Education and empowerment</li>
+                                    <li class="prt-list-li-content">AI-based Ayurvedic Plant Recognition</li>
+                                    <li class="prt-list-li-content"> Holistic Wellness Insights </li>
+                                    <li class="prt-list-li-content"> Knowledge Sharing & Community Engagement </li>
                                 </ul>
                                 <div class="mt-40">
                                     <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-border prt-btn-color-whitecolor w-100"
@@ -138,8 +121,7 @@
                                     <h3>Our mission</h3>
                                 </div>
                                 <div class="featured-desc">
-                                    <p>Our mission lays a commitment to bring the profound benefits of ayurveda to people
-                                        from all walks of life.</p>
+                                    <p>Empowering people with AI-driven Ayurvedic plant recognition to preserve Sri Lanka’s medicinal heritage and promote holistic wellness.</p>
                                 </div>
                             </div>
                         </div>
@@ -167,9 +149,9 @@
                                         <div class="prt-quotes-block" data-aos="fade-up" data-aos-duration="1000">
 
                                             <div class="mt-15">
-                                                <h3>We push the limits of <span>what's possible</span> for our patients.
-                                                </h3>
+                                                <h3>Unlock the <span>power of AI</span> to identify medicinal plants instantly.</h3>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -227,7 +209,7 @@
                             <div class="featured-content">
                                 <div class="featured-title-box">
                                     <div class="featured-title">
-                                        <h3><a href="team-details.html">Dr. Reshta wann</a></h3>
+                                        <h3><a href="{{ route('CustomerDoctor.all') }}">Dr. Reshta wann</a></h3>
                                     </div>
                                     <div class="featured-position">
                                         <p>General doctor</p>
@@ -262,7 +244,7 @@
                             <div class="featured-content">
                                 <div class="featured-title-box">
                                     <div class="featured-title">
-                                        <h3><a href="team-details.html">Dr. Natalia zox</a></h3>
+                                        <h3><a href="{{ route('CustomerDoctor.all') }}">Dr. Natalia zox</a></h3>
                                     </div>
                                     <div class="featured-position">
                                         <p>Manager</p>
@@ -297,7 +279,7 @@
                             <div class="featured-content">
                                 <div class="featured-title-box">
                                     <div class="featured-title">
-                                        <h3><a href="team-details.html">Dr. Gordian mon</a></h3>
+                                        <h3><a href="{{ route('CustomerDoctor.all') }}">Dr. Gordian mon</a></h3>
                                     </div>
                                     <div class="featured-position">
                                         <p>Founder</p>
@@ -332,7 +314,7 @@
                             <div class="featured-content">
                                 <div class="featured-title-box">
                                     <div class="featured-title">
-                                        <h3><a href="team-details.html">Dr. Broklyn simm</a></h3>
+                                        <h3><a href="{{ route('CustomerDoctor.all') }}">Dr. Broklyn simm</a></h3>
                                     </div>
                                     <div class="featured-position">
                                         <p>Lab technician</p>

@@ -120,7 +120,7 @@ public function HerbalGardenDelete(Request $request)
     try {
         // Validate the request
         $request->validate([
-            'id' => 'required|integer|exists:user_roles,id', // Ensure the `users` table and `id` column are correct
+            'id' => 'required|integer|exists:herbal_gardens,id', // Ensure the `users` table and `id` column are correct
         ]);
 
         // Find the user by ID
