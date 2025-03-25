@@ -43,7 +43,7 @@
                                     </h3>
                                     <p><strong>Location:</strong> {{ $pharmacy->location }}</p>
                                     <p><strong>Address:</strong> {{ $pharmacy->address }}</p>
-                                    <p><strong>Phone:</strong> {{ $pharmacy->phone }}</p>
+                                    <p><strong>Phone:</strong> {{ $pharmacy->phoneNo }}</p>
                                     <p><strong>Email:</strong> {{ $pharmacy->email }}</p>
                                     <p><strong>Open Time:</strong> {{ $pharmacy->openTime }}</p>
                                     <p><strong>Close Time:</strong> {{ $pharmacy->closeTime }}</p>

@@ -334,7 +334,7 @@
 
                         <!-- Buttons -->
                         <div class="modal-footer">
-                            <button type="submit" class="btn btn-primary">Save</button>
+                            <button type="submit" class="btn btn-primary">Update</button>
                             <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
                         </div>
                     </form>

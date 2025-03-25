@@ -106,43 +106,37 @@ public function handleGoogleCallback()
     try {
         $googleUser = Socialite::driver('google')->user();
 
-        $customer = Customer::where('google_id', $googleUser->id)->first();
+        $customer = Customer::where('google_id', $googleUser->id)->orWhere('email', $googleUser->email)->first();
 
         if (!$customer) {
-            // Check if email exists
-            $customer = Customer::where('email', $googleUser->email)->first();
-
-            if (!$customer) {
-                // Create new customer
-                $customer = Customer::create([
-                    'customerId' => 'CUST' . Str::random(6),
-                    'first_name' => explode(' ', $googleUser->name)[0] ?? '',
-                    'last_name' => explode(' ', $googleUser->name)[1] ?? '',
-                    'email' => $googleUser->email,
-                    'google_id' => $googleUser->id,
-                    'avatar' => $googleUser->avatar,
-                    'password' => bcrypt(Str::random(16)),
-                    'address_line1' => '', // You might want to collect this later
-                    'address_line2' => null
-                ]);
-            } else {
-                // Update existing customer with Google ID
-                $customer->update([
-                    'google_id' => $googleUser->id,
-                    'avatar' => $googleUser->avatar
-                ]);
-            }
+            $customer = Customer::create([
+                'customerId' => 'CUST' . Str::random(6),
+                'first_name' => explode(' ', $googleUser->name)[0] ?? '',
+                'last_name' => explode(' ', $googleUser->name)[1] ?? '',
+                'email' => $googleUser->email,
+                'google_id' => $googleUser->id,
+                'avatar' => $googleUser->avatar,
+                'password' => bcrypt(Str::random(16)), // Random password
+                'address_line1' => '',
+                'address_line2' => null,
+            ]);
+        } else {
+            // Update Google ID if needed
+            $customer->update([
+                'google_id' => $googleUser->id,
+                'avatar' => $googleUser->avatar,
+            ]);
         }
 
-        // Login
-        session(['customer_email' => $customer->email]);
+        // Store session
+        session([
+            'customer_email' => $customer->email,
+            'customer_id' => $customer->id,
+        ]);
 
-        return redirect()->route('ShopPlants.index')
-                       ->with('success', 'Logged in with Google successfully!');
-
+        return redirect()->route('ShopPlants.index')->with('success', 'Logged in with Google successfully!');
     } catch (\Exception $e) {
-        return redirect()->route('auth.index')
-                       ->withErrors(['error' => 'Google login failed: ' . $e->getMessage()]);
+        return redirect()->route('auth.index')->withErrors(['error' => 'Google login failed: ' . $e->getMessage()]);
     }
 }
 

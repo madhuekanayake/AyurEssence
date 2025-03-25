@@ -6,7 +6,7 @@
     <div class="breadcrumb-area">
         <!-- Top Breadcrumb Area -->
         <div class="top-breadcrumb-area bg-img bg-overlay d-flex align-items-center justify-content-center" style="background-image: url('{{ asset('ShopPlants/img/bg-img/24.jpg') }}');">
-            <h2>Contact Us</h2>
+            <h2>Login</h2>
         </div>
 
 
@@ -26,7 +26,7 @@
     </div>
     <!-- ##### Breadcrumb Area End ##### -->
 
-   
+
 
     <!-- ##### Contact Area Start ##### -->
     <section class="contact-area">

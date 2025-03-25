@@ -5,6 +5,7 @@ namespace App\Http\Controllers\PublicArea;
 use App\Http\Controllers\Controller;
 use App\Models\AyurvedicHospital;
 use App\Models\HerbalGarden;
+use App\Models\LocalPharmacy;
 use Illuminate\Http\Request;
 
 class CustomerLocationsController extends Controller
@@ -43,7 +44,7 @@ class CustomerLocationsController extends Controller
     {
         try {
             // Fetch all gallery data
-            $local_pharmacies = AyurvedicHospital::all();
+            $local_pharmacies = LocalPharmacy::all();
 
             return view('PublicArea.Pages.Locations.localPharmacies', compact('local_pharmacies'));
 

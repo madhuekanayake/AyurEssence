@@ -9,13 +9,13 @@
                     <div class="col-lg-12">
                         <div class="prt-page-title-row-heading">
                             <div class="page-title-heading">
-                                <h2 class="title">Herbal Gardens Details</h2>
+                                <h2 class="title">Ayurvedic Hospitals Details</h2>
                             </div>
                             <div class="breadcrumb-wrapper">
                                 <span>
                                     <a title="Homepage" href="{{ url('/') }}">Home</a>
                                 </span>
-                                <span>Herbal Gardens Details</span>
+                                <span>Ayurvedic Hospitals Details</span>
                             </div>
                         </div>
                     </div>
@@ -65,8 +65,9 @@
                             <p><strong>Email:</strong> {{ $ayurvedic_hospitals->location }}</p>
                             <p><strong>Open Time:</strong> {{ $ayurvedic_hospitals->openTime }}</p>
                             <p><strong>Close Time:</strong> {{ $ayurvedic_hospitals->closeTime }}</p>
-                            <p><strong>Local Ticket Price:</strong> {{ $ayurvedic_hospitals->openDays }}</p>
-                            <p><strong>Foreign Ticket Price:</strong> {{ $ayurvedic_hospitals->description }}</p>
+                            <p><strong>Open Days:</strong> {{ $ayurvedic_hospitals->openDays }}</p>
+
+                            <p><strong>Description:</strong> {{ $ayurvedic_hospitals->description }}</p>
 
                         </div>
                     </div>
