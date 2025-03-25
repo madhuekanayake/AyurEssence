@@ -6,24 +6,9 @@
 <meta name="keywords" content="Medisat - Medical  and Ayurvedic HTML Template, Childrio - Multi Medical Services HTML Theme, themes & template, html5 template, WordPress theme, unlimited colors available, ui/ux,ui/ux design, best html template, html template, html, JavaScript, best css theme,css3, elementor theme, latest premium themes 2024, latest premium templates 2024, preyan technosys Pvt.Ltd,cymol themes, themetech mount, ttm store, ttm business, ttm clinic, ttm medical, ttm, themetechmount store, ttm plugins,Web 3.0,multi-theme, website theme and template, woocommerce, bootstrap template, web templates, responsive theme,services,web design and development, business, company,  medical theme, medical template, clinical template, clinical website, child care, dentist demo, dentist clinic, physiotherapy, psychologist services website, eye care clinic, orthopedic, surgeon, surgery services, Pediatrician services, Eye care blog" >
 <meta name="description" content="Medisat - Medical  and Ayurvedic HTML Template" >
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Medisat - Medical  and Ayurvedic HTML Template</title>
+<title>Ayur Assence</title>
 
-<link rel="shortcut icon" href="{{ asset('PublicArea/images/favicon.png') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/bootstrap.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/animate.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/all.min.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/fontello.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/flaticon.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/themify-icons.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/font-awesome.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/aos.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/slick.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/prettyPhoto.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/samarkannormal.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/shortcodes.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/main.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/megamenu.css') }}">
-<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/responsive.css') }}">
+
 
 </head>
 <body>
@@ -42,7 +27,7 @@
                             <div class="col-lg-12">
                                 <div class="top_bar_contact_item text-center">
                                     <span class="top_bar_icon"><i class="fas fa-bell"></i></span>
-                                    Using its extensive fish farming experience and knowledge, Fleuren & Nooijen is now a market <a href="#">View more</a>
+                                    Ayur Essence – Harnessing the power of nature with AI-driven medicinal plant identification.<a href="#"></a>
                                 </div>
                             </div>
                         </div>
@@ -60,10 +45,15 @@
                                         <div class="site-navigation d-flex align-items-center">
                                             <!-- site-branding -->
                                             <div class="site-branding">
-                                                <h1><a class="home-link" href="index.html" title="Medisat" rel="home">
-                                                    <img id="logo-img" height="59" width="200" class="img-fluid auto_size" src="{{ asset('PublicArea/images/logo.svg') }}" alt="logo-img">
-                                                </a></h1>
+                                                <a class="home-link d-flex align-items-center" href="index.html" title="Ayur Essence" rel="home" style="text-decoration: none;">
+                                                    <h4 class="mb-0" style="font-weight: bold; color: #2b6415; font-family: 'Playfair Display', serif;">Ayur Essence</h4>
+                                                </a>
                                             </div>
+
+                                            <!-- Add this to the head section if using Google Fonts -->
+                                            <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+
+
                                             <!-- site-branding end -->
                                             <!-- menu-link -->
                                             <div class="menu-link">
@@ -76,24 +66,59 @@
                                                 <nav class="main-menu menu-mobile" id="menu">
                                                     <ul class="menu">
                                                         <li class="mega-menu-item active">
-                                                            <a href="{{ url('/') }}" class="mega-menu-link">Homes</a>
+                                                            <a href="{{ url('/') }}" class="mega-menu-link">Home</a>
+
+                                                        </li>
+                                                        <li class="mega-menu-item"><a href="{{ route('CustomerDoctor.all') }}">Doctors</a></li>
+                                                        <li class="mega-menu-item active">
+                                                            <a href="" class="mega-menu-link">Plants</a>
                                                             <ul class="mega-submenu">
-                                                                <li><a href="https://themetechmount.com/html/medisat/neurology/">Neurology</a></li>
-                                                                <li><a href="https://themetechmount.com/html/medisat/hematology/">Hematology</a></li>
-                                                                <li><a href="https://themetechmount.com/html/medisat/medica/">Medica</a></li>
-                                                                <li><a href="https://themetechmount.com/html/medisat/radiology/">Radiology</a></li>
-                                                                <li><a href="https://themetechmount.com/html/medisat/childrio/">Childrio</a></li>
-                                                                <li class="active"><a href="https://themetechmount.com/html/medisat/ayurvedic/">Ayurvedic</a></li>
-                                                                <li><a href="https://themetechmount.com/html/medisat/eyeco/">Eyeco</a></li>
-                                                                <li><a href="https://www.themetechmount.com/html/medisat/cancer-care/">Cancer-care</a></li>
-                                                                <li><a href="https://www.themetechmount.com/html/medisat/surgery/">Surgery</a></li>
+                                                                <li><a href="{{ route('CustomerPlant.all') }}">Plants</a></li>
+                                                                <li><a href="{{ route('CustomerPlantDeseases.PlantDiseasesAll') }}">Plant Deseases</a></li>
+
                                                             </ul>
                                                         </li>
-                                                        <li class="mega-menu-item"><a href="{{ url('/aboutUs') }}">About Us</a></li>
-                                                        <li class="mega-menu-item"><a href="{{ url('/service') }}">Service</a></li>
-                                                        <li class="mega-menu-item"><a href="{{ url('/doctors') }}">Doctors</a></li>
-                                                        <li class="mega-menu-item"><a href="{{ url('/blog') }}">Blog</a></li>
-                                                        <li class="mega-menu-item"><a href="{{ url('/contactUs') }}">Contact Us</a></li>
+                                                        <li class="mega-menu-item"><a href="{{ route('CustomerProduct.all') }}">Products</a></li>
+                                                        <li class="mega-menu-item"><a href="{{ route('ShopPlants.index') }}">Shop</a></li>
+                                                        <li class="mega-menu-item active">
+                                                            <a href="{{ route('CustomerBlog.all') }}" class="mega-menu-link">Education</a>
+                                                            <ul class="mega-submenu">
+                                                                <li><a href="{{ route('CustomerBlog.all') }}">Blog</a></li>
+                                                                <li><a href="{{ route('CustomerTreatment.all') }}">Treatments</a></li>
+                                                                <li><a href="{{ route('CustomerAyurvedicGuide.all') }}">Ayurvedic Guides</a></li>
+                                                                <li><a href="{{ route('CustomerMeetingsOrEvents.all') }}">Meetings/ Events</a></li>
+                                                                <li><a href="{{ route('ConservationAndAwareness.all') }}">Conservation/ Awareness</a></li>
+                                                            </ul>
+                                                        </li>
+                                                        <li class="mega-menu-item active">
+                                                            <a href="{{ route('CustomerLocations.herbalGardensAll') }}" class="mega-menu-link">Locations</a>
+                                                            <ul class="mega-submenu">
+                                                                <li><a href="{{ route('CustomerLocations.herbalGardensAll') }}">Herbal Gardens</a></li>
+                                                                <li><a href="{{ route('CustomerLocations.ayurvedicHospitalsAll') }}">Ayurvedic Hospitals</a></li>
+                                                                <li><a href="{{ route('CustomerLocations.localPharmaciesAll') }}">Local Pharmacies</a></li>
+
+                                                            </ul>
+                                                        </li>
+
+
+
+                                                        <li class="mega-menu-item"><a href="{{ route('CustomerService.all') }}">Service</a></li>
+                                                        <li class="mega-menu-item"><a href="{{ route('CustomerGallery.all') }}">Gallery</a></li>
+                                                        <li class="mega-menu-item"><a href="{{ route('CustomerQandA.all') }}">About Us</a></li>
+
+                                                        {{-- <li class="mega-menu-item"><a href="{{ url('/blog') }}">Blog</a></li> --}}
+
+                                                        <li class="mega-menu-item"><a href="{{ route('ContactUs.all') }}">Contact Us</a></li>
+
+
+
+                                                        {{-- <li class="mega-menu-item"><a href="http://localhost:8502">Test</a></li> --}}
+
+
+
+
+
+
                                                     </ul>
                                                 </nav><!-- menu end -->
                                             </div>
@@ -103,11 +128,9 @@
                                             <!-- header_extra -->
                                             <div class="header_extra d-flex align-items-center">
                                                 <div class="contact_item-link">
-                                                    <span><a href="mailto:info@example.com">contact.vedacare@gmail.com</a></span>
+                                                    {{-- <span><a href="mailto:info@example.com">contact.ayuressence@gmail.com</a></span> --}}
                                                 </div>
-                                                <div class="contact_item with-icon">
-                                                    <span><i class="fab fa-whatsapp"></i><a href="tel:1234567890"> +123 456 7890</a></span>
-                                                </div>
+
                                                 <ul class="social-icons">
                                                     <li><a href="#" rel="noopener" aria-label="facebook"><i class="fab fa-facebook"></i></a></li>
                                                     <li><a href="#" rel="noopener" aria-label="twitter"><i class="fab fa-twitter"></i></a></li>

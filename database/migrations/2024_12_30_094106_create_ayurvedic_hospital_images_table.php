@@ -16,6 +16,7 @@ return new class extends Migration
             $table->string('ayurvedicHospitalImageId')->unique();
             $table->string('ayurvedicHospitalId')->nullable();
             $table->string('image')->nullable();
+            
             $table->timestamps();
         });
     }

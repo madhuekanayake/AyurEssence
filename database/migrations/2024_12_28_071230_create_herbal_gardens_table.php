@@ -18,10 +18,12 @@ return new class extends Migration
             $table->string('gardenAddress');
             $table->string('gardenPhone');
             $table->string('gardenEmail')->unique();
-            $table->string('gardenLocation');
+            $table->text('gardenLocation');
             $table->time('gardenOpenTime');  // Changed from date to time
             $table->time('gardenCloseTime'); // Changed from date to time
             $table->string('gardenOpenDays');
+            $table->decimal('latitude', 10, 7)->nullable();
+            $table->decimal('longitude', 10, 7)->nullable();
             $table->decimal('localTicketPrice', 10, 2);
             $table->decimal('foreignTicketPrice', 10, 2);
             $table->text('gardenDescription'); // Changed to text for longer content

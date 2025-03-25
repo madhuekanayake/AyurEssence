@@ -8,20 +8,20 @@
                                 <h3 class="widget-title-h3">Quick link</h3>
                                 <div class="footer-menu-links">
                                     <ul class="footer-menu-list">
-                                        <li class="footer-menu-item"><a href="#" class="footer-menu-item-link">About us</a></li>
-                                        <li class="footer-menu-item"><a href="#" class="footer-menu-item-link">Experiences</a></li>
-                                        <li class="footer-menu-item"><a href="#" class="footer-menu-item-link">Our patients</a></li>
-                                        <li class="footer-menu-item"><a href="#" class="footer-menu-item-link">Home care</a></li>
-                                        <li class="footer-menu-item"><a href="#" class="footer-menu-item-link">Services</a></li>
-                                        <li class="footer-menu-item"><a href="#" class="footer-menu-item-link">Success story</a></li>
-                                        <li class="footer-menu-item"><a href="#" class="footer-menu-item-link">Doctors</a></li>
+                                        <li class="footer-menu-item"><a href="{{ route('ImageUpload.all') }}" class="footer-menu-item-link">Plant Identification</a></li>
+                                        <li class="footer-menu-item"><a href="{{ route('CustomerPlant.all') }}" class="footer-menu-item-link">Plants</a></li>
+                                        <li class="footer-menu-item"><a href="{{ route('ShopPlants.index') }}" class="footer-menu-item-link">Shop</a></li>
+                                        <li class="footer-menu-item"><a href="{{ route('CustomerBlog.all') }}" class="footer-menu-item-link">Education</a></li>
+                                        <li class="footer-menu-item"><a href="{{ route('CustomerLocations.herbalGardensAll') }}" class="footer-menu-item-link">Location</a></li>
+
                                     </ul>
                                 </div>
                                 <!-- Newsletter -->
                                 <div class="newsletter-form-main clearfix">
                                     <h3 class="widget-title-h3">Our newsletter</h3>
                                     <div class="widget-form">
-                                        <form id="subscribe-form" class="newsletter-form" method="post" action="#" data-mailchimp="true">
+                                        <form id="subscribe-form" class="newsletter-form" method="post" action="{{ route('ContactUs.newsLetterAdd') }}" data-mailchimp="true">
+                                            @csrf
                                             <div class="mailchimp-inputbox clearfix" id="subscribe-content">
                                                 <p>
                                                     <input type="email" name="email" placeholder="Name*" required=""></p>
@@ -41,7 +41,7 @@
                             <div class="footer-widget-box">
                                 <div class="footer-img">
 
-                                    <a href="#"><img width="441" height="385" class="img-fluid w-100 border-rad_10" src="{{ asset('PublicArea/images/footer-img.jpg') }}" alt="image"></a>
+                                    <a href="#"><img width="441" height="385" class="img-fluid w-100 border-rad_10" src="{{ asset('PublicArea/images/footer.jpeg') }}" alt="image"></a>
                                 </div>
                             </div>
                         </div>
@@ -49,9 +49,9 @@
                             <div class="footer-widget-box prt-pl">
                                 <h3 class="widget-title-h3">Contact</h3>
                                 <ul class="prt-list footer-cta-list">
-                                    <li class="list-items">UA: <a href="tel:1234567890">+3 8096 272 2100</a></li>
-                                    <li class="list-items">59 Street, 1200 Techpark</li>
-                                    <li class="list-items"><a href="tel:1234567890">mail@veda-lab.com</a></li>
+                                    <li class="list-items">SL: <a href="tel:1234567890">+94 222 468 5678</a></li>
+                                    <li class="list-items">59 Street, Kandy, Sri Lanka</li>
+                                    <li class="list-items"><a href="tel:1234567890">contact.ayuressence@gmail.com</a></li>
                                 </ul>
                                 <!-- social-icons -->
                                 <div class="social-icons">
@@ -82,7 +82,7 @@
                                             <li><a href="#"> Help </a></li>
                                         </ul>
                                         <div class="cpy-text">
-                                            <p>2023 Vedacare © All rights reserved</p>
+                                            <p>2025 AyurEssence © All rights reserved</p>
                                         </div>
                                     </div>
                                 </div>
@@ -93,27 +93,7 @@
             </div>
             <div class="bottom-footer">
                 <div class="container-fluid p-0">
-                    <!-- row -->
-                    <div class="row">
-                        <div class="col-lg-12">
-                            <div class="marquee-block overflow-hidden">
-                                <div class="marquee">
-                                    <div class="marquee-content">
-                                        <div class="marquee-text">Like & follow from you. new free to use projects from us. </div>
-                                        <div class="marquee-text">Like & follow from you. new free to use projects from us. </div>
-                                        <div class="marquee-text">Like & follow from you. new free to use projects from us. </div>
-                                        <div class="marquee-text">Like & follow from you. new free to use projects from us. </div>
-                                        <div class="marquee-text">Like & follow from you. new free to use projects from us. </div>
-                                        <div class="marquee-text">Like & follow from you. new free to use projects from us. </div>
-                                        <div class="marquee-text">Like & follow from you. new free to use projects from us. </div>
-                                        <div class="marquee-text">Like & follow from you. new free to use projects from us. </div>
-                                        <div class="marquee-text">Like & follow from you. new free to use projects from us. </div>
-                                        <div class="marquee-text">Like & follow from you. new free to use projects from us. </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div><!-- row end -->
+
                 </div>
             </div>
         </footer>
@@ -122,32 +102,7 @@
     </div><!-- page end -->
 
     <!-- Javascript -->
-    <script src="{{ asset('PublicArea/js/jquery-3.7.1.min.js') }}"></script>
-    <script src="{{ asset('PublicArea/js/jquery-migrate-3.4.1.min.js') }}"></script>
-    <script src="{{ asset('PublicArea/js/bootstrap.bundle.min.js') }}"></script>
-    <script src="{{ asset('PublicArea/js/Scrolltrigger.js') }}"></script>
-    <script src="{{ asset('PublicArea/js/Splittext.js') }}"></script>
-    <script src="{{ asset('PublicArea/js/cursor.js') }}"></script>
-    <script src="{{ asset('PublicArea/js/gsap.min.js') }}"></script>
-    <script src="{{ asset('PublicArea/js/gsap-animation.js') }}"></script>
-    <script src="{{ asset('PublicArea/js/jquery-validate.js') }}"></script>
-    <script src="{{ asset('PublicArea/js/jquery.prettyPhoto.js') }}"></script>
-    <script src="{{ asset('PublicArea/js/slick.min.js') }}"></script>
-    <script src="{{ asset('PublicArea/js/jquery-waypoints.js') }}"></script>
-    <script src="{{ asset('PublicArea/js/numinate.min.js') }}"></script>
-    <script src="{{ asset('PublicArea/js/imagesloaded.min.js') }}"></script>
-    <script src="{{ asset('PublicArea/js/circle-progress.min.js') }}"></script>
-    <script src="{{ asset('PublicArea/js/main.js') }}"></script>
-    <script src="{{ asset('PublicArea/js/aos.js') }}"></script>
 
-    <script>
-    AOS.init({
-        offset: 0,
-        duration: 400,
-        delay:0,
-        once: true,
-    });
-    </script>
 
 </body>
 </html>

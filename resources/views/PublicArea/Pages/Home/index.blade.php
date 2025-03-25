@@ -12,14 +12,14 @@
                                         <div class="hero-content-block">
                                             <div class="hero-content">
                                                 <div class="pretitle">
-                                                    <h3>Harmony with </h3>
+                                                    <h3>Nature with </h3>
                                                 </div>
                                                 <div class="">
-                                                    <h2 class="title"><span>Ayurveda</span> Care</h2>
+                                                    <h2 class="title"><span>Ayur</span>Essence</h2>
                                                 </div>
                                                 <div class="hero-slider_btn mt-10 res-991-mt-30">
-                                                    <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-skincolor mr-15 mb-10" href="contact-us.html">Make an appointment</a>
-                                                    <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-border prt-btn-color-whitecolor mb-10" href="contact-us.html">Contact us</a>
+                                                    <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-skincolor mr-15 mb-10" href="{{ route('ImageUpload.all') }}">Plant Idenitification</a>
+                                                    <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-border prt-btn-color-whitecolor mb-10" href="{{ route('ContactUs.all') }}">Contact us</a>
                                                 </div>
                                             </div>
                                         </div>
@@ -28,7 +28,7 @@
                                                 <i class="fas fa-check-circle"></i>
 
                                             </div>
-                                            <div><h3>Vaterian hospital services manufacture In 1996</h3></div>
+                                            <div><h3>Identify the Medicinal Plants – Embrace Ayur Essence</h3></div>
                                         </div>
                                     </div>
                                 </div>
@@ -44,15 +44,15 @@
                                                     <h3>Welcome to the</h3>
                                                 </div>
                                                 <div class="">
-                                                    <h2 class="title">Ayurveda</h2>
+                                                    <h2 class="title">Ayur Essence</h2>
                                                 </div>
                                                 <div class="d-flex align-items-center mt-50 res-991-mt-30">
                                                     <div class="hero-slider_btn">
-                                                        <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-skincolor mr-25 mb-10" href="contact-us.html">Make an appointment</a>
+                                                        <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-skincolor mr-25 mb-10" href="{{ route('ImageUpload.all') }}">Plant Idenitification</a>
                                                     </div>
                                                     <div class="prt-hero-link">
-                                                        <div class="prt-call"><i class="icon-whatsapp"></i> <a href="tel:1234567890">+123 456 7890</a></div>
-                                                        <div class="prt-email"><a href="mailto:info@example.com">contact.vedacare@gmail.com</a></div>
+                                                        <div class="prt-call"><i class="fab fa-whatsapp"></i> <a href="tel:1234567890">+94 222 468 5678</a></div>
+                                                        <div class="prt-email"><a href="mailto:info@example.com">contact.ayuressence@gmail.com</a></div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -61,7 +61,7 @@
                                             <div class="prt-icon prt-icon_element-onlytxt prt-icon_element-size-lg prt-icon_element-color-darkcolor">
                                                 <i class="fas fa-check-circle"></i>
                                             </div>
-                                            <div><h3>Vaterian hospital services manufacture In 1996</h3></div>
+                                            <div><h3>Identify the Medicinal Plants – Embrace Ayur Essence</h3></div>
                                         </div>
                                     </div>
                                 </div>
@@ -74,43 +74,7 @@
 
         </div>
 
-        <table id="order-listing" class="table">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Age</th>
-                    <th>Grade</th>
-                    <th>Email</th>
-                    <th>Phone</th>
-                    <th>Image</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                @foreach ($students as $student)
-                    <tr>
-                        <td>{{ $loop->iteration }}</td>
-                        <td>{{ $student->id }}</td>
-                        <td>{{ $student->name }}</td>
-                        <td>{{ $student->age }}</td>
-                        <td>{{ $student->grade }}</td>
-                        <td>{{ $student->email }}</td>
-                        <td>{{ $student->phone }}</td>
-                        <td>
-                            @if ($student->image)
-                                <img src="{{ asset('uploads/student/' . $student->image) }}"
-                                    alt="Student Image" width="50" height="50">
-                            @else
-                                N/A
-                            @endif
-                        </td>
-                        
-                    </tr>
-                @endforeach
-            </tbody>
-        </table>
+
 
         <!-- site-main start -->
         <div class="site-main">
@@ -124,10 +88,10 @@
                                 <!-- section title -->
                                 <div class="section-title">
                                     <div class="title-header">
-                                        <h2 class="title">Short story about dr. veda of nature and science.</h2>
+                                        <h2 class="title">Identify Medicinal Plants Where Nature Meets the Science of Ayurveda.</h2>
                                     </div>
                                     <div class="title-desc">
-                                        <p class="prt-about-desc">A passionate advocate for the nature and the science and united these realms, defying their separation.</p>
+                                        <p class="prt-about-desc">Discover the Secrets of Healing: Identify Medicinal Plants Blending Nature and Ayurveda.</p>
                                     </div>
                                 </div>
                                 <!-- section title end-->
@@ -149,26 +113,27 @@
                                 <!-- section title -->
                                 <div class="section-title">
                                     <div class="title-desc">
-                                        <p>In her tranquil cottage on the edge of a pristine forest, she conducted groundbreaking research that brought together the wisdom of the natural world and the precision of scientific inquiry.</p>
+                                        <p>Suggests a deeper connection between traditional knowledge and the identification of healing plants that promote overall wellness.</p>
                                     </div>
                                 </div>
                                 <!-- section title end-->
                                 <div class="row g-0">
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <ul class="prt-list prt-list-style-icon-01 pr-10 res-575-pr-0">
-                                            <li class="prt-list-li-content"><i class="fas fa-user-md"></i> Professional doctors</li>
-    <li class="prt-list-li-content"><i class="fas fa-flask"></i> Digital laboratory</li>
-    <li class="prt-list-li-content"><i class="fas fa-calendar-check"></i> Online schedule</li>
+                                            <li class="prt-list-li-content"><i class="fas fa-seedling"></i> Plant Identification</li> <!-- Plant Icon -->
+                                            <li class="prt-list-li-content"><i class="fas fa-book-open"></i> Educational Resource</li> <!-- Book Icon -->
+                                            <li class="prt-list-li-content"><i class="fas fa-comments"></i> Chat Bot</li> <!-- Chat Icon -->
                                         </ul>
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-6">
                                         <ul class="prt-list prt-list-style-icon-01">
-                                            <li class="prt-list-li-content"><i class="fas fa-headset"></i> 24/7 Online support</li> <!-- Support Icon -->
-                                            <li class="prt-list-li-content"><i class="fas fa-cogs"></i> High packages</li> <!-- Package Icon -->
-                                            <li class="prt-list-li-btn"><a href="#"><i class="fas fa-arrow-right"></i> View more</a></li> <!-- Arrow Icon -->
+                                            <li class="prt-list-li-content"><i class="fas fa-shopping-basket"></i> Marketplace for Medicinal Plants</li> <!-- Marketplace Icon -->
+                                            <li class="prt-list-li-content"><i class="fas fa-map-marked-alt"></i> Interactive Mapping Service</li> <!-- Map Icon -->
+                                            <li class="prt-list-li-btn"><a href="{{ route('CustomerService.all') }}"><i class="fas fa-arrow-right"></i> View more</a></li> <!-- Arrow Icon -->
                                         </ul>
                                     </div>
                                 </div>
+
                             </div>
                         </div>
                     </div>
@@ -308,12 +273,15 @@
                             <!-- section title -->
                             <div class="section-title title-style-center_text">
                                 <div class="title-header">
-                                    <h2 class="cta-title">Need a help</h2>
-                                    <h3 class="cta-titlepre">Get a free medical checkup</h3>
+                                    <h2 class="cta-title">Medicinal Plants </h2>
+                                    <h3 class="cta-titlepre">Purchase a medicinal Plants for your garden</h3>
                                 </div>
                                 <div class="cta-bnt mt-40 fadeup-amin">
-                                    <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-skincolor" href="contact-us.html">+3 (092) 508-38-01</a>
+                                    <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-skincolor" href="{{ route('ShopProduct.all') }}">
+                                        Purchase <i class="fas fa-arrow-right ml-2"></i>
+                                    </a>
                                 </div>
+
                             </div>
                             <!-- section title end-->
                         </div>
@@ -390,18 +358,18 @@
                             <div class="featured-imagebox featured-imagebox-product style1">
                                 <div class="featured-thumbnail">
 
-                                    <img width="303" height="280" class="img-fluid" src="{{ asset('PublicArea/images/product/product-img-01.png') }}" alt="img">
+                                    <img width="303" height="280" class="img-fluid" src="{{ asset('PublicArea/images/plants/gotukola.jpeg') }}" alt="img">
                                 </div>
                                 <div class="featured-content">
                                     <div class="featured-title">
-                                        <h3><a href="#">Acupuncture slipper</a></h3>
+                                        <h3><a href="#">Gotukola</a></h3>
                                     </div>
                                     <div class="featured-desc">
-                                        <p><span><a href="#">$329.00</a></span> <a href="#">$149.00</a></p>
+                                        <h7><a href="#">Centella Asiatica</a></h7>
                                     </div>
                                     <div class="prt-product-btn">
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor mr" href="#">Buy now</a>
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor" href="#">Add to card</a>
+                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor mr" href="{{ route('CustomerPlant.all') }}">View More</a>
+
                                     </div>
                                 </div>
                             </div>
@@ -412,18 +380,18 @@
                             <div class="featured-imagebox featured-imagebox-product style1">
                                 <div class="featured-thumbnail">
 
-                                    <img width="303" height="280" class="img-fluid" src="{{ asset('PublicArea/images/product/product-img-02.png') }}" alt="img">
+                                    <img width="303" height="280" class="img-fluid" src="{{ asset('PublicArea/images/plants/iramusu.jpg') }}" alt="img">
                                 </div>
                                 <div class="featured-content">
                                     <div class="featured-title">
-                                        <h3><a href="#">Massage stone</a></h3>
+                                        <h3><a href="#">Iramusu</a></h3>
                                     </div>
                                     <div class="featured-desc">
-                                        <p><span><a href="#">$120.00</a></span> <a href="#">$80.00</a></p>
+                                        <h7><a href="#">Desmodium Gangeticum</a></h7>
                                     </div>
                                     <div class="prt-product-btn">
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor mr" href="#">Buy now</a>
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor" href="#">Add to card</a>
+                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor mr" href="{{ route('CustomerPlant.all') }}">View More</a>
+
                                     </div>
                                 </div>
                             </div>
@@ -434,18 +402,18 @@
                             <div class="featured-imagebox featured-imagebox-product style1">
                                 <div class="featured-thumbnail">
 
-                                    <img width="303" height="280" class="img-fluid" src="{{ asset('PublicArea/images/product/product-img-03.png') }}" alt="img">
+                                    <img width="303" height="280" class="img-fluid" src="{{ asset('PublicArea/images/plants/alovera.jpg') }}" alt="img">
                                 </div>
                                 <div class="featured-content">
                                     <div class="featured-title">
-                                        <h3><a href="#">Teak massager</a></h3>
+                                        <h3><a href="#">Aloe Vera</a></h3>
                                     </div>
                                     <div class="featured-desc">
-                                        <p><span><a href="#">$160.00</a></span> <a href="#">$100.00</a></p>
+                                        <h7><a href="#">Aloe Barbadensis</a></h7>
                                     </div>
                                     <div class="prt-product-btn">
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor mr" href="#">Buy now</a>
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor" href="#">Add to card</a>
+                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor mr" href="{{ route('CustomerPlant.all') }}">View More</a>
+
                                     </div>
                                 </div>
                             </div>
@@ -456,18 +424,18 @@
                             <div class="featured-imagebox featured-imagebox-product style1">
                                 <div class="featured-thumbnail">
 
-                                    <img width="303" height="280" class="img-fluid" src="{{ asset('PublicArea/images/product/product-img-04.png') }}" alt="img">
+                                    <img width="303" height="280" class="img-fluid" src="{{ asset('PublicArea/images/plants/lemmon.png') }}" alt="img">
                                 </div>
                                 <div class="featured-content">
                                     <div class="featured-title">
-                                        <h3><a href="#">Wooden bodycalf</a></h3>
+                                        <h3><a href="#">Lemon</a></h3>
                                     </div>
                                     <div class="featured-desc">
-                                        <p><span><a href="#">$100.00</a></span> <a href="#">$90.00</a></p>
+                                        <h7><a href="#">Citrus Limon</a></h7>
                                     </div>
                                     <div class="prt-product-btn">
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor mr" href="#">Buy now</a>
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor" href="#">Add to card</a>
+                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor mr" href="{{ route('CustomerPlant.all') }}">View More</a>
+
                                     </div>
                                 </div>
                             </div>
@@ -478,18 +446,18 @@
                             <div class="featured-imagebox featured-imagebox-product style1">
                                 <div class="featured-thumbnail">
 
-                                    <img width="303" height="280" class="img-fluid" src="{{ asset('PublicArea/images/product/product-img-05.jpg') }}" alt="img">
+                                    <img width="303" height="280" class="img-fluid" src="{{ asset('PublicArea/images/plants/sandawood.jpeg') }}" alt="img">
                                 </div>
                                 <div class="featured-content">
                                     <div class="featured-title">
-                                        <h3><a href="#">Herbal medicine</a></h3>
+                                        <h3><a href="#">Sandalwood</a></h3>
                                     </div>
                                     <div class="featured-desc">
-                                        <p><span><a href="#">$100.00</a></span> <a href="#">$90.00</a></p>
+                                        <h7><a href="#">Santalum Album</a></h7>
                                     </div>
                                     <div class="prt-product-btn">
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor mr" href="#">Buy now</a>
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor" href="#">Add to card</a>
+                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor mr" href="{{ route('CustomerPlant.all') }}">View More</a>
+
                                     </div>
                                 </div>
                             </div>
@@ -500,18 +468,18 @@
                             <div class="featured-imagebox featured-imagebox-product style1">
                                 <div class="featured-thumbnail">
 
-                                    <img width="303" height="280" class="img-fluid" src="{{ asset('PublicArea/images/product/product-img-06.jpg') }}" alt="img">
+                                    <img width="303" height="280" class="img-fluid" src="{{ asset('PublicArea/images/plants/cinnamon.jpeg') }}" alt="img">
                                 </div>
                                 <div class="featured-content">
                                     <div class="featured-title">
-                                        <h3><a href="#">Massage brush</a></h3>
+                                        <h3><a href="#">Cinnamon</a></h3>
                                     </div>
                                     <div class="featured-desc">
-                                        <p><span><a href="#">$80.00</a></span> <a href="#">$50.00</a></p>
+                                        <h7><a href="#">Cinnamomum Verum</a></h7>
                                     </div>
                                     <div class="prt-product-btn">
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor mr" href="#">Buy now</a>
-                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor" href="#">Add to card</a>
+                                        <a class="prt-btn prt-btn-size-sm prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor mr" href="{{ route('CustomerPlant.all') }}">View More</a>
+
                                     </div>
                                 </div>
                             </div>
@@ -521,7 +489,7 @@
                     <div class="row">
                         <div class="col-xl-7 col-lg-10 col-md-12 m-auto">
                             <div class="prt-product-text">
-                                <p>Explore a wide selection of products in our inventory <a class="prt-btn btn-inline prt-btn-color-whitecolor btn-underline" href="#">View all products</a></p>
+                                <p>Explore a wide selection of plants in our collection. <a class="prt-btn btn-inline prt-btn-color-whitecolor btn-underline" href="{{ route('CustomerPlant.all') }}">View all plants</a></p>
                             </div>
                         </div>
                     </div>
@@ -538,54 +506,57 @@
                             <!-- section title -->
                             <div class="section-title title-style-center_text">
                                 <div class="title-header">
-                                    <h2 class="title">Explain your health problem</h2>
+                                    <h2 class="title">Get Health</h2>
                                 </div>
                             </div>
                             <!-- section title end-->
                         </div>
                     </div>
-                    <div class="row mt-25">
+                    <div class="row mt-4">
                         <div class="col-lg-12">
                             <div class="prt-appointment-block">
-                                <form action="#" class="query_form wrap-form clearfix" method="post">
+                                @if(session('success'))
+                                    <div class="alert alert-success">{{ session('success') }}</div>
+                                @endif
+                                <form action="{{ route('GetHealth.add') }}" method="POST" class="query_form wrap-form clearfix">
+                                    @csrf
                                     <div class="row">
                                         <div class="col-lg-8 col-md-12">
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <span class="text-input">
-                                                        <input name="name" type="text" value="" placeholder="Name*" required="required">
+                                                        <input name="name" type="text" placeholder="Name*" required>
                                                     </span>
+
                                                 </div>
                                                 <div class="col-md-6">
                                                     <span class="text-input">
-                                                        <input name="phone" type="text" value="" placeholder="Phone*" required="required">
+                                                        <input name="phone" type="text" placeholder="Phone*" required>
                                                     </span>
+
                                                 </div>
                                                 <div class="col-md-6">
-                                                    <span class="text-input select-option">
-                                                         <select id="subject" name="user_state">
-                                                            <option value="select-subject">Subject*</option>
-                                                            <option value="subject1">General Medicine</option>
-                                                            <option value="subject2">Pediatrics</option>
-                                                            <option value="subject3">Detox & Rejuvenation</option>
-                                                            <option value="subject4">Eye, ENT & Dental Care</option>
-                                                        </select>
+                                                    <span class="text-input">
+                                                        <input name="email" type="email" placeholder="Email*" required>
                                                     </span>
+
                                                 </div>
                                                 <div class="col-md-6">
-                                                   <span class="text-input">
-                                                        <input name="date" type="date" value="" required="required">
-                                                   </span>
+                                                    <span class="text-input">
+                                                        <input name="subject" type="text" placeholder="Subject*" required>
+                                                    </span>
+
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-lg-4 col-md-12">
                                             <span class="text-input">
-                                                <textarea name="message" rows="4" placeholder="Message*" required="required"></textarea>
+                                                <textarea name="massage" rows="4" placeholder="Massage*" required></textarea>
                                             </span>
+
                                         </div>
                                         <div class="col-md-12 text-center">
-                                           <button class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-darkcolor" type="submit">Make a appointment</button>
+                                            <button class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-fill prt-btn-color-darkcolor" type="submit">Submit</button>
                                         </div>
                                     </div>
                                 </form>
@@ -593,6 +564,7 @@
                         </div>
                     </div>
                 </div>
+
             </section>
             <!-- appointment-sectopn end-->
 
@@ -601,28 +573,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-12 col-md-12">
-                            <div class="prt-info-main-block">
-                                <div class="info_btn mr-30 res-767-mb-15">
-                                    <a class="prt-btn prt-btn-size-md prt-btn-shape-round  prt-btn-style-border prt-btn-color-darkcolor" href="#">COVID-19 resources</a>
-                                </div>
-                                <!-- featured-icon-box -->
-                                <div class="featured-icon-box icon-align-before-content style2">
-                                    <div class="featured-icon">
-                                        <div class="prt-icon prt-icon_element-onlytxt prt-icon_element-size-lg prt-icon_element-color-darkcolor">
-                                            <i class="fas fa-exclamation-triangle"></i>
-                                        </div>
-                                    </div>
-                                    <div class="featured-content">
-                                        <div class="featured-title">
-                                            <h3>Get The Health package</h3>
-                                        </div>
-                                        <div class="featured-desc">
-                                            <p>What you need to know about the 2019 - 2023 fly season.</p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- featured-icon-box end -->
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -642,7 +593,7 @@
                                     </div>
                                     <div class="title-desc">
                                         <p>Stay informed and inspired with our freshest content, delivering insights and stories that matter.</p>
-                                        <a class="prt-btn btn-inline prt-btn-color-darkcolor btn-underline" href="#">View all stories</a>
+                                        <a class="prt-btn btn-inline prt-btn-color-darkcolor btn-underline" href="{{ route('CustomerBlog.all') }}">View all stories</a>
                                     </div>
                                 </div>
                                 <!-- section title end-->
@@ -669,8 +620,9 @@
                                                 <span class="prt-meta-line comment">10 Comment</span>
                                             </div><!-- post-meta end -->
                                             <div class="post-title featured-title">
-                                                <h3><a href="blog-single.html">Here’s the top promising shopify template of – 2023</a></h3>
+                                                <h3><a href="blog-single.html">Revolutionizing Herbal Medicine with AI-Powered Plant Identification</a></h3>
                                             </div>
+
                                         </div>
                                     </div><!-- featured-content end -->
                                 </div>
@@ -695,7 +647,7 @@
                                                     <span class="prt-meta-line comment">10 Comment</span>
                                                 </div><!-- post-meta end -->
                                                 <div class="post-title featured-title">
-                                                    <h3><a href="blog-single.html">Best lawyer services HTML template listed as multilingual WPML compatible</a></h3>
+                                                    <h3><a href="blog-single.html">Ayurvedic medicine, one of the world’s oldest holistic healing systems, originated in India over 3,000 years ago.</a></h3>
                                                 </div>
                                             </div>
                                         </div><!-- featured-content end -->
@@ -721,8 +673,9 @@
                                                 <span class="prt-meta-line comment">05 Comment</span>
                                             </div><!-- post-meta end -->
                                             <div class="post-title featured-title">
-                                                <h3><a href="blog-single.html">Get the best opencart template for the medical</a></h3>
+                                                <h3><a href="blog-single.html">Ayurvedic Therapy: Revolutionizing Healing with AI-Powered Plant Identification</a></h3>
                                             </div>
+
                                         </div>
                                     </div><!-- featured-content end -->
                                 </div>
@@ -734,27 +687,7 @@
             </section>
             <!--blog-section end-->
 
-            <!-- cta-sectopn -->
-            <section class="prt-row prt-bg bg-base-grey padding_zero-section cta-section01 clearfix">
-                <div class="container">
-                    <div class="row">
-                        <div class="col-xl-10 col-lg-12 m-auto">
-                            <div class="prt-cta-mainblock ">
-                                <div class="d-flex align-items-center justify-content-center">
-                                    <div class="prt-cta-call">
-                                        <p>Looking for consultation? <a href="tel:1234567890">+1 3333 000 444</a></p>
-                                    </div>
-                                    <div class="prt-cta-title"><h3>We are <span>certified</span> ayurved company</h3></div>
-                                </div>
-                                <div class="prt-cta-btn res-1199-mt-30">
-                                    <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-border prt-btn-color-darkcolor ml-20" href="contact-us.html">Contact us</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-            <!-- cta-sectopn end-->
+
 
         </div><!-- site-main end-->
         @endsection

@@ -1,6 +1,25 @@
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="shortcut icon" href="{{ asset('PublicArea/images/footer.jpeg') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/bootstrap.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/animate.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/all.min.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/fontello.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/flaticon.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/themify-icons.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/font-awesome.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/aos.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/slick.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/prettyPhoto.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/samarkannormal.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/shortcodes.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/main.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/megamenu.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('PublicArea/css/responsive.css') }}">
 
-<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+
+
+{{-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/8.4.5/swiper-bundle.min.css"> --}}
 
 
 @stack('css')

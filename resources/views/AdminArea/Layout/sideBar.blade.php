@@ -1,9 +1,12 @@
-
-  <div class="container-scroller">
+<div class="container-scroller">
     <!-- partial:partials/_navbar.html -->
     <nav class="navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row default-layout-navbar">
       <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
-        <a class="navbar-brand brand-logo" href="index-2.html"><img src="{{ asset('AdminArea/images/logo.svg') }}" alt="logo"/></a>
+        <a class="navbar-brand brand-logo" href="index-2.html"
+        style="color: #E91E63; font-weight: bold; font-family: 'Poppins', sans-serif; font-size: 24px; text-transform: uppercase;">
+        Ayur Essence
+     </a>
+
         <a class="navbar-brand brand-logo-mini" href="index-2.html"><img src="images/logo-mini.svg" alt="logo"/></a>
       </div>
       <div class="navbar-menu-wrapper d-flex align-items-stretch">
@@ -25,168 +28,49 @@
           </li>
         </ul>
         <ul class="navbar-nav navbar-nav-right">
-          <li class="nav-item d-none d-lg-flex">
-            <a class="nav-link" href="#">
-              <span class="btn btn-primary">+ Create new</span>
-            </a>
-          </li>
-          <li class="nav-item dropdown d-none d-lg-flex">
-            <div class="nav-link">
-              <span class="dropdown-toggle btn btn-outline-dark" id="languageDropdown" data-toggle="dropdown">English</span>
-              <div class="dropdown-menu navbar-dropdown" aria-labelledby="languageDropdown">
-                <a class="dropdown-item font-weight-medium" href="#">
-                  French
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item font-weight-medium" href="#">
-                  Espanol
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item font-weight-medium" href="#">
-                  Latin
-                </a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item font-weight-medium" href="#">
-                  Arabic
-                </a>
-              </div>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link count-indicator dropdown-toggle" id="notificationDropdown" href="#" data-toggle="dropdown">
-              <i class="fas fa-bell mx-0"></i>
-              <span class="count">16</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="notificationDropdown">
-              <a class="dropdown-item">
-                <p class="mb-0 font-weight-normal float-left">You have 16 new notifications
-                </p>
-                <span class="badge badge-pill badge-warning float-right">View all</span>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-danger">
-                    <i class="fas fa-exclamation-circle mx-0"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-medium">Application Error</h6>
-                  <p class="font-weight-light small-text">
-                    Just now
-                  </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-warning">
-                    <i class="fas fa-wrench mx-0"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-medium">Settings</h6>
-                  <p class="font-weight-light small-text">
-                    Private message
-                  </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                  <div class="preview-icon bg-info">
-                    <i class="far fa-envelope mx-0"></i>
-                  </div>
-                </div>
-                <div class="preview-item-content">
-                  <h6 class="preview-subject font-weight-medium">New user registration</h6>
-                  <p class="font-weight-light small-text">
-                    2 days ago
-                  </p>
-                </div>
-              </a>
-            </div>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link count-indicator dropdown-toggle" id="messageDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
-              <i class="fas fa-envelope mx-0"></i>
-              <span class="count">25</span>
-            </a>
-            <div class="dropdown-menu dropdown-menu-right navbar-dropdown preview-list" aria-labelledby="messageDropdown">
-              <div class="dropdown-item">
-                <p class="mb-0 font-weight-normal float-left">You have 7 unread mails
-                </p>
-                <span class="badge badge-info badge-pill float-right">View all</span>
-              </div>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                    <img src="images/faces/face4.jpg" alt="image" class="profile-pic">
-                </div>
-                <div class="preview-item-content flex-grow">
-                  <h6 class="preview-subject ellipsis font-weight-medium">David Grey
-                    <span class="float-right font-weight-light small-text">1 Minutes ago</span>
-                  </h6>
-                  <p class="font-weight-light small-text">
-                    The meeting is cancelled
-                  </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                    <img src="images/faces/face2.jpg" alt="image" class="profile-pic">
-                </div>
-                <div class="preview-item-content flex-grow">
-                  <h6 class="preview-subject ellipsis font-weight-medium">Tim Cook
-                    <span class="float-right font-weight-light small-text">15 Minutes ago</span>
-                  </h6>
-                  <p class="font-weight-light small-text">
-                    New product launch
-                  </p>
-                </div>
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item preview-item">
-                <div class="preview-thumbnail">
-                    <img src="images/faces/face3.jpg" alt="image" class="profile-pic">
-                </div>
-                <div class="preview-item-content flex-grow">
-                  <h6 class="preview-subject ellipsis font-weight-medium"> Johnson
-                    <span class="float-right font-weight-light small-text">18 Minutes ago</span>
-                  </h6>
-                  <p class="font-weight-light small-text">
-                    Upcoming board meeting
-                  </p>
-                </div>
-              </a>
-            </div>
-          </li>
+
+
+
+
           <li class="nav-item nav-profile dropdown">
             <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
-              <img src="images/faces/face5.jpg" alt="profile"/>
+                <img src="{{ asset('AdminArea/images/faces/face5.jpg') }}" alt="profile"/>
+                <span>{{ session('user_name') ?? session('email') }}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
-              <a class="dropdown-item">
-                <i class="fas fa-cog text-primary"></i>
-                Settings
-              </a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item">
-                <i class="fas fa-power-off text-primary"></i>
-                Logout
-              </a>
+
+                <div class="dropdown-divider"></div>
+                <form action="{{ route('AdminLogin.logout') }}" method="POST" style="display: inline;">
+                    @csrf
+                    <button type="submit" class="dropdown-item">
+                        <i class="fas fa-power-off text-primary"></i>
+                        Logout
+                    </button>
+                </form>
             </div>
-          </li>
-          <li class="nav-item nav-settings d-none d-lg-block">
-            <a class="nav-link" href="#">
-              <i class="fas fa-ellipsis-h"></i>
+        </li>
+
+          {{-- <li class="nav-item nav-profile dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-toggle="dropdown" id="profileDropdown">
+                <img src="images/faces/face5.jpg" alt="profile"/>
+                <span class="ml-2">{{ session('user_name', 'User') }}</span>
             </a>
-          </li>
+            <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="profileDropdown">
+                <a class="dropdown-item">
+                    <i class="fas fa-user text-primary"></i>
+                    {{ session('user_email', 'No Email') }}
+                </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="{{ route('AdminLogin.logout') }}">
+                    <i class="fas fa-power-off text-primary"></i>
+                    Logout
+                </a>
+            </div>
+        </li> --}}
+
+
         </ul>
-        <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
-          <span class="fas fa-bars"></span>
-        </button>
+
       </div>
     </nav>
     <!-- partial -->
@@ -363,21 +247,7 @@
 
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
     <ul class="nav">
-      <li class="nav-item nav-profile">
-        <div class="nav-link">
-          <div class="profile-image">
-            <img src="images/faces/face5.jpg" alt="image"/>
-          </div>
-          <div class="profile-name">
-            <p class="name">
-              Welcome Jane
-            </p>
-            <p class="designation">
-              Super Admin
-            </p>
-          </div>
-        </div>
-      </li>
+
       <li class="nav-item">
         <a class="nav-link" href="{{ url('/dashboard') }}">
           <i class="fa fa-home menu-icon"></i>
@@ -385,22 +255,19 @@
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('/todo') }}">
-          <i class="fa fa-puzzle-piece menu-icon"></i>
-          <span class="menu-title">Widgets</span>
+        <a class="nav-link" data-toggle="collapse" href="#sale-layouts" aria-expanded="false" aria-controls="page-layouts">
+            <i class="fas fa-shopping-cart menu-icon"></i>
+            <span class="menu-title">Sale Medicinal Plants</span>
+          <i class="menu-arrow"></i>
         </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url('/emp') }}">
-          <i class="fa fa-puzzle-piece menu-icon"></i>
-          <span class="menu-title">Widgets</span>
-        </a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="{{ route('Student.all') }}">
-          <i class="fa fa-puzzle-piece menu-icon"></i>
-          <span class="menu-title">Student</span>
-        </a>
+        <div class="collapse" id="sale-layouts">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="{{ route('SalePlants.all') }}">Sale Plants</a></li>
+            <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="{{ route('orderManagement.show') }}">Orders</a></li>
+            <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="{{ route('SalePlants.portfolioAll') }}">Add Portfilo</a></li>
+
+          </ul>
+        </div>
       </li>
       <li class="nav-item">
         <a class="nav-link" data-toggle="collapse" href="#page-layouts" aria-expanded="false" aria-controls="page-layouts">
@@ -410,9 +277,9 @@
         </a>
         <div class="collapse" id="page-layouts">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="pages/layout/boxed-layout.html">Add Category</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/layout/rtl-layout.html">Add Plants</a></li>
-            <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="pages/layout/horizontal-menu.html">Horizontal Menu</a></li>
+            <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="{{ route('PlantManagement.plantCategoryAll') }}">Add Category</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('PlantManagement.plantAll') }}">Add Plants</a></li>
+            <li class="nav-item d-none d-lg-block"> <a class="nav-link" href="{{ route('PlantManagement.plantDiseasesAll') }}">Plant Diseases</a></li>
           </ul>
         </div>
       </li>
@@ -424,8 +291,8 @@
         </a>
         <div class="collapse" id="sidebar-layouts">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="pages/layout/compact-menu.html">Specialization</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/layout/sidebar-collapsed.html">Add Doctors</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('DoctorManagement.specializationAll') }}">Specialization</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('DoctorManagement.doctorAll') }}">Add Doctors</a></li>
             <li class="nav-item"> <a class="nav-link" href="pages/layout/sidebar-hidden.html">View Appointment</a></li>
 
           </ul>
@@ -440,9 +307,10 @@
         </a>
         <div class="collapse" id="ui-basic">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/accordions.html">Add Ayurveda Guids</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/buttons.html">Add Blogs</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/badges.html">Meeting/ Events</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('EducationalContent.ayurvedaGuideAll') }}">Add Ayurveda Guide</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('EducationalContent.blogAll') }}">Add Blogs</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('EducationalContent.meetingAndEventAll') }}">Meeting/ Events</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('EducationalContent.conservationAwarenessAll') }}">Conservation/ Awareness</a></li>
 
           </ul>
           </div>
@@ -456,8 +324,8 @@
         </a>
         <div class="collapse" id="ui-advanced">
           <ul class="nav flex-column sub-menu">
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/dragula.html">Products Category</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/ui-features/clipboard.html">Products</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('ProductManagement.productCategoryAll') }}">Products Category</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('ProductManagement.productAll') }}">Products</a></li>
 
           </ul>
         </div>
@@ -480,33 +348,42 @@
       </li>
 
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('/todo') }}">
+        <a class="nav-link" href="{{ route('Treatment.all') }}">
             <i class="fas fa-leaf menu-icon"></i>
           <span class="menu-title">Treatments</span>
         </a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="{{ url('/todo') }}">
+        <a class="nav-link" href="{{ route('QuestionsAndAnswers.all') }}">
             <i class="fas fa-mortar-pestle menu-icon"></i>
-          <span class="menu-title">Medicine</span>
-        </a>
-      </li>
-
-      <li class="nav-item">
-        <a class="nav-link" href="{{ url('/todo') }}">
-            <i class="fas fa-envelope menu-icon"></i>
-
-          <span class="menu-title">Manage Visitor Massages</span>
+          <span class="menu-title">Q And A</span>
         </a>
       </li>
 
 
-      <li class="nav-item">
+
+      {{-- <li class="nav-item">
         <a class="nav-link" href="{{ url('/todo') }}">
             <i class="fas fa-star menu-icon"></i>
 
           <span class="menu-title">Customer Reviews</span>
         </a>
+      </li> --}}
+
+      <li class="nav-item">
+        <a class="nav-link" data-toggle="collapse" href="#customer" aria-expanded="false" aria-controls="customer">
+            <i class="fas fa-star menu-icon"></i>
+          <span class="menu-title">Customer</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="customer">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item"> <a class="nav-link" href="{{ route('CustomerManagement.contactUsAll') }}">Contact Us</a></li>
+            {{-- <li class="nav-item"> <a class="nav-link" href="#">Customer Reviews</a></li> --}}
+            <li class="nav-item"> <a class="nav-link" href="{{ route('CustomerManagement.getHealthAll') }}">Get Health</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('CustomerManagement.newsLetterAll') }}">Subscription</a></li>
+          </ul>
+        </div>
       </li>
 
       <li class="nav-item">
@@ -519,7 +396,7 @@
           <ul class="nav flex-column sub-menu">
             <li class="nav-item"> <a class="nav-link" href="{{ route('Location.herbalGardenAll') }}">Herbal Gardens</a></li>
             <li class="nav-item"> <a class="nav-link" href="{{ route('Location.ayurvedicHospitalAll') }}">Ayurvedic Hospitals</a></li>
-            <li class="nav-item"> <a class="nav-link" href="pages/maps/google-maps.html">Local Phamercies</a></li>
+            <li class="nav-item"> <a class="nav-link" href="{{ route('Location.localPharmacyAll') }}">Local Pharmacies</a></li>
           </ul>
         </div>
       </li>
@@ -541,5 +418,3 @@
 
     </ul>
   </nav>
-
-

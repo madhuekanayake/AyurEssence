@@ -24,6 +24,8 @@
   <script src="{{ asset('AdminArea/js/wizard.js') }}"></script>
   <script src="{{ asset('AdminArea/js/editorDemo.js') }}"></script>
 
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCRxCvC_tYnWNUso0oJf-YAmRQVkh8204s&callback=initMap" async defer></script>
+
   @if (session('success'))
   <script>
       toastr.success("{{ session('success') }}", '', {

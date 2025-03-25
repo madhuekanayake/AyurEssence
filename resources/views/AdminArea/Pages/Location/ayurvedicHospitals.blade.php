@@ -45,26 +45,28 @@
                                                 <td>{{ $hospital->email }}</td>
 
                                                 <td>{{ $hospital->description }}</td>
-                                                <td>{{ $hospital->ayurvedicHospitalId }}</td>
+
+
 
                                                 <td>
-                                                    <button type="button" class="btn btn-link text-primary p-0 mr-2"
-                                                        onclick="addAyurvedicImage(
-                                                        '{{ $hospital->id }}',
-                                                        '{{ $hospital->ayurvedicHospitalId }}',
-
-                                                    )">
+                                                    <button type="button" class="btn btn-link text-primary p-0"
+                                                        data-toggle="modal" data-target="#uploadImageModal"
+                                                        onclick="openUploadImageModal('{{ $hospital->ayurvedicHospitalId }}')">
                                                         <i class="fas fa-plus-circle menu-icon"></i>
                                                     </button>
 
-                                                    {{-- <a
-                                                        href="{{ route('Location.ViewAyurvedicHospitalImageAll', $hospital->ayurvedicHospitalId) }}">
+                                                    <a
+                                                        href="{{ route('Location.viewAyurvedicHospitalImageAll', $hospital->ayurvedicHospitalId) }}">
                                                         <i class="fas fa-eye menu-icon"></i>
 
 
-                                                    </a> --}}
+                                                    </a>
 
                                                 </td>
+
+
+
+
                                                 <td>
                                                     <button type="button" class="btn btn-link text-primary p-0 mr-2"
                                                         onclick="editHospital(
@@ -88,17 +90,17 @@
 
                                                     <button type="button" class="btn btn-link text-primary p-0 mr-2"
                                                         onclick="viewHospital(
-        '{{ $hospital->id }}',
-        '{{ $hospital->name }}',
-        '{{ $hospital->address }}',
-        '{{ $hospital->email }}',
-        '{{ $hospital->phone }}',
-        '{{ $hospital->location }}',
-        '{{ $hospital->openTime }}',
-        '{{ $hospital->closeTime }}',
-        '{{ $hospital->openDays }}',
-        '{{ $hospital->description }}'
-    )">
+                                                                            '{{ $hospital->id }}',
+                                                                            '{{ $hospital->name }}',
+                                                                            '{{ $hospital->address }}',
+                                                                            '{{ $hospital->email }}',
+                                                                            '{{ $hospital->phone }}',
+                                                                            '{{ $hospital->location }}',
+                                                                            '{{ $hospital->openTime }}',
+                                                                            '{{ $hospital->closeTime }}',
+                                                                            '{{ $hospital->openDays }}',
+                                                                            '{{ $hospital->description }}'
+                                                                        )">
                                                         <i class="fas fa-arrow-right menu-icon"></i>
                                                     </button>
                                                 </td>
@@ -155,10 +157,22 @@
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label for="location">Location <span style="color: red;">*</span></label>
-                                <input type="text" class="form-control" id="location" name="location"
-                                    placeholder="Location" required>
+                                <label for="location">Location <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="location" name="location" placeholder="Location" required>
                             </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="latitude">Latitude <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="latitude" name="latitude" placeholder="Latitude" readonly required>
+                            </div>
+
+                            <div class="form-group col-md-6">
+                                <label for="longitude">Longitude <span class="text-danger">*</span></label>
+                                <input type="text" class="form-control" id="longitude" name="longitude" placeholder="Longitude" readonly required>
+                            </div>
+
+                            <!-- Add a Google Map for Selecting Location -->
+                            <div id="map" style="width: 100%; height: 400px;"></div>
 
                             <div class="form-group col-md-6">
                                 <label for="openTime">Opening Time <span style="color: red;">*</span></label>
@@ -235,8 +249,8 @@
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label for="edit_location">Location <span style="color: red;">*</span></label>
-                                <input type="text" class="form-control" id="edit_location" name="location"
+                                <label for="edit_location">Location(URL) <span style="color: red;">*</span></label>
+                                <input type="link" class="form-control" id="edit_location" name="location"
                                     placeholder="Location" required>
                             </div>
 
@@ -276,7 +290,8 @@
 
 
     {{-- View Ayurvedic Hospital Modal --}}
-    <div class="modal fade" id="viewHospitalModal" tabindex="-1" role="dialog" aria-labelledby="viewHospitalLabel" aria-hidden="true">
+    <div class="modal fade" id="viewHospitalModal" tabindex="-1" role="dialog" aria-labelledby="viewHospitalLabel"
+        aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -311,8 +326,8 @@
                             </div>
 
                             <div class="form-group col-md-6">
-                                <label for="view_location">Location</label>
-                                <input type="text" class="form-control" id="view_location" readonly>
+                                <label for="view_location">Location(URL)</label>
+                                <input type="link" class="form-control" id="view_location" readonly>
                             </div>
 
                             <div class="form-group col-md-6">
@@ -375,30 +390,27 @@
     </div>
 
     {{-- Add Image Modal --}}
-    <div class="modal fade" id="addAyurvedicHospitalImageModal" tabindex="-1" role="dialog" aria-labelledby="addAyurvedicHospitalImageLabel"
+    <div class="modal fade" id="uploadImageModal" tabindex="-1" role="dialog" aria-labelledby="uploadImageLabel"
         aria-hidden="true">
         <div class="modal-dialog modal-md" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="addAyurvedicHospitalImageLabel">Add New Image</h5>
+                    <h5 class="modal-title" id="uploadImageLabel">Upload Treatment Image</h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <form action="{{ route('Location.ayurvedicHospitalImageAdd') }}" method="POST"
-                        enctype="multipart/form-data">
+                        enctype="multipart/form-data" id="uploadImageForm">
                         @csrf
-                        <input type="hidden" id="ayurvedicHospitalId" name="ayurvedicHospitalId">
-                        <input type="hidden" id="id" name="id" >
-                        <div class="form-row">
-                            <div class="form-group col-md-12">
-                                <label for="image">File Upload <span style="color: red;">*</span></label>
-                                <input type="file" class="form-control" id="image" name="image" required>
-                            </div>
-
+                        <input type="hidden" id="uploadayurvedicHospitalId" name="ayurvedicHospitalId">
+                        <div class="form-group">
+                            <label for="image">Select Image <span style="color: red;">*</span></label>
+                            <input type="file" class="form-control" id="image" name="image" required
+                                accept="image/*">
                         </div>
-                        <button type="submit" class="btn btn-primary">Save</button>
+                        <button type="submit" class="btn btn-primary">Upload</button>
                         <button type="button" class="btn btn-light" data-dismiss="modal">Cancel</button>
                     </form>
                 </div>
@@ -408,6 +420,11 @@
 @endsection
 
 @push('js')
+    <script>
+        function openUploadImageModal(ayurvedicHospitalId) {
+            document.getElementById('uploadayurvedicHospitalId').value = ayurvedicHospitalId;
+        }
+    </script>
     <script>
         // Function to populate and show the Edit Hospital Modal
         function editHospital(id, name, address, email, phone, location, openTime, closeTime, openDays, description) {
@@ -439,30 +456,80 @@
         }
 
         function viewHospital(id, name, address, email, phone, location, openTime, closeTime, openDays, description) {
-    // Set the values of the inputs in the modal
-    document.getElementById('view_hospital_id').value = id;
-    document.getElementById('view_name').value = name;
-    document.getElementById('view_address').value = address;
-    document.getElementById('view_email').value = email;
-    document.getElementById('view_phone').value = phone;
-    document.getElementById('view_location').value = location;
-    document.getElementById('view_openTime').value = openTime;
-    document.getElementById('view_closeTime').value = closeTime;
-    document.getElementById('view_openDays').value = openDays;
-    document.getElementById('view_description').value = description;
+            // Set the values of the inputs in the modal
+            document.getElementById('view_hospital_id').value = id;
+            document.getElementById('view_name').value = name;
+            document.getElementById('view_address').value = address;
+            document.getElementById('view_email').value = email;
+            document.getElementById('view_phone').value = phone;
+            document.getElementById('view_location').value = location;
+            document.getElementById('view_openTime').value = openTime;
+            document.getElementById('view_closeTime').value = closeTime;
+            document.getElementById('view_openDays').value = openDays;
+            document.getElementById('view_description').value = description;
 
-    // Show the modal
-    $('#viewHospitalModal').modal('show');
-}
+            // Show the modal
+            $('#viewHospitalModal').modal('show');
+        }
     </script>
+
+
 
     <script>
-        function addAyurvedicImage(id, ayurvedicHospitalId) {
-    document.getElementById('id').value = id;
-    document.getElementById('ayurvedicHospitalId').value = ayurvedicHospitalId;
+        document.addEventListener('DOMContentLoaded', function() {
+            const addRoomToGrcModal = document.getElementById('addAyurvedicHospitalImageModal');
+            addRoomToGrcModal.addEventListener('show.bs.modal', function(event) {
+                const button = event.relatedTarget; // Button that triggered the modal
+                const ayurvedicHospitalId = button.getAttribute('data-ayurvedicHospitalId');
 
-    $('#addAyurvedicHospitalImageModal').modal('show');
-}
 
+                // Update the modal's input fields
+                addRoomToGrcModal.querySelector('#ayurvedicHospitalId').value = ayurvedicHospitalId;
+
+
+            });
+        });
     </script>
+
+<script>
+    function initMap() {
+        var defaultLocation = { lat: 7.8731, lng: 80.7718 }; // Default to Sri Lanka
+        var map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 8,
+            center: defaultLocation
+        });
+
+        var marker = new google.maps.Marker({
+            position: defaultLocation,
+            map: map,
+            draggable: true
+        });
+
+        google.maps.event.addListener(marker, 'dragend', function(event) {
+            document.getElementById("latitude").value = event.latLng.lat();
+            document.getElementById("longitude").value = event.latLng.lng();
+        });
+
+        // Auto-complete for the location field
+        var input = document.getElementById('gardenLocation');
+        var autocomplete = new google.maps.places.Autocomplete(input);
+        autocomplete.bindTo('bounds', map);
+
+        autocomplete.addListener('place_changed', function() {
+            var place = autocomplete.getPlace();
+            if (!place.geometry) {
+                return;
+            }
+
+            if (place.geometry.location) {
+                marker.setPosition(place.geometry.location);
+                map.setCenter(place.geometry.location);
+                document.getElementById("latitude").value = place.geometry.location.lat();
+                document.getElementById("longitude").value = place.geometry.location.lng();
+            }
+        });
+    }
+    </script>
+
+    
 @endpush

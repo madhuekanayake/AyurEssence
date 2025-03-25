@@ -8,27 +8,10 @@
                     <div class="col-xl-6 col-lg-8 col-md-10 col-sm-9 ms-auto">
                         <div class="prt-schedule">
                             <div class="prt-schedule-title">
-                                <h2>Opening hours</h2>
-                                <p>Just make an appointment & you're done!</p>
+                                <h2>Ayur Essence</h2>
+                                <p>Ayur Essence is an innovative platform dedicated to preserving and promoting Sri Lanka’s rich Ayurvedic heritage. By combining traditional knowledge with modern AI technology, we aim to educate users about the medicinal uses, cultural significance, and conservation of Ayurvedic plants. Our mission is to bridge the gap between ancient wisdom and modern science, empowering individuals to identify, use, and protect these invaluable natural resources. Join us in our journey to conserve Sri Lanka’s biodiversity and celebrate the healing power of Ayurveda.</p>
                             </div>
-                            <div class="row mt-40 res-575-mt-20">
-                                <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <div class="prt-schedule-block">
-                                        <h3>Monday to Thursday</h3>
-                                        <p>9.30 am – 6.30 pm</p>
-                                    </div>
-                                </div>
-                                <div class="col-lg-6 col-md-6 col-sm-12">
-                                    <div class="prt-schedule-block">
-                                        <h3>Friday to Sunday</h3>
-                                        <p>11.00 am – 5.00 pm</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="mt-10">
-                                <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-border prt-btn-color-whitecolor"
-                                    href="contact-us.html">Make a appointment</a>
-                            </div>
+
                         </div>
                     </div>
                 </div>
@@ -56,9 +39,9 @@
                                         solutions</h3>
                                 </div>
                                 <ul class="prt-list prt-list-style-icon-02 mt-30 res-991-mt-15">
-                                    <li class="prt-list-li-content">Customized wellness plans</li>
-                                    <li class="prt-list-li-content"> Holistic lifestyle integration </li>
-                                    <li class="prt-list-li-content">Education and empowerment</li>
+                                    <li class="prt-list-li-content">AI-based Ayurvedic Plant Recognition</li>
+                                    <li class="prt-list-li-content"> Holistic Wellness Insights </li>
+                                    <li class="prt-list-li-content"> Knowledge Sharing & Community Engagement </li>
                                 </ul>
                                 <div class="mt-40">
                                     <a class="prt-btn prt-btn-size-md prt-btn-shape-round prt-btn-style-border prt-btn-color-whitecolor w-100"
@@ -138,8 +121,7 @@
                                     <h3>Our mission</h3>
                                 </div>
                                 <div class="featured-desc">
-                                    <p>Our mission lays a commitment to bring the profound benefits of ayurveda to people
-                                        from all walks of life.</p>
+                                    <p>Empowering people with AI-driven Ayurvedic plant recognition to preserve Sri Lanka’s medicinal heritage and promote holistic wellness.</p>
                                 </div>
                             </div>
                         </div>
@@ -165,29 +147,11 @@
                                     </div>
                                     <div class="layer-content">
                                         <div class="prt-quotes-block" data-aos="fade-up" data-aos-duration="1000">
-                                            <!-- featured-icon-box -->
-                                            <div class="featured-icon-box icon-align-before-content style3">
-                                                <div class="featured-icon">
-                                                    <div
-                                                        class="prt-icon prt-icon_element-onlytxt prt-icon_element-size-lg prt-icon_element-color-darkcolor">
-                                                        <img width="56" height="44" src="{{ asset('PublicArea/images/icon-07.png') }}"
-                                                            class="img-fluid" alt="icon">
-                                                    </div>
-                                                </div>
-                                                <div class="featured-content">
-                                                    <div class="featured-title">
-                                                        <h3>Kimbery bari</h3>
-                                                    </div>
-                                                    <div class="featured-desc">
-                                                        <p>CEO, Vedas</p>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <!-- featured-icon-box end -->
+
                                             <div class="mt-15">
-                                                <h3>We push the limits of <span>what's possible</span> for our patients.
-                                                </h3>
+                                                <h3>Unlock the <span>power of AI</span> to identify medicinal plants instantly.</h3>
                                             </div>
+
                                         </div>
                                     </div>
                                 </div>
@@ -200,27 +164,26 @@
                                     </div>
                                     <div class="layer-content">
                                         <!-- section title -->
-                                        <div class="section-title ">
-                                            <div class="title-header">
-                                                <h2 class="title quotes-title">Welcome to veda care</h2>
-                                            </div>
-                                            <div class="title-desc">
-                                                <p class="prt-about-desc">Our clients are our priority, we offer quality
-                                                    medical services with a team of specialists.</p>
-                                                <p class="mt-30">welcome to veda care, where ancient wisdom eets modern
-                                                    healthcare. our mission is to nurture your well-being through
-                                                    personalized <u class="headingfont-color">ayurvedic solutions.</u> with
-                                                    a team of experienced practitioners and a commitment to holistic
-                                                    wellness, we provide comprehensive healthcare services tailored to your
-                                                    unique needs and we prioritize your health, treating not just the
-                                                    symptoms but the root causes of ailments.</p>
-                                                <p class="mt-10">Our state-of-the-art facilities and the client-centered
-                                                    approach ensure you receive the highest quality care. join us on a
-                                                    journey to optimal health and balance. welcome to veda care, your
-                                                    trusted partner in wellness.</p>
-                                            </div>
-                                        </div>
-                                        <!-- section title end-->
+<div class="section-title">
+    <div class="title-header">
+        <h2 class="title quotes-title">Welcome to Ayur Essence</h2>
+    </div>
+    <div class="title-desc">
+        <p class="prt-about-desc">Our mission is to preserve Sri Lanka’s rich Ayurvedic heritage by combining traditional knowledge with modern technology.</p>
+        <p class="mt-30">
+            Welcome to our Ayurvedic Plant Conservation platform, where nature’s wisdom meets innovation. Our goal is to bridge the knowledge gap by
+            offering a digital space where users can learn about, identify, and contribute to the preservation of medicinal plants.
+            <u class="headingfont-color">Empowered by AI technology,</u> our system enables accurate plant identification, ensuring that these valuable
+            species are recognized and protected.
+        </p>
+        <p class="mt-10">
+            Through a user-friendly interface and an extensive plant database, we provide resources for sustainable use and conservation.
+            Join us in preserving Sri Lanka’s invaluable natural medicine and ensuring its benefits for generations to come.
+        </p>
+    </div>
+</div>
+<!-- section title end -->
+
                                     </div>
                                 </div>
                             </div>
@@ -241,12 +204,12 @@
                             <div class="featured-thumbnail">
 
                                 <img width="303" height="327"
-                                    src="{{ 'PublicArea/images/team-member/team-img01.png' }}" alt="image">
+                                    src="{{ asset('PublicArea/images/team-member/team-img01.png') }}" alt="image">
                             </div>
                             <div class="featured-content">
                                 <div class="featured-title-box">
                                     <div class="featured-title">
-                                        <h3><a href="team-details.html">Dr. Reshta wann</a></h3>
+                                        <h3><a href="{{ route('CustomerDoctor.all') }}">Dr. Reshta wann</a></h3>
                                     </div>
                                     <div class="featured-position">
                                         <p>General doctor</p>
@@ -281,7 +244,7 @@
                             <div class="featured-content">
                                 <div class="featured-title-box">
                                     <div class="featured-title">
-                                        <h3><a href="team-details.html">Dr. Natalia zox</a></h3>
+                                        <h3><a href="{{ route('CustomerDoctor.all') }}">Dr. Natalia zox</a></h3>
                                     </div>
                                     <div class="featured-position">
                                         <p>Manager</p>
@@ -316,7 +279,7 @@
                             <div class="featured-content">
                                 <div class="featured-title-box">
                                     <div class="featured-title">
-                                        <h3><a href="team-details.html">Dr. Gordian mon</a></h3>
+                                        <h3><a href="{{ route('CustomerDoctor.all') }}">Dr. Gordian mon</a></h3>
                                     </div>
                                     <div class="featured-position">
                                         <p>Founder</p>
@@ -351,7 +314,7 @@
                             <div class="featured-content">
                                 <div class="featured-title-box">
                                     <div class="featured-title">
-                                        <h3><a href="team-details.html">Dr. Broklyn simm</a></h3>
+                                        <h3><a href="{{ route('CustomerDoctor.all') }}">Dr. Broklyn simm</a></h3>
                                     </div>
                                     <div class="featured-position">
                                         <p>Lab technician</p>
@@ -388,56 +351,18 @@
                     <div class="col-lg-7 spacing-4">
                         <div class="accordion style1">
                             <!-- toggle -->
-                            <div class="toggle prt-toggle_style_classic prt-control-right-true">
-                                <div class="toggle-title"><a href="#" class="active">How does ayurveda work?</a>
+                            @foreach($questions_and_answers as $qa)
+                                <div class="toggle prt-toggle_style_classic prt-control-right-true">
+                                    <div class="toggle-title">
+                                        <a href="#" class="active">{{ $qa->question }}</a>
+                                    </div>
+                                    <div class="toggle-content show">
+                                        <p>{{ $qa->answer }}</p>
+                                    </div>
                                 </div>
-                                <div class="toggle-content show">
-                                    <p>Ayurveda works by the assessing of an individual's unique constitution and using the
-                                        natural remedies, diet, and lifestyle adjustments to restore balance.</p>
-                                </div>
-                            </div><!-- toggle end -->
-                            <!-- toggle -->
-                            <div class="toggle prt-toggle_style_classic prt-control-right-true">
-                                <div class="toggle-title"><a href="#">What are the three doshas in ayurveda?</a>
-                                </div>
-                                <div class="toggle-content">
-                                    <p>Ayurveda categorizes individuals into three the doshas and they are the vata, pitta,
-                                        and kapha, each representing different elemental energies in the body.</p>
-                                </div>
-                            </div><!-- toggle end -->
-                            <!-- toggle -->
-                            <div class="toggle prt-toggle_style_classic prt-control-right-true">
-                                <div class="toggle-title"><a href="#">What conditions can ayurveda treat?</a></div>
-                                <div class="toggle-content">
-                                    <p>Ayurveda can address the various health issues by including the digestive problems,
-                                        stress, skin disorders, and chronic diseases, by addressing the root causes.</p>
-                                </div>
-                            </div><!-- toggle end -->
-                            <!-- toggle -->
-                            <div class="toggle prt-toggle_style_classic prt-control-right-true">
-                                <div class="toggle-title"><a href="#">Is the ayurvedic treatment safe?</a></div>
-                                <div class="toggle-content">
-                                    <p>When administered by trained professionals, ayurvedic treatments are generally safe.
-                                        however, consult with an ayurvedic practitioner for personalized guidance.</p>
-                                </div>
-                            </div><!-- toggle end -->
-                            <!-- toggle -->
-                            <div class="toggle prt-toggle_style_classic prt-control-right-true">
-                                <div class="toggle-title"><a href="#">What is panchakarma in ayurveda?</a></div>
-                                <div class="toggle-content">
-                                    <p>Panchakarma is a detoxification and rejuvenation therapy in the ayurveda that
-                                        involves the cleansing and eliminating the toxins from the body.</p>
-                                </div>
-                            </div><!-- toggle end -->
-                            <!-- toggle -->
-                            <div class="toggle prt-toggle_style_classic prt-control-right-true">
-                                <div class="toggle-title"><a href="#">Are ayurvedic herbs safe to use?</a></div>
-                                <div class="toggle-content">
-                                    <p>Ayurvedic herbs are generally the safe when used under the great expert guidance.
-                                        self-prescribing herbs may lead to adverse effects, so consult an ayurvedic
-                                        practitioner.</p>
-                                </div>
-                            </div><!-- toggle end -->
+                            @endforeach
+
+
                         </div>
                     </div>
                     <div class="col-lg-5">
@@ -468,26 +393,10 @@
                         <div class="prt-info-main-block">
                             <div class="info_btn mr-30 res-767-mb-15">
                                 <a class="prt-btn prt-btn-size-md prt-btn-shape-round  prt-btn-style-border prt-btn-color-darkcolor"
-                                    href="#">COVID-19 resources</a>
+                                    href="{{ route('CustomerProduct.all') }}">Our Products</a>
                             </div>
-                            <!-- featured-icon-box -->
-                            <div class="featured-icon-box icon-align-before-content style2">
-                                <div class="featured-icon">
-                                    <div
-                                        class="prt-icon prt-icon_element-onlytxt prt-icon_element-size-lg prt-icon_element-color-darkcolor">
-                                        <i class="fas fa-exclamation-triangle"></i>
-                                    </div>
-                                </div>
-                                <div class="featured-content">
-                                    <div class="featured-title">
-                                        <h3>Get The Health package</h3>
-                                    </div>
-                                    <div class="featured-desc">
-                                        <p>What you need to know about the 2019 - 2023 fly season.</p>
-                                    </div>
-                                </div>
-                            </div>
-                            <!-- featured-icon-box end -->
+
+
                         </div>
                     </div>
                 </div>
