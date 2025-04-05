@@ -216,7 +216,7 @@
                                     </div>
                                 </div>
                                 <div class="prt-history">
-                                    <p><i class="fa fa-check-circle"></i> 2214 Consultation done</p>
+                                    <p><i class="fas fa-check-circle"></i> 2214 Consultation done</p>
                                     <div class="d-flex">
                                         <span>4.8</span>
                                         <div class="team-rating-star">
@@ -251,7 +251,7 @@
                                     </div>
                                 </div>
                                 <div class="prt-history">
-                                    <p><i class="fa fa-check-circle"></i> 1086 Consultation done</p>
+                                    <p><i class="fas fa-check-circle"></i> 1086 Consultation done</p>
                                     <div class="d-flex">
                                         <span>4.8</span>
                                         <div class="team-rating-star">
@@ -286,7 +286,7 @@
                                     </div>
                                 </div>
                                 <div class="prt-history">
-                                    <p><i class="fa fa-check-circle"></i> 200 Consultation done</p>
+                                    <p><i class="fas fa-check-circle"></i> 200 Consultation done</p>
                                     <div class="d-flex">
                                         <span>4.8</span>
                                         <div class="team-rating-star">
@@ -321,7 +321,7 @@
                                     </div>
                                 </div>
                                 <div class="prt-history">
-                                    <p><i class="fa fa-check-circle"></i> 2015 Consultation done</p>
+                                    <p><i class="fas fa-check-circle"></i> 2015 Consultation done</p>
                                     <div class="d-flex">
                                         <span>4.8</span>
                                         <div class="team-rating-star">

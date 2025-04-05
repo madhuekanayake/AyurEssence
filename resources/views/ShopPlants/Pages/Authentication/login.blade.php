@@ -79,7 +79,7 @@
                                 </div>
                                 <div class="col-12 mt-3">
                                     <a href="{{ route('auth.google') }}" class="btn btn-danger">
-                                        <i class="fab fa-google"></i> Login with Google
+                                        <i class="fab fa-google"></i>  Login with Google
                                     </a>
                                 </div>
                             </div>

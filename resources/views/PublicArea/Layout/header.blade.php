@@ -134,8 +134,8 @@
                                                 <ul class="social-icons">
                                                     <li><a href="#" rel="noopener" aria-label="facebook"><i class="fab fa-facebook"></i></a></li>
                                                     <li><a href="#" rel="noopener" aria-label="twitter"><i class="fab fa-twitter"></i></a></li>
-                                                    <li><a href="#" rel="noopener" aria-label="linkedin"><i class="fab fa-linkedin"></i></a></li>
-                                                    <li><a href="#" rel="noopener" aria-label="behance"><i class="fab fa-behance"></i></a></li>
+                                                    <li><a href="#" rel="noopener" aria-label="instagram"><i class="fab fa-instagram"></i></a></li>
+                                                    <li><a href="#" rel="noopener" aria-label="whatsapp"><i class="fab fa-whatsapp"></i></a></li>
                                                 </ul>
                                             </div>
                                             <!-- header_extra -->

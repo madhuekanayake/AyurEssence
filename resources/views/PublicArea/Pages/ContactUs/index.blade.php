@@ -109,21 +109,10 @@
                                                         </div>
                                                         <div class="featured-desc">
                                                             <ul class="social-icons">
-                                                                <li><a href="#" rel="noopener"
-                                                                        aria-label="facebook"><i
-                                                                            class="fontello icon-facebook"></i></a>
-                                                                </li>
-                                                                <li><a href="#" rel="noopener" aria-label="twitter"><i
-                                                                            class="fontello icon-twitter"></i></a>
-                                                                </li>
-                                                                <li><a href="#" rel="noopener"
-                                                                        aria-label="instagram"><i
-                                                                            class="fontello icon-instagram"></i></a>
-                                                                </li>
-                                                                <li><a href="#" rel="noopener"
-                                                                        aria-label="pinterest"><i
-                                                                            class="fontello icon-pinterest"></i></a>
-                                                                </li>
+                                                                <li><a href="#" rel="noopener" aria-label="facebook"><i class="fab fa-facebook"></i></a></li>
+                                                                <li><a href="#" rel="noopener" aria-label="twitter"><i class="fab fa-twitter"></i></a></li>
+                                                                <li><a href="#" rel="noopener" aria-label="instagram"><i class="fab fa-instagram"></i></a></li>
+                                                                <li><a href="#" rel="noopener" aria-label="whatsapp"><i class="fab fa-whatsapp"></i></a></li>
                                                             </ul>
                                                         </div>
                                                     </div>
@@ -154,7 +143,7 @@
                                     </div>
                                 </div>
                             </div>
-                            
+
                         </div>
                     </div>
                 </div>

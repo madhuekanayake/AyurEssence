@@ -258,10 +258,10 @@ Route::prefix('ImageUpload')->group(function () {
 // });
 
 Route::middleware(['admin'])->group(function () {
+    Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
     // Add other admin routes here...
 });
-Route::get('/dashboard', [AdminController::class, 'index'])->name('admin.dashboard');
 
 Route::prefix('AdminLogin')->group(function () {
     Route::get('/index', [LoginController::class, 'Index'])->name('AdminLogin.index');
