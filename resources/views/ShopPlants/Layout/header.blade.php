@@ -81,7 +81,7 @@
                     <nav class="classy-navbar justify-content-between" id="alazeaNav">
 
                         <!-- Nav Brand -->
-                        <a href="index.html" class="nav-brand">
+                        <a href="{{ route('ShopPlants.index') }}" class="nav-brand">
                             <h3 style="color: white;"> Ayur Essence </h3>
                         </a>
 
